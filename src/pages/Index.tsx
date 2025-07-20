@@ -1,6 +1,9 @@
+
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import FrontDeskDashboard from "@/components/FrontDeskDashboard";
+import EnhancedFrontDesk from "@/components/EnhancedFrontDesk";
+import ReservationManagement from "@/components/ReservationManagement";
+import DeviceIntegration from "@/components/DeviceIntegration";
 import FeatureSection from "@/components/FeatureSection";
 import Footer from "@/components/Footer";
 
@@ -9,7 +12,9 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <HeroSection />
-      <FrontDeskDashboard />
+      <EnhancedFrontDesk />
+      <ReservationManagement />
+      <DeviceIntegration />
       <FeatureSection />
       <Footer />
     </div>
