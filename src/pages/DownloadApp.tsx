@@ -1,7 +1,8 @@
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Smartphone, Download, PlayCircle, Apple } from "lucide-react";
+import { Smartphone, Download, PlayCircle, Apple, Zap, Nfc, Bot } from "lucide-react";
 
 const DownloadApp = () => {
   return (
@@ -44,21 +45,44 @@ const DownloadApp = () => {
             </div>
           </div>
 
-          <div className="bg-muted/50 rounded-large p-8">
-            <h2 className="text-2xl font-bold mb-4">App Features</h2>
-            <div className="grid md:grid-cols-3 gap-6 text-left">
-              <div>
-                <h3 className="font-semibold mb-2">Quick Check-in</h3>
-                <p className="text-sm text-muted-foreground">Complete check-in process in under 60 seconds</p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">Digital Key</h3>
-                <p className="text-sm text-muted-foreground">NFC and QR code room access</p>
-              </div>
-              <div>
-                <h3 className="font-semibold mb-2">Guest Services</h3>
-                <p className="text-sm text-muted-foreground">Request services directly from your phone</p>
-              </div>
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-card rounded-large p-8 border">
+              <Zap className="w-12 h-12 mb-4 text-primary" />
+              <h3 className="text-xl font-semibold mb-4">Quick Check-in</h3>
+              <p className="text-muted-foreground mb-4">
+                Complete check-in process in under 60 seconds
+              </p>
+              <ul className="space-y-2 text-sm text-left">
+                <li>• Skip front desk queues</li>
+                <li>• Digital ID verification</li>
+                <li>• Instant confirmation</li>
+              </ul>
+            </div>
+
+            <div className="bg-card rounded-large p-8 border">
+              <Nfc className="w-12 h-12 mb-4 text-primary" />
+              <h3 className="text-xl font-semibold mb-4">Digital Key</h3>
+              <p className="text-muted-foreground mb-4">
+                NFC and QR code room access
+              </p>
+              <ul className="space-y-2 text-sm text-left">
+                <li>• Contactless room entry</li>
+                <li>• Secure encryption</li>
+                <li>• Works offline</li>
+              </ul>
+            </div>
+
+            <div className="bg-card rounded-large p-8 border">
+              <Bot className="w-12 h-12 mb-4 text-primary" />
+              <h3 className="text-xl font-semibold mb-4">Guest Services</h3>
+              <p className="text-muted-foreground mb-4">
+                Request services directly from your phone
+              </p>
+              <ul className="space-y-2 text-sm text-left">
+                <li>• Room service orders</li>
+                <li>• Housekeeping requests</li>
+                <li>• Concierge assistance</li>
+              </ul>
             </div>
           </div>
         </div>
