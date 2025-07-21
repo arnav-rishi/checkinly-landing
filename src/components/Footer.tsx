@@ -1,59 +1,75 @@
+
 const Footer = () => {
   return (
-    <footer className="w-full bg-background border-t border-border py-8">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="w-full bg-background border-t border-border py-16">
+      <div className="container-max">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Logo and Description */}
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">C</span>
+          <div className="space-y-6">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-primary rounded-large flex items-center justify-center hover-scale">
+                <span className="text-primary-foreground font-bold text-lg">C</span>
               </div>
-              <span className="text-xl font-bold text-foreground">Checkinly</span>
+              <span className="text-2xl font-bold text-foreground">Checkinly</span>
             </div>
-            <p className="text-sm text-muted-foreground">
-              Where effortless hospitality begins. Cloud-based hotel management that simplifies your daily work.
+            <p className="text-base text-muted-foreground leading-relaxed">
+              Where effortless hospitality begins. Trusted by hotels worldwide to create seamless, secure guest experiences.
             </p>
+            
+            {/* Trust Signals */}
+            <div className="flex flex-wrap gap-4">
+              <div className="flex items-center space-x-2 px-3 py-2 bg-muted/50 rounded-modern">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="text-sm text-muted-foreground">SOC 2 Compliant</span>
+              </div>
+              <div className="flex items-center space-x-2 px-3 py-2 bg-muted/50 rounded-modern">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="text-sm text-muted-foreground">GDPR Ready</span>
+              </div>
+            </div>
           </div>
 
           {/* Product Links */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Product</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Front Desk</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Reservations</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Guest Management</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Digital Check-in</a></li>
+            <h4 className="font-bold text-foreground mb-6 text-lg">Solutions</h4>
+            <ul className="space-y-4">
+              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Digital Check-in</a></li>
+              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Front Desk Management</a></li>
+              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Guest Engagement</a></li>
+              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Device Integration</a></li>
             </ul>
           </div>
 
           {/* Support Links */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Support</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Help Center</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Documentation</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Contact Us</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Download</a></li>
+            <h4 className="font-bold text-foreground mb-6 text-lg">Support</h4>
+            <ul className="space-y-4">
+              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Help Center</a></li>
+              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Live Chat Support</a></li>
+              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Schedule a Demo</a></li>
+              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Getting Started</a></li>
             </ul>
           </div>
 
           {/* Company Links */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Company</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">Blog</a></li>
+            <h4 className="font-bold text-foreground mb-6 text-lg">Company</h4>
+            <ul className="space-y-4">
+              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">About Our Story</a></li>
+              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Privacy Policy</a></li>
+              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Terms of Service</a></li>
+              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Latest Updates</a></li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-border mt-8 pt-8 text-center">
-          <p className="text-sm text-muted-foreground">
-            © 2024 Checkinly. All rights reserved.
+        <div className="border-t border-border mt-16 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          <p className="text-base text-muted-foreground">
+            © 2024 Checkinly. Crafted with care for hoteliers worldwide.
           </p>
+          <div className="flex items-center space-x-6">
+            <span className="text-sm text-muted-foreground">Made with ❤️ for hospitality</span>
+          </div>
         </div>
       </div>
     </footer>
