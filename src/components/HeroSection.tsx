@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-hotel.jpg";
+import heroImage from "@/assets/hero-checkin.jpg";
 
 const HeroSection = () => {
   return (
@@ -14,24 +14,29 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center text-white">
-        <div className="max-w-4xl mx-auto animate-fade-in">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Welcome to Checkinly – Where{" "}
-            <span className="text-primary-glow">Effortless Hospitality</span>{" "}
-            Begins!
+        <div className="max-w-5xl mx-auto animate-fade-in">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight tracking-tight">
+            Experience{" "}
+            <span className="text-primary-glow">Effortless, Secure</span>{" "}
+            Hotel Check-ins
           </h1>
           
-          <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed">
-            Checkinly is a cloud-based tool that helps simplify your daily work and enhance the guest stay experience.
+          <p className="text-xl md:text-2xl mb-12 text-white/90 leading-relaxed max-w-3xl mx-auto">
+            Transform your hotel operations with cloud-based technology that streamlines check-ins, 
+            enhances guest experiences, and simplifies daily workflows.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4">
-              Try free for 30 days
+          <div className="flex justify-center">
+            <Button 
+              size="lg" 
+              className="bg-accent hover:bg-accent/90 text-accent-foreground px-12 py-6 text-lg font-semibold rounded-xl shadow-glow hover:shadow-accent/50 transition-all duration-300 hover:scale-105"
+            >
+              Book a Demo
             </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary px-8 py-4">
-              Watch Demo
-            </Button>
+          </div>
+          
+          <div className="mt-8 text-white/70 text-sm">
+            ✓ Free 30-day trial • ✓ No setup fees • ✓ 24/7 support
           </div>
         </div>
       </div>
