@@ -1,129 +1,130 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Enhanced design system with modern, trustworthy palette and improved typography */
 
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 215 25% 27%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 25% 27%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 215 25% 27%;
 
-    --primary: 234 89% 74%;
+    /* Modern, trustworthy primary palette */
+    --primary: 220 91% 65%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 234 89% 84%;
+    --primary-glow: 220 91% 75%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Soft, complementary backgrounds */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 215 25% 27%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 16% 47%;
 
-    --accent: 234 89% 74%;
+    --accent: 220 91% 65%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 234 89% 74%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 220 91% 65%;
 
-    /* Hotel-specific status colors */
+    /* Hotel-specific status colors with improved contrast */
     --available: 142 71% 45%;
     --available-foreground: 0 0% 100%;
-    --reserved: 36 100% 60%;
+    --reserved: 36 100% 50%;
     --reserved-foreground: 0 0% 100%;
-    --checked-in: 234 89% 74%;
+    --checked-in: 220 91% 65%;
     --checked-in-foreground: 0 0% 100%;
-    --maintenance: 0 84.2% 60.2%;
+    --maintenance: 0 84% 60%;
     --maintenance-foreground: 0 0% 100%;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-hero: linear-gradient(135deg, hsl(234 89% 20%) 0%, hsl(234 89% 40%) 100%);
+    /* Enhanced gradients for personality */
+    --gradient-primary: linear-gradient(135deg, hsl(220 91% 65%), hsl(220 91% 75%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 91% 25%) 0%, hsl(220 91% 45%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(220 91% 65%) 0%, hsl(260 91% 70%) 100%);
 
-    /* Shadows */
-    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
-    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+    /* Professional shadows with personality */
+    --shadow-elegant: 0 10px 30px -10px hsl(220 91% 65% / 0.2);
+    --shadow-glow: 0 0 40px hsl(220 91% 75% / 0.3);
+    --shadow-card: 0 4px 20px -4px hsl(220 91% 65% / 0.1);
 
-    /* Animations */
+    /* Enhanced animations for personality */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    --radius: 0.5rem;
+    /* Refined border radius for modern feel */
+    --radius: 0.75rem;
+    --radius-small: 0.5rem;
+    --radius-large: 1rem;
 
     --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
+    --sidebar-foreground: 215 25% 27%;
+    --sidebar-primary: 220 91% 65%;
     --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 215 25% 27%;
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 220 91% 65%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 215 28% 17%;
+    --foreground: 213 31% 91%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 215 28% 17%;
+    --card-foreground: 213 31% 91%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 215 28% 17%;
+    --popover-foreground: 213 31% 91%;
 
-    --primary: 234 89% 74%;
+    --primary: 220 91% 65%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 234 89% 84%;
+    --primary-glow: 220 91% 75%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 215 28% 25%;
+    --secondary-foreground: 213 31% 91%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 215 28% 25%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 234 89% 74%;
+    --accent: 220 91% 65%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 62% 51%;
+    --destructive-foreground: 213 31% 91%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 234 89% 74%;
+    --border: 215 28% 25%;
+    --input: 215 28% 25%;
+    --ring: 220 91% 65%;
 
     /* Dark mode hotel status colors */
     --available: 142 71% 55%;
     --available-foreground: 0 0% 100%;
-    --reserved: 36 100% 70%;
+    --reserved: 36 100% 60%;
     --reserved-foreground: 0 0% 100%;
-    --checked-in: 234 89% 74%;
+    --checked-in: 220 91% 65%;
     --checked-in-foreground: 0 0% 100%;
-    --maintenance: 0 84.2% 70.2%;
+    --maintenance: 0 84% 70%;
     --maintenance-foreground: 0 0% 100%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+
+    --sidebar-background: 215 28% 17%;
+    --sidebar-foreground: 213 31% 91%;
+    --sidebar-primary: 220 91% 65%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 215 28% 25%;
+    --sidebar-accent-foreground: 213 31% 91%;
+    --sidebar-border: 215 28% 25%;
+    --sidebar-ring: 220 91% 65%;
   }
 }
 
@@ -134,14 +135,50 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+
+  /* Enhanced typography scale */
+  h1 {
+    @apply text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl font-semibold tracking-tight;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl font-semibold tracking-tight;
+    line-height: 1.4;
+  }
+
+  p {
+    @apply text-base md:text-lg;
+    line-height: 1.7;
+  }
+
+  .text-large {
+    @apply text-lg md:text-xl;
     line-height: 1.6;
   }
 }
 
-/* Consistent spacing system */
+/* Enhanced spacing system with personality */
 @layer utilities {
   .section-padding {
-    @apply py-24 px-8;
+    @apply py-20 md:py-32 px-6 md:px-8;
   }
 
   .container-max {
@@ -153,10 +190,51 @@ All colors MUST be HSL.
   }
 
   .heading-spacing {
-    @apply mb-20;
+    @apply mb-16 md:mb-24;
   }
 
   .text-spacing {
-    @apply mb-8;
+    @apply mb-8 md:mb-12;
+  }
+
+  /* Personality accents */
+  .rounded-modern {
+    border-radius: var(--radius);
+  }
+
+  .rounded-large {
+    border-radius: var(--radius-large);
+  }
+
+  .shadow-modern {
+    box-shadow: var(--shadow-card);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* Animated personality touches */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-elegant;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-glow;
+  }
+
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+}
+
+/* Smooth focus states for accessibility */
+@layer components {
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
   }
 }

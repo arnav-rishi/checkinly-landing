@@ -1,3 +1,4 @@
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, Users, Smartphone, Settings } from "lucide-react";
 
@@ -48,35 +49,35 @@ const FeatureSection = () => {
   return (
     <section id="features" className="section-padding bg-muted/30">
       <div className="container-max">
-        <div className="text-center heading-spacing">{/* Using consistent spacing classes */}
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground text-spacing">{/* Larger text, consistent spacing */}
+        <div className="text-center heading-spacing">
+          <h2 className="text-foreground text-spacing">
             Optimize operational efficiency<br />
-            Enrich the guest stay experience
+            <span className="text-primary">Enrich the guest stay experience</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 grid-spacing">{/* Using consistent grid spacing */}
+        <div className="grid grid-cols-1 md:grid-cols-2 grid-spacing">
           {features.map((feature, index) => (
-            <Card key={index} className="hover:shadow-elegant transition-all duration-300 animate-fade-in group">
-              <CardHeader>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <feature.icon className="w-6 h-6 text-primary-foreground" />
+            <Card key={index} className="hover-lift animate-fade-in group border-border/30 rounded-large shadow-modern bg-card/80 backdrop-blur-sm">
+              <CardHeader className="pb-6">
+                <div className="flex items-center space-x-6">
+                  <div className="w-16 h-16 bg-gradient-primary rounded-large flex items-center justify-center hover-scale shadow-modern">
+                    <feature.icon className="w-8 h-8 text-primary-foreground" />
                   </div>
                   <div>
-                    <CardTitle className="text-xl font-semibold">{feature.title}</CardTitle>
-                    <CardDescription className="text-muted-foreground">
+                    <CardTitle className="text-2xl font-bold text-foreground mb-2">{feature.title}</CardTitle>
+                    <CardDescription className="text-large text-muted-foreground font-medium">
                       {feature.description}
                     </CardDescription>
                   </div>
                 </div>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2">
+                <ul className="space-y-4">
                   {feature.details.map((detail, idx) => (
-                    <li key={idx} className="flex items-start space-x-2">
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-sm text-muted-foreground">{detail}</span>
+                    <li key={idx} className="flex items-start space-x-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0 animate-pulse"></div>
+                      <span className="text-base text-muted-foreground leading-relaxed">{detail}</span>
                     </li>
                   ))}
                 </ul>

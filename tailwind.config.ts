@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -84,7 +85,20 @@ export default {
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				sm: 'calc(var(--radius) - 4px)',
+				'modern': 'var(--radius)',
+				'large': 'var(--radius-large)',
+				'small': 'var(--radius-small)'
+			},
+			fontFamily: {
+				sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+			},
+			fontSize: {
+				'display': ['4rem', { lineHeight: '1', letterSpacing: '-0.02em' }],
+				'heading-1': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+				'heading-2': ['2.5rem', { lineHeight: '1.2', letterSpacing: '-0.02em' }],
+				'heading-3': ['2rem', { lineHeight: '1.3', letterSpacing: '-0.01em' }],
+				'large': ['1.25rem', { lineHeight: '1.6' }],
 			},
 			keyframes: {
 				'accordion-down': {
@@ -130,6 +144,16 @@ export default {
 					'50%': {
 						transform: 'translateY(-10px)'
 					}
+				},
+				'bounce-gentle': {
+					'0%, 100%': {
+						transform: 'translateY(0)',
+						animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)'
+					},
+					'50%': {
+						transform: 'translateY(-5px)',
+						animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)'
+					}
 				}
 			},
 			animation: {
@@ -137,15 +161,18 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.3s ease-out',
 				'scale-in': 'scale-in 0.2s ease-out',
-				'float': 'float 3s ease-in-out infinite'
+				'float': 'float 3s ease-in-out infinite',
+				'bounce-gentle': 'bounce-gentle 2s ease-in-out infinite'
 			},
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
-				'gradient-hero': 'var(--gradient-hero)'
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-accent': 'var(--gradient-accent)'
 			},
 			boxShadow: {
 				'elegant': 'var(--shadow-elegant)',
-				'glow': 'var(--shadow-glow)'
+				'glow': 'var(--shadow-glow)',
+				'modern': 'var(--shadow-card)'
 			}
 		}
 	},
