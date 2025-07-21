@@ -3,7 +3,7 @@ import heroImage from "@/assets/hero-checkin.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full min-h-[600px] flex items-center justify-center overflow-hidden">
+    <section className="relative w-full min-h-[80vh] flex items-center justify-center overflow-hidden">{/* Increased min-height for more breathing room */}
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -13,7 +13,7 @@ const HeroSection = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 text-center text-white">
+      <div className="relative z-10 container-max px-8 text-center text-white">{/* Using consistent container class */}
         <div className="max-w-5xl mx-auto animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight tracking-tight">
             Experience{" "}

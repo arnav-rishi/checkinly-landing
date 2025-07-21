@@ -134,5 +134,29 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    line-height: 1.6;
+  }
+}
+
+/* Consistent spacing system */
+@layer utilities {
+  .section-padding {
+    @apply py-24 px-8;
+  }
+
+  .container-max {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .grid-spacing {
+    @apply gap-8 md:gap-12 lg:gap-16;
+  }
+
+  .heading-spacing {
+    @apply mb-20;
+  }
+
+  .text-spacing {
+    @apply mb-8;
   }
 }

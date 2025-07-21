@@ -48,13 +48,13 @@ const ReservationManagement = () => {
   };
 
   return (
-    <section className="w-full py-16 bg-muted/30">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+    <section className="section-padding bg-muted/30">
+      <div className="container-max">
+        <div className="grid grid-cols-1 lg:grid-cols-2 grid-spacing items-start">{/* Using consistent spacing classes */}
           {/* Left Side - Content */}
-          <div className="space-y-8">
+          <div className="space-y-12">{/* Increased spacing */}
             <div>
-              <h2 className="text-4xl font-bold text-foreground mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground text-spacing">{/* Larger text, consistent spacing */}
                 Reservation Management
               </h2>
               <div className="space-y-4">

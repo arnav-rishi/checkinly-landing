@@ -46,16 +46,16 @@ const FeatureSection = () => {
   ];
 
   return (
-    <section id="features" className="w-full py-16 bg-muted/30">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+    <section id="features" className="section-padding bg-muted/30">
+      <div className="container-max">
+        <div className="text-center heading-spacing">{/* Using consistent spacing classes */}
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground text-spacing">{/* Larger text, consistent spacing */}
             Optimize operational efficiency<br />
             Enrich the guest stay experience
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 grid-spacing">{/* Using consistent grid spacing */}
           {features.map((feature, index) => (
             <Card key={index} className="hover:shadow-elegant transition-all duration-300 animate-fade-in group">
               <CardHeader>

@@ -37,10 +37,10 @@ const DeviceIntegration = () => {
   ];
 
   return (
-    <section className="w-full py-16 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+    <section className="section-padding bg-background">
+      <div className="container-max">
+        <div className="text-center heading-spacing">{/* Using consistent spacing classes */}
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground text-spacing">{/* Larger text, consistent spacing */}
             Device Integration
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -48,7 +48,7 @@ const DeviceIntegration = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-spacing">{/* Using consistent grid spacing */}
           {devices.map((device, index) => (
             <Card key={index} className="text-center hover:shadow-elegant transition-all duration-300 group border-border/50">
               <CardHeader className="pb-4">
