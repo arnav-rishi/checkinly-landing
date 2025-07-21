@@ -1,7 +1,6 @@
 
 import { Button } from "@/components/ui/button";
 import { Play, CheckCircle } from "lucide-react";
-import heroImage from "@/assets/hero-family.jpg";
 
 const HeroSection = () => {
   const handleCTAClick = (action: string) => {
@@ -14,7 +13,7 @@ const HeroSection = () => {
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        style={{ backgroundImage: `url(/lovable-uploads/6d41f9da-531a-49ac-9ccc-619149d4c0be.png)` }}
       >
         <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
       </div>
@@ -28,16 +27,16 @@ const HeroSection = () => {
             <span className="text-sm font-medium">Trusted by 500+ hotels worldwide</span>
           </div>
 
-          <h1 className="font-bold mb-8 leading-tight tracking-tight">
-            Increase Check-in Speed by{" "}
+          <h1 className="font-bold mb-8 leading-tight tracking-tight text-4xl md:text-6xl">
+            Spend More Time with Family,{" "}
             <span className="text-primary-glow bg-gradient-accent bg-clip-text text-transparent animate-bounce-gentle">
-              90% in 30 Days
+              Less Time at Reception
             </span>
           </h1>
           
           <p className="text-xl md:text-2xl mb-12 text-white/90 leading-relaxed max-w-3xl mx-auto font-medium">
-            Transform guest experiences with secure, contactless check-ins. 
-            Start your free trial today—no setup fees, no commitment.
+            Skip the hotel reception queues. Complete your check-in instantly with Checkinly 
+            and get straight to enjoying your family time.
           </p>
 
           {/* Primary CTA with Secondary Option */}

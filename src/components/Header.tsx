@@ -10,49 +10,41 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full bg-background/95 backdrop-blur-md border-b border-border/50 sticky top-0 z-50">
-      <div className="container mx-auto px-6 py-4">
+    <header className="w-full bg-black/90 backdrop-blur-md border-b border-white/10 sticky top-0 z-50">
+      <div className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center hover-scale">
               <span className="text-primary-foreground font-bold text-sm">C</span>
             </div>
-            <span className="text-xl font-bold text-foreground">Checkinly</span>
+            <span className="text-xl font-bold text-white">Checkinly</span>
           </div>
 
-          {/* Main Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
-            <a href="/" className="text-muted-foreground hover:text-primary transition-smooth text-sm font-medium">
+          {/* Main Navigation - matching the uploaded design */}
+          <nav className="flex items-center space-x-8">
+            <a href="/" className="text-white hover:text-primary transition-smooth text-sm font-medium px-3 py-2 rounded-md hover:bg-white/10">
               Home
             </a>
-            <a href="/download-app" className="text-muted-foreground hover:text-primary transition-smooth text-sm font-medium">
+            <a href="/download-app" className="text-white hover:text-primary transition-smooth text-sm font-medium px-3 py-2 rounded-md hover:bg-white/10">
               Download App
             </a>
-            <a href="/checkinly-os" className="text-muted-foreground hover:text-primary transition-smooth text-sm font-medium">
+            <a href="/checkinly-os" className="text-white hover:text-primary transition-smooth text-sm font-medium px-3 py-2 rounded-md hover:bg-white/10">
               Checkinly OS
             </a>
-            <a href="/for-hotels" className="text-muted-foreground hover:text-primary transition-smooth text-sm font-medium">
+            <a href="/for-hotels" className="text-white hover:text-primary transition-smooth text-sm font-medium px-3 py-2 rounded-md hover:bg-white/10">
               For Hotels
             </a>
-            <a href="/faqs" className="text-muted-foreground hover:text-primary transition-smooth text-sm font-medium">
+            <a href="/faqs" className="text-white hover:text-primary transition-smooth text-sm font-medium px-3 py-2 rounded-md hover:bg-white/10">
               FAQs
             </a>
-            <a href="/privacy-policy" className="text-muted-foreground hover:text-primary transition-smooth text-sm font-medium">
+            <a href="/privacy-policy" className="text-white hover:text-primary transition-smooth text-sm font-medium px-3 py-2 rounded-md hover:bg-white/10">
               Privacy Policy
             </a>
           </nav>
 
-          {/* Conversion-Focused CTAs */}
-          <div className="flex items-center space-x-3">
-            <Button 
-              variant="ghost" 
-              size="sm"
-              onClick={() => handleCTAClick('login')}
-              className="hidden md:inline-flex text-sm"
-            >
-              Sign In
-            </Button>
+          {/* CTA Button */}
+          <div className="flex items-center">
             <Button 
               className="bg-gradient-primary hover:opacity-90 shadow-glow hover-lift px-6 py-2 text-sm font-semibold"
               onClick={() => handleCTAClick('primary_header_cta')}
