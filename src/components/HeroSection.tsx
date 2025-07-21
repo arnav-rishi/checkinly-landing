@@ -19,15 +19,6 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
       </div>
 
-      {/* Animated Buildings - Add your building graphics here with hover effects */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Example building elements - replace with your actual building graphics */}
-        <div className="absolute bottom-0 left-1/4 w-16 h-32 bg-primary-glow/20 rounded-t-lg hover:scale-110 hover:-translate-y-2 transition-all duration-300 ease-out pointer-events-auto cursor-pointer"></div>
-        <div className="absolute bottom-0 left-1/3 w-12 h-24 bg-primary-glow/30 rounded-t-lg hover:scale-110 hover:-translate-y-2 transition-all duration-300 ease-out pointer-events-auto cursor-pointer"></div>
-        <div className="absolute bottom-0 right-1/3 w-20 h-40 bg-primary-glow/25 rounded-t-lg hover:scale-110 hover:-translate-y-2 transition-all duration-300 ease-out pointer-events-auto cursor-pointer"></div>
-        <div className="absolute bottom-0 right-1/4 w-14 h-28 bg-primary-glow/35 rounded-t-lg hover:scale-110 hover:-translate-y-2 transition-all duration-300 ease-out pointer-events-auto cursor-pointer"></div>
-      </div>
-
       {/* Content - Conversion Focused */}
       <div className="relative z-10 container-max px-6 md:px-8 text-center text-white">
         <div className="max-w-4xl mx-auto animate-fade-in">
