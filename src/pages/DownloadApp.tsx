@@ -2,7 +2,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Smartphone, Download, PlayCircle, Apple, Zap, Nfc, Bot } from "lucide-react";
+import { Smartphone, PlayCircle, Apple, Zap, Nfc, Bot } from "lucide-react";
 
 const DownloadApp = () => {
   return (
@@ -27,7 +27,7 @@ const DownloadApp = () => {
                 Download for iPhone and iPad from the App Store
               </p>
               <Button className="w-full">
-                <Download className="w-4 h-4 mr-2" />
+                <Apple className="w-4 h-4 mr-2" />
                 Download for iOS
               </Button>
             </div>
@@ -39,7 +39,7 @@ const DownloadApp = () => {
                 Download for Android devices from Google Play Store
               </p>
               <Button className="w-full">
-                <Download className="w-4 h-4 mr-2" />
+                <PlayCircle className="w-4 h-4 mr-2" />
                 Download for Android
               </Button>
             </div>
