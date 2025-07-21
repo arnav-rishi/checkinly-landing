@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Play, CheckCircle } from "lucide-react";
-import heroImage from "@/assets/hero-checkin.jpg";
+import heroImage from "@/assets/hero-family.jpg";
 
 const HeroSection = () => {
   const handleCTAClick = (action: string) => {

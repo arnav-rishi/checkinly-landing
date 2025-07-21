@@ -21,16 +21,25 @@ const Header = () => {
             <span className="text-xl font-bold text-foreground">Checkinly</span>
           </div>
 
-          {/* Simplified Navigation - Less distraction */}
+          {/* Main Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            <a href="#features" className="text-muted-foreground hover:text-primary transition-smooth text-sm font-medium">
-              Features
+            <a href="/" className="text-muted-foreground hover:text-primary transition-smooth text-sm font-medium">
+              Home
             </a>
-            <a href="#testimonials" className="text-muted-foreground hover:text-primary transition-smooth text-sm font-medium">
-              Success Stories
+            <a href="/download-app" className="text-muted-foreground hover:text-primary transition-smooth text-sm font-medium">
+              Download App
             </a>
-            <a href="#pricing" className="text-muted-foreground hover:text-primary transition-smooth text-sm font-medium">
-              Pricing
+            <a href="/checkinly-os" className="text-muted-foreground hover:text-primary transition-smooth text-sm font-medium">
+              Checkinly OS
+            </a>
+            <a href="/for-hotels" className="text-muted-foreground hover:text-primary transition-smooth text-sm font-medium">
+              For Hotels
+            </a>
+            <a href="/faqs" className="text-muted-foreground hover:text-primary transition-smooth text-sm font-medium">
+              FAQs
+            </a>
+            <a href="/privacy-policy" className="text-muted-foreground hover:text-primary transition-smooth text-sm font-medium">
+              Privacy Policy
             </a>
           </nav>
 
