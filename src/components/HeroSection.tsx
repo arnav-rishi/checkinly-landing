@@ -36,14 +36,14 @@ const HeroSection = () => {
             <span className="text-sm font-medium">Trusted by 500+ hotels worldwide</span>
           </div>
 
-          <h1 className="font-bold mb-8 leading-tight tracking-tight">
+          <h1 className="font-bold mb-8 leading-tight tracking-tight text-4xl md:text-5xl lg:text-6xl">
             Increase Check-in Speed by{" "}
             <span className="text-primary-glow bg-gradient-primary bg-clip-text text-transparent">
               90% in 30 Days
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl mb-12 text-white/90 leading-relaxed max-w-3xl mx-auto font-medium">
+          <p className="text-lg md:text-xl mb-12 text-white/90 leading-relaxed max-w-3xl mx-auto font-medium">
             Transform guest experiences with secure, contactless check-ins. 
             Start your free trial today—no setup fees, no commitment.
           </p>
@@ -52,7 +52,7 @@ const HeroSection = () => {
           <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
             <Button 
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-6 text-xl font-semibold rounded-large shadow-glow hover:shadow-primary/50 hover:-translate-y-1 hover:scale-105 transition-all duration-300"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-12 py-6 text-lg font-semibold rounded-large shadow-glow hover:shadow-primary/50 hover:-translate-y-1 hover:scale-105 transition-all duration-300"
               onClick={() => handleCTAClick('primary_hero_cta')}
             >
               Start Free 30-Day Trial
@@ -61,7 +61,7 @@ const HeroSection = () => {
             <Button 
               variant="ghost" 
               size="lg"
-              className="text-white border-white/30 hover:bg-white/10 px-8 py-6 text-lg font-medium rounded-large transition-all duration-300 hover:scale-105 hover:border-white/50"
+              className="text-white border-white/30 hover:bg-white/10 px-8 py-6 text-base font-medium rounded-large transition-all duration-300 hover:scale-105 hover:border-white/50"
               onClick={() => handleCTAClick('demo_request')}
             >
               <Play className="w-5 h-5 mr-2" />
