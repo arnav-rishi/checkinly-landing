@@ -16,7 +16,7 @@ const HeroSection = () => {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat animate-[zoom_20s_ease-in-out_infinite_alternate]"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
-        <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-slate-800/80 to-slate-900/90"></div>
       </div>
 
       {/* Floating Elements */}
