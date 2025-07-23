@@ -1,4 +1,5 @@
 
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -54,7 +55,7 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Hotel status colors with darker blue influence
+				// Hotel status colors with lighter blue influence
 				available: {
 					DEFAULT: 'hsl(var(--available))',
 					foreground: 'hsl(var(--available-foreground))'
@@ -178,3 +179,4 @@ export default {
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+

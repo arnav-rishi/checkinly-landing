@@ -47,12 +47,12 @@ const FeatureSection = () => {
   ];
 
   return (
-    <section id="features" className="section-padding bg-slate-50 overflow-hidden">
+    <section id="features" className="section-padding bg-muted/30 overflow-hidden">
       <div className="container-max">
         <div className="text-center heading-spacing">
           <h2 className="text-foreground text-spacing">
             Optimize operational efficiency<br />
-            <span className="text-blue-700">Enrich the guest stay experience</span>
+            <span className="text-primary">Enrich the guest stay experience</span>
           </h2>
         </div>
 
@@ -60,16 +60,16 @@ const FeatureSection = () => {
           {features.map((feature, index) => (
             <Card 
               key={index} 
-              className="border-slate-200 rounded-large bg-white hover:bg-slate-50 transition-colors duration-300 cursor-pointer relative overflow-hidden shadow-sm hover:shadow-md"
+              className="border-border rounded-large bg-card hover:bg-muted/50 transition-colors duration-300 cursor-pointer relative overflow-hidden shadow-modern hover:shadow-elegant"
             >
               <CardHeader className="pb-6 relative z-10">
                 <div className="flex items-center space-x-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-large flex items-center justify-center shadow-lg">
-                    <feature.icon className="w-8 h-8 text-white" />
+                  <div className="w-16 h-16 bg-gradient-primary rounded-large flex items-center justify-center shadow-lg">
+                    <feature.icon className="w-8 h-8 text-primary-foreground" />
                   </div>
                   <div className="flex-1">
-                    <CardTitle className="text-2xl font-bold text-slate-900 mb-2">{feature.title}</CardTitle>
-                    <CardDescription className="text-large text-slate-600 font-medium">
+                    <CardTitle className="text-2xl font-bold text-foreground mb-2">{feature.title}</CardTitle>
+                    <CardDescription className="text-large text-muted-foreground font-medium">
                       {feature.description}
                     </CardDescription>
                   </div>
@@ -82,8 +82,8 @@ const FeatureSection = () => {
                       key={idx} 
                       className="flex items-start space-x-3"
                     >
-                      <div className="w-2 h-2 bg-blue-600 rounded-full mt-3 flex-shrink-0"></div>
-                      <span className="text-base text-slate-700 leading-relaxed">{detail}</span>
+                      <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                      <span className="text-base text-muted-foreground leading-relaxed">{detail}</span>
                     </li>
                   ))}
                 </ul>
