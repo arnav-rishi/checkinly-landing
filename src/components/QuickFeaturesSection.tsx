@@ -52,25 +52,17 @@ const QuickFeaturesSection = () => {
           {features.map((feature, index) => (
             <Card 
               key={index} 
-              className="group hover:shadow-2xl transition-all duration-500 border-border/50 bg-card/50 backdrop-blur-sm hover:bg-card hover:border-primary/30 hover:-translate-y-2 animate-[slideUp_0.6s_ease-out] cursor-pointer"
+              className="group hover:shadow-lg transition-shadow duration-300 border-border/50 bg-card/50 backdrop-blur-sm animate-[slideUp_0.6s_ease-out]"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <CardContent className="p-6 text-center relative overflow-hidden">
-                {/* Background gradient animation */}
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                <div className="relative z-10">
-                  <div className="w-14 h-14 mx-auto bg-gradient-primary rounded-xl flex items-center justify-center mb-4 group-hover:scale-125 group-hover:rotate-6 transition-all duration-500 shadow-md group-hover:shadow-xl">
-                    <feature.icon className="w-7 h-7 text-primary-foreground group-hover:animate-[bounce_0.6s_ease-in-out]" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-300">
-                    {feature.description}
-                  </p>
+                <div className="w-14 h-14 mx-auto bg-gradient-primary rounded-xl flex items-center justify-center mb-4 shadow-md">
+                  <feature.icon className="w-7 h-7 text-primary-foreground" />
                 </div>
-
-                {/* Animated border */}
-                <div className="absolute inset-0 rounded-lg border-2 border-transparent group-hover:border-primary/30 transition-all duration-500 animate-[borderPulse_2s_infinite] opacity-0 group-hover:opacity-100"></div>
+                <h3 className="text-lg font-semibold text-foreground mb-2">{feature.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {feature.description}
+                </p>
               </CardContent>
             </Card>
           ))}
