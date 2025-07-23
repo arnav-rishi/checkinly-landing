@@ -1,9 +1,8 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Enhanced design system with modern, trustworthy palette and improved typography */
+/* Enhanced design system with darker blue palette */
 
 @layer base {
   :root {
@@ -16,47 +15,47 @@
     --popover: 0 0% 100%;
     --popover-foreground: 215 25% 27%;
 
-    /* Modern, trustworthy primary palette */
-    --primary: 220 91% 65%;
+    /* Darker blue primary palette */
+    --primary: 217 91% 45%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 220 91% 75%;
+    --primary-glow: 217 91% 55%;
 
-    /* Soft, complementary backgrounds */
-    --secondary: 220 14% 96%;
+    /* Darker complementary backgrounds */
+    --secondary: 217 20% 92%;
     --secondary-foreground: 215 25% 27%;
 
-    --muted: 220 14% 96%;
+    --muted: 217 20% 92%;
     --muted-foreground: 215 16% 47%;
 
-    --accent: 220 91% 65%;
+    --accent: 217 91% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 220 91% 65%;
+    --border: 217 20% 85%;
+    --input: 217 20% 85%;
+    --ring: 217 91% 45%;
 
-    /* Hotel-specific status colors with improved contrast */
+    /* Hotel-specific status colors with darker blue influence */
     --available: 142 71% 45%;
     --available-foreground: 0 0% 100%;
     --reserved: 36 100% 50%;
     --reserved-foreground: 0 0% 100%;
-    --checked-in: 220 91% 65%;
+    --checked-in: 217 91% 45%;
     --checked-in-foreground: 0 0% 100%;
     --maintenance: 0 84% 60%;
     --maintenance-foreground: 0 0% 100%;
 
-    /* Enhanced gradients for personality */
-    --gradient-primary: linear-gradient(135deg, hsl(220 91% 65%), hsl(220 91% 75%));
-    --gradient-hero: linear-gradient(135deg, hsl(220 91% 25%) 0%, hsl(220 91% 45%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(220 91% 65%) 0%, hsl(260 91% 70%) 100%);
+    /* Enhanced gradients with darker blues */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 35%), hsl(217 91% 45%));
+    --gradient-hero: linear-gradient(135deg, hsl(217 91% 20%) 0%, hsl(217 91% 35%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(217 91% 45%) 0%, hsl(220 91% 50%) 100%);
 
-    /* Professional shadows with personality */
-    --shadow-elegant: 0 10px 30px -10px hsl(220 91% 65% / 0.2);
-    --shadow-glow: 0 0 40px hsl(220 91% 75% / 0.3);
-    --shadow-card: 0 4px 20px -4px hsl(220 91% 65% / 0.1);
+    /* Professional shadows with darker blue tones */
+    --shadow-elegant: 0 10px 30px -10px hsl(217 91% 45% / 0.2);
+    --shadow-glow: 0 0 40px hsl(217 91% 55% / 0.3);
+    --shadow-card: 0 4px 20px -4px hsl(217 91% 45% / 0.1);
 
     /* Enhanced animations for personality */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -69,12 +68,12 @@
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 215 25% 27%;
-    --sidebar-primary: 220 91% 65%;
+    --sidebar-primary: 217 91% 45%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent: 217 20% 92%;
     --sidebar-accent-foreground: 215 25% 27%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 220 91% 65%;
+    --sidebar-border: 217 20% 85%;
+    --sidebar-ring: 217 91% 45%;
   }
 
   .dark {
@@ -87,9 +86,9 @@
     --popover: 215 28% 17%;
     --popover-foreground: 213 31% 91%;
 
-    --primary: 220 91% 65%;
+    --primary: 217 91% 55%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 220 91% 75%;
+    --primary-glow: 217 91% 65%;
 
     --secondary: 215 28% 25%;
     --secondary-foreground: 213 31% 91%;
@@ -97,7 +96,7 @@
     --muted: 215 28% 25%;
     --muted-foreground: 215 20% 65%;
 
-    --accent: 220 91% 65%;
+    --accent: 217 91% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 51%;
@@ -105,26 +104,26 @@
 
     --border: 215 28% 25%;
     --input: 215 28% 25%;
-    --ring: 220 91% 65%;
+    --ring: 217 91% 55%;
 
     /* Dark mode hotel status colors */
     --available: 142 71% 55%;
     --available-foreground: 0 0% 100%;
     --reserved: 36 100% 60%;
     --reserved-foreground: 0 0% 100%;
-    --checked-in: 220 91% 65%;
+    --checked-in: 217 91% 55%;
     --checked-in-foreground: 0 0% 100%;
     --maintenance: 0 84% 70%;
     --maintenance-foreground: 0 0% 100%;
 
     --sidebar-background: 215 28% 17%;
     --sidebar-foreground: 213 31% 91%;
-    --sidebar-primary: 220 91% 65%;
+    --sidebar-primary: 217 91% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 215 28% 25%;
     --sidebar-accent-foreground: 213 31% 91%;
     --sidebar-border: 215 28% 25%;
-    --sidebar-ring: 220 91% 65%;
+    --sidebar-ring: 217 91% 55%;
   }
 }
 

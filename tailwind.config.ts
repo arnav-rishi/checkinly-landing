@@ -54,7 +54,7 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Hotel status colors
+				// Hotel status colors with darker blue influence
 				available: {
 					DEFAULT: 'hsl(var(--available))',
 					foreground: 'hsl(var(--available-foreground))'
