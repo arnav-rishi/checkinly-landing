@@ -1,7 +1,6 @@
 
 import { Button } from "@/components/ui/button";
 import { Play, CheckCircle, Clock, Users } from "lucide-react";
-import heroImage from "@/assets/hero-family.jpg";
 
 const HeroSection = () => {
   const handleCTAClick = (action: string) => {
@@ -14,7 +13,7 @@ const HeroSection = () => {
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        style={{ backgroundImage: `url(/lovable-uploads/8665fcc4-2221-4ee8-b377-7973d0d12c68.png)` }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-primary/80"></div>
       </div>
