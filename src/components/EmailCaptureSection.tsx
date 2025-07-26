@@ -17,10 +17,10 @@ const EmailCaptureSection = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call to Resend
+      // Simulate API call - in production, this would call your backend
+      // which would then use Resend to send the email
       await new Promise(resolve => setTimeout(resolve, 1000));
       
-      // In a real app, you'd send to Resend here
       console.log('Email submitted to waitlist:', email);
       
       setIsSubmitted(true);
