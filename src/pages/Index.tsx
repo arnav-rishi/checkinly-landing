@@ -5,7 +5,6 @@ import TrustSignalsSection from "@/components/TrustSignalsSection";
 import QuickFeaturesSection from "@/components/QuickFeaturesSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import SmartLockIntegration from "@/components/SmartLockIntegration";
-import DashboardVisualsSection from "@/components/DashboardVisualsSection";
 import EnhancedFrontDesk from "@/components/EnhancedFrontDesk";
 import ReservationManagement from "@/components/ReservationManagement";
 import DeviceIntegration from "@/components/DeviceIntegration";
@@ -40,9 +39,6 @@ const Index = () => {
       
       {/* Smart lock integration - highlighted as first-class feature */}
       <SmartLockIntegration />
-      
-      {/* Dashboard visuals with mock data */}
-      <DashboardVisualsSection />
       
       {/* Additional feature sections */}
       <EnhancedFrontDesk />
