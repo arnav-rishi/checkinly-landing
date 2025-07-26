@@ -28,19 +28,19 @@ const CTASection = ({
 
   const sectionClasses = {
     default: "bg-muted/30 border border-border/30",
-    gradient: "bg-gradient-primary text-primary-foreground",
+    gradient: "bg-background border border-border/20",
     minimal: "bg-transparent"
   };
 
   const textClasses = {
     default: "text-foreground",
-    gradient: "text-primary-foreground",
+    gradient: "text-foreground",
     minimal: "text-foreground"
   };
 
   const descriptionClasses = {
     default: "text-muted-foreground",
-    gradient: "text-primary-foreground/90",
+    gradient: "text-muted-foreground",
     minimal: "text-muted-foreground"
   };
 
@@ -49,8 +49,8 @@ const CTASection = ({
       <div className="container-max text-center">
         <div className="max-w-4xl mx-auto">
           <div className="flex justify-center mb-6">
-            <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center shadow-glow">
-              <Zap className="w-8 h-8 text-accent-foreground" />
+            <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center shadow-elegant">
+              <Zap className="w-8 h-8 text-primary-foreground" />
             </div>
           </div>
           
@@ -62,11 +62,11 @@ const CTASection = ({
             {description}
           </p>
 
-          {/* Single primary CTA for better conversion */}
-          <div className="flex flex-col items-center space-y-6 mb-8">
+          {/* Two prominent CTAs with better contrast */}
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8">
             <Button 
               size="lg" 
-              className="bg-accent hover:bg-accent/90 text-accent-foreground px-16 py-8 text-xl font-bold rounded-large shadow-glow hover-lift group"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-16 py-8 text-xl font-bold rounded-large shadow-elegant hover-lift group w-full sm:w-auto"
               onClick={() => {
                 handleCTAClick('primary_cta_section');
                 onPrimaryClick?.();
@@ -76,12 +76,12 @@ const CTASection = ({
               <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
             </Button>
             
-            {/* Only show secondary CTA if explicitly provided */}
+            {/* Make secondary CTA more visible with better styling */}
             {secondaryText && (
               <Button 
                 variant="outline" 
                 size="lg"
-                className="px-10 py-6 text-lg font-medium rounded-large hover-lift"
+                className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-16 py-8 text-xl font-bold rounded-large hover-lift transition-all duration-300 w-full sm:w-auto"
                 onClick={() => {
                   handleCTAClick('secondary_cta_section');
                   onSecondaryClick?.();
