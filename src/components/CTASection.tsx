@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap } from "lucide-react";
+import { ArrowRight, Zap, CheckCircle } from "lucide-react";
 
 interface CTASectionProps {
   title?: string;
@@ -16,7 +16,7 @@ const CTASection = ({
   title = "Ready to Transform Your Hotel Operations?",
   description = "Join 500+ hotels already using Checkinly to create seamless guest experiences.",
   primaryText = "Start Your Free Trial",
-  secondaryText = "Schedule a Demo",
+  secondaryText,
   variant = 'default',
   onPrimaryClick,
   onSecondaryClick
@@ -47,39 +47,41 @@ const CTASection = ({
   return (
     <section className={`section-padding ${sectionClasses[variant]} rounded-large`}>
       <div className="container-max text-center">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div className="flex justify-center mb-6">
-            <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center">
-              <Zap className="w-6 h-6 text-accent-foreground" />
+            <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center shadow-glow">
+              <Zap className="w-8 h-8 text-accent-foreground" />
             </div>
           </div>
           
-          <h2 className={`text-3xl md:text-4xl font-bold mb-6 ${textClasses[variant]}`}>
+          <h2 className={`text-3xl md:text-5xl font-bold mb-6 ${textClasses[variant]}`}>
             {title}
           </h2>
           
-          <p className={`text-lg md:text-xl mb-12 ${descriptionClasses[variant]} leading-relaxed`}>
+          <p className={`text-xl md:text-2xl mb-12 ${descriptionClasses[variant]} leading-relaxed`}>
             {description}
           </p>
 
-          <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+          {/* Single primary CTA for better conversion */}
+          <div className="flex flex-col items-center space-y-6 mb-8">
             <Button 
               size="lg" 
-              className="bg-accent hover:bg-accent/90 text-accent-foreground px-10 py-6 text-lg font-semibold rounded-large shadow-glow hover-lift group"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground px-16 py-8 text-xl font-bold rounded-large shadow-glow hover-lift group"
               onClick={() => {
                 handleCTAClick('primary_cta_section');
                 onPrimaryClick?.();
               }}
             >
               {primaryText}
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
             </Button>
             
+            {/* Only show secondary CTA if explicitly provided */}
             {secondaryText && (
               <Button 
                 variant="outline" 
                 size="lg"
-                className="px-8 py-6 text-lg font-medium rounded-large hover-lift"
+                className="px-10 py-6 text-lg font-medium rounded-large hover-lift"
                 onClick={() => {
                   handleCTAClick('secondary_cta_section');
                   onSecondaryClick?.();
@@ -91,10 +93,20 @@ const CTASection = ({
           </div>
 
           {/* Trust Signal */}
-          <div className="mt-8 flex justify-center">
-            <div className={`text-sm ${descriptionClasses[variant]} flex items-center space-x-2`}>
-              <span>✨</span>
-              <span>No credit card required • Cancel anytime</span>
+          <div className="flex justify-center">
+            <div className={`${descriptionClasses[variant]} flex flex-wrap justify-center items-center gap-6 text-sm`}>
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="w-4 h-4" />
+                <span>30-day free trial</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="w-4 h-4" />
+                <span>No credit card required</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <CheckCircle className="w-4 h-4" />
+                <span>Setup in 24 hours</span>
+              </div>
             </div>
           </div>
         </div>
