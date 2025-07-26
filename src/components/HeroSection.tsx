@@ -13,17 +13,9 @@ const HeroSection = () => {
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(/lovable-uploads/3385535b-25b3-4b81-b101-a75b979cff69.png)` }}
+        style={{ backgroundImage: `url(/lovable-uploads/73a70a44-bf71-4f73-bbb4-bf05d6d4d10a.png)` }}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-primary/80"></div>
-      </div>
-
-      {/* Floating Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-2 h-2 bg-primary-glow rounded-full animate-[float_6s_ease-in-out_infinite]"></div>
-        <div className="absolute top-40 right-20 w-3 h-3 bg-primary rounded-full animate-[float_8s_ease-in-out_infinite_1s]"></div>
-        <div className="absolute bottom-32 left-1/4 w-1 h-1 bg-primary-glow rounded-full animate-[float_7s_ease-in-out_infinite_2s]"></div>
-        <div className="absolute top-60 right-1/3 w-2 h-2 bg-primary rounded-full animate-[float_9s_ease-in-out_infinite_3s]"></div>
       </div>
 
       {/* Content */}
