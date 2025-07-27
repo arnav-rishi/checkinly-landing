@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Mail, ArrowRight } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const EmailCaptureSection = () => {
   const [email, setEmail] = useState("");
@@ -17,18 +18,31 @@ const EmailCaptureSection = () => {
     setIsSubmitting(true);
 
     try {
-      // Simulate API call - in production, this would call your backend
-      // which would then use Resend to send the email
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      console.log('Email submitted to waitlist:', email);
-      
-      setIsSubmitted(true);
-      toast({
-        title: "You're on the list!",
-        description: "We'll notify you when new features are available.",
-      });
+      const { error } = await supabase
+        .from('email_subscriptions')
+        .insert({
+          email,
+          source: 'waitlist'
+        });
+
+      if (error) {
+        if (error.code === '23505') { // Unique constraint violation
+          toast({
+            title: "Already subscribed!",
+            description: "You're already on our waitlist. We'll keep you updated!",
+          });
+        } else {
+          throw error;
+        }
+      } else {
+        setIsSubmitted(true);
+        toast({
+          title: "You're on the list!",
+          description: "We'll notify you when new features are available.",
+        });
+      }
     } catch (error) {
+      console.error('Email subscription error:', error);
       toast({
         title: "Something went wrong",
         description: "Please try again later.",
@@ -56,6 +70,7 @@ const EmailCaptureSection = () => {
               <Button 
                 className="bg-white text-primary hover:bg-white/90"
                 size="lg"
+                onClick={() => window.location.href = '/auth'}
               >
                 Start Free Trial
               </Button>

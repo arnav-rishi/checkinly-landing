@@ -1,6 +1,9 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, CheckCircle } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+import ContactModal from "./ContactModal";
 
 interface CTASectionProps {
   title?: string;
@@ -21,9 +24,23 @@ const CTASection = ({
   onPrimaryClick,
   onSecondaryClick
 }: CTASectionProps) => {
-  const handleCTAClick = (action: string) => {
-    console.log(`CTA Section clicked: ${action}`);
-    // Analytics tracking
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  const handlePrimaryClick = () => {
+    console.log(`CTA Section clicked: primary_cta`);
+    if (onPrimaryClick) {
+      onPrimaryClick();
+    } else {
+      navigate('/auth');
+    }
+  };
+
+  const handleSecondaryClick = () => {
+    console.log(`CTA Section clicked: secondary_cta`);
+    if (onSecondaryClick) {
+      onSecondaryClick();
+    }
   };
 
   const sectionClasses = {
@@ -62,37 +79,43 @@ const CTASection = ({
             {description}
           </p>
 
-          {/* Two prominent CTAs with better contrast */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8">
             <Button 
               size="lg" 
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-16 py-8 text-xl font-bold rounded-large shadow-elegant hover-lift group w-full sm:w-auto"
-              onClick={() => {
-                handleCTAClick('primary_cta_section');
-                onPrimaryClick?.();
-              }}
+              onClick={handlePrimaryClick}
             >
               {primaryText}
               <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
             </Button>
             
-            {/* Make secondary CTA more visible with better styling */}
             {secondaryText && (
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-16 py-8 text-xl font-bold rounded-large hover-lift transition-all duration-300 w-full sm:w-auto"
-                onClick={() => {
-                  handleCTAClick('secondary_cta_section');
-                  onSecondaryClick?.();
-                }}
-              >
-                {secondaryText}
-              </Button>
+              secondaryText === "Schedule Live Demo" ? (
+                <ContactModal 
+                  triggerText={secondaryText}
+                  variant="outline"
+                >
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-16 py-8 text-xl font-bold rounded-large hover-lift transition-all duration-300 w-full sm:w-auto"
+                  >
+                    {secondaryText}
+                  </Button>
+                </ContactModal>
+              ) : (
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-16 py-8 text-xl font-bold rounded-large hover-lift transition-all duration-300 w-full sm:w-auto"
+                  onClick={handleSecondaryClick}
+                >
+                  {secondaryText}
+                </Button>
+              )
             )}
           </div>
 
-          {/* Trust Signal */}
           <div className="flex justify-center">
             <div className={`${descriptionClasses[variant]} flex flex-wrap justify-center items-center gap-6 text-sm`}>
               <div className="flex items-center space-x-2">
