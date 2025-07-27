@@ -8,9 +8,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { useToast } from '@/components/ui/use-toast';
 import { Loader2, Mail, Lock, User, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import AuthModeToggle from '@/components/AuthModeToggle';
 
 const Auth = () => {
-  const [mode, setMode] = useState<'signin' | 'signup' | 'reset'>('signin');
+  const [mode, setMode] = useState<'signin' | 'signup' | 'reset'>('signup');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
@@ -183,55 +184,7 @@ const Auth = () => {
               </Button>
             </form>
 
-            <div className="mt-6 text-center text-sm">
-              {mode === 'signin' && (
-                <>
-                  <button
-                    type="button"
-                    onClick={() => setMode('reset')}
-                    className="text-primary hover:underline"
-                  >
-                    Forgot your password?
-                  </button>
-                  <div className="mt-4">
-                    Don't have an account?{' '}
-                    <button
-                      type="button"
-                      onClick={() => setMode('signup')}
-                      className="text-primary hover:underline font-medium"
-                    >
-                      Sign up
-                    </button>
-                  </div>
-                </>
-              )}
-
-              {mode === 'signup' && (
-                <div>
-                  Already have an account?{' '}
-                  <button
-                    type="button"
-                    onClick={() => setMode('signin')}
-                    className="text-primary hover:underline font-medium"
-                  >
-                    Sign in
-                  </button>
-                </div>
-              )}
-
-              {mode === 'reset' && (
-                <div>
-                  Remember your password?{' '}
-                  <button
-                    type="button"
-                    onClick={() => setMode('signin')}
-                    className="text-primary hover:underline font-medium"
-                  >
-                    Sign in
-                  </button>
-                </div>
-              )}
-            </div>
+            <AuthModeToggle mode={mode} setMode={setMode} />
           </CardContent>
         </Card>
       </div>

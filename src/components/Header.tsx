@@ -1,12 +1,32 @@
 
 import { Button } from "@/components/ui/button";
+import { useAuth } from "@/hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
+
   const handleCTAClick = (action: string) => {
     // Analytics tracking for CTAs
     console.log(`CTA clicked: ${action}`);
     // In a real app, you'd send this to your analytics service
     // gtag('event', 'click', { event_category: 'CTA', event_label: action });
+  };
+
+  const handleSignInClick = () => {
+    handleCTAClick('login');
+    navigate('/auth');
+  };
+
+  const handleStartTrialClick = () => {
+    handleCTAClick('primary_header_cta');
+    navigate('/auth');
+  };
+
+  const handleSignOut = async () => {
+    await signOut();
+    handleCTAClick('logout');
   };
 
   return (
@@ -49,22 +69,40 @@ const Header = () => {
             </a>
           </nav>
 
-          {/* Conversion-Focused CTAs */}
+          {/* Authentication CTAs */}
           <div className="flex items-center space-x-3">
-            <Button 
-              variant="ghost" 
-              size="sm"
-              onClick={() => handleCTAClick('login')}
-              className="hidden md:inline-flex text-sm hover:scale-105 hover:-translate-y-1 transition-all duration-300"
-            >
-              Sign In
-            </Button>
-            <Button 
-              className="bg-gradient-primary hover:opacity-90 shadow-glow px-6 py-2 text-sm font-semibold hover:scale-105 hover:-translate-y-1 transition-all duration-300 group hover:shadow-xl"
-              onClick={() => handleCTAClick('primary_header_cta')}
-            >
-              <span className="group-hover:animate-[pulse_0.5s_ease-in-out]">Start Free Trial</span>
-            </Button>
+            {user ? (
+              <div className="flex items-center space-x-3">
+                <span className="hidden md:inline text-sm text-muted-foreground">
+                  Welcome, {user.user_metadata?.full_name || user.email}
+                </span>
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  onClick={handleSignOut}
+                  className="hidden md:inline-flex text-sm hover:scale-105 hover:-translate-y-1 transition-all duration-300"
+                >
+                  Sign Out
+                </Button>
+              </div>
+            ) : (
+              <>
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  onClick={handleSignInClick}
+                  className="hidden md:inline-flex text-sm hover:scale-105 hover:-translate-y-1 transition-all duration-300"
+                >
+                  Sign In
+                </Button>
+                <Button 
+                  className="bg-gradient-primary hover:opacity-90 shadow-glow px-6 py-2 text-sm font-semibold hover:scale-105 hover:-translate-y-1 transition-all duration-300 group hover:shadow-xl"
+                  onClick={handleStartTrialClick}
+                >
+                  <span className="group-hover:animate-[pulse_0.5s_ease-in-out]">Start Free Trial</span>
+                </Button>
+              </>
+            )}
           </div>
         </div>
       </div>
