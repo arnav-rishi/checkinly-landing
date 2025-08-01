@@ -30,7 +30,7 @@ const HeroSection = () => {
 
           {/* Main Headline */}
           <h1 className="font-bold text-5xl md:text-7xl lg:text-8xl leading-tight tracking-tight">
-            Transform Hotel Check-Ins
+            Transform Hotel <span className="text-[#003C74] border-b-2 border-[#003C74]">Check-Ins</span>
           </h1>
           
           {/* Sub-headline */}
@@ -42,11 +42,11 @@ const HeroSection = () => {
           <div className="pt-8">
             <Button 
               size="lg" 
-              className="px-12 py-6 text-xl font-bold rounded-xl min-h-[48px] text-white shadow-2xl hover:shadow-blue-500/30 hover:-translate-y-1 hover:scale-105 transition-all duration-300"
+              className="px-12 py-6 text-xl font-bold rounded-lg min-h-[48px] text-white shadow-lg hover:shadow-xl hover:bg-[#002A52] transition-all duration-300"
               style={{ backgroundColor: '#003C74' }}
               onClick={() => handleCTAClick('primary_hero_cta')}
             >
-              See It in Action
+              See the Demo
             </Button>
           </div>
         </div>
