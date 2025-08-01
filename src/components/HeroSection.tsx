@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
-import { Play, CheckCircle, Clock, Users } from "lucide-react";
+import { Play, CheckCircle, Clock, Users, Star } from "lucide-react";
+import heroImage from "@/assets/hero-smart-unlock.jpg";
 
 const HeroSection = () => {
   const handleCTAClick = (action: string) => {
@@ -13,9 +14,9 @@ const HeroSection = () => {
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(/lovable-uploads/73a70a44-bf71-4f73-bbb4-bf05d6d4d10a.png)` }}
+        style={{ backgroundImage: `url(${heroImage})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-primary/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/90 via-slate-800/85 to-slate-900/80"></div>
       </div>
 
       {/* Content */}
@@ -27,28 +28,29 @@ const HeroSection = () => {
             <span className="text-sm font-medium">Trusted by 500+ hotels • 99.9% uptime</span>
           </div>
 
-          {/* Main Headline - Stronger, More Specific */}
+          {/* Main Headline */}
           <h1 className="font-bold mb-8 leading-tight tracking-tight text-4xl md:text-6xl lg:text-7xl">
-            Automate Hotel Check-ins.<br/>
+            Transform Hotel Check-Ins.<br/>
             <span className="text-primary-glow bg-gradient-primary bg-clip-text text-transparent">
-              Increase Revenue 40%
+              Reduce Operational Costs by 20%
             </span>
           </h1>
           
-          {/* Sub-headline - More Specific Value Prop */}
+          {/* Sub-headline */}
           <p className="text-xl md:text-2xl mb-12 text-white/90 leading-relaxed max-w-4xl mx-auto font-medium">
-            Smart lock integration + contactless check-in = happier guests and 90% faster processing. 
-            <strong>Setup takes 24 hours.</strong>
+            Automate guest verification, enable face/NFC entry, and free your staff from repetitive check-in tasks. 
+            <strong>Make the check-in process 3x faster & delight your guests.</strong>
           </p>
 
           {/* Primary CTAs */}
           <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
             <Button 
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-16 py-8 text-xl font-bold rounded-large shadow-glow hover:shadow-primary/50 hover:-translate-y-1 hover:scale-105 transition-all duration-300"
+              className="px-20 py-10 text-2xl font-bold rounded-large shadow-2xl hover:shadow-blue-500/50 hover:-translate-y-2 hover:scale-110 transition-all duration-300 text-white border-2 border-blue-600/30"
+              style={{ backgroundColor: '#003C74' }}
               onClick={() => handleCTAClick('primary_hero_cta')}
             >
-              Start Free 30-Day Trial
+              See It in Action
             </Button>
             
             <Button 
@@ -73,10 +75,10 @@ const HeroSection = () => {
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center space-x-2 mb-2">
-                <Users className="w-5 h-5 text-primary-glow" />
-                <span className="text-3xl font-bold">40%</span>
+                <Star className="w-5 h-5 text-primary-glow" />
+                <span className="text-3xl font-bold">Save</span>
               </div>
-              <span className="text-sm text-white/80">Revenue increase</span>
+              <span className="text-sm text-white/80">Staff hours & cut manual work</span>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center space-x-2 mb-2">
