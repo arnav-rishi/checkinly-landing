@@ -30,7 +30,7 @@ const HeroSection = () => {
 
           {/* Main Headline */}
           <h1 className="font-bold text-5xl md:text-7xl lg:text-8xl leading-tight tracking-tight">
-            Transform Hotel <span className="text-[#003C74] border-b-2 border-[#003C74]">Check-Ins</span>
+            Transform Hotel Check-Ins
           </h1>
           
           {/* Sub-headline */}
