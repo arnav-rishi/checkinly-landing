@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import { Play, CheckCircle, Clock, Users, Star } from "lucide-react";
+
 import heroImage from "@/assets/hero-smart-unlock.jpg";
 
 const HeroSection = () => {
@@ -23,8 +23,7 @@ const HeroSection = () => {
       <div className="relative z-10 container max-w-4xl mx-auto px-6 md:px-8 text-center text-white">
         <div className="flex flex-col items-center space-y-16">
           {/* Social Proof Badge */}
-          <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 border border-white/20">
-            <CheckCircle className="w-5 h-5 text-emerald-400" />
+          <div className="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-2 border border-white/20">
             <span className="text-sm font-medium">Trusted by 500+ hotels • 99.9% uptime</span>
           </div>
 
@@ -41,9 +40,9 @@ const HeroSection = () => {
           {/* Primary CTA Button */}
           <div className="pt-8">
             <Button 
-              size="lg" 
-              className="px-12 py-6 text-xl font-bold rounded-lg min-h-[48px] text-white shadow-lg hover:shadow-xl hover:bg-[#002A52] transition-all duration-300"
-              style={{ backgroundColor: '#003C74' }}
+              size="lg"
+              className="px-12 py-6 min-h-[48px] text-xl font-bold rounded-lg text-primary-foreground bg-primary shadow-elegant hover:bg-primary/90 hover:shadow-glow transition-smooth"
+              aria-label="See the Demo"
               onClick={() => handleCTAClick('primary_hero_cta')}
             >
               See the Demo
