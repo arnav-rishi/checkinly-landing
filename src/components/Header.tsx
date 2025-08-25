@@ -34,10 +34,12 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2 group">
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center hover:scale-110 hover:rotate-12 transition-all duration-300 group-hover:shadow-lg">
-              <span className="text-primary-foreground font-bold text-sm group-hover:animate-[pulse_0.5s_ease-in-out]">C</span>
-            </div>
+          <div className="flex items-center space-x-3 group">
+            <img 
+              src="/lovable-uploads/188e6dc8-7310-45bd-9b68-4fab84a92c03.png" 
+              alt="Checkinly Logo" 
+              className="w-10 h-10 hover:scale-110 transition-all duration-300 group-hover:drop-shadow-lg"
+            />
             <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 hover:animate-[wiggle_0.5s_ease-in-out]">Checkinly</span>
           </div>
 

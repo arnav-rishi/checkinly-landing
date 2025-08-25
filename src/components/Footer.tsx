@@ -7,9 +7,11 @@ const Footer = () => {
           {/* Logo and Description */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-primary rounded-large flex items-center justify-center hover-scale">
-                <span className="text-primary-foreground font-bold text-lg">C</span>
-              </div>
+              <img 
+                src="/lovable-uploads/188e6dc8-7310-45bd-9b68-4fab84a92c03.png" 
+                alt="Checkinly Logo" 
+                className="w-12 h-12 hover-scale"
+              />
               <span className="text-2xl font-bold text-foreground">Checkinly</span>
             </div>
             <p className="text-base text-muted-foreground leading-relaxed">
