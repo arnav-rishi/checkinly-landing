@@ -186,8 +186,31 @@
   }
 }
 
+@keyframes rotate-word {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) rotateX(-90deg);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px) rotateX(90deg);
+  }
+}
+
 .animate-fade-in-up {
   animation: fade-in-up 0.6s ease-out;
+}
+
+.animate-rotate-word {
+  animation: rotate-word 2s ease-in-out;
 }
 
 /* Improved scroll behavior */
