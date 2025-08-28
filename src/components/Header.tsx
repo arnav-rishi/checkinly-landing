@@ -2,6 +2,14 @@
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/hooks/useAuth";
 import { useNavigate } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { ChevronDown } from "lucide-react";
 
 const Header = () => {
   const { user, signOut } = useAuth();
@@ -30,7 +38,7 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full bg-gradient-to-b from-[#F5FAFF]/95 to-[#FAFCFF]/95 backdrop-blur-md border-b border-blue-100/50 sticky top-0 z-50 animate-[slideDown_0.6s_ease-out]">
+    <header className="w-full bg-transparent backdrop-blur-md border-b border-blue-100/30 sticky top-0 z-50 animate-[slideDown_0.6s_ease-out]">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -40,34 +48,86 @@ const Header = () => {
               alt="Checkinly Logo" 
               className="w-10 h-10 hover:scale-110 transition-all duration-300 group-hover:drop-shadow-lg"
             />
-            <span className="text-xl font-bold text-slate-800 group-hover:text-primary transition-colors duration-300 hover:animate-[wiggle_0.5s_ease-in-out]">Checkinly</span>
+            <span className="text-xl font-bold text-slate-800 group-hover:text-[#1e40af] transition-colors duration-300 hover:animate-[wiggle_0.5s_ease-in-out]">Checkinly</span>
           </div>
 
           {/* Main Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            <a href="/" className="text-slate-600 hover:text-slate-800 transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
+            <a href="/" className="text-slate-600 hover:text-[#1e40af] transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
               Home
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-slate-800 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#1e40af] transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="/download-app" className="text-slate-600 hover:text-slate-800 transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
-              Download App
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-slate-800 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="/checkinly-os" className="text-slate-600 hover:text-slate-800 transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
-              Checkinly OS
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-slate-800 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="/for-hotels" className="text-slate-600 hover:text-slate-800 transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
-              For Hotels
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-slate-800 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="/faqs" className="text-slate-600 hover:text-slate-800 transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
+            
+            {/* Download App Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="text-slate-600 hover:text-[#1e40af] transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group flex items-center">
+                Download App
+                <ChevronDown className="ml-1 h-3 w-3" />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#1e40af] transition-all duration-300 group-hover:w-full"></span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-48 bg-white shadow-lg border border-gray-200 rounded-lg mt-2">
+                <DropdownMenuItem className="hover:bg-blue-50 hover:text-[#1e40af] cursor-pointer">
+                  iOS App
+                </DropdownMenuItem>
+                <DropdownMenuItem className="hover:bg-blue-50 hover:text-[#1e40af] cursor-pointer">
+                  Android App
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem className="hover:bg-blue-50 hover:text-[#1e40af] cursor-pointer">
+                  Desktop Version
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Checkinly OS Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="text-slate-600 hover:text-[#1e40af] transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group flex items-center">
+                Checkinly OS
+                <ChevronDown className="ml-1 h-3 w-3" />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#1e40af] transition-all duration-300 group-hover:w-full"></span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-48 bg-white shadow-lg border border-gray-200 rounded-lg mt-2">
+                <DropdownMenuItem className="hover:bg-blue-50 hover:text-[#1e40af] cursor-pointer">
+                  Features
+                </DropdownMenuItem>
+                <DropdownMenuItem className="hover:bg-blue-50 hover:text-[#1e40af] cursor-pointer">
+                  Installation
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem className="hover:bg-blue-50 hover:text-[#1e40af] cursor-pointer">
+                  System Requirements
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* For Hotels Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="text-slate-600 hover:text-[#1e40af] transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group flex items-center">
+                For Hotels
+                <ChevronDown className="ml-1 h-3 w-3" />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#1e40af] transition-all duration-300 group-hover:w-full"></span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-48 bg-white shadow-lg border border-gray-200 rounded-lg mt-2">
+                <DropdownMenuItem className="hover:bg-blue-50 hover:text-[#1e40af] cursor-pointer">
+                  Enterprise Solution
+                </DropdownMenuItem>
+                <DropdownMenuItem className="hover:bg-blue-50 hover:text-[#1e40af] cursor-pointer">
+                  Integration Guide
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem className="hover:bg-blue-50 hover:text-[#1e40af] cursor-pointer">
+                  Case Studies
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            <a href="/faqs" className="text-slate-600 hover:text-[#1e40af] transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
               FAQs
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-slate-800 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#1e40af] transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="/privacy-policy" className="text-slate-600 hover:text-slate-800 transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
+            <a href="/privacy-policy" className="text-slate-600 hover:text-[#1e40af] transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
               Privacy Policy
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-slate-800 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#1e40af] transition-all duration-300 group-hover:w-full"></span>
             </a>
           </nav>
 
@@ -82,7 +142,7 @@ const Header = () => {
                   variant="ghost" 
                   size="sm"
                   onClick={handleSignOut}
-                  className="hidden md:inline-flex text-sm hover:scale-105 hover:-translate-y-1 transition-all duration-300 text-slate-600 hover:text-slate-800"
+                  className="hidden md:inline-flex text-sm hover:scale-105 hover:-translate-y-1 transition-all duration-300 text-slate-600 hover:text-[#1e40af]"
                 >
                   Sign Out
                 </Button>
@@ -93,12 +153,12 @@ const Header = () => {
                   variant="ghost" 
                   size="sm"
                   onClick={handleSignInClick}
-                  className="hidden md:inline-flex text-sm hover:scale-105 hover:-translate-y-1 transition-all duration-300 text-slate-600 hover:text-slate-800"
+                  className="hidden md:inline-flex text-sm hover:scale-105 hover:-translate-y-1 transition-all duration-300 text-slate-600 hover:text-[#1e40af]"
                 >
                   Sign In
                 </Button>
                 <Button 
-                  className="bg-slate-800 hover:bg-slate-900 text-white shadow-lg px-6 py-2 text-sm font-semibold hover:scale-105 hover:-translate-y-1 transition-all duration-300 group hover:shadow-xl"
+                  className="bg-[#1e40af] hover:bg-[#1d4ed8] text-white shadow-lg px-6 py-2 text-sm font-semibold hover:scale-105 hover:-translate-y-1 transition-all duration-300 group hover:shadow-xl"
                   onClick={handleStartTrialClick}
                 >
                   <span className="group-hover:animate-[pulse_0.5s_ease-in-out]">Start Free Trial</span>

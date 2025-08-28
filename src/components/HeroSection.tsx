@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 const HeroSection = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const rotatingWords = ["Safer", "Faster", "Smarter", "Seamless"];
+  const rotatingWords = ["Smarter", "Faster", "Safer", "Seamless"];
   
   // Dashboard screenshots for carousel
   const dashboardImages = [
@@ -59,7 +59,7 @@ const HeroSection = () => {
                 <span className="inline-block min-w-[280px] lg:min-w-[320px]">
                   <span 
                     key={currentWordIndex}
-                    className="text-slate-800 animate-fade-in-up inline-block"
+                    className="text-[#1e40af] animate-fade-in-up inline-block"
                   >
                     {rotatingWords[currentWordIndex]}
                   </span>
@@ -88,7 +88,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button 
                 size="lg"
-                className="px-8 py-4 h-14 text-lg font-semibold rounded-xl bg-slate-800 text-white hover:bg-slate-900 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
+                className="px-8 py-4 h-14 text-lg font-semibold rounded-xl bg-[#1e40af] text-white hover:bg-[#1d4ed8] shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
                 onClick={() => handleCTAClick('request_demo')}
               >
                 Request Demo
