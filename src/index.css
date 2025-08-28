@@ -205,12 +205,25 @@
   }
 }
 
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
 .animate-fade-in-up {
   animation: fade-in-up 0.6s ease-out;
 }
 
 .animate-rotate-word {
   animation: rotate-word 2s ease-in-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
 }
 
 /* Improved scroll behavior */
