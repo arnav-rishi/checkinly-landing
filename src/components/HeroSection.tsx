@@ -20,25 +20,25 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative w-full min-h-screen bg-gradient-to-b from-[#F5FAFF] via-[#FAFCFF] to-white overflow-hidden">
+    <section className="relative w-full min-h-screen bg-gradient-to-br from-[#E8F2FF] via-[#F0F7FF] to-[#F8FBFF] overflow-hidden">
       {/* Subtle background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Light gradient orbs */}
-        <div className="absolute top-20 -right-40 w-96 h-96 bg-gradient-to-br from-blue-50/30 to-slate-50/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-32 -left-40 w-80 h-80 bg-gradient-to-tr from-slate-50/20 to-blue-50/30 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 -right-40 w-96 h-96 bg-gradient-to-br from-blue-100/40 to-slate-100/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-32 -left-40 w-80 h-80 bg-gradient-to-tr from-slate-100/30 to-blue-100/40 rounded-full blur-3xl"></div>
         
         {/* Minimal grid pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.03)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.08)_1px,transparent_1px)] bg-[size:60px_60px]"></div>
       </div>
 
       <div className="relative z-10 container max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-32">
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-16 items-center min-h-[80vh]">
-          {/* Left Column - Content (40% width) */}
-          <div className="lg:col-span-5 space-y-8 flex flex-col justify-center">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[80vh]">
+          {/* Left Column - Content (35% width) */}
+          <div className="lg:col-span-4 space-y-8 flex flex-col justify-center">
             {/* Rotating Headline */}
             <div className="space-y-4">
-              <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight tracking-tight" style={{ lineHeight: '1.3' }}>
-                <span className="inline-block min-w-[200px] lg:min-w-[240px]">
+              <h1 className="text-2xl lg:text-3xl xl:text-4xl font-bold leading-tight tracking-tight" style={{ lineHeight: '1.4' }}>
+                <span className="inline-block min-w-[180px] lg:min-w-[220px]">
                   <span 
                     key={currentWordIndex}
                     className="text-[#1e40af] animate-fade-in-up inline-block"
@@ -49,7 +49,7 @@ const HeroSection = () => {
                 <br />
                 <span className="text-gray-900">Hotel Check-in.</span>
                 <br />
-                <span className="text-gray-600 text-2xl lg:text-3xl xl:text-4xl font-medium leading-relaxed">
+                <span className="text-gray-600 text-xl lg:text-2xl xl:text-3xl font-medium leading-relaxed">
                   Powered by Face & NFC Access.
                 </span>
               </h1>
@@ -57,7 +57,7 @@ const HeroSection = () => {
 
             {/* Sub-headline */}
             <div className="space-y-4">
-              <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
+              <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-lg">
                 Checkinly helps hotels automate guest verification and unlock rooms with a single glance.
               </p>
               <p className="text-lg font-semibold text-gray-900">
@@ -85,11 +85,11 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Column - Single Dashboard Screenshot (60% width) */}
-          <div className="lg:col-span-7 relative flex items-center justify-center">
-            <div className="relative w-full max-w-5xl">
-              {/* Subtle background glow */}
-              <div className="absolute -inset-8 bg-gradient-to-r from-blue-500/5 via-blue-400/10 to-blue-500/5 rounded-3xl blur-2xl"></div>
+          {/* Right Column - Single Dashboard Screenshot (65% width) */}
+          <div className="lg:col-span-8 relative flex items-center justify-center">
+            <div className="relative w-full max-w-6xl">
+              {/* Enhanced background glow */}
+              <div className="absolute -inset-12 bg-gradient-to-r from-blue-200/20 via-blue-300/30 to-blue-200/20 rounded-3xl blur-3xl"></div>
               
               {/* Dashboard Screenshot Container */}
               <div className="relative overflow-hidden rounded-2xl shadow-2xl bg-white border border-gray-100/50">
@@ -97,7 +97,7 @@ const HeroSection = () => {
                   <img 
                     src="/lovable-uploads/3a47fc10-c7c5-4582-b3b9-59d71c07b8d1.png" 
                     alt="Checkinly Dashboard" 
-                    className="w-full h-auto object-cover rounded-2xl"
+                    className="w-full h-auto object-cover rounded-2xl transform scale-105"
                   />
                 </div>
                 
@@ -106,12 +106,12 @@ const HeroSection = () => {
               </div>
               
               {/* Enhanced shadows and lighting */}
-              <div className="absolute -bottom-8 left-8 right-8 h-8 bg-black/10 rounded-full blur-xl"></div>
+              <div className="absolute -bottom-12 left-12 right-12 h-12 bg-black/15 rounded-full blur-2xl"></div>
             </div>
 
             {/* Minimal floating elements */}
-            <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-blue-100/40 to-slate-100/30 rounded-xl shadow-md opacity-40 animate-float"></div>
-            <div className="absolute -bottom-6 -right-6 w-8 h-8 bg-gradient-to-br from-slate-100/30 to-blue-100/40 rounded-lg shadow-md opacity-30 animate-float" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute -top-6 -left-6 w-16 h-16 bg-gradient-to-br from-blue-200/50 to-slate-200/40 rounded-xl shadow-lg opacity-60 animate-float"></div>
+            <div className="absolute -bottom-8 -right-8 w-12 h-12 bg-gradient-to-br from-slate-200/40 to-blue-200/50 rounded-lg shadow-lg opacity-50 animate-float" style={{ animationDelay: '1s' }}></div>
           </div>
         </div>
       </div>
