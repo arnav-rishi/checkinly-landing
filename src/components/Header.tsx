@@ -30,7 +30,7 @@ const Header = () => {
   };
 
   return (
-    <header className="absolute top-0 w-full bg-transparent backdrop-blur-sm border-b border-white/10 z-50 animate-[slideDown_0.6s_ease-out]">
+    <header className="w-full bg-background/95 backdrop-blur-md border-b border-border/50 sticky top-0 z-50 animate-[slideDown_0.6s_ease-out]">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -40,34 +40,34 @@ const Header = () => {
               alt="Checkinly Logo" 
               className="w-10 h-10 hover:scale-110 transition-all duration-300 group-hover:drop-shadow-lg"
             />
-            <span className="text-xl font-bold text-gray-900 group-hover:text-[#1e3a8a] transition-colors duration-300 hover:animate-[wiggle_0.5s_ease-in-out]">Checkinly</span>
+            <span className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 hover:animate-[wiggle_0.5s_ease-in-out]">Checkinly</span>
           </div>
 
           {/* Main Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            <a href="/" className="text-gray-600 hover:text-[#1e3a8a] transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
+            <a href="/" className="text-muted-foreground hover:text-primary transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
               Home
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#1e3a8a] transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="/download-app" className="text-gray-600 hover:text-[#1e3a8a] transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
+            <a href="/download-app" className="text-muted-foreground hover:text-primary transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
               Download App
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#1e3a8a] transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="/checkinly-os" className="text-gray-600 hover:text-[#1e3a8a] transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
+            <a href="/checkinly-os" className="text-muted-foreground hover:text-primary transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
               Checkinly OS
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#1e3a8a] transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="/for-hotels" className="text-gray-600 hover:text-[#1e3a8a] transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
+            <a href="/for-hotels" className="text-muted-foreground hover:text-primary transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
               For Hotels
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#1e3a8a] transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="/faqs" className="text-gray-600 hover:text-[#1e3a8a] transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
+            <a href="/faqs" className="text-muted-foreground hover:text-primary transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
               FAQs
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#1e3a8a] transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
-            <a href="/privacy-policy" className="text-gray-600 hover:text-[#1e3a8a] transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
+            <a href="/privacy-policy" className="text-muted-foreground hover:text-primary transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
               Privacy Policy
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#1e3a8a] transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
             </a>
           </nav>
 
@@ -75,14 +75,14 @@ const Header = () => {
           <div className="flex items-center space-x-3">
             {user ? (
               <div className="flex items-center space-x-3">
-                <span className="hidden md:inline text-sm text-gray-600">
+                <span className="hidden md:inline text-sm text-muted-foreground">
                   Welcome, {user.user_metadata?.full_name || user.email}
                 </span>
                 <Button 
                   variant="ghost" 
                   size="sm"
                   onClick={handleSignOut}
-                  className="hidden md:inline-flex text-sm hover:scale-105 hover:-translate-y-1 transition-all duration-300 text-gray-600 hover:text-gray-900"
+                  className="hidden md:inline-flex text-sm hover:scale-105 hover:-translate-y-1 transition-all duration-300"
                 >
                   Sign Out
                 </Button>
@@ -93,12 +93,12 @@ const Header = () => {
                   variant="ghost" 
                   size="sm"
                   onClick={handleSignInClick}
-                  className="hidden md:inline-flex text-sm hover:scale-105 hover:-translate-y-1 transition-all duration-300 text-gray-600 hover:text-gray-900"
+                  className="hidden md:inline-flex text-sm hover:scale-105 hover:-translate-y-1 transition-all duration-300"
                 >
                   Sign In
                 </Button>
                 <Button 
-                  className="bg-[#1e3a8a] hover:bg-[#1e40af] text-white shadow-lg px-6 py-2 text-sm font-semibold hover:scale-105 hover:-translate-y-1 transition-all duration-300 group hover:shadow-xl"
+                  className="bg-gradient-primary hover:opacity-90 shadow-glow px-6 py-2 text-sm font-semibold hover:scale-105 hover:-translate-y-1 transition-all duration-300 group hover:shadow-xl"
                   onClick={handleStartTrialClick}
                 >
                   <span className="group-hover:animate-[pulse_0.5s_ease-in-out]">Start Free Trial</span>
