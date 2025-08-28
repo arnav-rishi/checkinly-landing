@@ -1,21 +1,10 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const HeroSection = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const rotatingWords = ["Smarter", "Faster", "Safer", "Seamless"];
-  
-  // Dashboard screenshots for carousel
-  const dashboardImages = [
-    "/lovable-uploads/3a47fc10-c7c5-4582-b3b9-59d71c07b8d1.png",
-    "/lovable-uploads/29c2bdee-25d5-4a58-bddb-7f91cf9191c5.png",
-    "/lovable-uploads/bbf311b0-a15b-434e-8cf8-d316bcacd1eb.png",
-    "/lovable-uploads/43e3b21b-390f-4f2c-98d4-e18d9aaa9646.png",
-    "/lovable-uploads/fcd853a8-6cdd-4910-9acf-a849a3d09f5d.png"
-  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -25,29 +14,9 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, [rotatingWords.length]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % dashboardImages.length);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [dashboardImages.length]);
-
   const handleCTAClick = (action: string) => {
     console.log(`Hero CTA clicked: ${action}`);
     // Analytics tracking
-  };
-
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % dashboardImages.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + dashboardImages.length) % dashboardImages.length);
-  };
-
-  const goToImage = (index: number) => {
-    setCurrentImageIndex(index);
   };
 
   return (
@@ -68,8 +37,8 @@ const HeroSection = () => {
           <div className="lg:col-span-5 space-y-8 flex flex-col justify-center">
             {/* Rotating Headline */}
             <div className="space-y-4">
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight" style={{ lineHeight: '1.2' }}>
-                <span className="inline-block min-w-[240px] lg:min-w-[280px]">
+              <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight tracking-tight" style={{ lineHeight: '1.3' }}>
+                <span className="inline-block min-w-[200px] lg:min-w-[240px]">
                   <span 
                     key={currentWordIndex}
                     className="text-[#1e40af] animate-fade-in-up inline-block"
@@ -80,7 +49,7 @@ const HeroSection = () => {
                 <br />
                 <span className="text-gray-900">Hotel Check-in.</span>
                 <br />
-                <span className="text-gray-600 text-3xl lg:text-4xl xl:text-5xl font-medium">
+                <span className="text-gray-600 text-2xl lg:text-3xl xl:text-4xl font-medium leading-relaxed">
                   Powered by Face & NFC Access.
                 </span>
               </h1>
@@ -88,10 +57,10 @@ const HeroSection = () => {
 
             {/* Sub-headline */}
             <div className="space-y-4">
-              <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed max-w-xl">
+              <p className="text-lg lg:text-xl text-gray-600 leading-relaxed max-w-xl">
                 Checkinly helps hotels automate guest verification and unlock rooms with a single glance.
               </p>
-              <p className="text-lg lg:text-xl font-semibold text-gray-900">
+              <p className="text-lg font-semibold text-gray-900">
                 Faster, safer, smarter hospitality.
               </p>
             </div>
@@ -116,48 +85,20 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Column - Dashboard Screenshots Carousel (60% width) */}
+          {/* Right Column - Single Dashboard Screenshot (60% width) */}
           <div className="lg:col-span-7 relative flex items-center justify-center">
             <div className="relative w-full max-w-5xl">
               {/* Subtle background glow */}
               <div className="absolute -inset-8 bg-gradient-to-r from-blue-500/5 via-blue-400/10 to-blue-500/5 rounded-3xl blur-2xl"></div>
               
-              {/* Dashboard Screenshots Container */}
+              {/* Dashboard Screenshot Container */}
               <div className="relative overflow-hidden rounded-2xl shadow-2xl bg-white border border-gray-100/50">
-                <div className="relative h-[400px] lg:h-[500px]">
-                  {dashboardImages.map((image, index) => (
-                    <div
-                      key={index}
-                      className={`absolute inset-0 transition-all duration-1000 ease-in-out ${
-                        index === currentImageIndex 
-                          ? 'opacity-100 transform translate-x-0' 
-                          : index === (currentImageIndex + 1) % dashboardImages.length
-                          ? 'opacity-30 transform translate-x-[95%]'
-                          : 'opacity-0 transform translate-x-full'
-                      }`}
-                    >
-                      <img 
-                        src={image} 
-                        alt={`Checkinly Dashboard Screenshot ${index + 1}`} 
-                        className="w-full h-full object-cover rounded-2xl"
-                      />
-                    </div>
-                  ))}
-                  
-                  {/* Navigation arrows */}
-                  <button
-                    onClick={prevImage}
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm hover:bg-white rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110"
-                  >
-                    <ChevronLeft className="w-5 h-5 text-gray-700" />
-                  </button>
-                  
-                  <button
-                    onClick={nextImage}
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm hover:bg-white rounded-full p-3 shadow-lg transition-all duration-300 hover:scale-110"
-                  >
-                    <ChevronRight className="w-5 h-5 text-gray-700" />
-                  </button>
+                <div className="relative">
+                  <img 
+                    src="/lovable-uploads/3a47fc10-c7c5-4582-b3b9-59d71c07b8d1.png" 
+                    alt="Checkinly Dashboard" 
+                    className="w-full h-auto object-cover rounded-2xl"
+                  />
                 </div>
                 
                 {/* Subtle overlay for depth */}
@@ -166,21 +107,6 @@ const HeroSection = () => {
               
               {/* Enhanced shadows and lighting */}
               <div className="absolute -bottom-8 left-8 right-8 h-8 bg-black/10 rounded-full blur-xl"></div>
-              
-              {/* Carousel indicators */}
-              <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 flex space-x-3">
-                {dashboardImages.map((_, index) => (
-                  <button
-                    key={index}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === currentImageIndex 
-                        ? 'bg-blue-600 w-8' 
-                        : 'bg-gray-300 hover:bg-gray-400'
-                    }`}
-                    onClick={() => goToImage(index)}
-                  />
-                ))}
-              </div>
             </div>
 
             {/* Minimal floating elements */}
