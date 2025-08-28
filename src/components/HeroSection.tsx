@@ -50,7 +50,7 @@ const HeroSection = () => {
                 <span className="text-foreground">Hotel Check-in.</span>
                 <br />
                 <span className="text-muted-foreground text-4xl lg:text-5xl xl:text-6xl font-medium">
-                  Powered by Face & NFC Access.
+                  Powered by E-checkin and NFC Access.
                 </span>
               </h1>
             </div>
