@@ -1,6 +1,7 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Users, Shield, Zap, Clock, TrendingUp } from "lucide-react";
+import { CheckCircle, Clock, TrendingUp } from "lucide-react";
 
 const HeroSection = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -37,7 +38,7 @@ const HeroSection = () => {
         <div className="absolute top-3/4 left-1/6 w-4 h-4 bg-primary/15 rotate-12 animate-float opacity-40" style={{ animationDelay: '4s' }}></div>
       </div>
 
-      <div className="relative z-10 container max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-32">
+      <div className="relative z-10 container max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center min-h-[80vh]">
           {/* Left Column - Content (35% width) */}
           <div className="lg:col-span-4 space-y-8 flex flex-col justify-center">
@@ -129,7 +130,7 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Column - Enhanced Dashboard with Annotations (65% width) */}
+          {/* Right Column - Enhanced Dashboard (65% width) */}
           <div className="lg:col-span-8 relative flex items-center justify-center">
             <div className="relative w-full max-w-6xl">
               {/* Enhanced background glow with multiple layers */}
@@ -152,43 +153,6 @@ const HeroSection = () => {
               
               {/* Enhanced shadows and lighting */}
               <div className="absolute -bottom-16 left-12 right-12 h-16 bg-primary/20 rounded-full blur-3xl opacity-50"></div>
-
-              {/* Floating Annotation Bubbles */}
-              <div className="absolute top-8 left-8 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-white/20 animate-float max-w-xs">
-                <div className="flex items-start space-x-3">
-                  <div className="p-2 bg-green-100 rounded-lg">
-                    <Users className="h-5 w-5 text-green-600" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-sm text-gray-900">Face Recognition</p>
-                    <p className="text-xs text-gray-600 mt-1">Instant guest identification and verification</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="absolute top-1/2 -right-4 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-white/20 animate-float max-w-xs" style={{ animationDelay: '1s' }}>
-                <div className="flex items-start space-x-3">
-                  <div className="p-2 bg-blue-100 rounded-lg">
-                    <Shield className="h-5 w-5 text-blue-600" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-sm text-gray-900">Secure Access</p>
-                    <p className="text-xs text-gray-600 mt-1">NFC-enabled room entry system</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="absolute bottom-8 left-16 bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg border border-white/20 animate-float max-w-xs" style={{ animationDelay: '2s' }}>
-                <div className="flex items-start space-x-3">
-                  <div className="p-2 bg-purple-100 rounded-lg">
-                    <Zap className="h-5 w-5 text-purple-600" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-sm text-gray-900">Real-time Analytics</p>
-                    <p className="text-xs text-gray-600 mt-1">Live dashboard with guest insights</p>
-                  </div>
-                </div>
-              </div>
 
               {/* Enhanced floating elements */}
               <div className="absolute -top-8 -left-8 w-20 h-20 bg-gradient-to-br from-primary/30 to-primary/10 rounded-2xl shadow-lg opacity-60 animate-float transform rotate-12"></div>
