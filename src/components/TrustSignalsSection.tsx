@@ -13,10 +13,10 @@ const TrustSignalsSection = () => {
   ];
 
   const trustMetrics = [
-    { icon: Users, value: '500+', label: 'Hotels Trust Us', color: 'text-primary' },
-    { icon: Star, value: '4.9/5', label: 'Average Rating', color: 'text-yellow-500' },
-    { icon: Shield, value: '99.9%', label: 'Uptime Guarantee', color: 'text-green-500' },
-    { icon: Award, value: 'SOC 2', label: 'Security Certified', color: 'text-blue-500' },
+    { icon: Users, value: 'Coming Soon', label: 'Hotel Partners', color: 'text-primary' },
+    { icon: Star, value: '5-Star', label: 'Experience Design', color: 'text-yellow-500' },
+    { icon: Shield, value: '99.9%', label: 'Uptime Target', color: 'text-green-500' },
+    { icon: Award, value: 'SOC 2', label: 'Security Ready', color: 'text-blue-500' },
   ];
 
   return (
@@ -38,7 +38,7 @@ const TrustSignalsSection = () => {
         {/* Customer Logos */}
         <div className="text-center mb-8">
           <h3 className="text-xl font-semibold text-foreground mb-8">
-            Trusted by hotels worldwide
+            Built for hotels worldwide
           </h3>
         </div>
 
@@ -71,7 +71,7 @@ const TrustSignalsSection = () => {
             </div>
             <div className="flex items-center space-x-2">
               <Award className="w-6 h-6 text-muted-foreground" />
-              <span className="text-sm font-medium text-muted-foreground">SOC 2 Certified</span>
+              <span className="text-sm font-medium text-muted-foreground">SOC 2 Ready</span>
             </div>
             <div className="flex items-center space-x-2">
               <Shield className="w-6 h-6 text-muted-foreground" />
@@ -79,7 +79,7 @@ const TrustSignalsSection = () => {
             </div>
             <div className="flex items-center space-x-2">
               <Star className="w-6 h-6 text-muted-foreground" />
-              <span className="text-sm font-medium text-muted-foreground">4.9★ Rated</span>
+              <span className="text-sm font-medium text-muted-foreground">Premium Quality</span>
             </div>
           </div>
         </div>

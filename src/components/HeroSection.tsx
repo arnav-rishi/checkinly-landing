@@ -32,29 +32,31 @@ const HeroSection = () => {
       {/* Enhanced background elements with stronger blue gradients */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Enhanced gradient orbs with stronger blue colors */}
-        <div className="absolute top-10 -right-32 w-[500px] h-[500px] bg-gradient-to-br from-blue-400/30 via-primary/25 to-blue-600/20 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 -left-32 w-[400px] h-[400px] bg-gradient-to-tr from-primary/25 via-blue-300/30 to-blue-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/3 left-1/3 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-blue-400/20 to-primary/20 rounded-full blur-2xl opacity-60 animate-bounce-gentle"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-gradient-to-br from-primary/15 to-blue-500/25 rounded-full blur-2xl opacity-50 animate-float" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute top-10 -right-32 w-[600px] h-[600px] bg-gradient-to-br from-blue-400/35 via-primary/30 to-blue-600/25 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 -left-32 w-[500px] h-[500px] bg-gradient-to-tr from-primary/30 via-blue-300/35 to-blue-500/25 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/3 left-1/3 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-blue-400/25 to-primary/25 rounded-full blur-2xl opacity-70 animate-bounce-gentle"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-to-br from-primary/20 to-blue-500/30 rounded-full blur-2xl opacity-60 animate-float" style={{ animationDelay: '4s' }}></div>
         
         {/* Enhanced grid pattern with blue tint */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.08)_1px,transparent_1px)] bg-[size:60px_60px] opacity-50"></div>
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.12)_1px,transparent_1px)] bg-[size:60px_60px] opacity-60"></div>
         
-        {/* Floating geometric shapes with blue theme */}
-        <div className="absolute top-1/4 left-1/4 w-10 h-10 bg-blue-400/25 rotate-45 rounded-sm animate-float opacity-70" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-1/4 right-1/4 w-8 h-8 bg-primary/25 rounded-full animate-bounce-gentle opacity-60" style={{ animationDelay: '3s' }}></div>
-        <div className="absolute top-3/4 left-1/6 w-6 h-6 bg-blue-500/20 rotate-12 animate-float opacity-50" style={{ animationDelay: '4s' }}></div>
-        <div className="absolute top-1/2 right-1/6 w-12 h-12 bg-blue-300/15 rounded-lg animate-bounce-gentle opacity-40" style={{ animationDelay: '2.5s' }}></div>
+        {/* More floating geometric shapes with blue theme */}
+        <div className="absolute top-1/4 left-1/4 w-12 h-12 bg-blue-400/30 rotate-45 rounded-sm animate-float opacity-75" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-1/4 right-1/4 w-10 h-10 bg-primary/30 rounded-full animate-bounce-gentle opacity-65" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-3/4 left-1/6 w-8 h-8 bg-blue-500/25 rotate-12 animate-float opacity-55" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute top-1/2 right-1/6 w-14 h-14 bg-blue-300/20 rounded-lg animate-bounce-gentle opacity-45" style={{ animationDelay: '2.5s' }}></div>
+        <div className="absolute top-1/6 right-1/3 w-16 h-16 bg-blue-600/15 rounded-2xl animate-float opacity-50" style={{ animationDelay: '5s' }}></div>
+        <div className="absolute bottom-1/6 left-1/5 w-6 h-6 bg-primary/20 rounded-full animate-bounce-gentle opacity-40" style={{ animationDelay: '6s' }}></div>
       </div>
 
-      <div className="relative z-10 container max-w-7xl mx-auto px-8 lg:px-12 py-16 lg:py-24">
+      <div className="relative z-10 container max-w-7xl mx-auto px-12 lg:px-16 py-20 lg:py-28">
         <div className="flex items-center justify-center min-h-[85vh]">
           {/* Centered Content with improved padding */}
-          <div className="max-w-6xl mx-auto text-center space-y-16">
-            {/* Enhanced Rotating Headline */}
-            <div className="space-y-8 px-4">
-              <h1 className="text-5xl lg:text-7xl xl:text-8xl font-bold leading-tight tracking-tight">
-                <span className="inline-block min-w-[280px] lg:min-w-[400px]">
+          <div className="max-w-6xl mx-auto text-center space-y-12">
+            {/* Reduced Font Size Headline */}
+            <div className="space-y-6 px-4">
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight">
+                <span className="inline-block min-w-[200px] lg:min-w-[300px]">
                   <span 
                     key={currentWordIndex}
                     className="text-primary animate-fade-in-up inline-block"
@@ -65,18 +67,18 @@ const HeroSection = () => {
                 <br />
                 <span className="text-gray-900">Hotel Check-in.</span>
                 <br />
-                <span className="text-gray-600 text-3xl lg:text-4xl xl:text-5xl font-medium leading-relaxed mt-4 inline-block">
+                <span className="text-gray-600 text-2xl lg:text-3xl xl:text-4xl font-medium leading-relaxed mt-4 inline-block">
                   Powered by Face & NFC Access.
                 </span>
               </h1>
             </div>
 
             {/* Enhanced Sub-headline with better spacing */}
-            <div className="space-y-8 max-w-4xl mx-auto px-6">
-              <p className="text-2xl lg:text-3xl text-gray-600 leading-relaxed">
+            <div className="space-y-6 max-w-4xl mx-auto px-6">
+              <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed">
                 Checkinly helps hotels automate guest verification and unlock rooms with a single glance.
               </p>
-              <p className="text-3xl lg:text-4xl font-bold text-gray-900 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+              <p className="text-2xl lg:text-3xl font-bold text-gray-900 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
                 Cut Costs. Delight Guests. The Future of Hotel Check-In is Here.
               </p>
             </div>
@@ -122,11 +124,11 @@ const HeroSection = () => {
               </div>
               <div className="flex items-center space-x-4 bg-white/80 backdrop-blur-sm rounded-3xl px-8 py-6 border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="p-4 bg-gradient-to-br from-primary/15 to-blue-500/15 rounded-2xl">
-                  <Star className="h-7 w-7 text-primary" />
+                  <Shield className="h-7 w-7 text-primary" />
                 </div>
                 <div>
-                  <p className="text-4xl font-bold text-gray-900">500+</p>
-                  <p className="text-gray-600 font-medium">Hotels Trust Us</p>
+                  <p className="text-4xl font-bold text-gray-900">Secure</p>
+                  <p className="text-gray-600 font-medium">NFC Technology</p>
                 </div>
               </div>
             </div>
@@ -151,23 +153,18 @@ const HeroSection = () => {
               </Button>
             </div>
 
-            {/* Social Proof Line with improved spacing */}
-            <div className="flex items-center justify-center space-x-3 pt-10 text-gray-600">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-10 h-10 bg-gradient-to-br from-primary/25 to-blue-500/25 rounded-full border-3 border-white flex items-center justify-center shadow-lg">
-                    <Star className="h-5 w-5 text-primary" />
-                  </div>
-                ))}
-              </div>
-              <span className="text-lg font-medium">Trusted by 500+ hotels worldwide</span>
+            {/* Removed social proof line with hotel count claims */}
+            <div className="pt-8">
+              <p className="text-lg text-gray-500 font-medium">
+                Revolutionizing hotel check-in experiences
+              </p>
             </div>
           </div>
         </div>
       </div>
 
       {/* Enhanced bottom fade gradient with blue tint */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white/98 via-blue-50/60 to-transparent pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white/98 via-blue-50/70 to-transparent pointer-events-none"></div>
     </section>
   );
 };
