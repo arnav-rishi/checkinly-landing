@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Clock, TrendingUp, Smartphone, Shield, Zap, Users, Star, ArrowRight } from "lucide-react";
+import { Clock, TrendingUp, Smartphone, Shield, Zap, Users, Star, ArrowRight } from "lucide-react";
 
 const HeroSection = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -49,22 +49,6 @@ const HeroSection = () => {
         <div className="flex items-center justify-center min-h-[80vh]">
           {/* Centered Content */}
           <div className="max-w-5xl mx-auto text-center space-y-12">
-            {/* Feature highlights with checkmarks */}
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <div className="flex items-center space-x-2 bg-white/70 backdrop-blur-sm rounded-full px-4 py-2 shadow-sm border border-white/20">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                <span className="text-sm font-medium text-gray-700">Face Recognition</span>
-              </div>
-              <div className="flex items-center space-x-2 bg-white/70 backdrop-blur-sm rounded-full px-4 py-2 shadow-sm border border-white/20">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                <span className="text-sm font-medium text-gray-700">NFC Access</span>
-              </div>
-              <div className="flex items-center space-x-2 bg-white/70 backdrop-blur-sm rounded-full px-4 py-2 shadow-sm border border-white/20">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                <span className="text-sm font-medium text-gray-700">Instant Setup</span>
-              </div>
-            </div>
-
             {/* Enhanced Rotating Headline */}
             <div className="space-y-6">
               <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight">
@@ -91,7 +75,7 @@ const HeroSection = () => {
                 Checkinly helps hotels automate guest verification and unlock rooms with a single glance.
               </p>
               <p className="text-2xl lg:text-3xl font-bold text-gray-900 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-                Cut Costs. Delight Guests. The Future of Hotel Check-In is Here.
+                Cut Costs. Delight Guests. The Future of Hotel Check-In is Here.
               </p>
             </div>
 
