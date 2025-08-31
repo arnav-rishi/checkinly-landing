@@ -45,25 +45,6 @@ const HeroSection = () => {
         <div className="absolute top-3/4 left-1/6 w-4 h-4 bg-primary/15 rotate-12 animate-float opacity-40" style={{ animationDelay: '4s' }}></div>
       </div>
 
-      <div className="relative z-10 container max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
-        <div className="flex items-center justify-center min-h-[80vh]">
-          {/* Centered Content */}
-          <div className="max-w-5xl mx-auto text-center space-y-12">
-            {/* Feature highlights with checkmarks */}
-            <div className="flex flex-wrap justify-center gap-4 mb-8">
-              <div className="flex items-center space-x-2 bg-white/70 backdrop-blur-sm rounded-full px-4 py-2 shadow-sm border border-white/20">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                <span className="text-sm font-medium text-gray-700">Face Recognition</span>
-              </div>
-              <div className="flex items-center space-x-2 bg-white/70 backdrop-blur-sm rounded-full px-4 py-2 shadow-sm border border-white/20">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                <span className="text-sm font-medium text-gray-700">NFC Access</span>
-              </div>
-              <div className="flex items-center space-x-2 bg-white/70 backdrop-blur-sm rounded-full px-4 py-2 shadow-sm border border-white/20">
-                <CheckCircle className="h-4 w-4 text-green-500" />
-                <span className="text-sm font-medium text-gray-700">Instant Setup</span>
-              </div>
-            </div>
 
             {/* Enhanced Rotating Headline */}
             <div className="space-y-6">
