@@ -28,31 +28,33 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative w-full min-h-screen bg-gradient-to-br from-[#faf9f7] via-[#f8f6f3] to-[#f5f3ef] overflow-hidden">
-      {/* Enhanced background elements */}
+    <section className="relative w-full min-h-screen bg-gradient-to-br from-[#f8f9ff] via-[#f0f4ff] to-[#e8f2ff] overflow-hidden">
+      {/* Enhanced background elements with stronger blue gradients */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Enhanced gradient orbs with more sophisticated colors */}
-        <div className="absolute top-20 -right-40 w-96 h-96 bg-gradient-to-br from-primary/20 via-primary/10 to-transparent rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-32 -left-40 w-80 h-80 bg-gradient-to-tr from-primary/15 via-blue-200/20 to-transparent rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full blur-2xl opacity-50 animate-bounce-gentle"></div>
+        {/* Enhanced gradient orbs with stronger blue colors */}
+        <div className="absolute top-10 -right-32 w-[500px] h-[500px] bg-gradient-to-br from-blue-400/30 via-primary/25 to-blue-600/20 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 -left-32 w-[400px] h-[400px] bg-gradient-to-tr from-primary/25 via-blue-300/30 to-blue-500/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/3 left-1/3 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-gradient-to-r from-blue-400/20 to-primary/20 rounded-full blur-2xl opacity-60 animate-bounce-gentle"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-gradient-to-br from-primary/15 to-blue-500/25 rounded-full blur-2xl opacity-50 animate-float" style={{ animationDelay: '4s' }}></div>
         
-        {/* Enhanced grid pattern */}
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(30,64,175,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(30,64,175,0.06)_1px,transparent_1px)] bg-[size:60px_60px] opacity-40"></div>
+        {/* Enhanced grid pattern with blue tint */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.08)_1px,transparent_1px)] bg-[size:60px_60px] opacity-50"></div>
         
-        {/* Floating geometric shapes */}
-        <div className="absolute top-1/4 left-1/4 w-8 h-8 bg-primary/20 rotate-45 rounded-sm animate-float opacity-60" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-1/4 right-1/4 w-6 h-6 bg-secondary/20 rounded-full animate-bounce-gentle opacity-50" style={{ animationDelay: '3s' }}></div>
-        <div className="absolute top-3/4 left-1/6 w-4 h-4 bg-primary/15 rotate-12 animate-float opacity-40" style={{ animationDelay: '4s' }}></div>
+        {/* Floating geometric shapes with blue theme */}
+        <div className="absolute top-1/4 left-1/4 w-10 h-10 bg-blue-400/25 rotate-45 rounded-sm animate-float opacity-70" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-1/4 right-1/4 w-8 h-8 bg-primary/25 rounded-full animate-bounce-gentle opacity-60" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-3/4 left-1/6 w-6 h-6 bg-blue-500/20 rotate-12 animate-float opacity-50" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute top-1/2 right-1/6 w-12 h-12 bg-blue-300/15 rounded-lg animate-bounce-gentle opacity-40" style={{ animationDelay: '2.5s' }}></div>
       </div>
 
-      <div className="relative z-10 container max-w-7xl mx-auto px-6 lg:px-8 py-12 lg:py-16">
-        <div className="flex items-center justify-center min-h-[80vh]">
-          {/* Centered Content */}
-          <div className="max-w-5xl mx-auto text-center space-y-12">
+      <div className="relative z-10 container max-w-7xl mx-auto px-8 lg:px-12 py-16 lg:py-24">
+        <div className="flex items-center justify-center min-h-[85vh]">
+          {/* Centered Content with improved padding */}
+          <div className="max-w-6xl mx-auto text-center space-y-16">
             {/* Enhanced Rotating Headline */}
-            <div className="space-y-6">
-              <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight">
-                <span className="inline-block min-w-[250px] lg:min-w-[350px]">
+            <div className="space-y-8 px-4">
+              <h1 className="text-5xl lg:text-7xl xl:text-8xl font-bold leading-tight tracking-tight">
+                <span className="inline-block min-w-[280px] lg:min-w-[400px]">
                   <span 
                     key={currentWordIndex}
                     className="text-primary animate-fade-in-up inline-block"
@@ -63,109 +65,109 @@ const HeroSection = () => {
                 <br />
                 <span className="text-gray-900">Hotel Check-in.</span>
                 <br />
-                <span className="text-gray-600 text-2xl lg:text-3xl xl:text-4xl font-medium leading-relaxed">
+                <span className="text-gray-600 text-3xl lg:text-4xl xl:text-5xl font-medium leading-relaxed mt-4 inline-block">
                   Powered by Face & NFC Access.
                 </span>
               </h1>
             </div>
 
-            {/* Enhanced Sub-headline */}
-            <div className="space-y-6 max-w-3xl mx-auto">
-              <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed">
+            {/* Enhanced Sub-headline with better spacing */}
+            <div className="space-y-8 max-w-4xl mx-auto px-6">
+              <p className="text-2xl lg:text-3xl text-gray-600 leading-relaxed">
                 Checkinly helps hotels automate guest verification and unlock rooms with a single glance.
               </p>
-              <p className="text-2xl lg:text-3xl font-bold text-gray-900 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+              <p className="text-3xl lg:text-4xl font-bold text-gray-900 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
                 Cut Costs. Delight Guests. The Future of Hotel Check-In is Here.
               </p>
             </div>
 
-            {/* Enhanced Feature Grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 py-8 max-w-4xl mx-auto">
+            {/* Enhanced Feature Grid with improved padding */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 py-12 max-w-5xl mx-auto px-4">
               {features.map((feature, index) => (
                 <div 
                   key={feature.title}
-                  className="flex flex-col items-center space-y-3 p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-white/30 hover:bg-white/80 transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  className="flex flex-col items-center space-y-4 p-8 bg-white/70 backdrop-blur-sm rounded-3xl border border-white/40 hover:bg-white/85 transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-lg"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <div className="p-3 bg-primary/10 rounded-xl">
-                    <feature.icon className="h-8 w-8 text-primary" />
+                  <div className="p-4 bg-gradient-to-br from-primary/15 to-blue-500/15 rounded-2xl">
+                    <feature.icon className="h-10 w-10 text-primary" />
                   </div>
                   <div className="text-center">
-                    <h3 className="font-semibold text-gray-900 mb-1">{feature.title}</h3>
-                    <p className="text-sm text-gray-600">{feature.description}</p>
+                    <h3 className="font-semibold text-gray-900 mb-2 text-lg">{feature.title}</h3>
+                    <p className="text-gray-600">{feature.description}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* Enhanced Stats row */}
-            <div className="flex flex-wrap justify-center gap-8 py-6">
-              <div className="flex items-center space-x-3 bg-white/70 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/20">
-                <div className="p-3 bg-primary/10 rounded-xl">
-                  <Clock className="h-6 w-6 text-primary" />
+            {/* Enhanced Stats row with better spacing */}
+            <div className="flex flex-wrap justify-center gap-10 py-10">
+              <div className="flex items-center space-x-4 bg-white/80 backdrop-blur-sm rounded-3xl px-8 py-6 border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="p-4 bg-gradient-to-br from-primary/15 to-blue-500/15 rounded-2xl">
+                  <Clock className="h-7 w-7 text-primary" />
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-gray-900">90%</p>
-                  <p className="text-sm text-gray-600">Faster Check-in</p>
+                  <p className="text-4xl font-bold text-gray-900">90%</p>
+                  <p className="text-gray-600 font-medium">Faster Check-in</p>
                 </div>
               </div>
-              <div className="flex items-center space-x-3 bg-white/70 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/20">
-                <div className="p-3 bg-primary/10 rounded-xl">
-                  <TrendingUp className="h-6 w-6 text-primary" />
+              <div className="flex items-center space-x-4 bg-white/80 backdrop-blur-sm rounded-3xl px-8 py-6 border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="p-4 bg-gradient-to-br from-primary/15 to-blue-500/15 rounded-2xl">
+                  <TrendingUp className="h-7 w-7 text-primary" />
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-gray-900">98%</p>
-                  <p className="text-sm text-gray-600">Guest Satisfaction</p>
+                  <p className="text-4xl font-bold text-gray-900">98%</p>
+                  <p className="text-gray-600 font-medium">Guest Satisfaction</p>
                 </div>
               </div>
-              <div className="flex items-center space-x-3 bg-white/70 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/20">
-                <div className="p-3 bg-primary/10 rounded-xl">
-                  <Star className="h-6 w-6 text-primary" />
+              <div className="flex items-center space-x-4 bg-white/80 backdrop-blur-sm rounded-3xl px-8 py-6 border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="p-4 bg-gradient-to-br from-primary/15 to-blue-500/15 rounded-2xl">
+                  <Star className="h-7 w-7 text-primary" />
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-gray-900">500+</p>
-                  <p className="text-sm text-gray-600">Hotels Trust Us</p>
+                  <p className="text-4xl font-bold text-gray-900">500+</p>
+                  <p className="text-gray-600 font-medium">Hotels Trust Us</p>
                 </div>
               </div>
             </div>
 
-            {/* Enhanced CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+            {/* Enhanced CTA Buttons with better spacing */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-12 px-4">
               <Button 
                 size="lg"
-                className="px-10 py-6 h-16 text-xl font-semibold rounded-2xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 group"
+                className="px-12 py-7 h-18 text-2xl font-semibold rounded-3xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 group"
                 onClick={() => handleCTAClick('request_demo')}
               >
                 Request Demo
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
                 size="lg"
                 variant="outline"
-                className="px-10 py-6 h-16 text-xl font-semibold rounded-2xl border-2 border-primary/20 text-gray-700 hover:bg-primary/5 hover:border-primary/40 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 bg-white/70 backdrop-blur-sm hover:bg-white/90"
+                className="px-12 py-7 h-18 text-2xl font-semibold rounded-3xl border-2 border-primary/30 text-gray-700 hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 bg-white/80 backdrop-blur-sm hover:bg-white/95"
                 onClick={() => handleCTAClick('start_trial')}
               >
                 Start Free Trial
               </Button>
             </div>
 
-            {/* Social Proof Line */}
-            <div className="flex items-center justify-center space-x-2 pt-6 text-gray-600">
+            {/* Social Proof Line with improved spacing */}
+            <div className="flex items-center justify-center space-x-3 pt-10 text-gray-600">
               <div className="flex -space-x-2">
                 {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-8 h-8 bg-primary/20 rounded-full border-2 border-white flex items-center justify-center">
-                    <Star className="h-4 w-4 text-primary" />
+                  <div key={i} className="w-10 h-10 bg-gradient-to-br from-primary/25 to-blue-500/25 rounded-full border-3 border-white flex items-center justify-center shadow-lg">
+                    <Star className="h-5 w-5 text-primary" />
                   </div>
                 ))}
               </div>
-              <span className="text-sm font-medium">Trusted by 500+ hotels worldwide</span>
+              <span className="text-lg font-medium">Trusted by 500+ hotels worldwide</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Enhanced bottom fade gradient */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white/95 via-white/50 to-transparent pointer-events-none"></div>
+      {/* Enhanced bottom fade gradient with blue tint */}
+      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-white/98 via-blue-50/60 to-transparent pointer-events-none"></div>
     </section>
   );
 };
