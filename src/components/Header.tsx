@@ -31,75 +31,77 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full bg-transparent backdrop-blur-md border-b border-blue-100/30 sticky top-0 z-50 animate-[slideDown_0.6s_ease-out]">
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center space-x-3 group">
-            <img 
-              src="/lovable-uploads/188e6dc8-7310-45bd-9b68-4fab84a92c03.png" 
-              alt="Checkinly Logo" 
-              className="w-10 h-10 hover:scale-110 transition-all duration-300 group-hover:drop-shadow-lg"
-            />
-            <span className="text-xl font-bold text-slate-800 group-hover:text-primary transition-colors duration-300 hover:animate-[wiggle_0.5s_ease-in-out]">Checkinly</span>
-          </div>
+    <header className="w-full fixed top-0 z-50 px-4 py-4">
+      <div className="container mx-auto max-w-7xl">
+        <div className="bg-white/95 backdrop-blur-lg border border-gray-200/50 rounded-2xl shadow-lg px-6 py-3">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <div className="flex items-center space-x-3 group">
+              <img 
+                src="/lovable-uploads/188e6dc8-7310-45bd-9b68-4fab84a92c03.png" 
+                alt="Checkinly Logo" 
+                className="w-8 h-8 hover:scale-110 transition-all duration-300 group-hover:drop-shadow-lg"
+              />
+              <span className="text-lg font-bold text-slate-800 group-hover:text-primary transition-colors duration-300">Checkinly</span>
+            </div>
 
-          {/* Main Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
-            <a href="/" className="text-slate-600 hover:text-primary transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
-              Home
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            
-            {/* Mega Menus */}
-            <MegaMenu title="Download App" sections={downloadAppMenuConfig} />
-            <MegaMenu title="Checkinly OS" sections={checkinlyOSMenuConfig} />
-            <MegaMenu title="For Hotels" sections={forHotelsMenuConfig} />
+            {/* Main Navigation */}
+            <nav className="hidden md:flex items-center space-x-6">
+              <a href="/" className="text-slate-600 hover:text-primary transition-all duration-300 text-sm font-medium hover:scale-105 relative group">
+                Home
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </a>
+              
+              {/* Mega Menus */}
+              <MegaMenu title="Download App" sections={downloadAppMenuConfig} />
+              <MegaMenu title="Checkinly OS" sections={checkinlyOSMenuConfig} />
+              <MegaMenu title="For Hotels" sections={forHotelsMenuConfig} />
 
-            <a href="/faqs" className="text-slate-600 hover:text-primary transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
-              FAQs
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a href="/privacy-policy" className="text-slate-600 hover:text-primary transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group">
-              Privacy Policy
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-            </a>
-          </nav>
+              <a href="/faqs" className="text-slate-600 hover:text-primary transition-all duration-300 text-sm font-medium hover:scale-105 relative group">
+                FAQs
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </a>
+              <a href="/privacy-policy" className="text-slate-600 hover:text-primary transition-all duration-300 text-sm font-medium hover:scale-105 relative group">
+                Privacy Policy
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </nav>
 
-          {/* Authentication CTAs */}
-          <div className="flex items-center space-x-3">
-            {user ? (
-              <div className="flex items-center space-x-3">
-                <span className="hidden md:inline text-sm text-slate-600">
-                  Welcome, {user.user_metadata?.full_name || user.email}
-                </span>
-                <Button 
-                  variant="ghost" 
-                  size="sm"
-                  onClick={handleSignOut}
-                  className="hidden md:inline-flex text-sm hover:scale-105 hover:-translate-y-1 transition-all duration-300 text-slate-600 hover:text-primary"
-                >
-                  Sign Out
-                </Button>
-              </div>
-            ) : (
-              <>
-                <Button 
-                  variant="ghost" 
-                  size="sm"
-                  onClick={handleSignInClick}
-                  className="hidden md:inline-flex text-sm hover:scale-105 hover:-translate-y-1 transition-all duration-300 text-slate-600 hover:text-primary"
-                >
-                  Sign In
-                </Button>
-                <Button 
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg px-6 py-2 text-sm font-semibold hover:scale-105 hover:-translate-y-1 transition-all duration-300 group hover:shadow-xl"
-                  onClick={handleStartTrialClick}
-                >
-                  <span className="group-hover:animate-[pulse_0.5s_ease-in-out]">Start Free Trial</span>
-                </Button>
-              </>
-            )}
+            {/* Authentication CTAs */}
+            <div className="flex items-center space-x-3">
+              {user ? (
+                <div className="flex items-center space-x-3">
+                  <span className="hidden md:inline text-sm text-slate-600">
+                    Welcome, {user.user_metadata?.full_name || user.email}
+                  </span>
+                  <Button 
+                    variant="ghost" 
+                    size="sm"
+                    onClick={handleSignOut}
+                    className="hidden md:inline-flex text-sm hover:scale-105 transition-all duration-300 text-slate-600 hover:text-primary"
+                  >
+                    Sign Out
+                  </Button>
+                </div>
+              ) : (
+                <>
+                  <Button 
+                    variant="ghost" 
+                    size="sm"
+                    onClick={handleSignInClick}
+                    className="hidden md:inline-flex text-sm hover:scale-105 transition-all duration-300 text-slate-600 hover:text-primary"
+                  >
+                    Log in
+                  </Button>
+                  <Button 
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md px-4 py-2 text-sm font-medium hover:scale-105 transition-all duration-300 rounded-xl"
+                    onClick={handleStartTrialClick}
+                  >
+                    Try for free
+                  </Button>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </div>
