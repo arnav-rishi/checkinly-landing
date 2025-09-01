@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Clock, TrendingUp, Smartphone, Shield, Zap, Users, ArrowRight } from "lucide-react";
+import { Clock, TrendingUp, Smartphone, Shield, Zap, Users, ArrowRight, DollarSign } from "lucide-react";
 
 const HeroSection = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -110,11 +110,11 @@ const HeroSection = () => {
               </div>
               <div className="flex items-center space-x-4 bg-white/80 backdrop-blur-sm rounded-3xl px-8 py-6 border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="p-4 bg-gradient-to-br from-primary/15 to-blue-500/15 rounded-2xl">
-                  <Shield className="h-7 w-7 text-primary" />
+                  <DollarSign className="h-7 w-7 text-primary" />
                 </div>
                 <div>
-                  <p className="text-4xl font-bold text-gray-900">Secure</p>
-                  <p className="text-gray-600 font-medium">NFC Technology</p>
+                  <p className="text-4xl font-bold text-gray-900">15%</p>
+                  <p className="text-gray-600 font-medium">Saved in Revenue</p>
                 </div>
               </div>
             </div>
