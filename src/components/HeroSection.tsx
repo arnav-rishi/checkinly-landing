@@ -44,18 +44,18 @@ const HeroSection = () => {
         <div className="flex items-center justify-center min-h-[85vh]">
           {/* Centered Content */}
           <div className="max-w-6xl mx-auto text-center space-y-12">
-            {/* Headline with rotating words in same line */}
+            {/* Headline with rotating words on top */}
             <div className="space-y-6 px-4">
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight">
-                <span className="text-gray-900">
+                <div className="text-primary mb-4">
                   <span 
                     key={currentWordIndex}
-                    className="text-primary animate-fade-in-up inline-block min-w-[200px] lg:min-w-[280px] text-left"
+                    className="animate-fade-in-up inline-block"
                   >
                     {rotatingWords[currentWordIndex]}
                   </span>
-                  {" "}Hotel Check-in.
-                </span>
+                </div>
+                <span className="text-gray-900">Hotel Check-in.</span>
               </h1>
             </div>
 

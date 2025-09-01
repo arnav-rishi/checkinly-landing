@@ -31,12 +31,12 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full fixed top-0 z-50 px-4 py-4">
-      <div className="container mx-auto max-w-7xl">
+    <header className="w-full fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-4">
+      <div className="max-w-fit mx-auto">
         <div className="bg-white/95 backdrop-blur-lg border border-gray-200/50 rounded-2xl shadow-lg px-6 py-3">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <div className="flex items-center space-x-3 group">
+            <div className="flex items-center space-x-3 group mr-8">
               <img 
                 src="/lovable-uploads/188e6dc8-7310-45bd-9b68-4fab84a92c03.png" 
                 alt="Checkinly Logo" 
@@ -68,7 +68,7 @@ const Header = () => {
             </nav>
 
             {/* Authentication CTAs */}
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-3 ml-8">
               {user ? (
                 <div className="flex items-center space-x-3">
                   <span className="hidden md:inline text-sm text-slate-600">
