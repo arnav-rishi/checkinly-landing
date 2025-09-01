@@ -79,7 +79,7 @@ const HeroSection = () => {
                 Checkinly helps hotels automate guest verification and unlock rooms with a single glance.
               </p>
               <p className="text-2xl lg:text-3xl font-bold text-gray-900 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-                Cut Costs. Delight Guests. The Future of Hotel Check-In is Here.
+                Faster, Safer, Smarter Hospitality.
               </p>
             </div>
 
