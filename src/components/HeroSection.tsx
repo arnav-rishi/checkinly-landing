@@ -67,9 +67,6 @@ const HeroSection = () => {
                 <br />
                 <span className="text-gray-900">Hotel Check-in.</span>
                 <br />
-                <span className="text-gray-600 text-2xl lg:text-3xl xl:text-4xl font-medium leading-relaxed mt-4 inline-block">
-                  Powered by Face & NFC Access.
-                </span>
               </h1>
             </div>
 
