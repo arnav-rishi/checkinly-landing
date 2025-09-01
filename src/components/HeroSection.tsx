@@ -57,9 +57,12 @@ const HeroSection = () => {
                 className="w-full h-auto object-cover"
                 style={{ aspectRatio: '16/10' }}
                 onError={(e) => {
-                  // Fallback placeholder
+                  // Fallback placeholder - properly type the DOM elements
                   e.currentTarget.style.display = 'none';
-                  e.currentTarget.nextElementSibling.style.display = 'flex';
+                  const nextElement = e.currentTarget.nextElementSibling as HTMLElement;
+                  if (nextElement) {
+                    nextElement.style.display = 'flex';
+                  }
                 }}
               />
               {/* Fallback placeholder */}
