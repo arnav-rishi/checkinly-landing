@@ -45,11 +45,14 @@ const HeroSection = () => {
         <div className="absolute top-3/4 left-1/6 w-4 h-4 bg-primary/15 rotate-12 animate-float opacity-40" style={{ animationDelay: '4s' }}></div>
       </div>
 
-
+      {/* Main content */}
+      <div className="relative z-10 flex items-center justify-center min-h-screen">
+        <div className="container mx-auto px-6 lg:px-8 text-center">
+          <div className="max-w-6xl mx-auto space-y-12">
             {/* Enhanced Rotating Headline */}
             <div className="space-y-6">
-              <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight">
-                <span className="inline-block min-w-[250px] lg:min-w-[350px]">
+              <h1 className="text-3xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight">
+                <span className="inline-block min-w-[200px] lg:min-w-[280px]">
                   <span 
                     key={currentWordIndex}
                     className="text-primary animate-fade-in-up inline-block"
@@ -60,7 +63,7 @@ const HeroSection = () => {
                 <br />
                 <span className="text-gray-900">Hotel Check-in.</span>
                 <br />
-                <span className="text-gray-600 text-2xl lg:text-3xl xl:text-4xl font-medium leading-relaxed">
+                <span className="text-gray-600 text-xl lg:text-2xl xl:text-3xl font-medium leading-relaxed">
                   Powered by Face & NFC Access.
                 </span>
               </h1>
@@ -68,11 +71,11 @@ const HeroSection = () => {
 
             {/* Enhanced Sub-headline */}
             <div className="space-y-6 max-w-3xl mx-auto">
-              <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed">
+              <p className="text-lg lg:text-xl text-gray-600 leading-relaxed">
                 Checkinly helps hotels automate guest verification and unlock rooms with a single glance.
               </p>
-              <p className="text-2xl lg:text-3xl font-bold text-gray-900 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-                Faster,Smarter,safer hospitality.
+              <p className="text-xl lg:text-2xl font-bold text-gray-900 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+                Faster, Smarter, Safer hospitality.
               </p>
             </div>
 
@@ -102,7 +105,7 @@ const HeroSection = () => {
                   <Clock className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-gray-900">90%</p>
+                  <p className="text-2xl font-bold text-gray-900">90%</p>
                   <p className="text-sm text-gray-600">Faster Check-in</p>
                 </div>
               </div>
@@ -111,7 +114,7 @@ const HeroSection = () => {
                   <TrendingUp className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-gray-900">98%</p>
+                  <p className="text-2xl font-bold text-gray-900">98%</p>
                   <p className="text-sm text-gray-600">Guest Satisfaction</p>
                 </div>
               </div>
@@ -120,8 +123,8 @@ const HeroSection = () => {
                   <Star className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-gray-900">500+</p>
-                  <p className="text-sm text-gray-600">Hotels Trust Us</p>
+                  <p className="text-2xl font-bold text-gray-900">Early</p>
+                  <p className="text-sm text-gray-600">Access Beta</p>
                 </div>
               </div>
             </div>
@@ -155,7 +158,7 @@ const HeroSection = () => {
                   </div>
                 ))}
               </div>
-              <span className="text-sm font-medium">Trusted by 500+ hotels worldwide</span>
+              <span className="text-sm font-medium">Join early adopters shaping the future of hospitality</span>
             </div>
           </div>
         </div>
