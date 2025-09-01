@@ -2,115 +2,190 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { Smartphone, Zap, Nfc, Bot } from "lucide-react";
+import { Smartphone, Zap, Nfc, Bot, Monitor, Apple, Play } from "lucide-react";
 
 const DownloadApp = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
       
-      <main className="container mx-auto px-6 py-16">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="mb-8">
+      <main className="container mx-auto px-6 py-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
             <Smartphone className="w-16 h-16 mx-auto mb-4 text-primary" />
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Download Checkinly App</h1>
-            <p className="text-xl text-muted-foreground">
-              Get the mobile app for seamless hotel check-ins on the go
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Get the mobile app for seamless hotel check-ins on the go. Available for both iOS and Android devices with full desktop support.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-card rounded-large p-8 border">
-              <div className="w-12 h-12 mb-4 mx-auto">
-                <svg viewBox="0 0 24 24" className="w-full h-full">
-                  <path
-                    fill="currentColor"
-                    d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-4">iOS App</h3>
-              <p className="text-muted-foreground mb-6">
-                Download for iPhone and iPad from the App Store
-              </p>
-              <Button className="w-full">
-                <div className="w-4 h-4 mr-2">
-                  <svg viewBox="0 0 24 24" className="w-full h-full">
-                    <path
-                      fill="currentColor"
-                      d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
-                    />
-                  </svg>
+          {/* Mobile Apps Section */}
+          <section id="mobile-apps" className="mb-20">
+            <div className="flex items-center justify-center mb-8">
+              <Smartphone className="w-8 h-8 mr-4 text-primary" />
+              <h2 className="text-3xl font-bold">Mobile Apps</h2>
+            </div>
+            <p className="text-lg text-muted-foreground text-center mb-8">Download for iOS and Android</p>
+            
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <div className="bg-card rounded-large p-8 border">
+                <div className="w-16 h-16 mb-6 mx-auto bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center">
+                  <Apple className="w-10 h-10 text-white" />
                 </div>
+                <h3 className="text-xl font-semibold mb-4 text-center">iOS App</h3>
+                <p className="text-muted-foreground mb-6 text-center">
+                  Available on the App Store for iPhone and iPad with full native functionality.
+                </p>
+                <ul className="space-y-2 text-sm mb-6">
+                  <li>• Native iOS performance</li>
+                  <li>• Touch ID / Face ID integration</li>
+                  <li>• Apple Wallet integration</li>
+                  <li>• Offline mode support</li>
+                  <li>• Push notifications</li>
+                </ul>
+                <Button className="w-full">
+                  <Apple className="w-4 h-4 mr-2" />
+                  Download for iOS
+                </Button>
+              </div>
+
+              <div className="bg-card rounded-large p-8 border">
+                <div className="w-16 h-16 mb-6 mx-auto bg-gradient-to-br from-green-500 to-blue-500 rounded-2xl flex items-center justify-center">
+                  <Play className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4 text-center">Android App</h3>
+                <p className="text-muted-foreground mb-6 text-center">
+                  Download from Google Play Store for Android devices with Material Design.
+                </p>
+                <ul className="space-y-2 text-sm mb-6">
+                  <li>• Material Design 3</li>
+                  <li>• Biometric authentication</li>
+                  <li>• Google Pay integration</li>
+                  <li>• Widget support</li>
+                  <li>• Adaptive UI for all screens</li>
+                </ul>
+                <Button className="w-full">
+                  <Play className="w-4 h-4 mr-2" />
+                  Download for Android
+                </Button>
+              </div>
+            </div>
+          </section>
+
+          {/* Desktop Section */}
+          <section id="desktop" className="mb-20">
+            <div className="flex items-center justify-center mb-8">
+              <Monitor className="w-8 h-8 mr-4 text-primary" />
+              <h2 className="text-3xl font-bold">Desktop</h2>
+            </div>
+            <p className="text-lg text-muted-foreground text-center mb-8">Cross-platform desktop solutions</p>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-card rounded-large p-8 border">
+                <Monitor className="w-12 h-12 mb-4 text-primary" />
+                <h3 className="text-xl font-semibold mb-4">Desktop Version</h3>
+                <p className="text-muted-foreground mb-4">
+                  Full-featured desktop application for Windows, Mac, and Linux with complete functionality.
+                </p>
+                <ul className="space-y-2 text-sm mb-6">
+                  <li>• Cross-platform compatibility</li>
+                  <li>• Offline functionality</li>
+                  <li>• Multi-monitor support</li>
+                  <li>• Advanced reporting tools</li>
+                  <li>• Keyboard shortcuts</li>
+                </ul>
+                <Button className="w-full">
+                  <Monitor className="w-4 h-4 mr-2" />
+                  Download Desktop App
+                </Button>
+              </div>
+
+              <div className="bg-card rounded-large p-8 border">
+                <div className="w-12 h-12 mb-4 text-primary bg-primary/10 rounded-lg flex items-center justify-center">
+                  <Monitor className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-semibold mb-4">Web Portal</h3>
+                <p className="text-muted-foreground mb-4">
+                  Access your dashboard from any browser with full cloud synchronization.
+                </p>
+                <ul className="space-y-2 text-sm mb-6">
+                  <li>• No installation required</li>
+                  <li>• Real-time synchronization</li>
+                  <li>• Responsive design</li>
+                  <li>• Secure HTTPS connection</li>
+                  <li>• Cross-browser support</li>
+                </ul>
+                <Button variant="outline" className="w-full">
+                  Access Web Portal
+                </Button>
+              </div>
+            </div>
+          </section>
+
+          {/* Key Features */}
+          <section className="mb-12">
+            <h2 className="text-2xl font-bold text-center mb-8">Key Features</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="bg-card rounded-large p-8 border text-center">
+                <Zap className="w-12 h-12 mx-auto mb-4 text-primary" />
+                <h3 className="text-xl font-semibold mb-4">Quick Check-in</h3>
+                <p className="text-muted-foreground mb-4">
+                  Complete check-in process in under 60 seconds
+                </p>
+                <ul className="space-y-2 text-sm">
+                  <li>• Skip front desk queues</li>
+                  <li>• Digital ID verification</li>
+                  <li>• Instant confirmation</li>
+                  <li>• QR code generation</li>
+                </ul>
+              </div>
+
+              <div className="bg-card rounded-large p-8 border text-center">
+                <Nfc className="w-12 h-12 mx-auto mb-4 text-primary" />
+                <h3 className="text-xl font-semibold mb-4">Digital Key</h3>
+                <p className="text-muted-foreground mb-4">
+                  NFC and QR code room access technology
+                </p>
+                <ul className="space-y-2 text-sm">
+                  <li>• Contactless room entry</li>
+                  <li>• Secure encryption</li>
+                  <li>• Works offline</li>
+                  <li>• Multiple access methods</li>
+                </ul>
+              </div>
+
+              <div className="bg-card rounded-large p-8 border text-center">
+                <Bot className="w-12 h-12 mx-auto mb-4 text-primary" />
+                <h3 className="text-xl font-semibold mb-4">Guest Services</h3>
+                <p className="text-muted-foreground mb-4">
+                  Request services directly from your phone
+                </p>
+                <ul className="space-y-2 text-sm">
+                  <li>• Room service orders</li>
+                  <li>• Housekeeping requests</li>
+                  <li>• Concierge assistance</li>
+                  <li>• Real-time chat support</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          {/* Download CTA */}
+          <div className="bg-gradient-primary rounded-large p-8 text-white text-center">
+            <Smartphone className="w-12 h-12 mx-auto mb-4" />
+            <h2 className="text-2xl font-bold mb-4">Ready to Experience Seamless Check-ins?</h2>
+            <p className="mb-6">
+              Download the app today and transform your hotel experience
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button variant="secondary" size="lg">
+                <Apple className="w-4 h-4 mr-2" />
                 Download for iOS
               </Button>
-            </div>
-
-            <div className="bg-card rounded-large p-8 border">
-              <div className="w-12 h-12 mb-4 mx-auto">
-                <svg viewBox="0 0 24 24" className="w-full h-full">
-                  <path
-                    fill="currentColor"
-                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-4">Android App</h3>
-              <p className="text-muted-foreground mb-6">
-                Download for Android devices from Google Play Store
-              </p>
-              <Button className="w-full">
-                <div className="w-4 h-4 mr-2">
-                  <svg viewBox="0 0 24 24" className="w-full h-full">
-                    <path
-                      fill="currentColor"
-                      d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"
-                    />
-                  </svg>
-                </div>
+              <Button variant="secondary" size="lg">
+                <Play className="w-4 h-4 mr-2" />
                 Download for Android
               </Button>
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-card rounded-large p-8 border">
-              <Zap className="w-12 h-12 mb-4 text-primary" />
-              <h3 className="text-xl font-semibold mb-4">Quick Check-in</h3>
-              <p className="text-muted-foreground mb-4">
-                Complete check-in process in under 60 seconds
-              </p>
-              <ul className="space-y-2 text-sm text-left">
-                <li>• Skip front desk queues</li>
-                <li>• Digital ID verification</li>
-                <li>• Instant confirmation</li>
-              </ul>
-            </div>
-
-            <div className="bg-card rounded-large p-8 border">
-              <Nfc className="w-12 h-12 mb-4 text-primary" />
-              <h3 className="text-xl font-semibold mb-4">Digital Key</h3>
-              <p className="text-muted-foreground mb-4">
-                NFC and QR code room access
-              </p>
-              <ul className="space-y-2 text-sm text-left">
-                <li>• Contactless room entry</li>
-                <li>• Secure encryption</li>
-                <li>• Works offline</li>
-              </ul>
-            </div>
-
-            <div className="bg-card rounded-large p-8 border">
-              <Bot className="w-12 h-12 mb-4 text-primary" />
-              <h3 className="text-xl font-semibold mb-4">Guest Services</h3>
-              <p className="text-muted-foreground mb-4">
-                Request services directly from your phone
-              </p>
-              <ul className="space-y-2 text-sm text-left">
-                <li>• Room service orders</li>
-                <li>• Housekeeping requests</li>
-                <li>• Concierge assistance</li>
-              </ul>
             </div>
           </div>
         </div>

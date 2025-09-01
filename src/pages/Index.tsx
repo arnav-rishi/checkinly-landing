@@ -7,7 +7,6 @@ import EnhancedFrontDesk from "@/components/EnhancedFrontDesk";
 import ReservationManagement from "@/components/ReservationManagement";
 import FeatureSection from "@/components/FeatureSection";
 import PricingSection from "@/components/PricingSection";
-import FAQSection from "@/components/FAQSection";
 import EmailCaptureSection from "@/components/EmailCaptureSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
@@ -56,9 +55,6 @@ const Index = () => {
       
       {/* Pricing section */}
       <PricingSection />
-      
-      {/* FAQ section */}
-      <FAQSection />
       
       {/* Email capture for waitlist */}
       <EmailCaptureSection />
