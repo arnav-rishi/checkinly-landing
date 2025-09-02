@@ -31,70 +31,79 @@ const Header = () => {
   };
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 px-6 py-4">
-      <div className="max-w-7xl mx-auto">
-        <nav className="flex items-center justify-between py-4 px-8 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg">
-          {/* Logo and Brand */}
-          <div className="flex items-center space-x-4">
-            <div className="relative">
-              <div className="w-10 h-10 bg-gradient-to-br from-white/20 to-white/10 rounded-xl flex items-center justify-center shadow-lg border border-white/20">
-                <span className="text-white font-bold text-lg">C</span>
-              </div>
+    <header className="w-full fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-4">
+      <div className="max-w-fit mx-auto">
+        <div className="bg-white/95 backdrop-blur-lg border border-gray-200/50 rounded-2xl shadow-lg px-6 py-3">
+          <div className="flex items-center justify-between">
+            {/* Logo */}
+            <div className="flex items-center space-x-3 group mr-8">
+              <img 
+                src="/lovable-uploads/188e6dc8-7310-45bd-9b68-4fab84a92c03.png" 
+                alt="Checkinly Logo" 
+                className="w-8 h-8 hover:scale-110 transition-all duration-300 group-hover:drop-shadow-lg"
+              />
+              <span className="text-lg font-bold text-slate-800 group-hover:text-primary transition-colors duration-300">Checkinly</span>
             </div>
-            <span className="text-xl font-bold text-white">Checkinly</span>
-          </div>
 
-          {/* Main Navigation */}
-          <div className="hidden lg:flex items-center space-x-2">
-            <MegaMenu title="Download App" sections={downloadAppMenuConfig} className="text-white/90 hover:text-white" />
-            <MegaMenu title="Checkinly OS" sections={checkinlyOSMenuConfig} className="text-white/90 hover:text-white" />
-            <MegaMenu title="For Hotels" sections={forHotelsMenuConfig} className="text-white/90 hover:text-white" />
-            <a 
-              href="/faqs" 
-              className="px-4 py-2 text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
-            >
-              FAQs
-            </a>
-            <a 
-              href="/privacy-policy" 
-              className="px-4 py-2 text-white/90 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
-            >
-              Privacy Policy
-            </a>
-          </div>
+            {/* Main Navigation */}
+            <nav className="hidden md:flex items-center space-x-6">
+              <a href="/" className="text-slate-600 hover:text-primary transition-all duration-300 text-sm font-medium hover:scale-105 relative group">
+                Home
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </a>
+              
+              {/* Mega Menus */}
+              <MegaMenu title="Download App" sections={downloadAppMenuConfig} />
+              <MegaMenu title="Checkinly OS" sections={checkinlyOSMenuConfig} />
+              <MegaMenu title="For Hotels" sections={forHotelsMenuConfig} />
 
-          {/* Authentication */}
-          <div className="flex items-center space-x-3">
-            {user ? (
-              <div className="flex items-center space-x-4">
-                <button 
-                  onClick={handleSignOut}
-                  className="px-4 py-2 text-white/90 hover:text-white transition-colors"
-                >
-                  Sign Out
-                </button>
-                <span className="text-sm text-white/80">
-                  Welcome, {user.user_metadata?.full_name || user.email}
-                </span>
-              </div>
-            ) : (
-              <>
-                <button
-                  onClick={handleSignInClick}
-                  className="px-4 py-2 text-white/90 hover:text-white transition-colors"
-                >
-                  Log in
-                </button>
-                <Button 
-                  onClick={handleStartTrialClick}
-                  className="px-6 py-2 bg-white text-blue-600 hover:bg-white/90 rounded-lg transition-colors shadow-md hover:shadow-lg font-medium"
-                >
-                  Book a demo
-                </Button>
-              </>
-            )}
+              <a href="/faqs" className="text-slate-600 hover:text-primary transition-all duration-300 text-sm font-medium hover:scale-105 relative group">
+                FAQs
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </a>
+              <a href="/privacy-policy" className="text-slate-600 hover:text-primary transition-all duration-300 text-sm font-medium hover:scale-105 relative group">
+                Privacy Policy
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            </nav>
+
+            {/* Authentication CTAs */}
+            <div className="flex items-center space-x-3 ml-8">
+              {user ? (
+                <div className="flex items-center space-x-3">
+                  <span className="hidden md:inline text-sm text-slate-600">
+                    Welcome, {user.user_metadata?.full_name || user.email}
+                  </span>
+                  <Button 
+                    variant="ghost" 
+                    size="sm"
+                    onClick={handleSignOut}
+                    className="hidden md:inline-flex text-sm hover:scale-105 transition-all duration-300 text-slate-600 hover:text-primary"
+                  >
+                    Sign Out
+                  </Button>
+                </div>
+              ) : (
+                <>
+                  <Button 
+                    variant="ghost" 
+                    size="sm"
+                    onClick={handleSignInClick}
+                    className="hidden md:inline-flex text-sm hover:scale-105 transition-all duration-300 text-slate-600 hover:text-primary"
+                  >
+                    Log in
+                  </Button>
+                  <Button 
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md px-4 py-2 text-sm font-medium hover:scale-105 transition-all duration-300 rounded-xl"
+                    onClick={handleStartTrialClick}
+                  >
+                    Try for free
+                  </Button>
+                </>
+              )}
+            </div>
           </div>
-        </nav>
+        </div>
       </div>
     </header>
   );

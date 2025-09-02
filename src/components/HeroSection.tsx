@@ -1,8 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
-import DashboardPreview from "@/components/DashboardPreview";
+import { Clock, TrendingUp, Smartphone, Shield, Zap, Users, ArrowRight, DollarSign } from "lucide-react";
 
 const HeroSection = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -21,86 +20,138 @@ const HeroSection = () => {
     // Analytics tracking
   };
 
+  const features = [
+    { icon: Smartphone, title: "Face Recognition", description: "Instant guest verification" },
+    { icon: Shield, title: "NFC Access", description: "Secure room entry" },
+    { icon: Zap, title: "Instant Setup", description: "Ready in minutes" },
+    { icon: Users, title: "Guest Delight", description: "Seamless experience" }
+  ];
 
   return (
-    <>
-      {/* Hero Section */}
-      <section className="relative w-full min-h-screen bg-gradient-to-br from-[#2563eb] via-[#3b82f6] to-[#60a5fa] overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 right-10 w-[500px] h-[500px] bg-white/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 left-10 w-[400px] h-[400px] bg-white/5 rounded-full blur-2xl"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-white/5 to-white/10 rounded-full blur-3xl"></div>
-        </div>
+    <section className="relative w-full min-h-screen bg-gradient-to-br from-[#fafbff] via-[#f6f8ff] to-[#f0f4ff] overflow-hidden">
+      {/* Simplified background elements with uniform gradient */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* More uniform gradient orbs */}
+        <div className="absolute top-20 right-10 w-[400px] h-[400px] bg-gradient-to-br from-blue-400/15 via-primary/12 to-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-10 w-[350px] h-[350px] bg-gradient-to-tr from-primary/12 via-blue-300/15 to-blue-400/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-gradient-to-r from-blue-400/8 to-primary/10 rounded-full blur-2xl"></div>
+        
+        {/* Subtle grid pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.04)_1px,transparent_1px)] bg-[size:60px_60px] opacity-40"></div>
+      </div>
 
-        <div className="relative z-10 container max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-32">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            {/* Small Trust Badge */}
-            <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-              <span className="text-sm text-white/90 font-medium">
-                Trusted to automate 1,000+ hotel workflows weekly
-              </span>
-            </div>
-
-            {/* Main Headline */}
-            <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                <span className="text-white">Streamline Work.</span>
-                <br />
-                <span className="text-white/90 italic font-light">
+      <div className="relative z-10 container max-w-7xl mx-auto px-12 lg:px-16 py-20 lg:py-28">
+        <div className="flex items-center justify-center min-h-[85vh]">
+          {/* Centered Content */}
+          <div className="max-w-6xl mx-auto text-center space-y-12">
+            {/* Headline with rotating words on top */}
+            <div className="space-y-6 px-4">
+              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight">
+                <div className="text-primary mb-4">
                   <span 
                     key={currentWordIndex}
-                    className="animate-fade-in-up inline-block text-white"
+                    className="animate-fade-in-up inline-block"
                   >
                     {rotatingWords[currentWordIndex]}
                   </span>
-                </span>
-                <span className="text-white"> Hotel Check-in.</span>
+                </div>
+                <span className="text-gray-900">Hotel Check-in.</span>
               </h1>
             </div>
 
-            {/* Subheadline */}
-            <div className="max-w-2xl mx-auto">
-              <p className="text-xl lg:text-2xl text-white/90 leading-relaxed">
-                Checkinly helps hotels automate guest verification and unlock rooms with a single glance. Faster, safer, smarter hospitality.
+            {/* Enhanced Sub-headline */}
+            <div className="space-y-6 max-w-4xl mx-auto px-6">
+              <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed">
+                Checkinly helps hotels automate guest verification and unlock rooms with a single glance.
+              </p>
+              <p className="text-2xl lg:text-3xl font-bold text-gray-900 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+                Faster, Safer, Smarter Hospitality.
               </p>
             </div>
 
+            {/* Feature Grid */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 py-12 max-w-5xl mx-auto px-4">
+              {features.map((feature, index) => (
+                <div 
+                  key={feature.title}
+                  className="flex flex-col items-center space-y-4 p-8 bg-white/70 backdrop-blur-sm rounded-3xl border border-white/40 hover:bg-white/85 transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-lg"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="p-4 bg-gradient-to-br from-primary/15 to-blue-500/15 rounded-2xl">
+                    <feature.icon className="h-10 w-10 text-primary" />
+                  </div>
+                  <div className="text-center">
+                    <h3 className="font-semibold text-gray-900 mb-2 text-lg">{feature.title}</h3>
+                    <p className="text-gray-600">{feature.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Stats row */}
+            <div className="flex flex-wrap justify-center gap-10 py-10">
+              <div className="flex items-center space-x-4 bg-white/80 backdrop-blur-sm rounded-3xl px-8 py-6 border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="p-4 bg-gradient-to-br from-primary/15 to-blue-500/15 rounded-2xl">
+                  <Clock className="h-7 w-7 text-primary" />
+                </div>
+                <div>
+                  <p className="text-4xl font-bold text-gray-900">90%</p>
+                  <p className="text-gray-600 font-medium">Faster Check-in</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-4 bg-white/80 backdrop-blur-sm rounded-3xl px-8 py-6 border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="p-4 bg-gradient-to-br from-primary/15 to-blue-500/15 rounded-2xl">
+                  <TrendingUp className="h-7 w-7 text-primary" />
+                </div>
+                <div>
+                  <p className="text-4xl font-bold text-gray-900">98%</p>
+                  <p className="text-gray-600 font-medium">Guest Satisfaction</p>
+                </div>
+              </div>
+              <div className="flex items-center space-x-4 bg-white/80 backdrop-blur-sm rounded-3xl px-8 py-6 border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="p-4 bg-gradient-to-br from-primary/15 to-blue-500/15 rounded-2xl">
+                  <DollarSign className="h-7 w-7 text-primary" />
+                </div>
+                <div>
+                  <p className="text-4xl font-bold text-gray-900">15%</p>
+                  <p className="text-gray-600 font-medium">Saved in Revenue</p>
+                </div>
+              </div>
+            </div>
+
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-12 px-4">
               <Button 
                 size="lg"
-                className="px-8 py-4 text-lg font-semibold rounded-xl bg-white text-blue-600 hover:bg-white/90 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                className="px-12 py-7 h-18 text-2xl font-semibold rounded-3xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 group"
                 onClick={() => handleCTAClick('request_demo')}
               >
                 Request Demo
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
                 size="lg"
                 variant="outline"
-                className="px-8 py-4 text-lg font-semibold rounded-xl border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 transition-all duration-300 hover:scale-105 bg-transparent backdrop-blur-sm"
-                onClick={() => handleCTAClick('see_action')}
+                className="px-12 py-7 h-18 text-2xl font-semibold rounded-3xl border-2 border-primary/30 text-gray-700 hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 bg-white/80 backdrop-blur-sm hover:bg-white/95"
+                onClick={() => handleCTAClick('start_trial')}
               >
-                <Play className="mr-2 h-5 w-5" />
-                See It in Action
+                Start Free Trial
               </Button>
+            </div>
+
+            {/* Simple tagline */}
+            <div className="pt-8">
+              <p className="text-lg text-gray-500 font-medium">
+                Revolutionizing hotel check-in experiences
+              </p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Dashboard Preview Section */}
-      <section className="relative bg-gradient-to-b from-[#60a5fa] to-slate-50 py-20">
-        <div className="container max-w-7xl mx-auto px-6 lg:px-12">
-          <DashboardPreview />
-        </div>
-        
-        {/* Floating decorative elements */}
-        <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full blur-xl"></div>
-        <div className="absolute bottom-10 right-10 w-32 h-32 bg-blue-400/20 rounded-full blur-2xl"></div>
-      </section>
-    </>
+      {/* Bottom fade gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-white/98 via-blue-50/70 to-transparent pointer-events-none"></div>
+    </section>
   );
 };
 
