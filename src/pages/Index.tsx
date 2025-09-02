@@ -1,6 +1,7 @@
 
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
+import DashboardShowcase from "@/components/DashboardShowcase";
 import QuickFeaturesSection from "@/components/QuickFeaturesSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import EnhancedFrontDesk from "@/components/EnhancedFrontDesk";
@@ -43,6 +44,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <HeroSection />
+      <DashboardShowcase />
       
       {/* Core value prop and features */}
       <QuickFeaturesSection />

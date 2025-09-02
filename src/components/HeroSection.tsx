@@ -60,63 +60,13 @@ const HeroSection = () => {
             </div>
 
             {/* Enhanced Sub-headline */}
-            <div className="space-y-6 max-w-4xl mx-auto px-6">
+            <div className="space-y-8 max-w-4xl mx-auto px-6">
               <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed">
                 Checkinly helps hotels automate guest verification and unlock rooms with a single glance.
               </p>
               <p className="text-2xl lg:text-3xl font-bold text-gray-900 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
                 Faster, Safer, Smarter Hospitality.
               </p>
-            </div>
-
-            {/* Feature Grid */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 py-12 max-w-5xl mx-auto px-4">
-              {features.map((feature, index) => (
-                <div 
-                  key={feature.title}
-                  className="flex flex-col items-center space-y-4 p-8 bg-white/70 backdrop-blur-sm rounded-3xl border border-white/40 hover:bg-white/85 transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-lg"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="p-4 bg-gradient-to-br from-primary/15 to-blue-500/15 rounded-2xl">
-                    <feature.icon className="h-10 w-10 text-primary" />
-                  </div>
-                  <div className="text-center">
-                    <h3 className="font-semibold text-gray-900 mb-2 text-lg">{feature.title}</h3>
-                    <p className="text-gray-600">{feature.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Stats row */}
-            <div className="flex flex-wrap justify-center gap-10 py-10">
-              <div className="flex items-center space-x-4 bg-white/80 backdrop-blur-sm rounded-3xl px-8 py-6 border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="p-4 bg-gradient-to-br from-primary/15 to-blue-500/15 rounded-2xl">
-                  <Clock className="h-7 w-7 text-primary" />
-                </div>
-                <div>
-                  <p className="text-4xl font-bold text-gray-900">90%</p>
-                  <p className="text-gray-600 font-medium">Faster Check-in</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4 bg-white/80 backdrop-blur-sm rounded-3xl px-8 py-6 border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="p-4 bg-gradient-to-br from-primary/15 to-blue-500/15 rounded-2xl">
-                  <TrendingUp className="h-7 w-7 text-primary" />
-                </div>
-                <div>
-                  <p className="text-4xl font-bold text-gray-900">98%</p>
-                  <p className="text-gray-600 font-medium">Guest Satisfaction</p>
-                </div>
-              </div>
-              <div className="flex items-center space-x-4 bg-white/80 backdrop-blur-sm rounded-3xl px-8 py-6 border border-white/30 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="p-4 bg-gradient-to-br from-primary/15 to-blue-500/15 rounded-2xl">
-                  <DollarSign className="h-7 w-7 text-primary" />
-                </div>
-                <div>
-                  <p className="text-4xl font-bold text-gray-900">15%</p>
-                  <p className="text-gray-600 font-medium">Saved in Revenue</p>
-                </div>
-              </div>
             </div>
 
             {/* CTA Buttons */}
