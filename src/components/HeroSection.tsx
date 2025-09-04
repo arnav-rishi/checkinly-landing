@@ -27,34 +27,33 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.04)_1px,transparent_1px)] bg-[size:60px_60px] opacity-40"></div>
       </div>
 
-      <div className="relative z-10 container max-w-7xl mx-auto px-6 lg:px-12 pt-20 pb-12">
-        <div className="text-center space-y-8">
+      <div className="relative z-10 container max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-16">
+        <div className="text-center space-y-12">
           {/* Main Headline */}
-          <div className="space-y-4 max-w-5xl mx-auto">
-            <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-              <span className="text-gray-900">Revolutionizing Hotels to</span>
-              <br />
-              <span className="text-primary bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+          <div className="space-y-6 max-w-6xl mx-auto">
+            <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight">
+              <span className="text-gray-900 block mb-2">Revolutionizing Hotels to</span>
+              <span className="text-primary bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent block">
                 Streamline Check-in and Succeed
               </span>
             </h1>
           </div>
 
           {/* Subtitle */}
-          <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
             Your personalized hotel management dashboard. Automate guest verification, 
             streamline operations, and deliver seamless experiences.
           </p>
 
           {/* CTA Button */}
-          <div className="pt-4">
+          <div className="pt-8">
             <Button 
               size="lg"
-              className="px-8 py-6 h-14 text-lg font-semibold rounded-2xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 group"
+              className="px-10 py-6 h-16 text-xl font-semibold rounded-2xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 group"
               onClick={() => handleCTAClick('view_dashboard')}
             >
               View Dashboard
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
             </Button>
           </div>
         </div>
