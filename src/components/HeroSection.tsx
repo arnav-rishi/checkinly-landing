@@ -40,7 +40,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.04)_1px,transparent_1px)] bg-[size:60px_60px] opacity-40"></div>
       </div>
 
-      <div className="relative z-10 container max-w-7xl mx-auto px-12 lg:px-16 py-20 lg:py-28">
+      <div className="relative z-10 container max-w-7xl mx-auto px-10 lg:px-12 py-14 lg:py-24">
         <div className="flex items-center justify-center min-h-[85vh]">
           {/* Centered Content */}
           <div className="max-w-6xl mx-auto text-center space-y-12">
