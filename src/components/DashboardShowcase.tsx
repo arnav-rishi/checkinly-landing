@@ -47,12 +47,7 @@ const DashboardShowcase = () => {
     }
   ];
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveTab((prev) => (prev + 1) % dashboardTabs.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [dashboardTabs.length]);
+  // Removed auto-switching for better performance
 
   const renderAnalyticsDashboard = () => (
     <div className="bg-white rounded-2xl border border-gray-200 p-8 space-y-8">

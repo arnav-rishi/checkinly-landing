@@ -46,7 +46,7 @@ const HeroSection = () => {
           <div className="max-w-6xl mx-auto text-center space-y-12">
             {/* Headline with rotating words on top */}
             <div className="space-y-6 px-4">
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight">
+              <h1 className="text-3xl lg:text-4xl xl:text-5xl font-bold leading-tight tracking-tight">
                 <div className="text-primary mb-4">
                   <span 
                     key={currentWordIndex}
@@ -61,10 +61,10 @@ const HeroSection = () => {
 
             {/* Enhanced Sub-headline */}
             <div className="space-y-8 max-w-4xl mx-auto px-6">
-              <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed">
+              <p className="text-lg lg:text-xl text-gray-600 leading-relaxed">
                 Checkinly helps hotels automate guest verification and unlock rooms with a single glance.
               </p>
-              <p className="text-2xl lg:text-3xl font-bold text-gray-900 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+              <p className="text-xl lg:text-2xl font-bold text-gray-900 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
                 Faster, Safer, Smarter Hospitality.
               </p>
             </div>
@@ -73,16 +73,16 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-6 justify-center pt-12 px-4">
               <Button 
                 size="lg"
-                className="px-12 py-7 h-18 text-2xl font-semibold rounded-3xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 group"
+                className="px-10 py-6 h-16 text-xl font-semibold rounded-3xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 group"
                 onClick={() => handleCTAClick('request_demo')}
               >
                 Request Demo
-                <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
                 size="lg"
                 variant="outline"
-                className="px-12 py-7 h-18 text-2xl font-semibold rounded-3xl border-2 border-primary/30 text-gray-700 hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 bg-white/80 backdrop-blur-sm hover:bg-white/95"
+                className="px-10 py-6 h-16 text-xl font-semibold rounded-3xl border-2 border-primary/30 text-gray-700 hover:bg-primary/10 hover:border-primary/50 transition-all duration-300 transform hover:-translate-y-2 hover:scale-105 bg-white/80 backdrop-blur-sm hover:bg-white/95"
                 onClick={() => handleCTAClick('start_trial')}
               >
                 Start Free Trial
