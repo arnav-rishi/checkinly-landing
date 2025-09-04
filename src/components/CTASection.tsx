@@ -17,7 +17,6 @@ interface CTASectionProps {
 
 const CTASection = ({
   title = "Ready to Transform Your Hotel Operations?",
-  description = "Join 500+ hotels already using Checkinly to create seamless guest experiences.",
   primaryText = "Start Your Free Trial",
   secondaryText,
   variant = 'default',
