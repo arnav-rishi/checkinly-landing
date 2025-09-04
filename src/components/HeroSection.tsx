@@ -64,9 +64,6 @@ const HeroSection = () => {
               <p className="text-lg lg:text-xl text-gray-600 leading-relaxed">
                 Checkinly helps hotels automate guest verification and unlock rooms with a single glance.
               </p>
-              <p className="text-xl lg:text-2xl font-bold text-gray-900 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-                Faster, Safer, Smarter Hospitality.
-              </p>
             </div>
 
             {/* CTA Buttons */}
