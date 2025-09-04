@@ -206,13 +206,13 @@ export const forHotelsMenuConfig: MegaMenuSection[] = [
       {
         title: "Enterprise Solution",
         description: "Complete hotel management platform",
-        href: "/for-hotels#enterprise",
+        href: "/enterprise-solution",
         icon: Building2
       },
       {
         title: "Integration Guide",
         description: "Connect with your existing systems",
-        href: "/for-hotels#integration",
+        href: "/integration-guide",
         icon: Settings
       }
     ]
@@ -225,13 +225,13 @@ export const forHotelsMenuConfig: MegaMenuSection[] = [
       {
         title: "Case Studies",
         description: "See how hotels improve with Checkinly",
-        href: "/for-hotels#case-studies",
+        href: "/case-studies",
         icon: Users
       },
       {
         title: "ROI Calculator",
         description: "Calculate your return on investment",
-        href: "/for-hotels#roi",
+        href: "/roi-calculator",
         icon: FileText
       }
     ]

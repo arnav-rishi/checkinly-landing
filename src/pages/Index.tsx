@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import DashboardShowcase from "@/components/DashboardShowcase";
 import QuickFeaturesSection from "@/components/QuickFeaturesSection";
-import HowItWorksSection from "@/components/HowItWorksSection";
+import DocumentVerificationSection from "@/components/DocumentVerificationSection";
 import EnhancedFrontDesk from "@/components/EnhancedFrontDesk";
 import ReservationManagement from "@/components/ReservationManagement";
 import FeatureSection from "@/components/FeatureSection";
@@ -48,7 +48,7 @@ const Index = () => {
       
       {/* Core value prop and features */}
       <QuickFeaturesSection />
-      <HowItWorksSection />
+      <DocumentVerificationSection />
       
       {/* Additional feature sections */}
       <EnhancedFrontDesk />
