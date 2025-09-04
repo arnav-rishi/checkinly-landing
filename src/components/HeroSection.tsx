@@ -4,16 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Clock, TrendingUp, Smartphone, Shield, Zap, Users, ArrowRight, DollarSign, Star, CheckCircle } from "lucide-react";
 
 const HeroSection = () => {
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const rotatingWords = ["Smarter", "Faster", "Safer", "Seamless"];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % rotatingWords.length);
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, [rotatingWords.length]);
 
   const handleCTAClick = (action: string) => {
     console.log(`Hero CTA clicked: ${action}`);
@@ -39,30 +29,13 @@ const HeroSection = () => {
 
       <div className="relative z-10 container max-w-7xl mx-auto px-6 lg:px-12 pt-20 pb-12">
         <div className="text-center space-y-8">
-          {/* Trust Signal */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full border border-primary/20">
-            <div className="flex items-center gap-1">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-              ))}
-            </div>
-            <span className="text-sm font-medium text-gray-700">
-              Trusted by 500+ hotels worldwide
-            </span>
-          </div>
-
           {/* Main Headline */}
           <div className="space-y-4 max-w-5xl mx-auto">
             <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight">
               <span className="text-gray-900">Revolutionizing Hotels to</span>
               <br />
               <span className="text-primary bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-                <span 
-                  key={currentWordIndex}
-                  className="animate-fade-in-up inline-block"
-                >
-                  {rotatingWords[currentWordIndex]}
-                </span> Check-in and Succeed
+                Streamline Check-in and Succeed
               </span>
             </h1>
           </div>
@@ -90,14 +63,14 @@ const HeroSection = () => {
         <div className="mt-16 relative max-w-6xl mx-auto">
           <div className="relative">
             {/* Main dashboard mockup */}
-            <div className="bg-gray-900/95 backdrop-blur-sm rounded-3xl p-6 shadow-2xl border border-gray-700/50">
+            <div className="bg-white/95 backdrop-blur-sm rounded-3xl p-6 shadow-2xl border border-gray-200/50">
               {/* Dashboard header */}
-              <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-700/50">
+              <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-200/50">
                 <div className="flex items-center gap-4">
                   <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                     <Shield className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-white font-semibold">Checkinly Dashboard</span>
+                  <span className="text-gray-900 font-semibold">Checkinly Dashboard</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -110,7 +83,7 @@ const HeroSection = () => {
               <div className="grid grid-cols-1 lg:grid-cols-7 gap-6">
                 {/* Left sidebar */}
                 <div className="lg:col-span-2 space-y-3">
-                  <div className="text-gray-400 text-sm font-medium mb-3">OVERVIEW</div>
+                  <div className="text-gray-500 text-sm font-medium mb-3">OVERVIEW</div>
                   {[
                     { icon: Users, label: "Dashboard", active: true },
                     { icon: Smartphone, label: "Check-ins", active: false },
@@ -118,7 +91,7 @@ const HeroSection = () => {
                     { icon: Zap, label: "Analytics", active: false }
                   ].map((item, i) => (
                     <div key={i} className={`flex items-center gap-3 p-3 rounded-xl transition-colors ${
-                      item.active ? 'bg-primary/20 text-primary' : 'text-gray-400 hover:text-gray-300'
+                      item.active ? 'bg-blue-50 text-primary border border-blue-100' : 'text-gray-600 hover:text-gray-800 hover:bg-gray-50'
                     }`}>
                       <item.icon className="w-5 h-5" />
                       <span className="font-medium">{item.label}</span>
@@ -135,18 +108,18 @@ const HeroSection = () => {
                       { title: "Verified Guests", value: "98.5%", change: "+2.1%" },
                       { title: "Avg. Check-in Time", value: "45sec", change: "-23%" }
                     ].map((stat, i) => (
-                      <div key={i} className="bg-gray-800/50 rounded-xl p-4">
-                        <div className="text-gray-400 text-sm">{stat.title}</div>
-                        <div className="text-2xl font-bold text-white mt-1">{stat.value}</div>
-                        <div className="text-green-400 text-sm mt-1">{stat.change}</div>
+                      <div key={i} className="bg-blue-50/50 border border-blue-100/50 rounded-xl p-4">
+                        <div className="text-gray-600 text-sm">{stat.title}</div>
+                        <div className="text-2xl font-bold text-gray-900 mt-1">{stat.value}</div>
+                        <div className="text-green-600 text-sm mt-1">{stat.change}</div>
                       </div>
                     ))}
                   </div>
 
                   {/* Recent activity */}
-                  <div className="bg-gray-800/50 rounded-xl p-6">
+                  <div className="bg-blue-50/30 border border-blue-100/50 rounded-xl p-6">
                     <div className="flex items-center justify-between mb-4">
-                      <h3 className="text-white font-semibold">Recent Check-ins</h3>
+                      <h3 className="text-gray-900 font-semibold">Recent Check-ins</h3>
                       <span className="text-primary text-sm cursor-pointer">View All</span>
                     </div>
                     <div className="space-y-3">
@@ -155,23 +128,23 @@ const HeroSection = () => {
                         { name: "Emily Johnson", room: "Room 205", time: "5 min ago", status: "Processing" },
                         { name: "Michael Brown", room: "Room 102", time: "8 min ago", status: "Verified" }
                       ].map((guest, i) => (
-                        <div key={i} className="flex items-center justify-between p-3 bg-gray-700/30 rounded-lg">
+                        <div key={i} className="flex items-center justify-between p-3 bg-white/80 border border-gray-100 rounded-lg">
                           <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 bg-primary/20 rounded-full flex items-center justify-center">
+                            <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
                               <Users className="w-4 h-4 text-primary" />
                             </div>
                             <div>
-                              <div className="text-white font-medium text-sm">{guest.name}</div>
-                              <div className="text-gray-400 text-xs">{guest.room}</div>
+                              <div className="text-gray-900 font-medium text-sm">{guest.name}</div>
+                              <div className="text-gray-500 text-xs">{guest.room}</div>
                             </div>
                           </div>
                           <div className="text-right">
                             <div className={`text-xs px-2 py-1 rounded-full ${
-                              guest.status === 'Verified' ? 'bg-green-500/20 text-green-400' : 'bg-yellow-500/20 text-yellow-400'
+                              guest.status === 'Verified' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'
                             }`}>
                               {guest.status}
                             </div>
-                            <div className="text-gray-400 text-xs mt-1">{guest.time}</div>
+                            <div className="text-gray-500 text-xs mt-1">{guest.time}</div>
                           </div>
                         </div>
                       ))}
