@@ -287,8 +287,18 @@ const DashboardShowcase = () => {
   };
 
   return (
-    <section className="py-24 bg-gradient-to-b from-white via-gray-50/50 to-white">
+    <section className="pt-8 pb-24 bg-gradient-to-b from-white via-gray-50/50 to-white">
       <div className="container max-w-7xl mx-auto px-6">
+        {/* Section Header */}
+        <div className="text-center mb-8">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            Complete Hotel Management Dashboard
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Manage every aspect of your hotel operations from one unified platform
+          </p>
+        </div>
+        
         {/* Navigation Tabs */}
         <div className="flex justify-center mb-12">
           <div className="bg-white rounded-2xl p-2 shadow-lg border border-gray-200/50 backdrop-blur-sm">

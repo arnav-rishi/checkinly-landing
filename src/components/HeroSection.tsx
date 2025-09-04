@@ -28,20 +28,25 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative w-full min-h-screen bg-gradient-to-br from-[#fafbff] via-[#f6f8ff] to-[#f0f4ff] overflow-hidden">
-      {/* Simplified background elements with uniform gradient */}
+    <section className="relative w-full h-[85vh] bg-gradient-to-br from-[#fafbff] via-[#f6f8ff] to-[#f0f4ff] overflow-hidden">
+      {/* Enhanced background elements */}
       <div className="absolute inset-0 overflow-hidden">
         {/* More uniform gradient orbs */}
-        <div className="absolute top-20 right-10 w-[400px] h-[400px] bg-gradient-to-br from-blue-400/15 via-primary/12 to-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 right-10 w-[400px] h-[400px] bg-gradient-to-br from-blue-400/15 via-primary/12 to-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 left-10 w-[350px] h-[350px] bg-gradient-to-tr from-primary/12 via-blue-300/15 to-blue-400/10 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-gradient-to-r from-blue-400/8 to-primary/10 rounded-full blur-2xl"></div>
+        
+        {/* Floating elements */}
+        <div className="absolute top-32 left-20 w-3 h-3 bg-primary/30 rounded-full animate-bounce"></div>
+        <div className="absolute top-40 right-32 w-2 h-2 bg-blue-400/40 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-32 right-20 w-4 h-4 bg-primary/20 rounded-full animate-bounce delay-1000"></div>
         
         {/* Subtle grid pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.04)_1px,transparent_1px)] bg-[size:60px_60px] opacity-40"></div>
       </div>
 
-      <div className="relative z-10 container max-w-7xl mx-auto px-10 lg:px-12 py-14 lg:py-24">
-        <div className="flex items-center justify-center min-h-[85vh]">
+      <div className="relative z-10 container max-w-7xl mx-auto px-10 lg:px-12 py-14 lg:py-20">
+        <div className="flex items-center justify-center h-full">
           {/* Centered Content */}
           <div className="max-w-6xl mx-auto text-center space-y-12">
             {/* Headline with rotating words on top */}
