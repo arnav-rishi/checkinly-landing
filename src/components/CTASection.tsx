@@ -75,9 +75,6 @@ const CTASection = ({
             {title}
           </h2>
           
-          <p className={`text-xl md:text-2xl mb-12 ${descriptionClasses[variant]} leading-relaxed`}>
-            {description}
-          </p>
 
           <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8">
             <Button 

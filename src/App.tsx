@@ -12,6 +12,10 @@ import CheckinlyOS from "./pages/CheckinlyOS";
 import ForHotels from "./pages/ForHotels";
 import FAQs from "./pages/FAQs";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import ROICalculator from "./pages/ROICalculator";
+import CaseStudies from "./pages/CaseStudies";
+import IntegrationGuide from "./pages/IntegrationGuide";
+import EnterpriseSolution from "./pages/EnterpriseSolution";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +35,10 @@ const App = () => (
             <Route path="/for-hotels" element={<ForHotels />} />
             <Route path="/faqs" element={<FAQs />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/roi-calculator" element={<ROICalculator />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/integration-guide" element={<IntegrationGuide />} />
+            <Route path="/enterprise-solution" element={<EnterpriseSolution />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

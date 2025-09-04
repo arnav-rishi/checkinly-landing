@@ -47,26 +47,26 @@ const ChatWidget = () => {
 
   return (
     <>
-      {/* Chat Trigger Button with notification indicator */}
+      {/* Chat Trigger Button - Always visible */}
       <Button
         onClick={() => {
           setIsOpen(true);
           trackChatInteraction('chat_opened');
         }}
-        className={`fixed bottom-6 right-6 w-16 h-16 rounded-full shadow-glow hover-lift z-50 transition-bounce relative ${
+        className={`fixed top-1/2 right-0 transform -translate-y-1/2 w-14 h-20 rounded-l-full shadow-glow hover-lift z-50 transition-bounce relative ${
           isOpen ? "hidden" : "flex"
-        }`}
+        } bg-primary hover:bg-primary/90 text-primary-foreground`}
         size="icon"
       >
-        <MessageCircle className="w-7 h-7" />
+        <MessageCircle className="w-6 h-6" />
         {/* Notification pulse */}
-        <div className="absolute -top-1 -right-1 w-4 h-4 bg-accent rounded-full animate-pulse"></div>
+        <div className="absolute -top-1 -left-1 w-3 h-3 bg-accent rounded-full animate-pulse"></div>
         <span className="sr-only">Get help</span>
       </Button>
 
       {/* Enhanced Chat Widget */}
       {isOpen && (
-        <Card className="fixed bottom-6 right-6 w-80 h-[28rem] shadow-elegant border-border/30 rounded-large bg-card z-50 animate-scale-in">
+        <Card className="fixed top-1/2 right-6 transform -translate-y-1/2 w-80 h-[28rem] shadow-elegant border-border/30 rounded-large bg-card z-50 animate-scale-in">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-4 border-b border-border/30 bg-gradient-primary text-primary-foreground rounded-t-large">
             <div>
               <CardTitle className="text-lg font-semibold">
