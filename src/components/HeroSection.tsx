@@ -30,7 +30,7 @@ const HeroSection = () => {
         <div className="text-center space-y-8">
           {/* Main Headline */}
           <div className="space-y-4 max-w-5xl mx-auto">
-            <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+            <<h1 className="text-3xl lg:text-5xl xl:text-6xl font-bold leading-tight">
               <span className="text-gray-900">Revolutionizing Hotels to</span>
               <br />
               <span className="text-primary bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
@@ -40,7 +40,7 @@ const HeroSection = () => {
           </div>
 
           {/* Subtitle */}
-          <p className="text-sm lg:text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Your personalized hotel management dashboard. Automate guest verification, 
             streamline operations, and deliver seamless experiences.
           </p>
