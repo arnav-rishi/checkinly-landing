@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Clock, TrendingUp, Smartphone, Shield, Zap, Users, ArrowRight, DollarSign, Star, CheckCircle } from "lucide-react";
@@ -41,7 +40,7 @@ const HeroSection = () => {
           </div>
 
           {/* Subtitle */}
-          <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             Your personalized hotel management dashboard. Automate guest verification, 
             streamline operations, and deliver seamless experiences.
           </p>
