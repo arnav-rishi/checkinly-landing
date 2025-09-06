@@ -40,8 +40,7 @@ const HeroSection = () => {
 
           {/* Subtitle */}
           <p className="text-sm lg:text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Your personalized hotel management dashboard. Automate guest verification, 
-            streamline operations, and deliver seamless experiences.
+            The Future of Premium Hospitality Starts Here.
           </p>
 
           {/* CTA Button */}
