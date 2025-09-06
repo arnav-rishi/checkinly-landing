@@ -26,21 +26,20 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.04)_1px,transparent_1px)] bg-[size:60px_60px] opacity-40"></div>
       </div>
 
-      <div className="relative z-10 container max-w-7xl mx-auto px-6 lg:px-12 pt-20 pb-12">
+      <div className="relative z-10 container max-w-7xl mx-auto px-6 lg:px-12 pt-28 lg:pt-36 pb-12">
         <div className="text-center space-y-8">
           {/* Main Headline */}
-          <div className="space-y-4 max-w-5xl mx-auto">
-            <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight">
-              <span className="text-gray-900">Revolutionizing Hotels to</span>
-              <br />
-              <span className="text-primary bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+          <div className="space-y-4 max-w-3xl mx-auto">
+            <h1 className="text-2xl lg:text-4xl xl:text-5xl font-bold leading-snug">
+              <span className="text-gray-900 block">Revolutionizing Hotels to</span>
+              <span className="text-primary bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent block">
                 Streamline Check-in and Succeed
               </span>
             </h1>
           </div>
 
           {/* Subtitle */}
-          <p className="text-base lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm lg:text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Your personalized hotel management dashboard. Automate guest verification, 
             streamline operations, and deliver seamless experiences.
           </p>
