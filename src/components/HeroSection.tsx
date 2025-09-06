@@ -31,16 +31,16 @@ const HeroSection = () => {
           {/* Main Headline */}
           <div className="space-y-4 max-w-3xl mx-auto">
             <h1 className="text-2xl lg:text-4xl xl:text-5xl font-bold leading-snug">
-              <span className="text-gray-900 block">Elevating Hotels with Seamless</span>
+              <span className="text-gray-900 block">Elevating Hotels with</span>
               <span className="text-primary bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent block">
-                Luxury Check-ins
+                Seamless, Luxury Check-ins
               </span>
             </h1>
           </div>
 
           {/* Subtitle */}
           <p className="text-sm lg:text-base text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            The Future of Premium Hospitality Starts Here.
+            The Future of Premium Hospitality Starts Here at Checkinly.
           </p>
 
           {/* CTA Button */}
