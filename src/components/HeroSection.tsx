@@ -31,9 +31,9 @@ const HeroSection = () => {
           {/* Main Headline */}
           <div className="space-y-4 max-w-3xl mx-auto">
             <h1 className="text-2xl lg:text-4xl xl:text-5xl font-bold leading-snug">
-              <span className="text-gray-900 block">Revolutionizing Hotels to</span>
+              <span className="text-gray-900 block">Revolutionizing Hotels with</span>
               <span className="text-primary bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent block">
-                Faster, Smarter Check-ins
+                Streamline Check-in and Save Time
               </span>
             </h1>
           </div>
