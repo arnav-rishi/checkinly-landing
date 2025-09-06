@@ -2,7 +2,7 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import DashboardShowcase from "@/components/DashboardShowcase";
-import QuickFeaturesSection from "@/components/QuickFeaturesSection";
+
 import DocumentVerificationSection from "@/components/DocumentVerificationSection";
 import EnhancedFrontDesk from "@/components/EnhancedFrontDesk";
 import ReservationManagement from "@/components/ReservationManagement";
@@ -47,7 +47,6 @@ const Index = () => {
       <DashboardShowcase />
       
       {/* Core value prop and features */}
-      <QuickFeaturesSection />
       <DocumentVerificationSection />
       
       {/* Additional feature sections */}
