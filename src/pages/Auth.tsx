@@ -1,7 +1,7 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useAuth } from '@/hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -12,7 +12,9 @@ import AuthModeToggle from '@/components/AuthModeToggle';
 import { supabase } from '@/integrations/supabase/client';
 
 const Auth = () => {
-  const [mode, setMode] = useState<'signin' | 'signup' | 'reset'>('signup');
+  const [searchParams] = useSearchParams();
+  const initialMode = (searchParams.get('mode') as 'signin' | 'signup' | 'reset') || 'signup';
+  const [mode, setMode] = useState<'signin' | 'signup' | 'reset'>(initialMode);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
@@ -20,6 +22,12 @@ const Auth = () => {
   const { signIn, signUp, resetPassword, user } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
+
+  // Update mode when URL parameter changes
+  useEffect(() => {
+    const urlMode = (searchParams.get('mode') as 'signin' | 'signup' | 'reset') || 'signup';
+    setMode(urlMode);
+  }, [searchParams]);
 
   // Redirect if already authenticated
   if (user) {

@@ -44,12 +44,12 @@ const Header = () => {
 
   const handleSignInClick = () => {
     handleCTAClick('login');
-    navigate('/auth');
+    navigate('/auth?mode=signin');
   };
 
   const handleStartTrialClick = () => {
     handleCTAClick('primary_header_cta');
-    navigate('/auth');
+    navigate('/auth?mode=signup');
   };
 
   const handleSignOut = async () => {
