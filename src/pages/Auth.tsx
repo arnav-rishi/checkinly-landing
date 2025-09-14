@@ -58,8 +58,9 @@ const Auth = () => {
         } else if (mode === 'signup') {
           toast({
             title: "Account created!",
-            description: "Please check your email to verify your account."
+            description: "Welcome to Checkinly! Please check your email to verify your account."
           });
+          navigate('/'); // Redirect to home page as logged in user
         } else {
           toast({
             title: "Reset email sent!",
