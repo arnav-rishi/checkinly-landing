@@ -1,8 +1,10 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Calendar, Users, Smartphone, Settings } from "lucide-react";
+import { useScrollParallax, getParallaxStyle } from "@/hooks/useScrollParallax";
 
 const FeatureSection = () => {
+  const scrollY = useScrollParallax();
+  
   const features = [
     {
       icon: Calendar,
@@ -47,9 +49,28 @@ const FeatureSection = () => {
   ];
 
   return (
-    <section id="features" className="section-padding bg-muted/30 overflow-hidden">
-      <div className="container-max">
-        <div className="text-center heading-spacing">
+    <section id="features" className="section-padding bg-muted/30 overflow-hidden relative">
+      {/* Parallax background elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div 
+          className="absolute top-20 left-10 w-32 h-32 bg-primary/5 rounded-full blur-xl"
+          style={getParallaxStyle(scrollY, 0.3)}
+        ></div>
+        <div 
+          className="absolute bottom-40 right-20 w-40 h-40 bg-blue-500/5 rounded-full blur-xl"
+          style={getParallaxStyle(scrollY, -0.2)}
+        ></div>
+        <div 
+          className="absolute top-1/2 left-1/2 w-24 h-24 bg-purple-500/5 rounded-full blur-xl"
+          style={getParallaxStyle(scrollY, 0.4)}
+        ></div>
+      </div>
+      
+      <div className="container-max relative z-10">
+        <div 
+          className="text-center heading-spacing"
+          style={getParallaxStyle(scrollY, 0.1)}
+        >
           <h2 className="text-foreground text-spacing">
             Optimize operational efficiency<br />
             <span className="text-primary">Enrich the guest stay experience</span>
@@ -60,7 +81,8 @@ const FeatureSection = () => {
           {features.map((feature, index) => (
             <Card 
               key={index} 
-              className="border-border rounded-large bg-card hover:bg-muted/50 transition-colors duration-300 cursor-pointer relative overflow-hidden shadow-modern hover:shadow-elegant"
+              className="border-border rounded-large bg-card hover:bg-muted/50 transition-all duration-500 cursor-pointer relative overflow-hidden shadow-modern hover:shadow-elegant hover-scale"
+              style={getParallaxStyle(scrollY, 0.05 + (index * 0.02))}
             >
               <CardHeader className="pb-6 relative z-10">
                 <div className="flex items-center space-x-6">

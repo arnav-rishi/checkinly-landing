@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useScrollParallax, getParallaxStyle } from "@/hooks/useScrollParallax";
 import { Badge } from "@/components/ui/badge";
 import { 
   BarChart3, 
@@ -51,7 +52,7 @@ const AnimatedNumber = ({ value }: { value: number }) => {
 
 const HeroSection = () => {
   const [activeView, setActiveView] = useState("analytics");
-  const [scrollY, setScrollY] = useState(0);
+  const scrollY = useScrollParallax();
   const navigate = useNavigate();
 
   const handleCTAClick = (action: string) => {
@@ -59,7 +60,6 @@ const HeroSection = () => {
     if (action === 'start_trial') {
       navigate('/auth?mode=signup');
     } else if (action === 'book_demo') {
-      // Handle demo booking - could open a modal or navigate to contact
       navigate('/auth?mode=signup');
     }
   };
@@ -76,13 +76,6 @@ const HeroSection = () => {
     }, 4000);
 
     return () => clearInterval(interval);
-  }, []);
-
-  // Parallax scrolling effect
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const sidebarItems = [

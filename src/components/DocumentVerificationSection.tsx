@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ScanLine, Eye, Users, MapPin, Shield } from "lucide-react";
+import { useScrollParallax, getParallaxStyle } from "@/hooks/useScrollParallax";
 
 const DocumentVerificationSection = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const scrollY = useScrollParallax();
 
   const steps = [
     {
@@ -45,9 +47,24 @@ const DocumentVerificationSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-background to-muted/30">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+    <section className="py-24 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden">
+      {/* Parallax background elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div 
+          className="absolute top-10 right-10 w-40 h-40 bg-primary/3 rounded-full blur-xl"
+          style={getParallaxStyle(scrollY, 0.2)}
+        ></div>
+        <div 
+          className="absolute bottom-20 left-10 w-32 h-32 bg-accent/5 rounded-full blur-xl"
+          style={getParallaxStyle(scrollY, -0.3)}
+        ></div>
+      </div>
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <div 
+          className="text-center mb-16"
+          style={getParallaxStyle(scrollY, 0.1)}
+        >
           <Badge variant="secondary" className="mb-4">
             Verification Process
           </Badge>
@@ -61,7 +78,10 @@ const DocumentVerificationSection = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Steps */}
-          <div className="space-y-4">
+          <div 
+            className="space-y-4"
+            style={getParallaxStyle(scrollY, 0.05)}
+          >
             {steps.map((step, index) => {
               const Icon = step.icon;
               const isActive = activeStep === index;
@@ -110,7 +130,10 @@ const DocumentVerificationSection = () => {
           </div>
 
           {/* Right Column - Video/Visual */}
-          <div className="relative">
+          <div 
+            className="relative"
+            style={getParallaxStyle(scrollY, -0.03)}
+          >
             <div className="sticky top-8">
               <Card className="p-8 bg-gradient-to-br from-primary/10 to-accent/10 border-none shadow-xl">
                 <div className="aspect-video bg-muted rounded-xl overflow-hidden relative">
