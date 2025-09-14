@@ -62,6 +62,105 @@ export type Database = {
         }
         Relationships: []
       }
+      guests: {
+        Row: {
+          check_in_date: string | null
+          check_out_date: string | null
+          created_at: string
+          document_number: string | null
+          document_type: string | null
+          email: string | null
+          full_name: string
+          hotel_id: string
+          id: string
+          phone: string | null
+          room_id: string | null
+          special_requests: string | null
+          status: string | null
+          updated_at: string
+        }
+        Insert: {
+          check_in_date?: string | null
+          check_out_date?: string | null
+          created_at?: string
+          document_number?: string | null
+          document_type?: string | null
+          email?: string | null
+          full_name: string
+          hotel_id: string
+          id?: string
+          phone?: string | null
+          room_id?: string | null
+          special_requests?: string | null
+          status?: string | null
+          updated_at?: string
+        }
+        Update: {
+          check_in_date?: string | null
+          check_out_date?: string | null
+          created_at?: string
+          document_number?: string | null
+          document_type?: string | null
+          email?: string | null
+          full_name?: string
+          hotel_id?: string
+          id?: string
+          phone?: string | null
+          room_id?: string | null
+          special_requests?: string | null
+          status?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "guests_hotel_id_fkey"
+            columns: ["hotel_id"]
+            isOneToOne: false
+            referencedRelation: "hotels"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "guests_room_id_fkey"
+            columns: ["room_id"]
+            isOneToOne: false
+            referencedRelation: "rooms"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      hotels: {
+        Row: {
+          address: string | null
+          created_at: string
+          email: string | null
+          id: string
+          name: string
+          owner_id: string
+          phone: string | null
+          updated_at: string
+        }
+        Insert: {
+          address?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name: string
+          owner_id: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Update: {
+          address?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name?: string
+          owner_id?: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           created_at: string
@@ -85,6 +184,104 @@ export type Database = {
           updated_at?: string
         }
         Relationships: []
+      }
+      rooms: {
+        Row: {
+          amenities: string[] | null
+          created_at: string
+          hotel_id: string
+          id: string
+          max_occupancy: number | null
+          price_per_night: number | null
+          room_number: string
+          status: Database["public"]["Enums"]["room_status"]
+          type: Database["public"]["Enums"]["room_type"]
+          updated_at: string
+        }
+        Insert: {
+          amenities?: string[] | null
+          created_at?: string
+          hotel_id: string
+          id?: string
+          max_occupancy?: number | null
+          price_per_night?: number | null
+          room_number: string
+          status?: Database["public"]["Enums"]["room_status"]
+          type?: Database["public"]["Enums"]["room_type"]
+          updated_at?: string
+        }
+        Update: {
+          amenities?: string[] | null
+          created_at?: string
+          hotel_id?: string
+          id?: string
+          max_occupancy?: number | null
+          price_per_night?: number | null
+          room_number?: string
+          status?: Database["public"]["Enums"]["room_status"]
+          type?: Database["public"]["Enums"]["room_type"]
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "rooms_hotel_id_fkey"
+            columns: ["hotel_id"]
+            isOneToOne: false
+            referencedRelation: "hotels"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      smart_locks: {
+        Row: {
+          battery_level: number | null
+          created_at: string
+          device_id: string | null
+          firmware_version: string | null
+          id: string
+          last_activity: string | null
+          room_id: string
+          signal_strength: Database["public"]["Enums"]["signal_strength"] | null
+          status: Database["public"]["Enums"]["lock_status"]
+          updated_at: string
+        }
+        Insert: {
+          battery_level?: number | null
+          created_at?: string
+          device_id?: string | null
+          firmware_version?: string | null
+          id?: string
+          last_activity?: string | null
+          room_id: string
+          signal_strength?:
+            | Database["public"]["Enums"]["signal_strength"]
+            | null
+          status?: Database["public"]["Enums"]["lock_status"]
+          updated_at?: string
+        }
+        Update: {
+          battery_level?: number | null
+          created_at?: string
+          device_id?: string | null
+          firmware_version?: string | null
+          id?: string
+          last_activity?: string | null
+          room_id?: string
+          signal_strength?:
+            | Database["public"]["Enums"]["signal_strength"]
+            | null
+          status?: Database["public"]["Enums"]["lock_status"]
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "smart_locks_room_id_fkey"
+            columns: ["room_id"]
+            isOneToOne: false
+            referencedRelation: "rooms"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       user_roles: {
         Row: {
@@ -123,6 +320,10 @@ export type Database = {
     }
     Enums: {
       app_role: "admin" | "user"
+      lock_status: "locked" | "unlocked" | "offline"
+      room_status: "available" | "occupied" | "cleaning" | "maintenance"
+      room_type: "Single" | "Double" | "Suite" | "Penthouse"
+      signal_strength: "strong" | "good" | "weak"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -251,6 +452,10 @@ export const Constants = {
   public: {
     Enums: {
       app_role: ["admin", "user"],
+      lock_status: ["locked", "unlocked", "offline"],
+      room_status: ["available", "occupied", "cleaning", "maintenance"],
+      room_type: ["Single", "Double", "Suite", "Penthouse"],
+      signal_strength: ["strong", "good", "weak"],
     },
   },
 } as const

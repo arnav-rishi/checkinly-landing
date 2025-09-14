@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/hooks/useAuth";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
+import Dashboard from "./components/Dashboard";
 import DownloadApp from "./pages/DownloadApp";
 import CheckinlyOS from "./pages/CheckinlyOS";
 import ForHotels from "./pages/ForHotels";
@@ -30,6 +31,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/download-app" element={<DownloadApp />} />
             <Route path="/checkinly-os" element={<CheckinlyOS />} />
             <Route path="/for-hotels" element={<ForHotels />} />

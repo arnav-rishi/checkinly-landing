@@ -67,7 +67,11 @@ const Index = () => {
         secondaryText="Schedule Live Demo"
         onPrimaryClick={() => {
           trackConversion('trial_start', 'final_cta');
-          handleAuthAction();
+          if (user) {
+            navigate('/dashboard');
+          } else {
+            navigate('/auth');
+          }
         }}
         onSecondaryClick={() => trackConversion('demo_request', 'final_cta')}
       />
