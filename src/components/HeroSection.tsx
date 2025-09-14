@@ -293,10 +293,8 @@ const HeroSection = () => {
       </div>
       
       <div className="relative z-10 container max-w-6xl mx-auto px-6 lg:px-8 pb-12">
-        {/* // CHANGED: Switched to a 12-column grid for more flexible sizing. */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Left Content */}
-          {/* // CHANGED: Increased span from 2/5 (approx. 5/12) to 6/12 for a wider column. */}
           <div className="space-y-6 lg:col-span-6" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium animate-fade-in">
@@ -359,7 +357,6 @@ const HeroSection = () => {
           </div>
 
           {/* Right Dashboard - Expanded */}
-          {/* // CHANGED: Adjusted span to 6/12 to accommodate the wider left column. */}
           <div 
             className="relative animate-fade-in lg:col-span-6" 
             style={{ 
@@ -367,9 +364,9 @@ const HeroSection = () => {
               transform: `translateY(${scrollY * -0.1}px)` 
             }}
           >
-            <div className="bg-gray-900 rounded-2xl p-8 shadow-2xl h-[580px] overflow-hidden border-4 border-primary/20">
+            <div className="bg-gray-900 rounded-2xl p-6 shadow-2xl h-[580px] overflow-hidden border-4 border-primary/20">
               {/* Dashboard header */}
-              <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-700">
+              <div className="flex items-center justify-between pb-4 border-b border-gray-700">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                     <CheckCircle className="w-5 h-5 text-white" />
@@ -383,32 +380,36 @@ const HeroSection = () => {
                 </div>
               </div>
 
-              {/* Navigation tabs */}
-              <div className="flex justify-center mb-6">
-                <div className="bg-gray-800 rounded-xl p-1.5 border border-gray-700">
-                  <div className="flex space-x-1">
+              {/* // NEW LAYOUT: Changed to a flex container for sidebar + main content layout */}
+              <div className="flex gap-6 mt-6">
+                {/* // SIDEBAR: Navigation items are now in a vertical sidebar. */}
+                <div className="w-1/3 pr-4 border-r border-gray-700">
+                  {/* // Changed to flex-col and space-y-2 for vertical alignment */}
+                  <div className="flex flex-col space-y-2">
                     {sidebarItems.map((item) => (
                       <button
                         key={item.id}
                         onClick={() => setActiveView(item.id)}
-                        className={`flex items-center space-x-1.5 px-3 py-2 rounded-lg transition-all duration-500 ${
+                        className={`flex items-center space-x-2 px-3 py-2.5 rounded-lg transition-all duration-300 w-full justify-start ${
                           item.active
-                            ? 'bg-primary text-white shadow-lg scale-105'
-                            : 'text-gray-400 hover:text-white hover:bg-gray-700'
+                            ? 'bg-primary text-white shadow-lg'
+                            : 'text-gray-400 hover:text-white hover:bg-gray-800'
                         }`}
                       >
-                        <item.icon className="h-3.5 w-3.5" />
-                        <span className="font-medium text-xs hidden sm:block">{item.label}</span>
+                        <item.icon className="h-4 w-4" />
+                        <span className="font-medium text-sm">{item.label}</span>
                       </button>
                     ))}
                   </div>
                 </div>
-              </div>
 
-              {/* Main dashboard content - Fixed height with consistent padding */}
-              <div className="bg-white rounded-xl p-6 h-[400px] overflow-y-auto">
-                <div className="h-full flex flex-col">
-                  {renderDashboardContent()}
+                {/* // MAIN CONTENT: Takes up the remaining space. */}
+                <div className="flex-1">
+                  <div className="bg-white rounded-xl p-6 h-[420px] overflow-y-auto">
+                    <div className="h-full flex flex-col">
+                      {renderDashboardContent()}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
