@@ -281,7 +281,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative w-full min-h-[85vh] bg-gradient-to-br from-blue-50/30 via-white to-blue-100/40 overflow-hidden pt-28">
+    <section className="relative w-full min-h-[85vh] bg-gradient-to-br from-blue-50/70 via-blue-25/20 to-blue-100/60 overflow-hidden pt-32 px-6">
       {/* Parallax Background Elements */}
       <div 
         className="absolute inset-0 opacity-40"
