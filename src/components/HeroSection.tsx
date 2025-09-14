@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { 
@@ -18,10 +18,32 @@ import {
 
 const HeroSection = () => {
   const [activeView, setActiveView] = useState("analytics");
+  const [scrollY, setScrollY] = useState(0);
 
   const handleCTAClick = (action: string) => {
     console.log(`Hero CTA clicked: ${action}`);
   };
+
+  // Auto-switch tabs every 4 seconds
+  useEffect(() => {
+    const tabs = ["analytics", "guests", "rooms", "locks"];
+    const interval = setInterval(() => {
+      setActiveView(current => {
+        const currentIndex = tabs.indexOf(current);
+        const nextIndex = (currentIndex + 1) % tabs.length;
+        return tabs[nextIndex];
+      });
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Parallax scrolling effect
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const sidebarItems = [
     { id: "analytics", icon: BarChart3, label: "Analytics Dashboard", active: activeView === "analytics" },
@@ -259,52 +281,61 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative w-full min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 overflow-hidden pt-24">
-      <div className="relative z-10 container max-w-7xl mx-auto px-6 lg:px-12 pb-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+    <section className="relative w-full min-h-[85vh] bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden pt-20">
+      {/* Parallax Background Elements */}
+      <div 
+        className="absolute inset-0 opacity-40"
+        style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+      >
+        <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl"></div>
+        <div className="absolute top-40 right-20 w-32 h-32 bg-blue-500/10 rounded-full blur-xl"></div>
+        <div className="absolute bottom-20 left-1/3 w-24 h-24 bg-purple-500/10 rounded-full blur-xl"></div>
+      </div>
+      
+      <div className="relative z-10 container max-w-6xl mx-auto px-6 lg:px-8 pb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Left Content */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="space-y-6" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium">
-              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-              Coming Soon - Revolutionary Check-in Platform
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium animate-fade-in">
+              <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+              Revolutionary Check-in Platform
             </div>
 
             {/* Main Headline */}
-            <div className="space-y-4">
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                <span className="text-primary block">Automate</span>
-                <span className="text-gray-900 block">your guest check-ins</span>
+            <div className="space-y-3">
+              <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
+                <span className="text-primary block animate-fade-in">Automate</span>
+                <span className="text-gray-900 block animate-fade-in" style={{ animationDelay: '0.2s' }}>your guest check-ins</span>
               </h1>
             </div>
 
             {/* Subtitle */}
-            <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
-              Streamline your hospitality operations with our all-in-one platform. From online check-in to guest verification, we make every interaction seamless, secure, and profitable.
+            <p className="text-lg text-gray-600 leading-relaxed max-w-lg animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              Streamline hospitality operations with our all-in-one platform. From online check-in to guest verification, every interaction is seamless and profitable.
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6">
+            <div className="grid grid-cols-3 gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">27</div>
-                <div className="text-sm text-gray-600">Save Operational Costs</div>
-                <div className="text-xs text-blue-600 mt-1">Real-time</div>
+                <div className="text-2xl font-bold text-primary">27%</div>
+                <div className="text-xs text-gray-600">Cost Reduction</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">247</div>
-                <div className="text-sm text-gray-600">Support Available</div>
+                <div className="text-2xl font-bold text-primary">24/7</div>
+                <div className="text-xs text-gray-600">Support</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary">Free</div>
-                <div className="text-sm text-gray-600">14-day Trial</div>
+                <div className="text-2xl font-bold text-primary">Free</div>
+                <div className="text-xs text-gray-600">14-day Trial</div>
               </div>
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 animate-fade-in" style={{ animationDelay: '0.8s' }}>
               <Button 
                 size="lg"
-                className="px-8 py-6 h-14 text-lg font-semibold rounded-2xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-xl"
+                className="px-6 py-4 h-12 text-base font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover-scale"
                 onClick={() => handleCTAClick('start_trial')}
               >
                 ▶ Start Free Trial
@@ -312,7 +343,7 @@ const HeroSection = () => {
               <Button 
                 variant="outline"
                 size="lg"
-                className="px-8 py-6 h-14 text-lg font-semibold rounded-2xl border-2 border-primary text-primary hover:bg-primary hover:text-white"
+                className="px-6 py-4 h-12 text-base font-semibold rounded-xl border-2 border-primary text-primary hover:bg-primary hover:text-white hover-scale"
                 onClick={() => handleCTAClick('book_demo')}
               >
                 📅 Book a Demo
@@ -320,45 +351,51 @@ const HeroSection = () => {
             </div>
 
             {/* Fine print */}
-            <p className="text-sm text-gray-500">
+            <p className="text-xs text-gray-500 animate-fade-in" style={{ animationDelay: '1s' }}>
               No credit card required • 14-day free trial • Cancel anytime
             </p>
           </div>
 
-          {/* Right Dashboard - Much Bigger */}
-          <div className="lg:col-span-7 relative">
-            <div className="bg-gray-900 rounded-3xl p-8 shadow-2xl min-h-[700px]">
+          {/* Right Dashboard - Better Proportions */}
+          <div 
+            className="relative animate-fade-in" 
+            style={{ 
+              animationDelay: '0.3s',
+              transform: `translateY(${scrollY * -0.1}px)` 
+            }}
+          >
+            <div className="bg-gray-900 rounded-2xl p-6 shadow-2xl min-h-[500px] max-h-[600px] overflow-hidden">
               {/* Dashboard header */}
-              <div className="flex items-center justify-between mb-8 pb-6 border-b border-gray-700">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                    <CheckCircle className="w-6 h-6 text-white" />
-                  </div>
-                  <span className="text-white font-semibold text-lg">Checkinly</span>
-                </div>
+              <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-700">
                 <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                  <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                    <CheckCircle className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-white font-semibold">Checkinly</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <div className="w-2.5 h-2.5 bg-red-500 rounded-full"></div>
+                  <div className="w-2.5 h-2.5 bg-yellow-500 rounded-full"></div>
+                  <div className="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
                 </div>
               </div>
 
               {/* Navigation tabs */}
-              <div className="flex justify-center mb-8">
-                <div className="bg-gray-800 rounded-2xl p-2 border border-gray-700">
-                  <div className="flex space-x-2">
+              <div className="flex justify-center mb-6">
+                <div className="bg-gray-800 rounded-xl p-1.5 border border-gray-700">
+                  <div className="flex space-x-1">
                     {sidebarItems.map((item) => (
                       <button
                         key={item.id}
                         onClick={() => setActiveView(item.id)}
-                        className={`flex items-center space-x-2 px-4 py-3 rounded-xl transition-all duration-300 ${
+                        className={`flex items-center space-x-1.5 px-3 py-2 rounded-lg transition-all duration-500 ${
                           item.active
-                            ? 'bg-primary text-white shadow-lg'
+                            ? 'bg-primary text-white shadow-lg scale-105'
                             : 'text-gray-400 hover:text-white hover:bg-gray-700'
                         }`}
                       >
-                        <item.icon className="h-4 w-4" />
-                        <span className="font-medium text-sm hidden sm:block">{item.label}</span>
+                        <item.icon className="h-3.5 w-3.5" />
+                        <span className="font-medium text-xs hidden sm:block">{item.label}</span>
                       </button>
                     ))}
                   </div>
@@ -366,18 +403,27 @@ const HeroSection = () => {
               </div>
 
               {/* Main dashboard content */}
-              <div className="bg-white rounded-2xl p-6 min-h-[500px]">
+              <div className="bg-white rounded-xl p-4 min-h-[350px] max-h-[400px] overflow-y-auto transition-all duration-500 ease-in-out">
                 {renderDashboardContent()}
               </div>
             </div>
 
-            {/* Floating "Secure" badge - positioned further from navigation */}
-            <div className="absolute -top-6 -right-6 bg-white rounded-2xl px-4 py-2 shadow-lg border border-gray-200">
-              <div className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
-                  <CheckCircle className="w-4 h-4 text-blue-600" />
+            {/* Floating badges */}
+            <div className="absolute -top-4 -right-4 bg-white rounded-xl px-3 py-1.5 shadow-lg border border-gray-200 animate-pulse">
+              <div className="flex items-center gap-1.5">
+                <div className="w-4 h-4 bg-green-100 rounded-full flex items-center justify-center">
+                  <CheckCircle className="w-3 h-3 text-green-600" />
                 </div>
-                <span className="text-sm font-semibold text-gray-900">🛡️ Secure</span>
+                <span className="text-xs font-semibold text-gray-900">🛡️ Secure</span>
+              </div>
+            </div>
+            
+            <div className="absolute -bottom-4 -left-4 bg-white rounded-xl px-3 py-1.5 shadow-lg border border-gray-200 animate-bounce">
+              <div className="flex items-center gap-1.5">
+                <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center">
+                  <TrendingUp className="w-3 h-3 text-blue-600" />
+                </div>
+                <span className="text-xs font-semibold text-gray-900">📈 Live</span>
               </div>
             </div>
           </div>
