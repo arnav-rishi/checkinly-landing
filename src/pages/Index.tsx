@@ -1,5 +1,6 @@
 
 import Header from "@/components/Header";
+import HeroSection from "@/components/HeroSection";
 import DashboardShowcase from "@/components/DashboardShowcase";
 
 import DocumentVerificationSection from "@/components/DocumentVerificationSection";
@@ -42,6 +43,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      <HeroSection />
       <DashboardShowcase />
       
       {/* Core value prop and features */}
