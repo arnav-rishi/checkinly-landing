@@ -16,6 +16,38 @@ import {
   Monitor
 } from "lucide-react";
 
+// SUGGESTION: A simple component to handle the number counting animation
+const AnimatedNumber = ({ value }: { value: number }) => {
+  const [currentValue, setCurrentValue] = useState(0);
+
+  useEffect(() => {
+    const animationDuration = 1000; // 1 second
+    const frameDuration = 1000 / 60; // 60fps
+    const totalFrames = Math.round(animationDuration / frameDuration);
+    let frame = 0;
+
+    const counter = setInterval(() => {
+      frame++;
+      const progress = frame / totalFrames;
+      // Ease-out effect for a smoother stop
+      const easeOutProgress = 1 - Math.pow(1 - progress, 3);
+      const animatedValue = Math.round(value * easeOutProgress);
+      
+      setCurrentValue(animatedValue);
+
+      if (frame === totalFrames) {
+        clearInterval(counter);
+        setCurrentValue(value); // Ensure it ends on the exact value
+      }
+    }, frameDuration);
+
+    return () => clearInterval(counter);
+  }, [value]);
+
+  return <span>{currentValue.toLocaleString()}</span>;
+};
+
+
 const HeroSection = () => {
   const [activeView, setActiveView] = useState("analytics");
   const [scrollY, setScrollY] = useState(0);
@@ -53,7 +85,6 @@ const HeroSection = () => {
   ];
 
   const renderDashboardContent = () => {
-    // ... (This function remains unchanged)
     switch (activeView) {
       case "analytics":
         return (
@@ -70,7 +101,10 @@ const HeroSection = () => {
                   <div className="p-1.5 bg-green-100 rounded-lg"><DollarSign className="h-4 w-4 text-green-600" /></div>
                   <span className="text-xs text-green-600 font-medium">Total Revenue</span>
                 </div>
-                <p className="text-2xl font-bold text-gray-900">$124,892</p>
+                {/* SUGGESTION: Using the AnimatedNumber component */}
+                <p className="text-2xl font-bold text-gray-900">
+                  $<AnimatedNumber value={124892} />
+                </p>
                 <p className="text-xs text-green-600">+12.5% vs last month</p>
               </div>
               <div className="bg-blue-50 p-4 rounded-xl border border-blue-100">
@@ -78,7 +112,9 @@ const HeroSection = () => {
                   <div className="p-1.5 bg-blue-100 rounded-lg"><Users className="h-4 w-4 text-blue-600" /></div>
                   <span className="text-xs text-blue-600 font-medium">Active Guests</span>
                 </div>
-                <p className="text-2xl font-bold text-gray-900">342</p>
+                <p className="text-2xl font-bold text-gray-900">
+                  <AnimatedNumber value={342} />
+                </p>
                 <p className="text-xs text-blue-600">+8.2% vs last month</p>
               </div>
               <div className="bg-purple-50 p-4 rounded-xl border border-purple-100">
@@ -94,12 +130,15 @@ const HeroSection = () => {
                   <div className="p-1.5 bg-orange-100 rounded-lg"><TrendingUp className="h-4 w-4 text-orange-600" /></div>
                   <span className="text-xs text-orange-600 font-medium">Access Events</span>
                 </div>
-                <p className="text-2xl font-bold text-gray-900">1,247</p>
+                <p className="text-2xl font-bold text-gray-900">
+                  <AnimatedNumber value={1247} />
+                </p>
                 <p className="text-xs text-orange-600">+15.8% vs last month</p>
               </div>
             </div>
           </div>
         );
+      // ... other cases remain the same
       case "guests":
         return (
           <div className="space-y-6">
@@ -296,10 +335,7 @@ const HeroSection = () => {
               transform: `translateY(${scrollY * -0.1}px)` 
             }}
           >
-            {/* CHANGED: Re-added fixed height and flex layout to prevent resizing */}
             <div className="bg-gray-900 rounded-2xl p-4 shadow-2xl overflow-hidden border border-gray-700/50 h-[580px] flex flex-col">
-              
-              {/* REINSTATED: Header is back with compact padding */}
               <div className="flex items-center justify-between px-2 py-3 border-b border-gray-700">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
@@ -309,9 +345,7 @@ const HeroSection = () => {
                 </div>
               </div>
               
-              {/* CHANGED: Added flex-1 to make this section fill the remaining vertical space */}
               <div className="flex gap-4 mt-3 flex-1">
-                {/* CHANGED: Sidebar width is now w-12 and padding is adjusted */}
                 <div className="w-12 border-r border-gray-700 pr-2">
                   <div className="flex flex-col items-center space-y-2">
                     {sidebarItems.map((item) => (
@@ -332,6 +366,7 @@ const HeroSection = () => {
                 </div>
 
                 <div className="flex-1">
+                  {/* FIX: These two classes ensure the content area will scroll if it overflows */}
                   <div className="bg-white rounded-xl p-6 h-full overflow-y-auto">
                     <div className="flex flex-col">
                       {renderDashboardContent()}
