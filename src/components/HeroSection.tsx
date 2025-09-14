@@ -364,7 +364,7 @@ const HeroSection = () => {
               transform: `translateY(${scrollY * -0.1}px)` 
             }}
           >
-            <div className="bg-gray-900 rounded-2xl p-6 shadow-2xl min-h-[500px] max-h-[600px] overflow-hidden">
+            <div className="bg-gray-900 rounded-2xl p-6 shadow-2xl h-[520px] overflow-hidden">
               {/* Dashboard header */}
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-700">
                 <div className="flex items-center gap-2">
@@ -402,9 +402,11 @@ const HeroSection = () => {
                 </div>
               </div>
 
-              {/* Main dashboard content */}
-              <div className="bg-white rounded-xl p-4 min-h-[350px] max-h-[400px] overflow-y-auto transition-all duration-500 ease-in-out">
-                {renderDashboardContent()}
+              {/* Main dashboard content - Fixed height with consistent padding */}
+              <div className="bg-white rounded-xl p-4 h-[340px] overflow-y-auto">
+                <div className="h-full flex flex-col">
+                  {renderDashboardContent()}
+                </div>
               </div>
             </div>
 
