@@ -13,11 +13,8 @@ import {
   MapPin,
   Battery,
   Wifi,
-  Monitor,
-  // REMOVED: Unused icons for floating boxes (Bell, KeyRound, Sparkles)
+  Monitor
 } from "lucide-react";
-
-// REMOVED: The 'floatingEvents' array has been deleted.
 
 const HeroSection = () => {
   const [activeView, setActiveView] = useState("analytics");
@@ -242,7 +239,7 @@ const HeroSection = () => {
       
       <div className="relative z-10 container max-w-6xl mx-auto px-6 lg:px-8 pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="space-y-6 lg:col-span-6" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
+          <div className="space-y-6 lg:col-span-5" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium animate-fade-in">
               <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
               Revolutionary Check-in Platform
@@ -293,32 +290,26 @@ const HeroSection = () => {
           </div>
 
           <div 
-            className="relative animate-fade-in lg:col-span-6" 
+            className="relative animate-fade-in lg:col-span-7" 
             style={{ 
               animationDelay: '0.3s',
               transform: `translateY(${scrollY * -0.1}px)` 
             }}
           >
-            {/* CHANGED: Replaced thick border with a subtle one */}
-            <div className="bg-gray-900 rounded-2xl p-6 shadow-2xl h-[580px] overflow-hidden border border-gray-700/50">
-              <div className="flex items-center justify-between pb-4 border-b border-gray-700">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                    <CheckCircle className="w-5 h-5 text-white" />
-                  </div>
-                  <span className="text-white font-semibold">Checkinly</span>
-                </div>
-                {/* REMOVED: The window-like buttons div has been deleted */}
-              </div>
+            <div className="bg-gray-900 rounded-2xl pt-1 pb-1 pr-1 pl-2.5 shadow-2xl overflow-hidden border border-gray-700/50">
+              
+              {/* REMOVED: The entire header div with the logo and name has been deleted. */}
 
-              <div className="flex gap-4 mt-6">
-                <div className="w-20 border-r border-gray-700 pr-4">
+              {/* The top margin here now creates space from the top of the container */}
+              <div className="flex gap-4 mt-4">
+                {/* CHANGED: Sidebar is now thinner */}
+                <div className="w-16 border-r border-gray-700 pr-2">
                   <div className="flex flex-col items-center space-y-2">
                     {sidebarItems.map((item) => (
                       <button
                         key={item.id}
                         onClick={() => setActiveView(item.id)}
-                        title={item.label} // Tooltip for accessibility
+                        title={item.label}
                         className={`flex items-center justify-center p-3 rounded-lg transition-all duration-300 w-full ${
                           item.active
                             ? 'bg-primary text-white shadow-lg'
@@ -332,17 +323,14 @@ const HeroSection = () => {
                 </div>
 
                 <div className="flex-1">
-                  <div className="bg-white rounded-xl p-6 h-[440px] overflow-y-auto">
-                    <div className="h-full flex flex-col">
+                  <div className="bg-white rounded-xl p-6 overflow-y-auto">
+                    <div className="flex flex-col">
                       {renderDashboardContent()}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            
-            {/* REMOVED: The entire block for rendering floating event boxes has been deleted */}
-
           </div>
         </div>
       </div>
