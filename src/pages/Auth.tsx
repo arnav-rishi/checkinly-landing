@@ -9,6 +9,7 @@ import { useToast } from '@/components/ui/use-toast';
 import { Loader2, Mail, Lock, User, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import AuthModeToggle from '@/components/AuthModeToggle';
+import { supabase } from '@/integrations/supabase/client';
 
 const Auth = () => {
   const [mode, setMode] = useState<'signin' | 'signup' | 'reset'>('signup');
@@ -22,7 +23,7 @@ const Auth = () => {
 
   // Redirect if already authenticated
   if (user) {
-    navigate('/');
+    navigate('/dashboard');
     return null;
   }
 
@@ -53,7 +54,7 @@ const Auth = () => {
             title: "Welcome back!",
             description: "You've been signed in successfully."
           });
-          navigate('/');
+          navigate('/dashboard');
         } else if (mode === 'signup') {
           toast({
             title: "Account created!",
@@ -77,6 +78,47 @@ const Auth = () => {
       setIsLoading(false);
     }
   };
+
+  const handleMagicLink = async () => {
+    if (!email) {
+      toast({ title: "Email required", description: "Please enter your email first." });
+      return;
+    }
+    setIsLoading(true);
+    try {
+      const redirectUrl = `${window.location.origin}/dashboard`;
+      const { error } = await supabase.auth.signInWithOtp({
+        email,
+        options: { emailRedirectTo: redirectUrl }
+      });
+      if (error) {
+        toast({ title: "Error", description: error.message, variant: "destructive" });
+      } else {
+        toast({ title: "Magic link sent!", description: "Check your inbox to complete sign-in." });
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleResendVerification = async () => {
+    if (!email) {
+      toast({ title: "Email required", description: "Please enter your email to resend verification." });
+      return;
+    }
+    setIsLoading(true);
+    try {
+      const { error } = await supabase.auth.resend({ type: 'signup', email });
+      if (error) {
+        toast({ title: "Error", description: error.message, variant: "destructive" });
+      } else {
+        toast({ title: "Verification sent", description: "Please check your email inbox and spam folder." });
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
@@ -183,6 +225,31 @@ const Auth = () => {
                 )}
               </Button>
             </form>
+
+            {mode === 'signin' && (
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full mt-2"
+                onClick={handleMagicLink}
+                disabled={isLoading}
+              >
+                Send Magic Link
+              </Button>
+            )}
+
+            {(mode === 'signup' || mode === 'signin') && (
+              <p className="mt-4 text-center text-sm text-muted-foreground">
+                Didn't receive the email?
+                <button
+                  type="button"
+                  onClick={handleResendVerification}
+                  className="text-primary hover:underline ml-1"
+                >
+                  Resend verification
+                </button>
+              </p>
+            )}
 
             <AuthModeToggle mode={mode} setMode={setMode} />
           </CardContent>
