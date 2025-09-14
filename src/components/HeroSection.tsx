@@ -14,41 +14,10 @@ import {
   Battery,
   Wifi,
   Monitor,
-  Bell, // Added for floating boxes
-  KeyRound, // Added for floating boxes
-  Sparkles, // Added for floating boxes
+  // REMOVED: Unused icons for floating boxes (Bell, KeyRound, Sparkles)
 } from "lucide-react";
 
-// NEW: Data for the static floating event boxes
-const floatingEvents = [
-  {
-    id: 1,
-    icon: Bell,
-    title: "Noise Alert",
-    text: "Room 304 noise level above threshold.",
-    iconBgColor: "bg-red-100 text-red-600",
-    positionClasses: "top-20 -left-24 w-64",
-    delay: "0.8s"
-  },
-  {
-    id: 2,
-    icon: KeyRound,
-    title: "Guest Checked In",
-    text: "Robert Lee has successfully checked into Room 101.",
-    iconBgColor: "bg-blue-100 text-blue-600",
-    positionClasses: "top-48 -right-20 w-64",
-    delay: "1.0s"
-  },
-  {
-    id: 3,
-    icon: Sparkles,
-    title: "Cleaning Complete",
-    text: "Room 205 has been cleaned and is ready for guests.",
-    iconBgColor: "bg-green-100 text-green-600",
-    positionClasses: "bottom-16 -right-16 w-64",
-    delay: "1.2s"
-  }
-];
+// REMOVED: The 'floatingEvents' array has been deleted.
 
 const HeroSection = () => {
   const [activeView, setActiveView] = useState("analytics");
@@ -87,7 +56,7 @@ const HeroSection = () => {
   ];
 
   const renderDashboardContent = () => {
-    // ... (The renderDashboardContent function remains unchanged)
+    // ... (This function remains unchanged)
     switch (activeView) {
       case "analytics":
         return (
@@ -101,9 +70,7 @@ const HeroSection = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-green-50 p-4 rounded-xl border border-green-100">
                 <div className="flex items-center space-x-2 mb-2">
-                  <div className="p-1.5 bg-green-100 rounded-lg">
-                    <DollarSign className="h-4 w-4 text-green-600" />
-                  </div>
+                  <div className="p-1.5 bg-green-100 rounded-lg"><DollarSign className="h-4 w-4 text-green-600" /></div>
                   <span className="text-xs text-green-600 font-medium">Total Revenue</span>
                 </div>
                 <p className="text-2xl font-bold text-gray-900">$124,892</p>
@@ -111,9 +78,7 @@ const HeroSection = () => {
               </div>
               <div className="bg-blue-50 p-4 rounded-xl border border-blue-100">
                 <div className="flex items-center space-x-2 mb-2">
-                  <div className="p-1.5 bg-blue-100 rounded-lg">
-                    <Users className="h-4 w-4 text-blue-600" />
-                  </div>
+                  <div className="p-1.5 bg-blue-100 rounded-lg"><Users className="h-4 w-4 text-blue-600" /></div>
                   <span className="text-xs text-blue-600 font-medium">Active Guests</span>
                 </div>
                 <p className="text-2xl font-bold text-gray-900">342</p>
@@ -121,9 +86,7 @@ const HeroSection = () => {
               </div>
               <div className="bg-purple-50 p-4 rounded-xl border border-purple-100">
                 <div className="flex items-center space-x-2 mb-2">
-                  <div className="p-1.5 bg-purple-100 rounded-lg">
-                    <Bed className="h-4 w-4 text-purple-600" />
-                  </div>
+                  <div className="p-1.5 bg-purple-100 rounded-lg"><Bed className="h-4 w-4 text-purple-600" /></div>
                   <span className="text-xs text-purple-600 font-medium">Occupancy Rate</span>
                 </div>
                 <p className="text-2xl font-bold text-gray-900">87.3%</p>
@@ -131,9 +94,7 @@ const HeroSection = () => {
               </div>
               <div className="bg-orange-50 p-4 rounded-xl border border-orange-100">
                 <div className="flex items-center space-x-2 mb-2">
-                  <div className="p-1.5 bg-orange-100 rounded-lg">
-                    <TrendingUp className="h-4 w-4 text-orange-600" />
-                  </div>
+                  <div className="p-1.5 bg-orange-100 rounded-lg"><TrendingUp className="h-4 w-4 text-orange-600" /></div>
                   <span className="text-xs text-orange-600 font-medium">Access Events</span>
                 </div>
                 <p className="text-2xl font-bold text-gray-900">1,247</p>
@@ -268,7 +229,6 @@ const HeroSection = () => {
     }
   };
 
-
   return (
     <section className="relative w-full min-h-[85vh] bg-gradient-to-br from-blue-50/70 via-blue-25/20 to-blue-100/60 overflow-hidden pt-32 px-6">
       <div 
@@ -332,7 +292,6 @@ const HeroSection = () => {
             </p>
           </div>
 
-          {/* Right Dashboard - Main container is now relative for positioning the floating boxes */}
           <div 
             className="relative animate-fade-in lg:col-span-6" 
             style={{ 
@@ -340,8 +299,8 @@ const HeroSection = () => {
               transform: `translateY(${scrollY * -0.1}px)` 
             }}
           >
-            {/* The main dashboard panel */}
-            <div className="bg-gray-900 rounded-2xl p-6 shadow-2xl h-[580px] overflow-hidden border-4 border-primary/20">
+            {/* CHANGED: Replaced thick border with a subtle one */}
+            <div className="bg-gray-900 rounded-2xl p-6 shadow-2xl h-[580px] overflow-hidden border border-gray-700/50">
               <div className="flex items-center justify-between pb-4 border-b border-gray-700">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
@@ -349,15 +308,10 @@ const HeroSection = () => {
                   </div>
                   <span className="text-white font-semibold">Checkinly</span>
                 </div>
-                <div className="flex items-center gap-1.5">
-                  <div className="w-2.5 h-2.5 bg-red-500 rounded-full"></div>
-                  <div className="w-2.5 h-2.5 bg-yellow-500 rounded-full"></div>
-                  <div className="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
-                </div>
+                {/* REMOVED: The window-like buttons div has been deleted */}
               </div>
 
               <div className="flex gap-4 mt-6">
-                {/* CHANGED: Sidebar is now narrower and icon-only */}
                 <div className="w-20 border-r border-gray-700 pr-4">
                   <div className="flex flex-col items-center space-y-2">
                     {sidebarItems.map((item) => (
@@ -387,22 +341,7 @@ const HeroSection = () => {
               </div>
             </div>
             
-            {/* NEW: Floating static "Live Event" boxes */}
-            {floatingEvents.map((event) => (
-              <div
-                key={event.id}
-                className={`absolute ${event.positionClasses} bg-white rounded-lg shadow-2xl p-4 flex items-start gap-4 animate-fade-in`}
-                style={{ animationDelay: event.delay }}
-              >
-                <div className={`p-2 rounded-full ${event.iconBgColor}`}>
-                  <event.icon className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-sm text-gray-800">{event.title}</h4>
-                  <p className="text-xs text-gray-500">{event.text}</p>
-                </div>
-              </div>
-            ))}
+            {/* REMOVED: The entire block for rendering floating event boxes has been deleted */}
 
           </div>
         </div>
