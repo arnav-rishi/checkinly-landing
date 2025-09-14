@@ -296,14 +296,23 @@ const HeroSection = () => {
               transform: `translateY(${scrollY * -0.1}px)` 
             }}
           >
-            <div className="bg-gray-900 rounded-2xl pt-1 pb-1 pr-1 pl-2.5 shadow-2xl overflow-hidden border border-gray-700/50">
+            {/* CHANGED: Re-added fixed height and flex layout to prevent resizing */}
+            <div className="bg-gray-900 rounded-2xl p-4 shadow-2xl overflow-hidden border border-gray-700/50 h-[580px] flex flex-col">
               
-              {/* REMOVED: The entire header div with the logo and name has been deleted. */}
-
-              {/* The top margin here now creates space from the top of the container */}
-              <div className="flex gap-4 mt-4">
-                {/* CHANGED: Sidebar is now thinner */}
-                <div className="w-16 border-r border-gray-700 pr-2">
+              {/* REINSTATED: Header is back with compact padding */}
+              <div className="flex items-center justify-between px-2 py-3 border-b border-gray-700">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                    <CheckCircle className="w-5 h-5 text-white" />
+                  </div>
+                  <span className="text-white font-semibold">Checkinly</span>
+                </div>
+              </div>
+              
+              {/* CHANGED: Added flex-1 to make this section fill the remaining vertical space */}
+              <div className="flex gap-4 mt-3 flex-1">
+                {/* CHANGED: Sidebar width is now w-12 and padding is adjusted */}
+                <div className="w-12 border-r border-gray-700 pr-2">
                   <div className="flex flex-col items-center space-y-2">
                     {sidebarItems.map((item) => (
                       <button
@@ -323,7 +332,7 @@ const HeroSection = () => {
                 </div>
 
                 <div className="flex-1">
-                  <div className="bg-white rounded-xl p-6 overflow-y-auto">
+                  <div className="bg-white rounded-xl p-6 h-full overflow-y-auto">
                     <div className="flex flex-col">
                       {renderDashboardContent()}
                     </div>
