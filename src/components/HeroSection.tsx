@@ -293,9 +293,9 @@ const HeroSection = () => {
       </div>
       
       <div className="relative z-10 container max-w-6xl mx-auto px-6 lg:px-8 pb-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-6" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
+          <div className="space-y-6 lg:col-span-2" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium animate-fade-in">
               <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
@@ -356,9 +356,9 @@ const HeroSection = () => {
             </p>
           </div>
 
-          {/* Right Dashboard - Better Proportions */}
+          {/* Right Dashboard - Expanded */}
           <div 
-            className="relative animate-fade-in" 
+            className="relative animate-fade-in lg:col-span-3" 
             style={{ 
               animationDelay: '0.3s',
               transform: `translateY(${scrollY * -0.1}px)` 
@@ -410,24 +410,6 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Floating badges */}
-            <div className="absolute -top-4 -right-4 bg-white rounded-xl px-3 py-1.5 shadow-lg border border-gray-200 animate-pulse">
-              <div className="flex items-center gap-1.5">
-                <div className="w-4 h-4 bg-green-100 rounded-full flex items-center justify-center">
-                  <CheckCircle className="w-3 h-3 text-green-600" />
-                </div>
-                <span className="text-xs font-semibold text-gray-900">🛡️ Secure</span>
-              </div>
-            </div>
-            
-            <div className="absolute -bottom-4 -left-4 bg-white rounded-xl px-3 py-1.5 shadow-lg border border-gray-200 animate-bounce">
-              <div className="flex items-center gap-1.5">
-                <div className="w-4 h-4 bg-blue-100 rounded-full flex items-center justify-center">
-                  <TrendingUp className="w-3 h-3 text-blue-600" />
-                </div>
-                <span className="text-xs font-semibold text-gray-900">📈 Live</span>
-              </div>
-            </div>
           </div>
         </div>
       </div>
