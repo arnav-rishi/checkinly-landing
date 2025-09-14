@@ -281,7 +281,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative w-full min-h-[85vh] bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden pt-20">
+    <section className="relative w-full min-h-[85vh] bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden pt-28">
       {/* Parallax Background Elements */}
       <div 
         className="absolute inset-0 opacity-40"
@@ -293,7 +293,7 @@ const HeroSection = () => {
       </div>
       
       <div className="relative z-10 container max-w-6xl mx-auto px-6 lg:px-8 pb-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
             {/* Badge */}
@@ -364,7 +364,7 @@ const HeroSection = () => {
               transform: `translateY(${scrollY * -0.1}px)` 
             }}
           >
-            <div className="bg-gray-900 rounded-2xl p-6 shadow-2xl h-[520px] overflow-hidden">
+            <div className="bg-gray-900 rounded-2xl p-8 shadow-2xl h-[580px] overflow-hidden border-4 border-primary/20">
               {/* Dashboard header */}
               <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-700">
                 <div className="flex items-center gap-2">
@@ -403,7 +403,7 @@ const HeroSection = () => {
               </div>
 
               {/* Main dashboard content - Fixed height with consistent padding */}
-              <div className="bg-white rounded-xl p-4 h-[340px] overflow-y-auto">
+              <div className="bg-white rounded-xl p-6 h-[400px] overflow-y-auto">
                 <div className="h-full flex flex-col">
                   {renderDashboardContent()}
                 </div>
