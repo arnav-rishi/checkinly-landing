@@ -3,11 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, X } from "lucide-react";
-import { useScrollParallax, getParallaxStyle } from "@/hooks/useScrollParallax";
 
 const PricingSection = () => {
-  const scrollY = useScrollParallax();
-  
   const plans = [
     {
       name: "Starter",
@@ -82,28 +79,9 @@ const PricingSection = () => {
   };
 
   return (
-    <section id="pricing" className="section-padding bg-muted/30 relative overflow-hidden">
-      {/* Parallax background elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div 
-          className="absolute top-20 left-20 w-36 h-36 bg-primary/4 rounded-full blur-xl"
-          style={getParallaxStyle(scrollY, 0.2)}
-        ></div>
-        <div 
-          className="absolute bottom-40 right-20 w-48 h-48 bg-accent/4 rounded-full blur-xl"
-          style={getParallaxStyle(scrollY, -0.25)}
-        ></div>
-        <div 
-          className="absolute top-1/2 left-10 w-24 h-24 bg-blue-500/4 rounded-full blur-xl"
-          style={getParallaxStyle(scrollY, 0.35)}
-        ></div>
-      </div>
-      
-      <div className="container-max relative z-10">
-        <div 
-          className="text-center heading-spacing"
-          style={getParallaxStyle(scrollY, 0.08)}
-        >
+    <section id="pricing" className="section-padding bg-muted/30">
+      <div className="container-max">
+        <div className="text-center heading-spacing">
           <h2 className="text-foreground text-spacing">
             Simple, <span className="text-primary">Transparent Pricing</span>
           </h2>
@@ -121,7 +99,6 @@ const PricingSection = () => {
                   ? 'border-primary shadow-elegant scale-105' 
                   : 'border-border/30'
               }`}
-              style={getParallaxStyle(scrollY, 0.03 + (index * 0.01))}
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">

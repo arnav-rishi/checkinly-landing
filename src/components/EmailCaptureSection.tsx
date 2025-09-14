@@ -6,14 +6,12 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Mail, ArrowRight } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import { supabase } from "@/integrations/supabase/client";
-import { useScrollParallax, getParallaxStyle } from "@/hooks/useScrollParallax";
 
 const EmailCaptureSection = () => {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
-  const scrollY = useScrollParallax();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -84,24 +82,9 @@ const EmailCaptureSection = () => {
   }
 
   return (
-    <section className="section-padding bg-gradient-primary text-primary-foreground relative overflow-hidden">
-      {/* Parallax background elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div 
-          className="absolute top-10 left-10 w-32 h-32 bg-primary-foreground/5 rounded-full blur-xl"
-          style={getParallaxStyle(scrollY, 0.2)}
-        ></div>
-        <div 
-          className="absolute bottom-20 right-20 w-40 h-40 bg-primary-foreground/3 rounded-full blur-xl"
-          style={getParallaxStyle(scrollY, -0.15)}
-        ></div>
-      </div>
-      
-      <div className="container-max relative z-10">
-        <div 
-          className="text-center heading-spacing"
-          style={getParallaxStyle(scrollY, 0.05)}
-        >
+    <section className="section-padding bg-gradient-primary text-primary-foreground">
+      <div className="container-max">
+        <div className="text-center heading-spacing">
           <div className="w-16 h-16 mx-auto bg-primary-foreground/20 rounded-full flex items-center justify-center mb-6">
             <Mail className="w-8 h-8 text-primary-foreground" />
           </div>
@@ -114,10 +97,7 @@ const EmailCaptureSection = () => {
           </p>
         </div>
 
-        <div 
-          className="max-w-2xl mx-auto"
-          style={getParallaxStyle(scrollY, -0.02)}
-        >
+        <div className="max-w-2xl mx-auto">
           <Card className="bg-primary-foreground/10 backdrop-blur-sm border-primary-foreground/20">
             <CardContent className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
