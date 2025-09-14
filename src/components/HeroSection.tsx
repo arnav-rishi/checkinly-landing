@@ -281,7 +281,7 @@ const HeroSection = () => {
       
       <div className="relative z-10 container max-w-6xl mx-auto px-6 lg:px-8 pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="space-y-6 lg:col-span-5" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
+          <div className="space-y-6 lg:col-span-6" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium animate-fade-in">
               <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
               Revolutionary Check-in Platform
@@ -332,7 +332,7 @@ const HeroSection = () => {
           </div>
 
           <div 
-            className="relative animate-fade-in lg:col-span-7" 
+            className="relative animate-fade-in lg:col-span-6" 
             style={{ 
               animationDelay: '0.3s',
               transform: `translateY(${scrollY * -0.1}px)` 
