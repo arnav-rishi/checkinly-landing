@@ -148,87 +148,91 @@ const HeroSection = () => {
         );
       case "guests":
         return (
-          <div className="space-y-6">
-            <div className="flex items-center justify-between">
+          <div className="space-y-4 h-full flex flex-col">
+            <div className="flex items-center justify-between flex-shrink-0">
               <div>
                 <h2 className="text-xl font-bold text-gray-900">Guest Management</h2>
                 <p className="text-sm text-gray-600">Manage hotel guests and their information</p>
               </div>
               <Button size="sm" className="bg-primary hover:bg-primary/90">+ Add Guest</Button>
             </div>
-            <div className="space-y-3">
-              <p className="text-xs text-gray-500">Showing 3 of 60 guests</p>
-              {[
-                { name: "Parker Thomas", email: "parker.thomas939@example.com", location: "Metropolis, Spain", license: "687348130" },
-                { name: "Quinn Brown", email: "quinn.brown740@example.com", location: "Metropolis, Canada", license: "202677298" },
-                { name: "Jordan Miller", email: "jordan.miller335@example.com", location: "Metropolis, USA", license: "308879597" },
-                { name: "Another Guest", email: "another.guest@example.com", location: "Metropolis, UK", license: "987654321" }, // Added more content to test scrolling
-                { name: "Final Guest", email: "final.guest@example.com", location: "Metropolis, AUS", license: "123456789" },
-              ].map((guest, index) => (
-                <div key={index} className="bg-gray-50/80 p-4 rounded-xl border border-gray-100">
-                  <div className="flex items-center space-x-3 mb-3">
-                    <div className="p-2 bg-white rounded-full"><User className="h-4 w-4 text-gray-600" /></div>
-                    <div>
-                      <h4 className="font-semibold text-gray-900 text-sm">{guest.name}</h4>
-                      <p className="text-xs text-gray-600">{guest.email}</p>
+            <div className="flex-1 overflow-hidden">
+              <p className="text-xs text-gray-500 mb-3">Showing 3 of 60 guests</p>
+              <div className="space-y-3 overflow-y-auto max-h-full pr-2">
+                {[
+                  { name: "Parker Thomas", email: "parker.thomas939@example.com", location: "Metropolis, Spain", license: "687348130" },
+                  { name: "Quinn Brown", email: "quinn.brown740@example.com", location: "Metropolis, Canada", license: "202677298" },
+                  { name: "Jordan Miller", email: "jordan.miller335@example.com", location: "Metropolis, USA", license: "308879597" },
+                  { name: "Another Guest", email: "another.guest@example.com", location: "Metropolis, UK", license: "987654321" }, // Added more content to test scrolling
+                  { name: "Final Guest", email: "final.guest@example.com", location: "Metropolis, AUS", license: "123456789" },
+                ].map((guest, index) => (
+                  <div key={index} className="bg-gray-50/80 p-4 rounded-xl border border-gray-100 flex-shrink-0">
+                    <div className="flex items-center space-x-3 mb-3">
+                      <div className="p-2 bg-white rounded-full"><User className="h-4 w-4 text-gray-600" /></div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 text-sm">{guest.name}</h4>
+                        <p className="text-xs text-gray-600">{guest.email}</p>
+                      </div>
+                    </div>
+                    <div className="space-y-1 text-xs text-gray-600">
+                      <div className="flex items-center space-x-2"><MapPin className="h-3 w-3" /><span>{guest.location}</span></div>
+                      <p>Driver License: {guest.license}</p>
+                    </div>
+                    <div className="flex space-x-2 mt-3">
+                      <Button variant="outline" size="sm" className="text-xs h-7">Edit</Button>
+                      <Button variant="outline" size="sm" className="text-xs h-7 text-red-600 border-red-200 hover:bg-red-50">Delete</Button>
                     </div>
                   </div>
-                  <div className="space-y-1 text-xs text-gray-600">
-                    <div className="flex items-center space-x-2"><MapPin className="h-3 w-3" /><span>{guest.location}</span></div>
-                    <p>Driver License: {guest.license}</p>
-                  </div>
-                  <div className="flex space-x-2 mt-3">
-                    <Button variant="outline" size="sm" className="text-xs h-7">Edit</Button>
-                    <Button variant="outline" size="sm" className="text-xs h-7 text-red-600 border-red-200 hover:bg-red-50">Delete</Button>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         );
       case "rooms":
         return (
-          <div className="space-y-6">
-            <div className="flex items-center justify-between">
+          <div className="space-y-4 h-full flex flex-col">
+            <div className="flex items-center justify-between flex-shrink-0">
               <div>
                 <h2 className="text-xl font-bold text-gray-900">Room Management</h2>
                 <p className="text-sm text-gray-600">Manage hotel rooms and their availability</p>
               </div>
               <Button size="sm" className="bg-primary hover:bg-primary/90">+ Add Room</Button>
             </div>
-            <div className="space-y-3">
-              <p className="text-xs text-gray-500">Showing 5 of 20 rooms</p>
-              {[
-                { room: "Room 101-b987", type: "Single", price: "$81/night", guests: 3, status: "cleaning", amenities: ["WiFi", "TV", "AC"] },
-                { room: "Room 102-b987", type: "Suite", price: "$245/night", guests: 4, status: "occupied", amenities: ["WiFi", "TV"] },
-                { room: "Room 103-b987", type: "Double", price: "$160/night", guests: 4, status: "occupied", amenities: ["WiFi", "TV"] },
-                { room: "Room 104-c123", type: "Single", price: "$95/night", guests: 2, status: "available", amenities: ["WiFi", "AC"] }, // Added more content
-                { room: "Room 201-d456", type: "Penthouse", price: "$550/night", guests: 6, status: "occupied", amenities: ["WiFi", "TV", "AC"] },
-              ].map((room, index) => (
-                <div key={index} className="bg-gray-50/80 p-4 rounded-xl border border-gray-100">
-                  <div className="flex justify-between items-start mb-3">
-                    <div>
-                      <h4 className="font-semibold text-gray-900 text-sm">{room.room}</h4>
-                      <p className="text-xs text-gray-600">{room.type}</p>
+            <div className="flex-1 overflow-hidden">
+              <p className="text-xs text-gray-500 mb-3">Showing 5 of 20 rooms</p>
+              <div className="space-y-3 overflow-y-auto max-h-full pr-2">
+                {[
+                  { room: "Room 101-b987", type: "Single", price: "$81/night", guests: 3, status: "cleaning", amenities: ["WiFi", "TV", "AC"] },
+                  { room: "Room 102-b987", type: "Suite", price: "$245/night", guests: 4, status: "occupied", amenities: ["WiFi", "TV"] },
+                  { room: "Room 103-b987", type: "Double", price: "$160/night", guests: 4, status: "occupied", amenities: ["WiFi", "TV"] },
+                  { room: "Room 104-c123", type: "Single", price: "$95/night", guests: 2, status: "available", amenities: ["WiFi", "AC"] }, // Added more content
+                  { room: "Room 201-d456", type: "Penthouse", price: "$550/night", guests: 6, status: "occupied", amenities: ["WiFi", "TV", "AC"] },
+                ].map((room, index) => (
+                  <div key={index} className="bg-gray-50/80 p-4 rounded-xl border border-gray-100 flex-shrink-0">
+                    <div className="flex justify-between items-start mb-3">
+                      <div>
+                        <h4 className="font-semibold text-gray-900 text-sm">{room.room}</h4>
+                        <p className="text-xs text-gray-600">{room.type}</p>
+                      </div>
+                      <Badge variant={room.status === "occupied" ? "default" : room.status === "cleaning" ? "secondary" : "outline"} className={`text-xs ${room.status === "occupied" ? "bg-blue-100 text-blue-700" : room.status === "cleaning" ? "bg-yellow-100 text-yellow-700" : "bg-green-100 text-green-700"}`}>{room.status}</Badge>
                     </div>
-                    <Badge variant={room.status === "occupied" ? "default" : room.status === "cleaning" ? "secondary" : "outline"} className={`text-xs ${room.status === "occupied" ? "bg-blue-100 text-blue-700" : room.status === "cleaning" ? "bg-yellow-100 text-yellow-700" : "bg-green-100 text-green-700"}`}>{room.status}</Badge>
-                  </div>
-                  <div className="space-y-1 text-xs text-gray-600 mb-3">
-                    <p className="font-medium">{room.price}</p>
-                    <div className="flex items-center space-x-2"><Users className="h-3 w-3" /><span>{room.guests} guests</span></div>
-                    <div className="flex items-center space-x-2">
-                      {room.amenities.includes("WiFi") && <Wifi className="h-3 w-3" />}
-                      {room.amenities.includes("TV") && <Monitor className="h-3 w-3" />}
-                      {room.amenities.includes("AC") && <span className="text-xs bg-gray-200 px-1.5 py-0.5 rounded">AC</span>}
+                    <div className="space-y-1 text-xs text-gray-600 mb-3">
+                      <p className="font-medium">{room.price}</p>
+                      <div className="flex items-center space-x-2"><Users className="h-3 w-3" /><span>{room.guests} guests</span></div>
+                      <div className="flex items-center space-x-2">
+                        {room.amenities.includes("WiFi") && <Wifi className="h-3 w-3" />}
+                        {room.amenities.includes("TV") && <Monitor className="h-3 w-3" />}
+                        {room.amenities.includes("AC") && <span className="text-xs bg-gray-200 px-1.5 py-0.5 rounded">AC</span>}
+                      </div>
+                    </div>
+                    <div className="flex space-x-2">
+                      <Button variant="outline" size="sm" className="text-xs h-7">View</Button>
+                      <Button variant="outline" size="sm" className="text-xs h-7">Edit</Button>
+                      <Button variant="outline" size="sm" className="text-xs h-7">Manage</Button>
                     </div>
                   </div>
-                  <div className="flex space-x-2">
-                    <Button variant="outline" size="sm" className="text-xs h-7">View</Button>
-                    <Button variant="outline" size="sm" className="text-xs h-7">Edit</Button>
-                    <Button variant="outline" size="sm" className="text-xs h-7">Manage</Button>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         );
@@ -378,8 +382,8 @@ const HeroSection = () => {
 
                 {/* THE FIX: Added min-h-0 to this flex container */}
                 <div className="flex-1 min-h-0">
-                  <div className="bg-white rounded-xl p-6 h-full overflow-y-auto">
-                    <div className="flex flex-col">
+                  <div className="bg-white rounded-xl p-4 h-full overflow-y-auto">
+                    <div className="space-y-4 max-h-full">
                       {renderDashboardContent()}
                     </div>
                   </div>
