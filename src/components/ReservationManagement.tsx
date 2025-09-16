@@ -82,8 +82,8 @@ const ReservationManagement = () => {
 
           {/* Right Side - Interface Preview */}
           <div className="relative">
-            <Card className="shadow-elegant border-2 border-border/50 bg-card/95 backdrop-blur-sm">
-              <CardHeader className="border-b border-border/50">
+            <Card className="shadow-elegant border border-border/30 bg-card/95 backdrop-blur-sm">
+              <CardHeader className="">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
                     <div className="flex items-center space-x-2">
@@ -104,7 +104,7 @@ const ReservationManagement = () => {
               <CardContent className="p-0">
                 <Table>
                   <TableHeader>
-                    <TableRow className="border-b border-border/50">
+                    <TableRow className="">
                       <TableHead className="text-xs font-medium">Reservation ID</TableHead>
                       <TableHead className="text-xs font-medium">Contact</TableHead>
                       <TableHead className="text-xs font-medium">Guest</TableHead>
@@ -117,7 +117,7 @@ const ReservationManagement = () => {
                   </TableHeader>
                   <TableBody>
                     {reservations.map((reservation) => (
-                      <TableRow key={reservation.id} className="hover:bg-muted/50 border-b border-border/30">
+                      <TableRow key={reservation.id} className="hover:bg-muted/50">
                         <TableCell className="text-xs font-mono">{reservation.id}</TableCell>
                         <TableCell className="text-xs">{reservation.contact}</TableCell>
                         <TableCell className="text-xs font-medium">{reservation.guest}</TableCell>

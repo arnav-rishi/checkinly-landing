@@ -46,8 +46,8 @@ const EnhancedFrontDesk = () => {
 
           {/* Right Side - Static Calendar Screenshot */}
           <div className="relative">
-            <Card className="shadow-elegant border border-border/20 bg-white">
-              <CardHeader className="border-b border-border/10 p-4">
+            <Card className="shadow-elegant border border-border/30 bg-white">
+              <CardHeader className="p-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
                     <Button variant="outline" size="sm" className="bg-gray-50 text-gray-700 border-gray-200">
@@ -70,7 +70,7 @@ const EnhancedFrontDesk = () => {
               <CardContent className="p-0">
                 <div className="p-4">
                   {/* Calendar Header */}
-                  <div className="grid grid-cols-8 gap-0 text-xs font-medium text-gray-600 border-b border-gray-100 pb-3 mb-4">
+                  <div className="grid grid-cols-8 gap-0 text-xs font-medium text-gray-600 pb-3 mb-4">
                     <div className="text-left pl-2">Room</div>
                     <div className="text-center">
                       <div>Mon</div>
@@ -123,7 +123,7 @@ const EnhancedFrontDesk = () => {
 
                 {/* Reservation Details Popup */}
                 <div className="mx-4 mb-4">
-                  <Card className="border border-gray-200 bg-white">
+                  <Card className="border border-border/30 bg-white">
                     <CardHeader className="pb-3 pt-3 px-4">
                       <div className="flex items-center justify-between">
                         <h3 className="text-sm font-medium text-gray-900">Reservation for Xu Chen</h3>
@@ -160,7 +160,7 @@ const EnhancedFrontDesk = () => {
                 </div>
 
                 {/* Status Legend */}
-                <div className="flex items-center justify-center space-x-6 py-4 border-t border-gray-100 text-xs">
+                <div className="flex items-center justify-center space-x-6 py-4 text-xs">
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 bg-blue-500 rounded-sm"></div>
                     <span className="text-gray-600">Checked In</span>

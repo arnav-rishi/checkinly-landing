@@ -69,10 +69,10 @@ const DocumentVerificationSection = () => {
               return (
                 <Card
                   key={step.id}
-                  className={`p-6 cursor-pointer transition-all duration-300 hover:shadow-md border-l-4 ${
+                  className={`p-6 cursor-pointer transition-all duration-300 hover:shadow-md border ${
                     isActive 
-                      ? 'border-l-primary bg-primary/5 shadow-md' 
-                      : 'border-l-muted hover:border-l-primary/50'
+                      ? 'border-primary/20 bg-primary/5 shadow-md' 
+                      : 'border-border/50 hover:border-primary/50'
                   }`}
                   onClick={() => setActiveStep(index)}
                 >
