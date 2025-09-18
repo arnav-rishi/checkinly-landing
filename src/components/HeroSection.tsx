@@ -162,9 +162,7 @@ const HeroSection = () => {
                 {[
                   { name: "Parker Thomas", email: "parker.thomas939@example.com", location: "Metropolis, Spain", license: "687348130" },
                   { name: "Quinn Brown", email: "quinn.brown740@example.com", location: "Metropolis, Canada", license: "202677298" },
-                  { name: "Jordan Miller", email: "jordan.miller335@example.com", location: "Metropolis, USA", license: "308879597" },
-                  { name: "Another Guest", email: "another.guest@example.com", location: "Metropolis, UK", license: "987654321" }, // Added more content to test scrolling
-                  { name: "Final Guest", email: "final.guest@example.com", location: "Metropolis, AUS", license: "123456789" },
+                               
                 ].map((guest, index) => (
                   <div key={index} className="bg-gray-50/80 p-4 rounded-xl border border-gray-100 flex-shrink-0">
                     <div className="flex items-center space-x-3 mb-3">
@@ -204,9 +202,6 @@ const HeroSection = () => {
                 {[
                   { room: "Room 101-b987", type: "Single", price: "$81/night", guests: 3, status: "cleaning", amenities: ["WiFi", "TV", "AC"] },
                   { room: "Room 102-b987", type: "Suite", price: "$245/night", guests: 4, status: "occupied", amenities: ["WiFi", "TV"] },
-                  { room: "Room 103-b987", type: "Double", price: "$160/night", guests: 4, status: "occupied", amenities: ["WiFi", "TV"] },
-                  { room: "Room 104-c123", type: "Single", price: "$95/night", guests: 2, status: "available", amenities: ["WiFi", "AC"] }, // Added more content
-                  { room: "Room 201-d456", type: "Penthouse", price: "$550/night", guests: 6, status: "occupied", amenities: ["WiFi", "TV", "AC"] },
                 ].map((room, index) => (
                   <div key={index} className="bg-gray-50/80 p-4 rounded-xl border border-gray-100 flex-shrink-0">
                     <div className="flex justify-between items-start mb-3">
