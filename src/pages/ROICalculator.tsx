@@ -26,9 +26,9 @@ const ROICalculator = () => {
 
   const calculateROI = () => {
     const annualRevenue = values.rooms * values.avgRate * (values.occupancy / 100) * 365;
-    const timeSavedPerYear = (values.checkInTime * 0.6) * values.rooms * (values.occupancy / 100) * 365; // 60% time reduction
+    const timeSavedPerYear = (values.checkInTime * 0.3) * values.rooms * (values.occupancy / 100) * 365; // 60% time reduction
     const costSavings = (timeSavedPerYear / 60) * values.staffCost; // Convert minutes to hours
-    const checkinlyAnnualCost = values.rooms * 2 * 12; // $2 per room per month
+    const checkinlyAnnualCost = values.rooms * 70 * 12; // $2 per room per month
     const roi = ((costSavings - checkinlyAnnualCost) / checkinlyAnnualCost) * 100;
 
     setResults({
