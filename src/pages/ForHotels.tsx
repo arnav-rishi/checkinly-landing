@@ -2,6 +2,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
+import PricingSection from "@/components/PricingSection";
 import { Building2, TrendingUp, Users, Clock, FileText, Settings, Calculator } from "lucide-react";
 
 const ForHotels = () => {
@@ -132,6 +133,9 @@ const ForHotels = () => {
               </div>
             </div>
           </section>
+
+          {/* Pricing Section */}
+          <PricingSection />
 
           {/* Testimonial */}
           <div className="bg-muted/50 rounded-large p-8 mb-8">
