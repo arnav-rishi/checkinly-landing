@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Calculator, DollarSign, Clock, Users } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ChatWidget from "@/components/ChatWidget";
+
 
 const ROICalculator = () => {
   const [values, setValues] = useState({
@@ -49,7 +49,6 @@ const ROICalculator = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <ChatWidget />
       
       <main className="section-padding pt-32">
         <div className="container-max">

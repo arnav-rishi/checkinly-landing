@@ -47,7 +47,7 @@ const Footer = () => {
             <h4 className="font-bold text-foreground mb-6 text-lg">Support</h4>
             <ul className="space-y-4">
               <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Help Center</a></li>
-              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Live Chat Support</a></li>
+              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Email Support</a></li>
               <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Schedule a Demo</a></li>
               <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Getting Started</a></li>
             </ul>

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle, Building, Shield, Users, Zap, ArrowRight, Phone } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ChatWidget from "@/components/ChatWidget";
+
 
 const EnterpriseSolution = () => {
   const features = [
@@ -75,7 +75,6 @@ const EnterpriseSolution = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <ChatWidget />
       
       <main className="section-padding pt-32">
         <div className="container-max">

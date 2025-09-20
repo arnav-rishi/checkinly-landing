@@ -10,7 +10,7 @@ import FeatureSection from "@/components/FeatureSection";
 import EmailCaptureSection from "@/components/EmailCaptureSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
-import ChatWidget from "@/components/ChatWidget";
+
 import { useAuth } from "@/hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 
@@ -75,7 +75,6 @@ const Index = () => {
       />
       
       <Footer />
-      <ChatWidget />
     </div>
   );
 };
