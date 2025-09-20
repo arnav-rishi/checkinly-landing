@@ -108,47 +108,11 @@ const IntegrationGuide = () => {
             </p>
           </div>
 
-          <Tabs defaultValue="systems" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-12">
-              <TabsTrigger value="systems">Supported Systems</TabsTrigger>
+          <Tabs defaultValue="process" className="w-full">
+            <TabsList className="grid w-full grid-cols-2 mb-12">
               <TabsTrigger value="process">Integration Process</TabsTrigger>
               <TabsTrigger value="resources">Resources</TabsTrigger>
             </TabsList>
-
-            <TabsContent value="systems">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {integrations.map((integration, index) => (
-                  <Card key={index} className="shadow-elegant border-border/30 hover-lift transition-smooth">
-                    <CardHeader>
-                      <div className="flex items-center justify-between mb-2">
-                        <CardTitle className="text-xl font-bold">{integration.name}</CardTitle>
-                        <Badge variant={integration.difficulty === 'Easy' ? 'secondary' : 'outline'}>
-                          {integration.difficulty}
-                        </Badge>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Badge variant="outline">{integration.category}</Badge>
-                        <span className="text-sm text-muted-foreground">{integration.timeline}</span>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground mb-4">{integration.description}</p>
-                      <div className="space-y-2">
-                        <h4 className="font-semibold text-sm">Key Features:</h4>
-                        <ul className="space-y-1">
-                          {integration.features.map((feature, fIndex) => (
-                            <li key={fIndex} className="flex items-center gap-2 text-sm text-muted-foreground">
-                              <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
-                              {feature}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </TabsContent>
 
             <TabsContent value="process">
               <div className="max-w-4xl mx-auto">
@@ -187,7 +151,7 @@ const IntegrationGuide = () => {
             </TabsContent>
 
             <TabsContent value="resources">
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="max-w-2xl mx-auto">
                 <Card className="shadow-elegant border-border/30">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-3">
@@ -197,6 +161,10 @@ const IntegrationGuide = () => {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="space-y-3">
+                      <Button variant="outline" className="w-full justify-between">
+                        Checkinly PMS Integration Guide
+                        <Download className="w-4 h-4" />
+                      </Button>
                       <Button variant="outline" className="w-full justify-between">
                         API Documentation
                         <Download className="w-4 h-4" />
@@ -212,35 +180,6 @@ const IntegrationGuide = () => {
                       <Button variant="outline" className="w-full justify-between">
                         Troubleshooting Guide
                         <Download className="w-4 h-4" />
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-
-                <Card className="shadow-elegant border-border/30">
-                  <CardHeader>
-                    <CardTitle className="flex items-center gap-3">
-                      <Code className="w-6 h-6 text-primary" />
-                      Developer Tools
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="space-y-3">
-                      <Button variant="outline" className="w-full justify-between">
-                        SDK Downloads
-                        <Link className="w-4 h-4" />
-                      </Button>
-                      <Button variant="outline" className="w-full justify-between">
-                        Sandbox Environment
-                        <Link className="w-4 h-4" />
-                      </Button>
-                      <Button variant="outline" className="w-full justify-between">
-                        Webhook Testing
-                        <Link className="w-4 h-4" />
-                      </Button>
-                      <Button variant="outline" className="w-full justify-between">
-                        Support Portal
-                        <Link className="w-4 h-4" />
                       </Button>
                     </div>
                   </CardContent>
