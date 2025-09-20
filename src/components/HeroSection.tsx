@@ -276,7 +276,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative w-full min-h-[85vh] bg-gradient-to-br from-blue-50/70 via-blue-25/20 to-blue-100/60 overflow-hidden pt-32 px-6">
+    <section className="relative w-full min-h-[85vh] bg-gradient-to-br from-blue-50/70 via-blue-25/20 to-blue-100/60 overflow-hidden pt-24 sm:pt-32 px-4 sm:px-6">
       <div 
         className="absolute inset-0 opacity-40"
         style={{ transform: `translateY(${scrollY * 0.5}px)` }}
@@ -286,40 +286,40 @@ const HeroSection = () => {
         <div className="absolute bottom-20 left-1/3 w-24 h-24 bg-purple-500/10 rounded-full blur-xl"></div>
       </div>
       
-      <div className="relative z-10 container max-w-6xl mx-auto px-6 lg:px-8 pb-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="space-y-6 lg:col-span-6" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium animate-fade-in">
+      <div className="relative z-10 container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="space-y-4 sm:space-y-6 lg:col-span-6 text-center lg:text-left" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium animate-fade-in">
               <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
               Revolutionary Check-in Platform
             </div>
-            <div className="space-y-3">
-              <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
+            <div className="space-y-2 sm:space-y-3">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
                 <span className="text-primary block animate-fade-in">Automate</span>
                 <span className="text-gray-900 block animate-fade-in" style={{ animationDelay: '0.2s' }}>your guest check-ins</span>
               </h1>
             </div>
-            <p className="text-lg text-gray-600 leading-relaxed max-w-lg animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-lg mx-auto lg:mx-0 animate-fade-in" style={{ animationDelay: '0.4s' }}>
               Streamline hospitality operations with our all-in-one platform. From online check-in to guest verification, every interaction is seamless and profitable.
             </p>
-            <div className="grid grid-cols-3 gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">27%</div>
+                <div className="text-xl sm:text-2xl font-bold text-primary">27%</div>
                 <div className="text-xs text-gray-600">Cost Reduction</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">24/7</div>
+                <div className="text-xl sm:text-2xl font-bold text-primary">24/7</div>
                 <div className="text-xs text-gray-600">Support</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">Free</div>
+                <div className="text-xl sm:text-2xl font-bold text-primary">Free</div>
                 <div className="text-xs text-gray-600">14-day Trial</div>
               </div>
             </div>
-            <div className="flex flex-col sm:flex-row gap-3 animate-fade-in" style={{ animationDelay: '0.8s' }}>
+            <div className="flex flex-col sm:flex-row gap-3 animate-fade-in justify-center lg:justify-start" style={{ animationDelay: '0.8s' }}>
               <Button 
                 size="lg"
-                className="px-6 py-4 h-12 text-base font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover-scale"
+                className="px-6 py-4 h-12 text-sm sm:text-base font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover-scale w-full sm:w-auto"
                 onClick={() => handleCTAClick('start_trial')}
               >
                 ▶ Start Free Trial
@@ -327,7 +327,7 @@ const HeroSection = () => {
               <Button 
                 variant="outline"
                 size="lg"
-                className="px-6 py-4 h-12 text-base font-semibold rounded-xl border-2 border-primary text-primary hover:bg-primary hover:text-white hover-scale"
+                className="px-6 py-4 h-12 text-sm sm:text-base font-semibold rounded-xl border-2 border-primary text-primary hover:bg-primary hover:text-white hover-scale w-full sm:w-auto"
                 onClick={() => handleCTAClick('book_demo')}
               >
                 📅 Book a Demo

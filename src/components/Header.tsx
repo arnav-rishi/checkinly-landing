@@ -58,23 +58,37 @@ const Header = () => {
   };
 
   return (
-    <header className={`w-full fixed top-4 left-1/2 transform -translate-x-1/2 z-50 px-4 transition-transform duration-300 ${
+    <header className={`w-full fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 px-2 sm:px-4 transition-transform duration-300 ${
       isVisible ? 'translate-y-0' : '-translate-y-full'
     }`}>
       <div className="max-w-fit mx-auto">
-        <div className="bg-white/95 backdrop-blur-lg border border-gray-200/50 rounded-2xl shadow-lg px-6 py-3">
+        <div className="bg-white/95 backdrop-blur-lg border border-gray-200/50 rounded-xl sm:rounded-2xl shadow-lg px-3 sm:px-6 py-2 sm:py-3">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <div className="flex items-center space-x-3 group mr-8">
+            <div className="flex items-center space-x-2 sm:space-x-3 group mr-4 sm:mr-8">
               <img 
                 src="/lovable-uploads/188e6dc8-7310-45bd-9b68-4fab84a92c03.png" 
                 alt="Checkinly Logo" 
-                className="w-8 h-8 hover:scale-110 transition-all duration-300 group-hover:drop-shadow-lg"
+                className="w-6 h-6 sm:w-8 sm:h-8 hover:scale-110 transition-all duration-300 group-hover:drop-shadow-lg"
               />
-              <span className="text-lg font-bold text-slate-800 group-hover:text-primary transition-colors duration-300">Checkinly</span>
+              <span className="text-base sm:text-lg font-bold text-slate-800 group-hover:text-primary transition-colors duration-300">Checkinly</span>
             </div>
 
-            {/* Main Navigation */}
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <Button 
+                variant="ghost" 
+                size="sm"
+                className="p-2"
+                onClick={() => {/* Add mobile menu toggle */}}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </Button>
+            </div>
+
+            {/* Main Navigation - Hidden on mobile */}
             <nav className="hidden md:flex items-center space-x-6">
               <a href="/" className="text-slate-600 hover:text-primary transition-all duration-300 text-sm font-medium hover:scale-105 relative group">
                 Home
@@ -92,17 +106,17 @@ const Header = () => {
             </nav>
 
             {/* Authentication CTAs */}
-            <div className="flex items-center space-x-3 ml-8">
+            <div className="flex items-center space-x-2 sm:space-x-3 ml-4 sm:ml-8">
               {user ? (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="relative h-10 w-10 rounded-full">
-                      <Avatar className="h-10 w-10">
+                    <Button variant="ghost" className="relative h-8 w-8 sm:h-10 sm:w-10 rounded-full">
+                      <Avatar className="h-8 w-8 sm:h-10 sm:w-10">
                         <AvatarImage 
                           src={user.user_metadata?.avatar_url} 
                           alt={user.user_metadata?.full_name || user.email} 
                         />
-                        <AvatarFallback className="bg-primary text-primary-foreground">
+                        <AvatarFallback className="bg-primary text-primary-foreground text-sm sm:text-base">
                           {(user.user_metadata?.full_name || user.email || 'U')
                             .split(' ')
                             .map((n: string) => n[0])
@@ -117,7 +131,7 @@ const Header = () => {
                     <div className="flex items-center justify-start gap-2 p-2">
                       <div className="flex flex-col space-y-1 leading-none">
                         {user.user_metadata?.full_name && (
-                          <p className="font-medium">{user.user_metadata.full_name}</p>
+                          <p className="font-medium text-sm">{user.user_metadata.full_name}</p>
                         )}
                         <p className="text-xs leading-none text-muted-foreground">
                           {user.email}
@@ -143,15 +157,16 @@ const Header = () => {
                     variant="ghost" 
                     size="sm"
                     onClick={handleSignInClick}
-                    className="hidden md:inline-flex text-sm hover:scale-105 transition-all duration-300 text-slate-600 hover:text-primary"
+                    className="hidden sm:inline-flex text-sm hover:scale-105 transition-all duration-300 text-slate-600 hover:text-primary px-3 py-2"
                   >
                     Log in
                   </Button>
                   <Button 
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md px-4 py-2 text-sm font-medium hover:scale-105 transition-all duration-300 rounded-xl"
+                    size="sm"
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium hover:scale-105 transition-all duration-300 rounded-lg sm:rounded-xl"
                     onClick={handleStartTrialClick}
                   >
-                    Try for free
+                    Try free
                   </Button>
                 </>
               )}
