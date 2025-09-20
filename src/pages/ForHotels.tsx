@@ -135,7 +135,14 @@ const ForHotels = () => {
           </section>
 
           {/* Pricing Section */}
-          <PricingSection />
+          <section id="pricing" className="mb-20">
+            <div className="flex items-center mb-8">
+              <Calculator className="w-8 h-8 mr-4 text-primary" />
+              <h2 className="text-3xl font-bold">Pricing</h2>
+            </div>
+            <p className="text-lg text-muted-foreground mb-8">Choose the plan that fits your hotel's needs</p>
+            <PricingSection />
+          </section>
 
           {/* Testimonial */}
           <div className="bg-muted/50 rounded-large p-8 mb-8">
