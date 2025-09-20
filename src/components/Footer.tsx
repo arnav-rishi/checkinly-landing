@@ -31,14 +31,14 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Product Links */}
+          {/* Solutions Links */}
           <div>
             <h4 className="font-bold text-foreground mb-6 text-lg">Solutions</h4>
             <ul className="space-y-4">
-              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Digital Check-in</a></li>
-              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Front Desk Management</a></li>
-              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Guest Engagement</a></li>
-              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Device Integration</a></li>
+              <li><a href="/digital-checkin" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Digital Check-in</a></li>
+              <li><a href="/front-desk-management" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Front Desk Management</a></li>
+              <li><a href="/guest-engagement" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Guest Engagement</a></li>
+              <li><a href="/device-integration" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Device Integration</a></li>
             </ul>
           </div>
 
@@ -46,10 +46,8 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-foreground mb-6 text-lg">Support</h4>
             <ul className="space-y-4">
-              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Help Center</a></li>
-              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Email Support</a></li>
-              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Schedule a Demo</a></li>
-              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Getting Started</a></li>
+              <li><a href="#demo" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Schedule a Demo</a></li>
+              <li><a href="/contact-sales" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Contact Sales</a></li>
             </ul>
           </div>
 
@@ -57,10 +55,9 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-foreground mb-6 text-lg">Company</h4>
             <ul className="space-y-4">
-              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">About Our Story</a></li>
-              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Privacy Policy</a></li>
-              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Terms of Service</a></li>
-              <li><a href="#" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Latest Updates</a></li>
+              <li><a href="/about" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">About Our Story</a></li>
+              <li><a href="/privacy-policy" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Privacy Policy</a></li>
+              <li><a href="/terms-of-service" className="text-base text-muted-foreground hover:text-primary transition-smooth hover-lift">Terms of Service</a></li>
             </ul>
           </div>
         </div>

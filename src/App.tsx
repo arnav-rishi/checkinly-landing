@@ -12,6 +12,13 @@ import CheckinlyOS from "./pages/CheckinlyOS";
 import ForHotels from "./pages/ForHotels";
 import FAQs from "./pages/FAQs";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import About from "./pages/About";
+import ContactSales from "./pages/ContactSales";
+import DigitalCheckin from "./pages/DigitalCheckin";
+import FrontDeskManagement from "./pages/FrontDeskManagement";
+import GuestEngagement from "./pages/GuestEngagement";
+import DeviceIntegration from "./pages/DeviceIntegration";
 import ROICalculator from "./pages/ROICalculator";
 import CaseStudies from "./pages/CaseStudies";
 import IntegrationGuide from "./pages/IntegrationGuide";
@@ -35,6 +42,13 @@ const App = () => (
             <Route path="/for-hotels" element={<ForHotels />} />
             <Route path="/faqs" element={<FAQs />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact-sales" element={<ContactSales />} />
+            <Route path="/digital-checkin" element={<DigitalCheckin />} />
+            <Route path="/front-desk-management" element={<FrontDeskManagement />} />
+            <Route path="/guest-engagement" element={<GuestEngagement />} />
+            <Route path="/device-integration" element={<DeviceIntegration />} />
             <Route path="/roi-calculator" element={<ROICalculator />} />
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/integration-guide" element={<IntegrationGuide />} />
