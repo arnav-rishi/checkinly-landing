@@ -31,7 +31,7 @@ const Auth = () => {
 
   // Redirect if already authenticated
   if (user) {
-    navigate('/dashboard');
+    navigate('/');
     return null;
   }
 
@@ -62,7 +62,7 @@ const Auth = () => {
             title: "Welcome back!",
             description: "You've been signed in successfully."
           });
-          navigate('/dashboard');
+          navigate('/');
         } else if (mode === 'signup') {
           toast({
             title: "Account created!",
@@ -95,7 +95,7 @@ const Auth = () => {
     }
     setIsLoading(true);
     try {
-      const redirectUrl = `${window.location.origin}/dashboard`;
+      const redirectUrl = `${window.location.origin}/`;
       const { error } = await supabase.auth.signInWithOtp({
         email,
         options: { emailRedirectTo: redirectUrl }

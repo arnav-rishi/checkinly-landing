@@ -61,12 +61,13 @@ const Index = () => {
         variant="gradient"
         title="Ready to 10X Your Check-in Speed?"
         description="Join 500+ hotels already using Checkinly to increase revenue and guest satisfaction."
-        primaryText={user ? "Access Dashboard" : "Start Free 30-Day Trial"}
+        primaryText={user ? "Welcome Back!" : "Start Free 30-Day Trial"}
         secondaryText="Schedule Live Demo"
         onPrimaryClick={() => {
           trackConversion('trial_start', 'final_cta');
           if (user) {
-            navigate('/dashboard');
+            // User is already on landing page, just show a welcome message
+            console.log('User already authenticated and on landing page');
           } else {
             navigate('/auth?mode=signup');
           }
