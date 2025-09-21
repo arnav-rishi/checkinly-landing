@@ -254,12 +254,6 @@ const HeroSection = () => {
               status: "unlocked",
               battery: "98%",
               signal: "Weak"
-            }, {
-              room: "Room 105-b987",
-              lockId: "LOCK-345922-b987",
-              status: "unlocked",
-              battery: "89%",
-              signal: "Weak"
             }].map((lock, index) => <div key={index} className="bg-gray-50/80 p-4 rounded-xl border border-gray-100">
                   <div className="flex justify-between items-start mb-3">
                     <div>
