@@ -80,22 +80,7 @@ const About = () => {
                       <span className="text-muted-foreground">Recognized as Best Hospitality Tech Startup 2023</span>
                     </div>
                   </div>
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-primary/10 rounded-2xl"></div>
-                    <div className="relative p-8 text-center">
-                      <div className="grid grid-cols-2 gap-4 mb-6">
-                        <div className="bg-background/80 rounded-xl p-4">
-                          <div className="text-2xl font-bold text-primary">500+</div>
-                          <div className="text-sm text-muted-foreground">Hotels Served</div>
-                        </div>
-                        <div className="bg-background/80 rounded-xl p-4">
-                          <div className="text-2xl font-bold text-primary">15</div>
-                          <div className="text-sm text-muted-foreground">Countries</div>
-                        </div>
-                      </div>
-                      <p className="text-sm text-muted-foreground">Global Impact</p>
-                    </div>
-                  </div>
+                  
                 </div>
               </CardContent>
             </Card>
