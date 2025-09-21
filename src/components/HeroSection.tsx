@@ -357,7 +357,7 @@ const HeroSection = () => {
           transform: `translateY(${scrollY * -0.1}px)`
         }}>
             <div className="bg-gray-900 rounded-2xl p-4 shadow-2xl overflow-hidden border border-gray-700/50 h-[580px] flex flex-col px-[5px] py-[15px]">
-              <div className="flex items-center justify-between border-b border-gray-700 mx-0 my-0 px-[3px] py-0">
+              <div className="flex items-center justify-between px-2 py-3 border-b border-gray-700">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
                     <CheckCircle className="w-5 h-5 text-white" />
@@ -377,7 +377,7 @@ const HeroSection = () => {
 
                 {/* THE FIX: Added min-h-0 to this flex container */}
                 <div className="flex-1 min-h-0">
-                  <div className="bg-white rounded-xl p-4 h-full overflow-y-auto mx-0 my-0 px-[9px] py-[2px]">
+                  <div className="bg-white rounded-xl p-4 h-full overflow-y-auto">
                     <div className="space-y-4 max-h-full">
                       {renderDashboardContent()}
                     </div>
