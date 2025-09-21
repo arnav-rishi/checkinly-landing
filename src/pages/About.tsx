@@ -2,45 +2,50 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Target, TrendingUp, Shield, RefreshCcw, Users, Award } from "lucide-react";
-
 const About = () => {
-  const values = [
-    { 
-      icon: Target, 
-      title: "Guest-Centric Innovation", 
-      description: "Every feature we build starts with the guest experience",
-      color: "text-blue-600"
-    },
-    { 
-      icon: TrendingUp, 
-      title: "Operational Excellence", 
-      description: "We simplify complex processes to help hotels run smoothly",
-      color: "text-emerald-600"
-    },
-    { 
-      icon: Shield, 
-      title: "Trust & Security", 
-      description: "Your data and your guests' information are always protected",
-      color: "text-orange-600"
-    },
-    { 
-      icon: RefreshCcw, 
-      title: "Continuous Improvement", 
-      description: "We listen, learn, and evolve with the industry",
-      color: "text-purple-600"
-    }
-  ];
-
-  const milestones = [
-    { year: "2020", title: "Company Founded", description: "Started by hospitality veterans and tech experts" },
-    { year: "2021", title: "First 50 Hotels", description: "Proven product-market fit" },
-    { year: "2022", title: "Series A Funding", description: "Raised $10M to accelerate growth" },
-    { year: "2023", title: "Global Expansion", description: "Launched in 15 countries" },
-    { year: "2024", title: "500+ Hotels", description: "Serving properties worldwide" }
-  ];
-
-  return (
-    <div className="min-h-screen bg-background">
+  const values = [{
+    icon: Target,
+    title: "Guest-Centric Innovation",
+    description: "Every feature we build starts with the guest experience",
+    color: "text-blue-600"
+  }, {
+    icon: TrendingUp,
+    title: "Operational Excellence",
+    description: "We simplify complex processes to help hotels run smoothly",
+    color: "text-emerald-600"
+  }, {
+    icon: Shield,
+    title: "Trust & Security",
+    description: "Your data and your guests' information are always protected",
+    color: "text-orange-600"
+  }, {
+    icon: RefreshCcw,
+    title: "Continuous Improvement",
+    description: "We listen, learn, and evolve with the industry",
+    color: "text-purple-600"
+  }];
+  const milestones = [{
+    year: "2020",
+    title: "Company Founded",
+    description: "Started by hospitality veterans and tech experts"
+  }, {
+    year: "2021",
+    title: "First 50 Hotels",
+    description: "Proven product-market fit"
+  }, {
+    year: "2022",
+    title: "Series A Funding",
+    description: "Raised $10M to accelerate growth"
+  }, {
+    year: "2023",
+    title: "Global Expansion",
+    description: "Launched in 15 countries"
+  }, {
+    year: "2024",
+    title: "500+ Hotels",
+    description: "Serving properties worldwide"
+  }];
+  return <div className="min-h-screen bg-background">
       <Header />
       
       {/* Hero Section */}
@@ -69,7 +74,7 @@ const About = () => {
               <CardContent className="p-12">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   <div>
-                    <h2 className="text-3xl font-bold text-foreground mb-6">Our Mission</h2>
+                    <h2 className="text-3xl font-bold text-foreground mb-6 mx-0">Our Mission</h2>
                     <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                       At Checkinly, we believe that technology should enhance human connections, not replace them. 
                       Our mission is to empower hotels with innovative solutions that streamline operations while 
@@ -86,38 +91,13 @@ const About = () => {
             </Card>
 
             {/* Journey Timeline */}
-            <div className="mb-20">
-              <h2 className="text-4xl font-bold text-foreground text-center mb-16">The Journey</h2>
-              <div className="relative">
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-primary/20 rounded-full"></div>
-                <div className="space-y-12">
-                  {milestones.map((milestone, index) => (
-                    <div key={index} className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
-                      <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
-                        <Card className="hover-scale">
-                          <CardContent className="p-6">
-                            <div className="text-2xl font-bold text-primary mb-2">{milestone.year}</div>
-                            <h3 className="text-lg font-semibold text-foreground mb-2">{milestone.title}</h3>
-                            <p className="text-muted-foreground">{milestone.description}</p>
-                          </CardContent>
-                        </Card>
-                      </div>
-                      <div className="relative flex items-center justify-center w-12 h-12 bg-primary rounded-full border-4 border-background z-10">
-                        <div className="w-6 h-6 bg-primary-foreground rounded-full"></div>
-                      </div>
-                      <div className="w-1/2"></div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+            
 
             {/* Values Grid */}
             <div className="mb-20">
               <h2 className="text-4xl font-bold text-foreground text-center mb-16">Our Values</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {values.map((value, index) => (
-                  <Card key={index} className="hover-scale border-2 hover:border-primary/20 transition-all duration-300">
+                {values.map((value, index) => <Card key={index} className="hover-scale border-2 hover:border-primary/20 transition-all duration-300">
                     <CardContent className="p-8">
                       <div className="flex items-start space-x-4">
                         <div className={`w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0`}>
@@ -129,8 +109,7 @@ const About = () => {
                         </div>
                       </div>
                     </CardContent>
-                  </Card>
-                ))}
+                  </Card>)}
               </div>
             </div>
 
@@ -152,8 +131,6 @@ const About = () => {
       </section>
       
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default About;
