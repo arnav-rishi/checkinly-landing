@@ -278,7 +278,7 @@ const HeroSection = () => {
         return null;
     }
   };
-  return <section className="relative w-full min-h-[85vh] bg-gradient-to-br from-blue-50/70 via-blue-25/20 to-blue-100/60 overflow-hidden pt-24 sm:pt-32 px-4 sm:px-6">
+  return <section className="relative w-full min-h-[85vh] bg-gradient-to-br from-blue-50/70 via-blue-25/20 to-blue-100/60 overflow-hidden pt-24 sm:pt-32 px-0">
       {/* Grid Background */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
       backgroundImage: `
@@ -299,7 +299,7 @@ const HeroSection = () => {
         <div className="absolute bottom-20 left-1/3 w-24 h-24 bg-purple-500/10 rounded-full blur-xl"></div>
       </div>
       
-      <div className="relative z-10 container max-w-6xl mx-auto sm:px-6 lg:px-8 pb-8 sm:pb-12 px-0">
+      <div className="relative z-10 container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="space-y-4 sm:space-y-6 lg:col-span-6 text-center lg:text-left" style={{
           transform: `translateY(${scrollY * 0.1}px)`
@@ -354,11 +354,11 @@ const HeroSection = () => {
             </p>
           </div>
 
-          <div className="relative animate-fade-in lg:col-span-6 max-w-full overflow-hidden" style={{
+          <div className="relative animate-fade-in lg:col-span-6 w-full max-w-full overflow-hidden" style={{
           animationDelay: '0.3s',
           transform: `translateY(${scrollY * -0.1}px)`
         }}>
-            <div className="bg-gray-900 rounded-2xl p-4 shadow-2xl overflow-hidden border border-gray-700/50 h-[580px] flex flex-col px-[5px] py-[15px] max-w-full">
+            <div className="bg-gray-900 rounded-2xl p-4 shadow-2xl overflow-hidden border border-gray-700/50 h-[580px] flex flex-col px-[5px] py-[15px] w-full max-w-full">
               <div className="flex items-center justify-between px-2 py-3 border-b border-gray-700">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
