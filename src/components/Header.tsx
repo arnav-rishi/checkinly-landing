@@ -55,7 +55,7 @@ const Header = () => {
     await signOut();
     handleCTAClick('logout');
   };
-  return <header className={`w-full fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 px-2 sm:px-4 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+  return <header className={`w-full fixed top-2 sm:top-4 left-0 right-0 z-50 px-2 sm:px-4 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
       <div className="max-w-fit mx-auto">
         <div className="bg-white/95 backdrop-blur-lg border border-gray-200/50 rounded-xl sm:rounded-2xl shadow-lg px-3 sm:px-6 py-2 sm:py-3">
           <div className="flex items-center justify-between">

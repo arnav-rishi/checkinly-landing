@@ -354,11 +354,11 @@ const HeroSection = () => {
             </p>
           </div>
 
-          <div className="relative animate-fade-in lg:col-span-6" style={{
+          <div className="relative animate-fade-in lg:col-span-6 max-w-full overflow-hidden" style={{
           animationDelay: '0.3s',
           transform: `translateY(${scrollY * -0.1}px)`
         }}>
-            <div className="bg-gray-900 rounded-2xl p-4 shadow-2xl overflow-hidden border border-gray-700/50 h-[580px] flex flex-col px-[5px] py-[15px]">
+            <div className="bg-gray-900 rounded-2xl p-4 shadow-2xl overflow-hidden border border-gray-700/50 h-[580px] flex flex-col px-[5px] py-[15px] max-w-full">
               <div className="flex items-center justify-between px-2 py-3 border-b border-gray-700">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
