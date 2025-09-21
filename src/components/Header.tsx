@@ -5,6 +5,8 @@ import { MegaMenu, downloadAppMenuConfig, checkinlyOSMenuConfig, forHotelsMenuCo
 import { useState, useEffect } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useIsMobile } from "@/hooks/use-mobile";
 const Header = () => {
   const {
     user,
@@ -13,6 +15,8 @@ const Header = () => {
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
   useEffect(() => {
     const controlNavbar = () => {
       if (typeof window !== 'undefined') {
@@ -61,13 +65,49 @@ const Header = () => {
               <span className="text-base sm:text-lg font-bold text-slate-800 group-hover:text-primary transition-colors duration-300 px-0 py-0 my-0 mx-0">Checkinly</span>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu */}
             <div className="md:hidden">
-              <Button variant="ghost" size="sm" className="p-2" onClick={() => {/* Add mobile menu toggle */}}>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              </Button>
+              <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="sm" className="p-2">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                  <div className="flex flex-col space-y-6 mt-6">
+                    <a href="/" className="text-slate-700 hover:text-primary transition-colors text-base font-medium" onClick={() => setMobileMenuOpen(false)}>
+                      Home
+                    </a>
+                    <div className="space-y-4">
+                      <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wide">Download App</h3>
+                      <a href="/download-app" className="block text-slate-600 hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>Download</a>
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wide">Checkinly OS</h3>
+                      <a href="/checkinly-os" className="block text-slate-600 hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>Platform</a>
+                    </div>
+                    <div className="space-y-4">
+                      <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wide">For Hotels</h3>
+                      <a href="/for-hotels" className="block text-slate-600 hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>Solutions</a>
+                    </div>
+                    <a href="/faqs" className="text-slate-700 hover:text-primary transition-colors text-base font-medium" onClick={() => setMobileMenuOpen(false)}>
+                      FAQs
+                    </a>
+                    {!user && (
+                      <div className="pt-4 border-t space-y-3">
+                        <Button variant="ghost" onClick={() => { handleSignInClick(); setMobileMenuOpen(false); }} className="w-full justify-start">
+                          Log in
+                        </Button>
+                        <Button onClick={() => { handleStartTrialClick(); setMobileMenuOpen(false); }} className="w-full">
+                          Contact Sales
+                        </Button>
+                      </div>
+                    )}
+                  </div>
+                </SheetContent>
+              </Sheet>
             </div>
 
             {/* Main Navigation - Hidden on mobile */}

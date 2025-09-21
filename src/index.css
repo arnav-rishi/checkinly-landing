@@ -75,6 +75,13 @@
     scroll-behavior: smooth;
     /* Optimize touch scrolling on mobile */
     -webkit-overflow-scrolling: touch;
+    /* Prevent horizontal overflow */
+    overflow-x: hidden;
+  }
+
+  body {
+    /* Prevent horizontal overflow */
+    overflow-x: hidden;
   }
 }
 

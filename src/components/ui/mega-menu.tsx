@@ -44,7 +44,7 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ title, sections, className }
 
       {/* Mega Menu Content */}
       {isOpen && (
-        <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-screen max-w-4xl z-50">
+        <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[calc(100vw-2rem)] sm:w-screen max-w-4xl z-50">
           <div className="bg-white rounded-2xl shadow-elegant border border-gray-100 p-8 animate-fade-in">
             {/* Background Glow */}
             <div className="absolute -inset-2 bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 rounded-3xl blur-xl -z-10"></div>
