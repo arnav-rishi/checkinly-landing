@@ -290,9 +290,10 @@ const HeroSection = () => {
       </div>
       
       {/* Floating Elements */}
-      <div style={{
-      transform: `translateY(${scrollY * 0.5}px)`
-    }} className="absolute inset-0 opacity-40 my-0 px-0 rounded-modern mx-0 py-0">
+      <div
+        style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+        className="absolute inset-0 w-full h-full max-w-full opacity-40 pointer-events-none overflow-hidden"
+      >
         <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl"></div>
         <div className="absolute top-40 right-20 w-32 h-32 bg-blue-500/10 rounded-full blur-xl"></div>
         <div className="absolute bottom-20 left-1/3 w-24 h-24 bg-purple-500/10 rounded-full blur-xl"></div>
