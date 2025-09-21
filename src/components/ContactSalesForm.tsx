@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface ContactSalesFormProps {
   onSubmit?: () => void;
@@ -22,18 +23,36 @@ const ContactSalesForm = ({ onSubmit }: ContactSalesFormProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Client-side validation
+    if (!formData.name.trim() || !formData.email.trim() || !formData.company.trim() || !formData.message.trim()) {
+      toast({
+        title: "Validation Error",
+        description: "Please fill in all required fields.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    if (formData.name.length > 100 || formData.email.length > 255 || formData.company.length > 200 || formData.message.length > 2000) {
+      toast({
+        title: "Validation Error", 
+        description: "One or more fields exceed maximum length.",
+        variant: "destructive"
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
-      // TODO: Replace with actual backend service endpoint
-      // const response = await fetch('/api/contact-sales', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(formData)
-      // });
+      const { error } = await supabase.functions.invoke('contact-sales', {
+        body: formData
+      });
 
-      // Simulate API call for now
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      if (error) {
+        throw error;
+      }
 
       toast({
         title: "Message sent successfully!",
@@ -49,10 +68,11 @@ const ContactSalesForm = ({ onSubmit }: ContactSalesFormProps) => {
       });
 
       onSubmit?.();
-    } catch (error) {
+    } catch (error: any) {
+      console.error('Contact sales error:', error);
       toast({
         title: "Error sending message",
-        description: "Please try again or contact us directly.",
+        description: error.message || "Please try again or contact us directly.",
         variant: "destructive"
       });
     } finally {
