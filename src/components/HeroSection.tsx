@@ -297,7 +297,7 @@ const HeroSection = () => {
         <div className="absolute bottom-20 left-1/3 w-24 h-24 bg-purple-500/10 rounded-full blur-xl"></div>
       </div>
       
-      <div className="relative z-10 container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12">
+      <div className="relative z-10 container max-w-6xl mx-auto sm:px-6 lg:px-8 pb-8 sm:pb-12 px-0">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="space-y-4 sm:space-y-6 lg:col-span-6 text-center lg:text-left" style={{
           transform: `translateY(${scrollY * 0.1}px)`
