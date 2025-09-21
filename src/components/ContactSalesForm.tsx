@@ -81,7 +81,21 @@ const ContactSalesForm = ({ onSubmit }: ContactSalesFormProps) => {
   };
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    // Basic input sanitization - remove potential script tags and excessive whitespace
+    const sanitizedValue = value.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '').trim();
+    
+    // Length validation
+    const maxLengths = {
+      name: 100,
+      email: 255,
+      company: 200,
+      phone: 20,
+      message: 2000
+    };
+    
+    if (sanitizedValue.length <= (maxLengths[field as keyof typeof maxLengths] || 1000)) {
+      setFormData(prev => ({ ...prev, [field]: sanitizedValue }));
+    }
   };
 
   return (

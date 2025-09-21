@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, Mail, User, MessageSquare, CheckCircle } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
+import { securityLogger } from '@/utils/securityLogger';
 
 interface ContactFormProps {
   onClose?: () => void;
@@ -21,15 +22,50 @@ const ContactForm = ({ onClose }: ContactFormProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Client-side validation and sanitization
+    const sanitizedName = name.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '').trim();
+    const sanitizedEmail = email.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '').trim().toLowerCase();
+    const sanitizedMessage = message.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '').trim();
+    
+    if (!sanitizedName || !sanitizedEmail || !sanitizedMessage) {
+      toast({
+        title: "Validation Error",
+        description: "Please fill in all required fields.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    if (sanitizedName.length > 100 || sanitizedEmail.length > 255 || sanitizedMessage.length > 2000) {
+      toast({
+        title: "Validation Error",
+        description: "One or more fields exceed maximum length.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(sanitizedEmail)) {
+      toast({
+        title: "Validation Error", 
+        description: "Please enter a valid email address.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
     setIsLoading(true);
 
     try {
       const { error } = await supabase
         .from('contact_submissions')
         .insert({
-          name,
-          email,
-          message
+          name: sanitizedName,
+          email: sanitizedEmail,
+          message: sanitizedMessage
         });
 
       if (error) {
@@ -46,11 +82,15 @@ const ContactForm = ({ onClose }: ContactFormProps) => {
       setName('');
       setEmail('');
       setMessage('');
-    } catch (error) {
+    } catch (error: any) {
       console.error('Contact form error:', error);
+      
+      // Log security event for failed form submissions
+      await securityLogger.logFormValidationFailure('contact_form', [error.message || 'Unknown error']);
+      
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again.",
+        description: error.message || "Failed to send message. Please try again.",
         variant: "destructive"
       });
     } finally {

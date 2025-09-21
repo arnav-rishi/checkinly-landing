@@ -15,13 +15,46 @@ const EmailCaptureSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Client-side validation and sanitization
+    const sanitizedEmail = email.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '').trim().toLowerCase();
+    
+    if (!sanitizedEmail) {
+      toast({
+        title: "Validation Error",
+        description: "Please enter your email address.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    if (sanitizedEmail.length > 255) {
+      toast({
+        title: "Validation Error",
+        description: "Email address is too long.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(sanitizedEmail)) {
+      toast({
+        title: "Validation Error",
+        description: "Please enter a valid email address.",
+        variant: "destructive"
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
 
     try {
       const { error } = await supabase
         .from('email_subscriptions')
         .insert({
-          email,
+          email: sanitizedEmail,
           source: 'waitlist'
         });
 
@@ -41,11 +74,11 @@ const EmailCaptureSection = () => {
           description: "We'll notify you when new features are available.",
         });
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Email subscription error:', error);
       toast({
         title: "Something went wrong",
-        description: "Please try again later.",
+        description: error.message || "Please try again later.",
         variant: "destructive"
       });
     } finally {
