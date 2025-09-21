@@ -280,19 +280,20 @@ const HeroSection = () => {
   };
   return <section className="relative w-full min-h-[85vh] bg-gradient-to-br from-blue-50/70 via-blue-25/20 to-blue-100/60 overflow-hidden pt-24 sm:pt-32 px-4 sm:px-6">
       {/* Grid Background */}
-      <div className="absolute inset-0 opacity-[0.03]" style={{
-      backgroundImage: `
+      <div className="absolute inset-0 opacity-[0.03]" 
+           style={{
+             backgroundImage: `
                linear-gradient(rgba(59, 130, 246, 0.5) 1px, transparent 1px),
                linear-gradient(90deg, rgba(59, 130, 246, 0.5) 1px, transparent 1px)
              `,
-      backgroundSize: '40px 40px'
-    }}>
+             backgroundSize: '40px 40px'
+           }}>
       </div>
       
       {/* Floating Elements */}
-      <div style={{
+      <div className="absolute inset-0 opacity-40" style={{
       transform: `translateY(${scrollY * 0.5}px)`
-    }} className="absolute inset-0 opacity-40 bg-blue-100">
+    }}>
         <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl"></div>
         <div className="absolute top-40 right-20 w-32 h-32 bg-blue-500/10 rounded-full blur-xl"></div>
         <div className="absolute bottom-20 left-1/3 w-24 h-24 bg-purple-500/10 rounded-full blur-xl"></div>
