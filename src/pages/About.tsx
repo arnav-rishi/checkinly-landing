@@ -75,15 +75,12 @@ const About = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   <div>
                     <h2 className="text-3xl font-bold text-foreground mb-6 mx-0">Our Mission</h2>
-                    <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                    <p className="text-lg text-muted-foreground leading-relaxed mb-6 mx-0">
                       At Checkinly, we believe that technology should enhance human connections, not replace them. 
                       Our mission is to empower hotels with innovative solutions that streamline operations while 
                       creating more meaningful guest experiences.
                     </p>
-                    <div className="flex items-center space-x-4">
-                      <Award className="w-8 h-8 text-primary" />
-                      <span className="text-muted-foreground">Recognized as Best Hospitality Tech Startup 2023</span>
-                    </div>
+                    
                   </div>
                   
                 </div>
