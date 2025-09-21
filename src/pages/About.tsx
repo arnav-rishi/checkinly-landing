@@ -111,7 +111,7 @@ const About = () => {
             </div>
 
             {/* Future Vision */}
-            <div className="bg-gradient-to-r from-primary/5 to-primary/10 rounded-3xl p-12 text-center">
+            <div className="bg-gradient-to-r from-primary/5 to-primary/10 rounded-3xl p-12 text-center flex flex-col items-center justify-center">
               <h2 className="text-4xl font-bold text-foreground mb-8">Looking Forward</h2>
               <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto mb-8">
                 As we continue to grow, our commitment remains unchanged: to provide hospitality technology 
