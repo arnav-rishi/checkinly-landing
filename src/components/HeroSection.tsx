@@ -269,7 +269,6 @@ const HeroSection = () => {
                     <Badge variant={lock.status === "locked" ? "default" : "secondary"} className={`text-xs ${lock.status === "locked" ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-700"}`}>{lock.status}</Badge>
                   </div>
                   <div className="space-y-2 text-xs">
-                    <div className="flex justify-between"><span className="text-gray-600">Type</span><span className="font-medium">{lock.type}</span></div>
                     <div className="flex justify-between items-center">
                       <span className="text-gray-600">Battery</span>
                       <div className="flex items-center space-x-1"><Battery className={`h-3 w-3 ${parseInt(lock.battery) > 50 ? 'text-green-600' : 'text-yellow-600'}`} /><span className="font-medium">{lock.battery}</span></div>
