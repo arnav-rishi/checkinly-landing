@@ -148,7 +148,7 @@ const HeroSection = () => {
               <Button size="sm" className="bg-primary hover:bg-primary/90">+ Add Guest</Button>
             </div>
             <div className="flex-1 overflow-hidden">
-              <p className="text-xs text-gray-500 mb-3">Showing 3 of 60 guests</p>
+              <p className="text-xs text-gray-500 mb-3">Showing 2 of 60 guests</p>
               <div className="space-y-3 overflow-y-auto max-h-full pr-2">
                 {[{
                 name: "Parker Thomas",
@@ -190,7 +190,7 @@ const HeroSection = () => {
               <Button size="sm" className="bg-primary hover:bg-primary/90">+ Add Room</Button>
             </div>
             <div className="flex-1 overflow-hidden">
-              <p className="text-xs text-gray-500 mb-3">Showing 5 of 20 rooms</p>
+              <p className="text-xs text-gray-500 mb-3">Showing 2 of 20 rooms</p>
               <div className="space-y-3 overflow-y-auto max-h-full pr-2">
                 {[{
                 room: "Room 101-b987",
@@ -247,22 +247,19 @@ const HeroSection = () => {
               lockId: "LOCK-527532-b987",
               status: "locked",
               battery: "62%",
-              signal: "Weak",
-              type: "NFC"
+              signal: "Strong"
             }, {
               room: "Room 103-b987",
               lockId: "LOCK-665787-b987",
               status: "unlocked",
               battery: "98%",
-              signal: "Weak",
-              type: "NFC"
+              signal: "Weak"
             }, {
               room: "Room 105-b987",
               lockId: "LOCK-345922-b987",
               status: "unlocked",
               battery: "89%",
-              signal: "Weak",
-              type: "NFC"
+              signal: "Weak"
             }].map((lock, index) => <div key={index} className="bg-gray-50/80 p-4 rounded-xl border border-gray-100">
                   <div className="flex justify-between items-start mb-3">
                     <div>
