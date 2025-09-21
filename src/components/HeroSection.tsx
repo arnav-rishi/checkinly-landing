@@ -2,58 +2,40 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { 
-  BarChart3, 
-  Users, 
-  Bed, 
-  Lock, 
-  DollarSign, 
-  TrendingUp, 
-  CheckCircle, 
-  User,
-  MapPin,
-  Battery,
-  Wifi,
-  Monitor
-} from "lucide-react";
+import { BarChart3, Users, Bed, Lock, DollarSign, TrendingUp, CheckCircle, User, MapPin, Battery, Wifi, Monitor } from "lucide-react";
 
 // SUGGESTION: A simple component to handle the number counting animation
-const AnimatedNumber = ({ value }: { value: number }) => {
+const AnimatedNumber = ({
+  value
+}: {
+  value: number;
+}) => {
   const [currentValue, setCurrentValue] = useState(0);
-
   useEffect(() => {
     const animationDuration = 1000; // 1 second
     const frameDuration = 1000 / 60; // 60fps
     const totalFrames = Math.round(animationDuration / frameDuration);
     let frame = 0;
-
     const counter = setInterval(() => {
       frame++;
       const progress = frame / totalFrames;
       // Ease-out effect for a smoother stop
       const easeOutProgress = 1 - Math.pow(1 - progress, 3);
       const animatedValue = Math.round(value * easeOutProgress);
-      
       setCurrentValue(animatedValue);
-
       if (frame === totalFrames) {
         clearInterval(counter);
         setCurrentValue(value); // Ensure it ends on the exact value
       }
     }, frameDuration);
-
     return () => clearInterval(counter);
   }, [value]);
-
   return <span>{currentValue.toLocaleString()}</span>;
 };
-
-
 const HeroSection = () => {
   const [activeView, setActiveView] = useState("analytics");
   const [scrollY, setScrollY] = useState(0);
   const navigate = useNavigate();
-
   const handleCTAClick = (action: string) => {
     console.log(`Hero CTA clicked: ${action}`);
     if (action === 'start_trial') {
@@ -74,7 +56,6 @@ const HeroSection = () => {
         return tabs[nextIndex];
       });
     }, 4000);
-
     return () => clearInterval(interval);
   }, []);
 
@@ -84,20 +65,32 @@ const HeroSection = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const sidebarItems = [
-    { id: "analytics", icon: BarChart3, label: "Analytics Dashboard", active: activeView === "analytics" },
-    { id: "guests", icon: Users, label: "Guest Management", active: activeView === "guests" },
-    { id: "rooms", icon: Bed, label: "Room Management", active: activeView === "rooms" },
-    { id: "locks", icon: Lock, label: "Smart Locks", active: activeView === "locks" }
-  ];
-
+  const sidebarItems = [{
+    id: "analytics",
+    icon: BarChart3,
+    label: "Analytics Dashboard",
+    active: activeView === "analytics"
+  }, {
+    id: "guests",
+    icon: Users,
+    label: "Guest Management",
+    active: activeView === "guests"
+  }, {
+    id: "rooms",
+    icon: Bed,
+    label: "Room Management",
+    active: activeView === "rooms"
+  }, {
+    id: "locks",
+    icon: Lock,
+    label: "Smart Locks",
+    active: activeView === "locks"
+  }];
   const renderDashboardContent = () => {
     // ... (This function remains unchanged)
     switch (activeView) {
       case "analytics":
-        return (
-          <div className="space-y-6">
+        return <div className="space-y-6">
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="text-xl font-bold text-gray-900">Analytics Dashboard</h2>
@@ -144,11 +137,9 @@ const HeroSection = () => {
                 <p className="text-xs text-orange-600">+15.8% vs last month</p>
               </div>
             </div>
-          </div>
-        );
+          </div>;
       case "guests":
-        return (
-          <div className="space-y-4 h-full flex flex-col">
+        return <div className="space-y-4 h-full flex flex-col">
             <div className="flex items-center justify-between flex-shrink-0">
               <div>
                 <h2 className="text-xl font-bold text-gray-900">Guest Management</h2>
@@ -159,12 +150,17 @@ const HeroSection = () => {
             <div className="flex-1 overflow-hidden">
               <p className="text-xs text-gray-500 mb-3">Showing 3 of 60 guests</p>
               <div className="space-y-3 overflow-y-auto max-h-full pr-2">
-                {[
-                  { name: "Parker Thomas", email: "parker.thomas939@example.com", location: "Metropolis, Spain", license: "687348130" },
-                  { name: "Quinn Brown", email: "quinn.brown740@example.com", location: "Metropolis, Canada", license: "202677298" },
-                               
-                ].map((guest, index) => (
-                  <div key={index} className="bg-gray-50/80 p-4 rounded-xl border border-gray-100 flex-shrink-0">
+                {[{
+                name: "Parker Thomas",
+                email: "parker.thomas939@example.com",
+                location: "Metropolis, Spain",
+                license: "687348130"
+              }, {
+                name: "Quinn Brown",
+                email: "quinn.brown740@example.com",
+                location: "Metropolis, Canada",
+                license: "202677298"
+              }].map((guest, index) => <div key={index} className="bg-gray-50/80 p-4 rounded-xl border border-gray-100 flex-shrink-0">
                     <div className="flex items-center space-x-3 mb-3">
                       <div className="p-2 bg-white rounded-full"><User className="h-4 w-4 text-gray-600" /></div>
                       <div>
@@ -180,15 +176,12 @@ const HeroSection = () => {
                       <Button variant="outline" size="sm" className="text-xs h-7">Edit</Button>
                       <Button variant="outline" size="sm" className="text-xs h-7 text-red-600 border-red-200 hover:bg-red-50">Delete</Button>
                     </div>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
-          </div>
-        );
+          </div>;
       case "rooms":
-        return (
-          <div className="space-y-4 h-full flex flex-col">
+        return <div className="space-y-4 h-full flex flex-col">
             <div className="flex items-center justify-between flex-shrink-0">
               <div>
                 <h2 className="text-xl font-bold text-gray-900">Room Management</h2>
@@ -199,11 +192,21 @@ const HeroSection = () => {
             <div className="flex-1 overflow-hidden">
               <p className="text-xs text-gray-500 mb-3">Showing 5 of 20 rooms</p>
               <div className="space-y-3 overflow-y-auto max-h-full pr-2">
-                {[
-                  { room: "Room 101-b987", type: "Single", price: "$81/night", guests: 3, status: "cleaning", amenities: ["WiFi", "TV", "AC"] },
-                  { room: "Room 102-b987", type: "Suite", price: "$245/night", guests: 4, status: "occupied", amenities: ["WiFi", "TV"] },
-                ].map((room, index) => (
-                  <div key={index} className="bg-gray-50/80 p-4 rounded-xl border border-gray-100 flex-shrink-0">
+                {[{
+                room: "Room 101-b987",
+                type: "Single",
+                price: "$81/night",
+                guests: 3,
+                status: "cleaning",
+                amenities: ["WiFi", "TV", "AC"]
+              }, {
+                room: "Room 102-b987",
+                type: "Suite",
+                price: "$245/night",
+                guests: 4,
+                status: "occupied",
+                amenities: ["WiFi", "TV"]
+              }].map((room, index) => <div key={index} className="bg-gray-50/80 p-4 rounded-xl border border-gray-100 flex-shrink-0">
                     <div className="flex justify-between items-start mb-3">
                       <div>
                         <h4 className="font-semibold text-gray-900 text-sm">{room.room}</h4>
@@ -225,15 +228,12 @@ const HeroSection = () => {
                       <Button variant="outline" size="sm" className="text-xs h-7">Edit</Button>
                       <Button variant="outline" size="sm" className="text-xs h-7">Manage</Button>
                     </div>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </div>
-          </div>
-        );
+          </div>;
       case "locks":
-        return (
-          <div className="space-y-6">
+        return <div className="space-y-6">
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="text-xl font-bold text-gray-900">Smart Locks</h2>
@@ -242,12 +242,28 @@ const HeroSection = () => {
               <Button size="sm" className="bg-primary hover:bg-primary/90">+ Add Lock</Button>
             </div>
             <div className="space-y-3">
-              {[
-                { room: "Room 110-b987", lockId: "LOCK-527532-b987", status: "locked", battery: "62%", signal: "Weak", type: "NFC" },
-                { room: "Room 103-b987", lockId: "LOCK-665787-b987", status: "unlocked", battery: "98%", signal: "Weak", type: "NFC" },
-                { room: "Room 105-b987", lockId: "LOCK-345922-b987", status: "unlocked", battery: "89%", signal: "Weak", type: "NFC" }
-              ].map((lock, index) => (
-                <div key={index} className="bg-gray-50/80 p-4 rounded-xl border border-gray-100">
+              {[{
+              room: "Room 110-b987",
+              lockId: "LOCK-527532-b987",
+              status: "locked",
+              battery: "62%",
+              signal: "Weak",
+              type: "NFC"
+            }, {
+              room: "Room 103-b987",
+              lockId: "LOCK-665787-b987",
+              status: "unlocked",
+              battery: "98%",
+              signal: "Weak",
+              type: "NFC"
+            }, {
+              room: "Room 105-b987",
+              lockId: "LOCK-345922-b987",
+              status: "unlocked",
+              battery: "89%",
+              signal: "Weak",
+              type: "NFC"
+            }].map((lock, index) => <div key={index} className="bg-gray-50/80 p-4 rounded-xl border border-gray-100">
                   <div className="flex justify-between items-start mb-3">
                     <div>
                       <h4 className="font-semibold text-gray-900 text-sm">{lock.room}</h4>
@@ -265,22 +281,17 @@ const HeroSection = () => {
                     <div className="flex justify-between"><span className="text-gray-600">Last seen</span><span className="font-medium">8:00:19 PM</span></div>
                   </div>
                   <Button variant="outline" size="sm" className="w-full mt-3 text-xs h-7">{lock.status === "locked" ? "Unlock" : "Lock"}</Button>
-                </div>
-              ))}
+                </div>)}
             </div>
-          </div>
-        );
+          </div>;
       default:
         return null;
     }
   };
-
-  return (
-    <section className="relative w-full min-h-[85vh] bg-gradient-to-br from-blue-50/70 via-blue-25/20 to-blue-100/60 overflow-hidden pt-24 sm:pt-32 px-4 sm:px-6">
-      <div 
-        className="absolute inset-0 opacity-40"
-        style={{ transform: `translateY(${scrollY * 0.5}px)` }}
-      >
+  return <section className="relative w-full min-h-[85vh] bg-gradient-to-br from-blue-50/70 via-blue-25/20 to-blue-100/60 overflow-hidden pt-24 sm:pt-32 px-4 sm:px-6">
+      <div className="absolute inset-0 opacity-40" style={{
+      transform: `translateY(${scrollY * 0.5}px)`
+    }}>
         <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl"></div>
         <div className="absolute top-40 right-20 w-32 h-32 bg-blue-500/10 rounded-full blur-xl"></div>
         <div className="absolute bottom-20 left-1/3 w-24 h-24 bg-purple-500/10 rounded-full blur-xl"></div>
@@ -288,7 +299,9 @@ const HeroSection = () => {
       
       <div className="relative z-10 container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          <div className="space-y-4 sm:space-y-6 lg:col-span-6 text-center lg:text-left" style={{ transform: `translateY(${scrollY * 0.1}px)` }}>
+          <div className="space-y-4 sm:space-y-6 lg:col-span-6 text-center lg:text-left" style={{
+          transform: `translateY(${scrollY * 0.1}px)`
+        }}>
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium animate-fade-in">
               <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
               Revolutionary Check-in Platform
@@ -296,13 +309,19 @@ const HeroSection = () => {
             <div className="space-y-2 sm:space-y-3">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
                 <span className="text-primary block animate-fade-in">Automate</span>
-                <span className="text-gray-900 block animate-fade-in" style={{ animationDelay: '0.2s' }}>your guest check-ins</span>
+                <span className="text-gray-900 block animate-fade-in" style={{
+                animationDelay: '0.2s'
+              }}>your guest check-ins</span>
               </h1>
             </div>
-            <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-lg mx-auto lg:mx-0 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-lg mx-auto lg:mx-0 animate-fade-in" style={{
+            animationDelay: '0.4s'
+          }}>
               Streamline hospitality operations with our all-in-one platform. From online check-in to guest verification, every interaction is seamless and profitable.
             </p>
-            <div className="grid grid-cols-3 gap-2 sm:gap-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 animate-fade-in" style={{
+            animationDelay: '0.6s'
+          }}>
               <div className="text-center">
                 <div className="text-xl sm:text-2xl font-bold text-primary">27%</div>
                 <div className="text-xs text-gray-600">Cost Reduction</div>
@@ -316,36 +335,28 @@ const HeroSection = () => {
                 <div className="text-xs text-gray-600">14-day Trial</div>
               </div>
             </div>
-            <div className="flex flex-col sm:flex-row gap-3 animate-fade-in justify-center lg:justify-start" style={{ animationDelay: '0.8s' }}>
-              <Button 
-                size="lg"
-                className="px-6 py-4 h-12 text-sm sm:text-base font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover-scale w-full sm:w-auto"
-                onClick={() => handleCTAClick('start_trial')}
-              >
+            <div className="flex flex-col sm:flex-row gap-3 animate-fade-in justify-center lg:justify-start" style={{
+            animationDelay: '0.8s'
+          }}>
+              <Button size="lg" className="px-6 py-4 h-12 text-sm sm:text-base font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover-scale w-full sm:w-auto" onClick={() => handleCTAClick('start_trial')}>
                 ▶ Start Free Trial
               </Button>
-              <Button 
-                variant="outline"
-                size="lg"
-                className="px-6 py-4 h-12 text-sm sm:text-base font-semibold rounded-xl border-2 border-primary text-primary hover:bg-primary hover:text-white hover-scale w-full sm:w-auto"
-                onClick={() => handleCTAClick('book_demo')}
-              >
+              <Button variant="outline" size="lg" className="px-6 py-4 h-12 text-sm sm:text-base font-semibold rounded-xl border-2 border-primary text-primary hover:bg-primary hover:text-white hover-scale w-full sm:w-auto" onClick={() => handleCTAClick('book_demo')}>
                 📅 Book a Demo
               </Button>
             </div>
-            <p className="text-xs text-gray-500 animate-fade-in" style={{ animationDelay: '1s' }}>
+            <p className="text-xs text-gray-500 animate-fade-in" style={{
+            animationDelay: '1s'
+          }}>
               No credit card required • 14-day free trial • Cancel anytime
             </p>
           </div>
 
-          <div 
-            className="relative animate-fade-in lg:col-span-6" 
-            style={{ 
-              animationDelay: '0.3s',
-              transform: `translateY(${scrollY * -0.1}px)` 
-            }}
-          >
-            <div className="bg-gray-900 rounded-2xl p-4 shadow-2xl overflow-hidden border border-gray-700/50 h-[580px] flex flex-col">
+          <div className="relative animate-fade-in lg:col-span-6" style={{
+          animationDelay: '0.3s',
+          transform: `translateY(${scrollY * -0.1}px)`
+        }}>
+            <div className="bg-gray-900 rounded-2xl p-4 shadow-2xl overflow-hidden border border-gray-700/50 h-[580px] flex flex-col px-[5px] py-[15px]">
               <div className="flex items-center justify-between px-2 py-3 border-b border-gray-700">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
@@ -358,20 +369,9 @@ const HeroSection = () => {
               <div className="flex gap-4 mt-3 flex-1">
                 <div className="w-12 border-r border-gray-700 pr-2">
                   <div className="flex flex-col items-center space-y-2">
-                    {sidebarItems.map((item) => (
-                      <button
-                        key={item.id}
-                        onClick={() => setActiveView(item.id)}
-                        title={item.label}
-                        className={`flex items-center justify-center p-3 rounded-lg transition-all duration-300 w-full ${
-                          item.active
-                            ? 'bg-primary text-white shadow-lg'
-                            : 'text-gray-400 hover:text-white hover:bg-gray-800'
-                        }`}
-                      >
+                    {sidebarItems.map(item => <button key={item.id} onClick={() => setActiveView(item.id)} title={item.label} className={`flex items-center justify-center p-3 rounded-lg transition-all duration-300 w-full ${item.active ? 'bg-primary text-white shadow-lg' : 'text-gray-400 hover:text-white hover:bg-gray-800'}`}>
                         <item.icon className="h-5 w-5" />
-                      </button>
-                    ))}
+                      </button>)}
                   </div>
                 </div>
 
@@ -388,8 +388,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
