@@ -13,8 +13,8 @@ import { supabase } from '@/integrations/supabase/client';
 
 const Auth = () => {
   const [searchParams] = useSearchParams();
-  const initialMode = (searchParams.get('mode') as 'signin' | 'signup' | 'reset') || 'signup';
-  const [mode, setMode] = useState<'signin' | 'signup' | 'reset'>(initialMode);
+  const initialMode = (searchParams.get('mode') as 'signin' | 'reset') || 'signin';
+  const [mode, setMode] = useState<'signin' | 'reset'>(initialMode);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
@@ -25,7 +25,7 @@ const Auth = () => {
 
   // Update mode when URL parameter changes
   useEffect(() => {
-    const urlMode = (searchParams.get('mode') as 'signin' | 'signup' | 'reset') || 'signup';
+    const urlMode = (searchParams.get('mode') as 'signin' | 'reset') || 'signin';
     setMode(urlMode);
   }, [searchParams]);
 
@@ -44,8 +44,6 @@ const Auth = () => {
       
       if (mode === 'signin') {
         result = await signIn(email, password);
-      } else if (mode === 'signup') {
-        result = await signUp(email, password, fullName);
       } else {
         result = await resetPassword(email);
       }
@@ -63,12 +61,6 @@ const Auth = () => {
             description: "You've been signed in successfully."
           });
           navigate('/');
-        } else if (mode === 'signup') {
-          toast({
-            title: "Account created!",
-            description: "Welcome to Checkinly! Please check your email to verify your account."
-          });
-          navigate('/'); // Redirect to home page as logged in user
         } else {
           toast({
             title: "Reset email sent!",
@@ -142,37 +134,16 @@ const Auth = () => {
         <Card>
           <CardHeader className="text-center">
             <CardTitle className="text-2xl">
-              {mode === 'signin' && 'Welcome Back'}
-              {mode === 'signup' && 'Create Account'}
+              {mode === 'signin' && 'Dashboard Login'}
               {mode === 'reset' && 'Reset Password'}
             </CardTitle>
             <CardDescription>
-              {mode === 'signin' && 'Sign in to your Checkinly account'}
-              {mode === 'signup' && 'Join thousands of hotels using Checkinly'}
+              {mode === 'signin' && 'Sign in to access your dashboard'}
               {mode === 'reset' && 'Enter your email to reset your password'}
             </CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
-              {mode === 'signup' && (
-                <div className="space-y-2">
-                  <label htmlFor="fullName" className="text-sm font-medium">
-                    Full Name
-                  </label>
-                  <div className="relative">
-                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-                    <Input
-                      id="fullName"
-                      type="text"
-                      placeholder="Enter your full name"
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
-                      className="pl-10"
-                      required
-                    />
-                  </div>
-                </div>
-              )}
 
               <div className="space-y-2">
                 <label htmlFor="email" className="text-sm font-medium">
@@ -222,13 +193,11 @@ const Auth = () => {
                   <>
                     <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                     {mode === 'signin' && 'Signing in...'}
-                    {mode === 'signup' && 'Creating account...'}
                     {mode === 'reset' && 'Sending reset email...'}
                   </>
                 ) : (
                   <>
                     {mode === 'signin' && 'Sign In'}
-                    {mode === 'signup' && 'Create Account'}
                     {mode === 'reset' && 'Send Reset Email'}
                   </>
                 )}
@@ -247,18 +216,6 @@ const Auth = () => {
               </Button>
             )}
 
-            {(mode === 'signup' || mode === 'signin') && (
-              <p className="mt-4 text-center text-sm text-muted-foreground">
-                Didn't receive the email?
-                <button
-                  type="button"
-                  onClick={handleResendVerification}
-                  className="text-primary hover:underline ml-1"
-                >
-                  Resend verification
-                </button>
-              </p>
-            )}
 
             <AuthModeToggle mode={mode} setMode={setMode} />
           </CardContent>

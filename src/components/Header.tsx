@@ -45,7 +45,7 @@ const Header = () => {
   };
   const handleStartTrialClick = () => {
     handleCTAClick('primary_header_cta');
-    navigate('/auth?mode=signup');
+    navigate('/contact-sales');
   };
   const handleSignOut = async () => {
     await signOut();
@@ -119,8 +119,8 @@ const Header = () => {
                     Log in
                   </Button>
                   <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium hover:scale-105 transition-all duration-300 rounded-lg sm:rounded-xl" onClick={handleStartTrialClick}>
-                    Try free
-                  </Button>
+                     Contact Sales
+                   </Button>
                 </>}
             </div>
           </div>
