@@ -75,36 +75,76 @@ const Header = () => {
                     </svg>
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                  <div className="flex flex-col space-y-6 mt-6">
-                    <a href="/" className="text-slate-700 hover:text-primary transition-colors text-base font-medium" onClick={() => setMobileMenuOpen(false)}>
+                <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background/95 backdrop-blur-md">
+                  <div className="flex flex-col space-y-6 mt-6 h-full">
+                    {/* Logo area */}
+                    <div className="flex items-center space-x-3 pb-6 border-b border-border/50">
+                      <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-sm">
+                        <span className="text-white font-bold text-lg">C</span>
+                      </div>
+                      <span className="font-bold text-xl text-foreground">Checkinly</span>
+                    </div>
+                    
+                    <a href="/" className="text-lg font-semibold hover:text-primary transition-colors py-2 px-1 rounded-lg hover:bg-muted/50" onClick={() => setMobileMenuOpen(false)}>
                       Home
                     </a>
+                    
                     <div className="space-y-4">
-                      <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wide">Download App</h3>
-                      <a href="/download-app" className="block text-slate-600 hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>Download</a>
+                      <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">DOWNLOAD APP</h3>
+                      <a href="/download-app" className="block text-base text-muted-foreground hover:text-foreground transition-colors py-2 px-3 rounded-lg hover:bg-muted/30" onClick={() => setMobileMenuOpen(false)}>
+                        Download
+                      </a>
                     </div>
+                    
                     <div className="space-y-4">
-                      <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wide">Checkinly OS</h3>
-                      <a href="/checkinly-os" className="block text-slate-600 hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>Platform</a>
+                      <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">CHECKINLY OS</h3>
+                      <a href="/checkinly-os" className="block text-base text-muted-foreground hover:text-foreground transition-colors py-2 px-3 rounded-lg hover:bg-muted/30" onClick={() => setMobileMenuOpen(false)}>
+                        Platform
+                      </a>
                     </div>
+                    
                     <div className="space-y-4">
-                      <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wide">For Hotels</h3>
-                      <a href="/for-hotels" className="block text-slate-600 hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>Solutions</a>
+                      <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">FOR HOTELS</h3>
+                      <a href="/for-hotels" className="block text-base text-muted-foreground hover:text-foreground transition-colors py-2 px-3 rounded-lg hover:bg-muted/30" onClick={() => setMobileMenuOpen(false)}>
+                        Solutions
+                      </a>
                     </div>
-                    <a href="/faqs" className="text-slate-700 hover:text-primary transition-colors text-base font-medium" onClick={() => setMobileMenuOpen(false)}>
+                    
+                    <a href="/faqs" className="text-lg font-semibold hover:text-primary transition-colors py-2 px-1 rounded-lg hover:bg-muted/50" onClick={() => setMobileMenuOpen(false)}>
                       FAQs
                     </a>
-                    {!user && (
-                      <div className="pt-4 border-t space-y-3">
-                        <Button variant="ghost" onClick={() => { handleSignInClick(); setMobileMenuOpen(false); }} className="w-full justify-start">
-                          Log in
-                        </Button>
-                        <Button onClick={() => { handleStartTrialClick(); setMobileMenuOpen(false); }} className="w-full">
-                          Contact Sales
-                        </Button>
-                      </div>
-                    )}
+                    
+                    {/* Auth section at bottom */}
+                    <div className="mt-auto pt-6 border-t border-border/50 space-y-4">
+                      {user ? (
+                        <>
+                          <div className="flex items-center space-x-3 p-3 rounded-lg bg-muted/30">
+                            <Avatar className="h-10 w-10 ring-2 ring-primary/20">
+                              <AvatarImage src={user.user_metadata?.avatar_url} />
+                              <AvatarFallback className="bg-primary/10 text-primary font-semibold">
+                                {user.email?.charAt(0).toUpperCase()}
+                              </AvatarFallback>
+                            </Avatar>
+                            <div className="flex-1 min-w-0">
+                              <p className="text-sm font-medium text-foreground truncate">{user.email}</p>
+                              <p className="text-xs text-muted-foreground">Signed in</p>
+                            </div>
+                          </div>
+                          <Button onClick={() => { handleSignOut(); setMobileMenuOpen(false); }} variant="outline" className="w-full hover:bg-destructive/10 hover:text-destructive hover:border-destructive/20">
+                            Sign out
+                          </Button>
+                        </>
+                      ) : (
+                        <>
+                          <Button onClick={() => { handleSignInClick(); setMobileMenuOpen(false); }} variant="outline" className="w-full">
+                            Log in
+                          </Button>
+                          <Button onClick={() => { handleStartTrialClick(); setMobileMenuOpen(false); }} className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-sm">
+                            Contact Sales
+                          </Button>
+                        </>
+                      )}
+                    </div>
                   </div>
                 </SheetContent>
               </Sheet>

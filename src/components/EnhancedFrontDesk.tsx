@@ -68,80 +68,83 @@ const EnhancedFrontDesk = () => {
               </CardHeader>
               
               <CardContent className="p-0">
-                <div className="p-4">
-                  {/* Calendar Header */}
-                  <div className="grid grid-cols-8 gap-0 text-xs font-medium text-gray-600 pb-3 mb-4">
-                    <div className="text-left pl-2">Room</div>
-                    <div className="text-center">
-                      <div>Mon</div>
-                      <div className="text-gray-400 text-xs">13 Apr</div>
-                    </div>
-                    <div className="text-center">
-                      <div>Tue</div>
-                      <div className="text-gray-400 text-xs">14 Apr</div>
-                    </div>
-                    <div className="text-center">
-                      <div>Wed</div>
-                      <div className="text-gray-400 text-xs">15 Apr</div>
-                    </div>
-                    <div className="text-center">
-                      <div>Thu</div>
-                      <div className="text-gray-400 text-xs">16 Apr</div>
-                    </div>
-                    <div className="text-center">
-                      <div>Fri</div>
-                      <div className="text-gray-400 text-xs">17 Apr</div>
-                    </div>
-                    <div className="text-center">
-                      <div>Sat</div>
-                      <div className="text-gray-400 text-xs">18 Apr</div>
-                    </div>
-                    <div className="text-center">
-                      <div>Sun</div>
-                      <div className="text-gray-400 text-xs">19 Apr</div>
-                    </div>
-                  </div>
-                  
-                  {/* Room Row */}
-                  <div className="grid grid-cols-8 gap-0 items-center h-12 mb-4">
-                    <div className="font-medium text-sm text-gray-900 pl-2">1107</div>
-                    <div className="h-8"></div> {/* Mon - empty */}
-                    <div className="h-8"></div> {/* Tue - empty */}
-                    <div className="relative h-8">
-                      {/* Wed - Red reservation start */}
-                      <div className="absolute inset-0 bg-red-500 text-white text-xs px-2 py-1 rounded-sm flex items-center justify-between">
-                        <span>Xu Chen</span>
-                        <X className="w-3 h-3" />
+                {/* Mobile-friendly calendar with horizontal scroll */}
+                <div className="overflow-x-auto">
+                  <div className="p-4 min-w-[640px] lg:min-w-0">
+                    {/* Calendar Header */}
+                    <div className="grid grid-cols-8 gap-0 text-xs font-medium text-gray-600 pb-3 mb-4">
+                      <div className="text-left pl-2">Room</div>
+                      <div className="text-center">
+                        <div>Mon</div>
+                        <div className="text-gray-400 text-xs">13 Apr</div>
+                      </div>
+                      <div className="text-center">
+                        <div>Tue</div>
+                        <div className="text-gray-400 text-xs">14 Apr</div>
+                      </div>
+                      <div className="text-center">
+                        <div>Wed</div>
+                        <div className="text-gray-400 text-xs">15 Apr</div>
+                      </div>
+                      <div className="text-center">
+                        <div>Thu</div>
+                        <div className="text-gray-400 text-xs">16 Apr</div>
+                      </div>
+                      <div className="text-center">
+                        <div>Fri</div>
+                        <div className="text-gray-400 text-xs">17 Apr</div>
+                      </div>
+                      <div className="text-center">
+                        <div>Sat</div>
+                        <div className="text-gray-400 text-xs">18 Apr</div>
+                      </div>
+                      <div className="text-center">
+                        <div>Sun</div>
+                        <div className="text-gray-400 text-xs">19 Apr</div>
                       </div>
                     </div>
-                    <div className="h-8 bg-purple-500 rounded-sm"></div> {/* Thu - Purple continuation */}
-                    <div className="h-8 bg-purple-500 rounded-sm"></div> {/* Fri - Purple continuation */}
-                    <div className="h-8"></div> {/* Sat - empty */}
-                    <div className="h-8"></div> {/* Sun - empty */}
+                    
+                    {/* Room Row */}
+                    <div className="grid grid-cols-8 gap-0 items-center h-12 mb-4">
+                      <div className="font-medium text-sm text-gray-900 pl-2">1107</div>
+                      <div className="h-8"></div> {/* Mon - empty */}
+                      <div className="h-8"></div> {/* Tue - empty */}
+                      <div className="relative h-8">
+                        {/* Wed - Red reservation start */}
+                        <div className="absolute inset-0 bg-red-500 text-white text-xs px-2 py-1 rounded-sm flex items-center justify-between">
+                          <span>Xu Chen</span>
+                          <X className="w-3 h-3" />
+                        </div>
+                      </div>
+                      <div className="h-8 bg-purple-500 rounded-sm"></div> {/* Thu - Purple continuation */}
+                      <div className="h-8 bg-purple-500 rounded-sm"></div> {/* Fri - Purple continuation */}
+                      <div className="h-8"></div> {/* Sat - empty */}
+                      <div className="h-8"></div> {/* Sun - empty */}
+                    </div>
                   </div>
                 </div>
 
-                {/* Reservation Details Popup */}
-                <div className="mx-4 mb-4">
+                {/* Mobile-responsive Reservation Details Popup */}
+                <div className="mx-2 sm:mx-4 mb-4">
                   <Card className="border border-border/30 bg-white">
-                    <CardHeader className="pb-3 pt-3 px-4">
+                    <CardHeader className="pb-3 pt-3 px-3 sm:px-4">
                       <div className="flex items-center justify-between">
-                        <h3 className="text-sm font-medium text-gray-900">Reservation for Xu Chen</h3>
-                        <X className="w-4 h-4 text-gray-400" />
+                        <h3 className="text-sm font-medium text-gray-900 truncate">Reservation for Xu Chen</h3>
+                        <X className="w-4 h-4 text-gray-400 flex-shrink-0" />
                       </div>
                     </CardHeader>
-                    <CardContent className="px-4 pb-4 space-y-3">
-                      <div className="grid grid-cols-2 gap-4 text-xs">
+                    <CardContent className="px-3 sm:px-4 pb-4 space-y-3">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs">
                         <div>
                           <span className="text-gray-500">Room:</span>
                           <div className="font-medium text-gray-900">1107</div>
                         </div>
                         <div>
                           <span className="text-gray-500">Dates:</span>
-                          <div className="font-medium text-gray-900">15 Apr 2024 - 19 Apr 2024</div>
+                          <div className="font-medium text-gray-900 text-xs sm:text-sm">15 Apr - 19 Apr 2024</div>
                         </div>
                       </div>
-                      <div className="grid grid-cols-2 gap-4 text-xs">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-xs">
                         <div>
                           <span className="text-gray-500">Total Paid:</span>
                           <div className="font-medium text-green-600">$0</div>
@@ -159,8 +162,8 @@ const EnhancedFrontDesk = () => {
                   </Card>
                 </div>
 
-                {/* Status Legend */}
-                <div className="flex items-center justify-center space-x-6 py-4 text-xs">
+                {/* Mobile-responsive Status Legend */}
+                <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 py-4 text-xs px-2">
                   <div className="flex items-center space-x-2">
                     <div className="w-3 h-3 bg-blue-500 rounded-sm"></div>
                     <span className="text-gray-600">Checked In</span>

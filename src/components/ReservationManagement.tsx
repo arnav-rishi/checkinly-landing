@@ -83,57 +83,91 @@ const ReservationManagement = () => {
           {/* Right Side - Interface Preview */}
           <div className="relative">
             <Card className="shadow-elegant border border-border/30 bg-card/95 backdrop-blur-sm">
-              <CardHeader className="">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4">
+              <CardHeader className="p-3 sm:p-6">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                     <div className="flex items-center space-x-2">
                       <Search className="w-4 h-4 text-muted-foreground" />
                       <span className="text-sm text-muted-foreground">Search reservations...</span>
                     </div>
-                    <Button variant="outline" size="sm">
+                    <Button variant="outline" size="sm" className="w-fit">
                       <Filter className="w-4 h-4 mr-2" />
                       Filters
                     </Button>
                   </div>
-                  <Button size="sm" className="bg-gradient-primary">
+                  <Button size="sm" className="bg-gradient-primary w-fit">
                     <Plus className="w-4 h-4 mr-2" />
-                    New Reservation
+                    <span className="hidden sm:inline">New Reservation</span>
+                    <span className="sm:hidden">New</span>
                   </Button>
                 </div>
               </CardHeader>
               <CardContent className="p-0">
-                <Table>
-                  <TableHeader>
-                    <TableRow className="">
-                      <TableHead className="text-xs font-medium">Reservation ID</TableHead>
-                      <TableHead className="text-xs font-medium">Contact</TableHead>
-                      <TableHead className="text-xs font-medium">Guest</TableHead>
-                      <TableHead className="text-xs font-medium">Room</TableHead>
-                      <TableHead className="text-xs font-medium">Status</TableHead>
-                      <TableHead className="text-xs font-medium">Nights</TableHead>
-                      <TableHead className="text-xs font-medium">Arrival</TableHead>
-                      <TableHead className="text-xs font-medium">Actions</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
+                {/* Mobile Card View */}
+                <div className="block sm:hidden">
+                  <div className="divide-y divide-border">
                     {reservations.map((reservation) => (
-                      <TableRow key={reservation.id} className="hover:bg-muted/50">
-                        <TableCell className="text-xs font-mono">{reservation.id}</TableCell>
-                        <TableCell className="text-xs">{reservation.contact}</TableCell>
-                        <TableCell className="text-xs font-medium">{reservation.guest}</TableCell>
-                        <TableCell className="text-xs">{reservation.roomType}</TableCell>
-                        <TableCell>{getStatusBadge(reservation.status)}</TableCell>
-                        <TableCell className="text-xs">{reservation.nights}</TableCell>
-                        <TableCell className="text-xs">{reservation.arrival}</TableCell>
-                        <TableCell>
+                      <div key={reservation.id} className="p-4 space-y-3">
+                        <div className="flex items-center justify-between">
+                          <div className="font-medium text-sm">{reservation.guest}</div>
+                          {getStatusBadge(reservation.status)}
+                        </div>
+                        <div className="grid grid-cols-2 gap-3 text-xs text-muted-foreground">
+                          <div>
+                            <div className="font-medium text-foreground">Room {reservation.roomType}</div>
+                            <div>{reservation.nights} nights</div>
+                          </div>
+                          <div>
+                            <div className="font-medium text-foreground">{reservation.contact}</div>
+                            <div>{reservation.arrival}</div>
+                          </div>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div className="text-xs font-mono text-muted-foreground">{reservation.id}</div>
                           <Button variant="ghost" size="sm">
                             <Eye className="w-3 h-3" />
                           </Button>
-                        </TableCell>
-                      </TableRow>
+                        </div>
+                      </div>
                     ))}
-                  </TableBody>
-                </Table>
+                  </div>
+                </div>
+
+                {/* Desktop Table View */}
+                <div className="hidden sm:block overflow-x-auto">
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead className="text-xs font-medium min-w-[120px]">Reservation ID</TableHead>
+                        <TableHead className="text-xs font-medium">Contact</TableHead>
+                        <TableHead className="text-xs font-medium">Guest</TableHead>
+                        <TableHead className="text-xs font-medium">Room</TableHead>
+                        <TableHead className="text-xs font-medium">Status</TableHead>
+                        <TableHead className="text-xs font-medium hidden lg:table-cell">Nights</TableHead>
+                        <TableHead className="text-xs font-medium hidden lg:table-cell">Arrival</TableHead>
+                        <TableHead className="text-xs font-medium">Actions</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {reservations.map((reservation) => (
+                        <TableRow key={reservation.id} className="hover:bg-muted/50">
+                          <TableCell className="text-xs font-mono">{reservation.id}</TableCell>
+                          <TableCell className="text-xs">{reservation.contact}</TableCell>
+                          <TableCell className="text-xs font-medium">{reservation.guest}</TableCell>
+                          <TableCell className="text-xs">{reservation.roomType}</TableCell>
+                          <TableCell>{getStatusBadge(reservation.status)}</TableCell>
+                          <TableCell className="text-xs hidden lg:table-cell">{reservation.nights}</TableCell>
+                          <TableCell className="text-xs hidden lg:table-cell">{reservation.arrival}</TableCell>
+                          <TableCell>
+                            <Button variant="ghost" size="sm">
+                              <Eye className="w-3 h-3" />
+                            </Button>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
               </CardContent>
             </Card>
           </div>
