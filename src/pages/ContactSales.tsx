@@ -16,7 +16,7 @@ const ContactSales = () => {
     { number: "1", title: "Submit your information", description: "Tell us about your needs" },
     { number: "2", title: "Schedule a personalized demo", description: "See Checkinly in action" },
     { number: "3", title: "Receive custom pricing proposal", description: "Tailored to your requirements" },
-    { number: "4", title: "Start your free 30-day trial", description: "No commitment required" }
+    { number: "4", title: "Start your free 14-day trial", description: "No commitment required" }
   ];
 
   return (
