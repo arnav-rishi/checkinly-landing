@@ -18,7 +18,7 @@ interface CTASectionProps {
 const CTASection = ({
   title = "Ready to Transform Your Hotel Operations?",
   description = "Join hundreds of hotels already streamlining their operations with our comprehensive hotel management platform.",
-  primaryText = "Start Your Free Trial",
+  primaryText = "Start Your 14-Day Trial",
   secondaryText,
   variant = 'default',
   onPrimaryClick,
@@ -117,7 +117,7 @@ const CTASection = ({
             <div className={`${descriptionClasses[variant]} flex flex-wrap justify-center items-center gap-6 text-sm`}>
               <div className="flex items-center space-x-2">
                 <CheckCircle className="w-4 h-4" />
-                <span>30-day free trial</span>
+                <span>14-day free trial</span>
               </div>
               <div className="flex items-center space-x-2">
                 <CheckCircle className="w-4 h-4" />
