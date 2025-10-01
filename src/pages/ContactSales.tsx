@@ -6,7 +6,7 @@ import { CheckCircle, Phone, Clock, Mail, Users, Award } from "lucide-react";
 
 const ContactSales = () => {
   const benefits = [
-    "30-day free trial with full feature access",
+    "14-day free trial with full feature access",
     "White-glove implementation and training", 
     "24/7 customer support",
     "Integration with 200+ hotel systems",
