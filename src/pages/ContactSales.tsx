@@ -9,7 +9,6 @@ const ContactSales = () => {
     "14-day free trial with full feature access",
     "White-glove implementation and training", 
     "24/7 customer support",
-    "Integration with 200+ hotel systems",
     "Proven ROI within 60 days"
   ];
 
