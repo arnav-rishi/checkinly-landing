@@ -19,7 +19,7 @@ const Auth = () => {
   const [password, setPassword] = useState('');
   const [fullName, setFullName] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const { signIn, signUp, resetPassword, user } = useAuth();
+  const { signIn, user } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -40,31 +40,37 @@ const Auth = () => {
     setIsLoading(true);
 
     try {
-      let result;
-      
       if (mode === 'signin') {
-        result = await signIn(email, password);
-      } else {
-        result = await resetPassword(email);
-      }
-
-      if (result.error) {
-        toast({
-          title: "Error",
-          description: result.error.message,
-          variant: "destructive"
-        });
-      } else {
-        if (mode === 'signin') {
+        const result = await signIn(email, password);
+        if (result.error) {
+          toast({
+            title: "Error",
+            description: result.error.message,
+            variant: "destructive"
+          });
+        } else {
           toast({
             title: "Welcome back!",
             description: "You've been signed in successfully."
           });
           navigate('/');
+        }
+      } else {
+        // Send notification to company about password reset request
+        const { error } = await supabase.functions.invoke('forgot-password-notification', {
+          body: { email }
+        });
+
+        if (error) {
+          toast({
+            title: "Error",
+            description: "Failed to send notification. Please try again.",
+            variant: "destructive"
+          });
         } else {
           toast({
-            title: "Reset email sent!",
-            description: "Check your email for password reset instructions."
+            title: "Request Submitted",
+            description: "We've notified our team. You'll receive new credentials shortly."
           });
           setMode('signin');
         }
@@ -80,44 +86,8 @@ const Auth = () => {
     }
   };
 
-  const handleMagicLink = async () => {
-    if (!email) {
-      toast({ title: "Email required", description: "Please enter your email first." });
-      return;
-    }
-    setIsLoading(true);
-    try {
-      const redirectUrl = `${window.location.origin}/`;
-      const { error } = await supabase.auth.signInWithOtp({
-        email,
-        options: { emailRedirectTo: redirectUrl }
-      });
-      if (error) {
-        toast({ title: "Error", description: error.message, variant: "destructive" });
-      } else {
-        toast({ title: "Magic link sent!", description: "Check your inbox to complete sign-in." });
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleResendVerification = async () => {
-    if (!email) {
-      toast({ title: "Email required", description: "Please enter your email to resend verification." });
-      return;
-    }
-    setIsLoading(true);
-    try {
-      const { error } = await supabase.auth.resend({ type: 'signup', email });
-      if (error) {
-        toast({ title: "Error", description: error.message, variant: "destructive" });
-      } else {
-        toast({ title: "Verification sent", description: "Please check your email inbox and spam folder." });
-      }
-    } finally {
-      setIsLoading(false);
-    }
+  const handleContactSales = () => {
+    navigate('/contact-sales');
   };
 
 
@@ -135,11 +105,11 @@ const Auth = () => {
           <CardHeader className="text-center">
             <CardTitle className="text-2xl">
               {mode === 'signin' && 'Dashboard Login'}
-              {mode === 'reset' && 'Reset Password'}
+              {mode === 'reset' && 'Forgot Credentials'}
             </CardTitle>
             <CardDescription>
               {mode === 'signin' && 'Sign in to access your dashboard'}
-              {mode === 'reset' && 'Enter your email to reset your password'}
+              {mode === 'reset' && 'Request new credentials from our team'}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -193,12 +163,12 @@ const Auth = () => {
                   <>
                     <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                     {mode === 'signin' && 'Signing in...'}
-                    {mode === 'reset' && 'Sending reset email...'}
+                    {mode === 'reset' && 'Submitting request...'}
                   </>
                 ) : (
                   <>
                     {mode === 'signin' && 'Sign In'}
-                    {mode === 'reset' && 'Send Reset Email'}
+                    {mode === 'reset' && 'Request New Credentials'}
                   </>
                 )}
               </Button>
@@ -209,10 +179,9 @@ const Auth = () => {
                 type="button"
                 variant="outline"
                 className="w-full mt-2"
-                onClick={handleMagicLink}
-                disabled={isLoading}
+                onClick={handleContactSales}
               >
-                Send Magic Link
+                Contact Sales for Credentials
               </Button>
             )}
 

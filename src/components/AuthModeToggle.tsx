@@ -15,13 +15,13 @@ const AuthModeToggle = ({ mode, setMode }: AuthModeToggleProps) => {
           onClick={() => setMode('reset')}
           className="text-primary hover:underline"
         >
-          Forgot your password?
+          Forgot your credentials?
         </button>
       )}
 
       {mode === 'reset' && (
         <div>
-          Remember your password?{' '}
+          Remember your credentials?{' '}
           <button
             type="button"
             onClick={() => setMode('signin')}
