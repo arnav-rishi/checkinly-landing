@@ -18,7 +18,7 @@ interface CTASectionProps {
 const CTASection = ({
   title = "Ready to Transform Your Hotel Operations?",
   description = "Join hundreds of hotels already streamlining their operations with our comprehensive hotel management platform.",
-  primaryText = "Start Your 14-Day Trial",
+  primaryText = "Start Free 14-Day Trial",
   secondaryText,
   variant = 'default',
   onPrimaryClick,
