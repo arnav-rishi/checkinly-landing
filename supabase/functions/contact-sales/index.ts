@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.50.0";
+import { Resend } from "npm:resend@2.0.0";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -138,8 +139,30 @@ const handler = async (req: Request): Promise<Response> => {
       );
     }
 
-    // Log successful submission for monitoring
-    console.log(`Contact sales submission from ${sanitizedData.email} (${sanitizedData.company})`);
+    // Send email notification using Resend
+    try {
+      const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+      
+      const emailResponse = await resend.emails.send({
+        from: "Checkinly Contact Form <onboarding@resend.dev>",
+        to: ["support@checkinly.co"],
+        subject: `New Contact Form Submission from ${sanitizedData.name}`,
+        html: `
+          <h2>New Contact Form Submission</h2>
+          <p><strong>Name:</strong> ${sanitizedData.name}</p>
+          <p><strong>Email:</strong> ${sanitizedData.email}</p>
+          <p><strong>Company/Hotel:</strong> ${sanitizedData.company}</p>
+          <p><strong>Phone:</strong> ${sanitizedData.phone || 'Not provided'}</p>
+          <h3>Message:</h3>
+          <p>${sanitizedData.message.replace(/\n/g, '<br>')}</p>
+        `,
+      });
+
+      console.log(`Contact sales submission from ${sanitizedData.email} (${sanitizedData.company}) - Email sent:`, emailResponse);
+    } catch (emailError) {
+      console.error("Failed to send email notification:", emailError);
+      // Continue anyway - submission was saved to database
+    }
 
     return new Response(
       JSON.stringify({ 
