@@ -5,10 +5,20 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { z } from "zod";
 
 interface ContactSalesFormProps {
   onSubmit?: () => void;
 }
+
+// Validation schema
+const contactSalesSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
+  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+  company: z.string().trim().min(1, "Company/Hotel name is required").max(200, "Company name must be less than 200 characters"),
+  phone: z.string().trim().max(20, "Phone must be less than 20 characters").optional().or(z.literal("")),
+  message: z.string().trim().min(1, "Message is required").max(2000, "Message must be less than 2000 characters"),
+});
 
 const ContactSalesForm = ({ onSubmit }: ContactSalesFormProps) => {
   const [formData, setFormData] = useState({
@@ -19,35 +29,20 @@ const ContactSalesForm = ({ onSubmit }: ContactSalesFormProps) => {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Client-side validation
-    if (!formData.name.trim() || !formData.email.trim() || !formData.company.trim() || !formData.message.trim()) {
-      toast({
-        title: "Validation Error",
-        description: "Please fill in all required fields.",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    if (formData.name.length > 100 || formData.email.length > 255 || formData.company.length > 200 || formData.message.length > 2000) {
-      toast({
-        title: "Validation Error", 
-        description: "One or more fields exceed maximum length.",
-        variant: "destructive"
-      });
-      return;
-    }
-
     setIsSubmitting(true);
+    setErrors({});
 
     try {
+      // Validate using zod
+      const validatedData = contactSalesSchema.parse(formData);
+
       const { error } = await supabase.functions.invoke('contact-sales', {
-        body: formData
+        body: validatedData
       });
 
       if (error) {
@@ -68,33 +63,43 @@ const ContactSalesForm = ({ onSubmit }: ContactSalesFormProps) => {
       });
 
       onSubmit?.();
-    } catch (error: any) {
-      console.error('Contact sales error:', error);
-      toast({
-        title: "Error sending message",
-        description: error.message || "Please try again or contact us directly.",
-        variant: "destructive"
-      });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        // Handle validation errors
+        const fieldErrors: Record<string, string> = {};
+        error.errors.forEach((err) => {
+          if (err.path[0]) {
+            fieldErrors[err.path[0].toString()] = err.message;
+          }
+        });
+        setErrors(fieldErrors);
+        toast({
+          title: "Validation Error",
+          description: "Please check the form for errors.",
+          variant: "destructive",
+        });
+      } else {
+        console.error("Failed to submit contact form");
+        toast({
+          title: "Error sending message",
+          description: "Please try again or contact us directly.",
+          variant: "destructive"
+        });
+      }
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const handleInputChange = (field: string, value: string) => {
-    // Basic input sanitization - remove potential script tags and excessive whitespace
-    const sanitizedValue = value.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '').trim();
-    
-    // Length validation
-    const maxLengths = {
-      name: 100,
-      email: 255,
-      company: 200,
-      phone: 20,
-      message: 2000
-    };
-    
-    if (sanitizedValue.length <= (maxLengths[field as keyof typeof maxLengths] || 1000)) {
-      setFormData(prev => ({ ...prev, [field]: sanitizedValue }));
+    setFormData(prev => ({ ...prev, [field]: value }));
+    // Clear error for this field when user starts typing
+    if (errors[field]) {
+      setErrors((prev) => {
+        const newErrors = { ...prev };
+        delete newErrors[field];
+        return newErrors;
+      });
     }
   };
 
@@ -110,7 +115,9 @@ const ContactSalesForm = ({ onSubmit }: ContactSalesFormProps) => {
             onChange={(e) => handleInputChange("name", e.target.value)}
             required
             placeholder="John Doe"
+            className={errors.name ? "border-red-500" : ""}
           />
+          {errors.name && <p className="text-sm text-red-500">{errors.name}</p>}
         </div>
         
         <div className="space-y-2">
@@ -122,7 +129,9 @@ const ContactSalesForm = ({ onSubmit }: ContactSalesFormProps) => {
             onChange={(e) => handleInputChange("email", e.target.value)}
             required
             placeholder="john@hotel.com"
+            className={errors.email ? "border-red-500" : ""}
           />
+          {errors.email && <p className="text-sm text-red-500">{errors.email}</p>}
         </div>
       </div>
 
@@ -136,7 +145,9 @@ const ContactSalesForm = ({ onSubmit }: ContactSalesFormProps) => {
             onChange={(e) => handleInputChange("company", e.target.value)}
             required
             placeholder="Grand Hotel & Resorts"
+            className={errors.company ? "border-red-500" : ""}
           />
+          {errors.company && <p className="text-sm text-red-500">{errors.company}</p>}
         </div>
         
         <div className="space-y-2">
@@ -147,7 +158,9 @@ const ContactSalesForm = ({ onSubmit }: ContactSalesFormProps) => {
             value={formData.phone}
             onChange={(e) => handleInputChange("phone", e.target.value)}
             placeholder="+1 (555) 123-4567"
+            className={errors.phone ? "border-red-500" : ""}
           />
+          {errors.phone && <p className="text-sm text-red-500">{errors.phone}</p>}
         </div>
       </div>
 
@@ -159,8 +172,9 @@ const ContactSalesForm = ({ onSubmit }: ContactSalesFormProps) => {
           onChange={(e) => handleInputChange("message", e.target.value)}
           required
           placeholder="Tell us about your needs, number of rooms, current challenges, or any specific questions..."
-          className="min-h-[120px]"
+          className={`min-h-[120px] ${errors.message ? "border-red-500" : ""}`}
         />
+        {errors.message && <p className="text-sm text-red-500">{errors.message}</p>}
       </div>
 
       <Button

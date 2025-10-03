@@ -158,7 +158,7 @@ const handler = async (req: Request): Promise<Response> => {
         `,
       });
 
-      console.log(`Contact sales submission from ${sanitizedData.email} (${sanitizedData.company}) - Email sent:`, emailResponse);
+      console.log("Contact sales submission and email sent successfully");
     } catch (emailError) {
       console.error("Failed to send email notification:", emailError);
       // Continue anyway - submission was saved to database

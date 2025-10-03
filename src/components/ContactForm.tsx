@@ -6,11 +6,18 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { useToast } from '@/hooks/use-toast';
 import { Loader2, Mail, User, MessageSquare, CheckCircle } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
-import { securityLogger } from '@/utils/securityLogger';
+import { z } from 'zod';
 
 interface ContactFormProps {
   onClose?: () => void;
 }
+
+// Validation schema
+const contactFormSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
+  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+  message: z.string().trim().min(1, "Message is required").max(2000, "Message must be less than 2000 characters"),
+});
 
 const ContactForm = ({ onClose }: ContactFormProps) => {
   const [name, setName] = useState('');
@@ -18,54 +25,28 @@ const ContactForm = ({ onClose }: ContactFormProps) => {
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Client-side validation and sanitization
-    const sanitizedName = name.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '').trim();
-    const sanitizedEmail = email.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '').trim().toLowerCase();
-    const sanitizedMessage = message.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '').trim();
-    
-    if (!sanitizedName || !sanitizedEmail || !sanitizedMessage) {
-      toast({
-        title: "Validation Error",
-        description: "Please fill in all required fields.",
-        variant: "destructive"
-      });
-      return;
-    }
-    
-    if (sanitizedName.length > 100 || sanitizedEmail.length > 255 || sanitizedMessage.length > 2000) {
-      toast({
-        title: "Validation Error",
-        description: "One or more fields exceed maximum length.",
-        variant: "destructive"
-      });
-      return;
-    }
-    
-    // Email format validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(sanitizedEmail)) {
-      toast({
-        title: "Validation Error", 
-        description: "Please enter a valid email address.",
-        variant: "destructive"
-      });
-      return;
-    }
-    
     setIsLoading(true);
+    setErrors({});
 
     try {
+      // Validate using zod
+      const validatedData = contactFormSchema.parse({
+        name,
+        email,
+        message
+      });
+
       const { error } = await supabase
         .from('contact_submissions')
         .insert({
-          name: sanitizedName,
-          email: sanitizedEmail,
-          message: sanitizedMessage
+          name: validatedData.name,
+          email: validatedData.email,
+          message: validatedData.message
         });
 
       if (error) {
@@ -82,17 +63,29 @@ const ContactForm = ({ onClose }: ContactFormProps) => {
       setName('');
       setEmail('');
       setMessage('');
-    } catch (error: any) {
-      console.error('Contact form error:', error);
-      
-      // Log security event for failed form submissions
-      await securityLogger.logFormValidationFailure('contact_form', [error.message || 'Unknown error']);
-      
-      toast({
-        title: "Error",
-        description: error.message || "Failed to send message. Please try again.",
-        variant: "destructive"
-      });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        // Handle validation errors
+        const fieldErrors: Record<string, string> = {};
+        error.errors.forEach((err) => {
+          if (err.path[0]) {
+            fieldErrors[err.path[0].toString()] = err.message;
+          }
+        });
+        setErrors(fieldErrors);
+        toast({
+          title: "Validation Error",
+          description: "Please check the form for errors.",
+          variant: "destructive",
+        });
+      } else {
+        console.error("Failed to submit contact form");
+        toast({
+          title: "Error",
+          description: "Failed to send message. Please try again.",
+          variant: "destructive"
+        });
+      }
     } finally {
       setIsLoading(false);
     }
@@ -140,10 +133,11 @@ const ContactForm = ({ onClose }: ContactFormProps) => {
                 placeholder="Your name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="pl-10"
+                className={`pl-10 ${errors.name ? "border-red-500" : ""}`}
                 required
               />
             </div>
+            {errors.name && <p className="text-sm text-red-500">{errors.name}</p>}
           </div>
 
           <div className="space-y-2">
@@ -158,10 +152,11 @@ const ContactForm = ({ onClose }: ContactFormProps) => {
                 placeholder="your@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="pl-10"
+                className={`pl-10 ${errors.email ? "border-red-500" : ""}`}
                 required
               />
             </div>
+            {errors.email && <p className="text-sm text-red-500">{errors.email}</p>}
           </div>
 
           <div className="space-y-2">
@@ -173,9 +168,10 @@ const ContactForm = ({ onClose }: ContactFormProps) => {
               placeholder="Tell us how we can help you..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className="flex min-h-[100px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              className={`flex min-h-[100px] w-full rounded-md border bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 ${errors.message ? "border-red-500" : "border-input"}`}
               required
             />
+            {errors.message && <p className="text-sm text-red-500">{errors.message}</p>}
           </div>
 
           <div className="flex space-x-2">

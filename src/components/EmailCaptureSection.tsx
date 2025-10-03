@@ -6,66 +6,49 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Mail, ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { z } from "zod";
+
+// Validation schema
+const emailSchema = z.object({
+  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+});
 
 const EmailCaptureSection = () => {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Client-side validation and sanitization
-    const sanitizedEmail = email.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '').trim().toLowerCase();
-    
-    if (!sanitizedEmail) {
-      toast({
-        title: "Validation Error",
-        description: "Please enter your email address.",
-        variant: "destructive"
-      });
-      return;
-    }
-    
-    if (sanitizedEmail.length > 255) {
-      toast({
-        title: "Validation Error",
-        description: "Email address is too long.",
-        variant: "destructive"
-      });
-      return;
-    }
-    
-    // Email format validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(sanitizedEmail)) {
-      toast({
-        title: "Validation Error",
-        description: "Please enter a valid email address.",
-        variant: "destructive"
-      });
-      return;
-    }
-    
     setIsSubmitting(true);
+    setError("");
 
     try {
-      const { error } = await supabase
+      // Validate using zod
+      const validatedData = emailSchema.parse({ email });
+
+      const { error: insertError } = await supabase
         .from('email_subscriptions')
         .insert({
-          email: sanitizedEmail,
+          email: validatedData.email,
           source: 'waitlist'
         });
 
-      if (error) {
-        if (error.code === '23505') { // Unique constraint violation
+      if (insertError) {
+        if (insertError.code === '23505') { // Unique constraint violation
           toast({
             title: "Already subscribed!",
             description: "You're already on our waitlist. We'll keep you updated!",
           });
         } else {
-          throw error;
+          console.error("Failed to subscribe email");
+          toast({
+            title: "Something went wrong",
+            description: "Please try again later.",
+            variant: "destructive"
+          });
         }
       } else {
         setIsSubmitted(true);
@@ -74,13 +57,23 @@ const EmailCaptureSection = () => {
           description: "We'll notify you when new features are available.",
         });
       }
-    } catch (error: any) {
-      console.error('Email subscription error:', error);
-      toast({
-        title: "Something went wrong",
-        description: error.message || "Please try again later.",
-        variant: "destructive"
-      });
+    } catch (err) {
+      if (err instanceof z.ZodError) {
+        const errorMessage = err.errors[0]?.message || "Invalid email";
+        setError(errorMessage);
+        toast({
+          title: "Validation Error",
+          description: errorMessage,
+          variant: "destructive",
+        });
+      } else {
+        console.error("Unexpected error during email subscription");
+        toast({
+          title: "Something went wrong",
+          description: "Please try again later.",
+          variant: "destructive"
+        });
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -133,16 +126,22 @@ const EmailCaptureSection = () => {
         <div className="max-w-2xl mx-auto">
           <Card className="bg-primary-foreground/10 backdrop-blur-sm border-primary-foreground/20">
             <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                  <Input
-                    type="email"
-                    placeholder="Enter your email address"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="flex-1 bg-primary-foreground text-foreground border-0 focus:ring-2 focus:ring-primary-foreground/50"
-                  />
+                  <div className="flex-1">
+                    <Input
+                      type="email"
+                      placeholder="Enter your email address"
+                      value={email}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                        setError("");
+                      }}
+                      required
+                      className={`bg-primary-foreground text-foreground border-0 focus:ring-2 focus:ring-primary-foreground/50 ${error ? "ring-2 ring-red-500" : ""}`}
+                    />
+                    {error && <p className="text-sm text-red-500 mt-1">{error}</p>}
+                  </div>
                   <Button
                     type="submit"
                     disabled={isSubmitting || !email}
