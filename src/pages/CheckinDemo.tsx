@@ -122,10 +122,10 @@ const CheckinDemo = () => {
       {/* Verification Steps */}
       <section className="section-padding bg-muted/30">
         <div className="container-max">
-          {/* Mobile: 2 columns, then 5 centered */}
-          {/* Tablet: 3 columns, then 4 and 5 offset-centered */}
+          {/* Mobile: 2 cols normal flow, items 4-5 side by side */}
+          {/* Tablet: 3 on top, 2 centered below */}
           {/* Desktop: 5 columns straight */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-5 gap-4 md:gap-6">
             {verificationSteps.map((step, index) => {
               const isItem4 = index === 3;
               const isItem5 = index === 4;
@@ -134,8 +134,9 @@ const CheckinDemo = () => {
                 <Card 
                   key={index} 
                   className={`p-6 hover:shadow-md transition-shadow text-center
-                    ${isItem5 ? 'col-span-2 md:col-span-1 md:col-start-2 lg:col-span-1 lg:col-start-auto max-w-xs mx-auto md:max-w-none' : ''}
-                    ${isItem4 ? 'md:col-start-2 lg:col-start-auto' : ''}
+                    ${isItem4 ? 'md:col-span-2 md:col-start-2 lg:col-span-1 lg:col-start-auto' : ''}
+                    ${isItem5 ? 'md:col-span-2 lg:col-span-1 lg:col-start-auto' : ''}
+                    ${!isItem4 && !isItem5 ? 'md:col-span-2 lg:col-span-1' : ''}
                   `}
                 >
                   <div className="flex flex-col items-center gap-4">
