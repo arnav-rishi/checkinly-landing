@@ -33,9 +33,9 @@ const CheckinDemo = () => {
   return <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b border-border/50 py-3 md:py-4">
-        <div className="container-max">
+        <div className="container-max flex justify-center">
           <Badge variant="secondary" className="text-xs sm:text-sm">
-            🏨 Hotel Express Check-In
+            Hotel Express Check-In
           </Badge>
         </div>
       </header>
