@@ -1,25 +1,60 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Upload, FileText, CheckCircle2, Camera, CreditCard } from "lucide-react";
+import { FileText, CheckCircle2, Camera, CreditCard, RotateCcw } from "lucide-react";
 
 const DocumentUpload = () => {
   const navigate = useNavigate();
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [preview, setPreview] = useState<string | null>(null);
+  const [isCameraActive, setIsCameraActive] = useState(false);
+  const [capturedImage, setCapturedImage] = useState<string | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const streamRef = useRef<MediaStream | null>(null);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setSelectedFile(file);
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setPreview(reader.result as string);
-      };
-      reader.readAsDataURL(file);
+  const startCamera = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: "environment", width: 1920, height: 1080 }
+      });
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+        streamRef.current = stream;
+        setIsCameraActive(true);
+      }
+    } catch (error) {
+      console.error("Error accessing camera:", error);
     }
+  };
+
+  const capturePhoto = () => {
+    if (videoRef.current && canvasRef.current) {
+      const video = videoRef.current;
+      const canvas = canvasRef.current;
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      const ctx = canvas.getContext("2d");
+      if (ctx) {
+        ctx.drawImage(video, 0, 0);
+        const imageData = canvas.toDataURL("image/jpeg");
+        setCapturedImage(imageData);
+        stopCamera();
+      }
+    }
+  };
+
+  const stopCamera = () => {
+    if (streamRef.current) {
+      streamRef.current.getTracks().forEach(track => track.stop());
+      streamRef.current = null;
+    }
+    setIsCameraActive(false);
+  };
+
+  const retakePhoto = () => {
+    setCapturedImage(null);
+    startCamera();
   };
 
   const handleContinue = () => {
@@ -79,30 +114,58 @@ const DocumentUpload = () => {
             </div>
           </Card>
 
-          {/* Upload Area */}
+          {/* Camera Capture Area */}
           <Card className="p-6 sm:p-8 mb-6">
-            {!preview ? (
-              <label className="flex flex-col items-center justify-center min-h-[300px] cursor-pointer border-2 border-dashed border-border rounded-lg hover:border-primary transition-colors">
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleFileChange}
-                  className="hidden"
-                />
-                <Upload className="w-12 h-12 sm:w-16 sm:h-16 text-muted-foreground mb-4" />
-                <p className="text-base sm:text-lg font-medium mb-2">
-                  Click to upload or drag and drop
+            {!isCameraActive && !capturedImage ? (
+              <div className="flex flex-col items-center justify-center min-h-[300px]">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                  <Camera className="w-10 h-10 sm:w-12 sm:h-12 text-primary" />
+                </div>
+                <h3 className="text-base sm:text-lg font-semibold mb-2">
+                  Capture Your Document
+                </h3>
+                <p className="text-xs sm:text-sm text-muted-foreground text-center mb-6">
+                  Use your camera to take a photo of your ID
                 </p>
-                <p className="text-xs sm:text-sm text-muted-foreground">
-                  PNG, JPG, or PDF (max. 10MB)
-                </p>
-              </label>
+                <Button size="lg" onClick={startCamera} className="gap-2">
+                  <Camera className="w-4 h-4" />
+                  Open Camera
+                </Button>
+              </div>
+            ) : isCameraActive ? (
+              <div className="space-y-4">
+                <div className="relative rounded-lg overflow-hidden bg-black">
+                  <video
+                    ref={videoRef}
+                    autoPlay
+                    playsInline
+                    className="w-full h-auto"
+                  />
+                  <div className="absolute inset-0 border-4 border-primary/30 pointer-events-none"></div>
+                </div>
+                <div className="flex gap-3">
+                  <Button
+                    variant="outline"
+                    onClick={stopCamera}
+                    className="flex-1"
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    onClick={capturePhoto}
+                    className="flex-1 gap-2"
+                  >
+                    <Camera className="w-4 h-4" />
+                    Capture Photo
+                  </Button>
+                </div>
+              </div>
             ) : (
               <div className="space-y-4">
                 <div className="relative rounded-lg overflow-hidden">
                   <img
-                    src={preview}
-                    alt="Document preview"
+                    src={capturedImage!}
+                    alt="Captured document"
                     className="w-full h-auto"
                   />
                 </div>
@@ -110,9 +173,9 @@ const DocumentUpload = () => {
                   <div className="flex items-center gap-3">
                     <FileText className="w-5 h-5 text-primary" />
                     <div>
-                      <p className="text-sm font-medium">{selectedFile?.name}</p>
+                      <p className="text-sm font-medium">Document Captured</p>
                       <p className="text-xs text-muted-foreground">
-                        {(selectedFile?.size! / 1024 / 1024).toFixed(2)} MB
+                        Ready for verification
                       </p>
                     </div>
                   </div>
@@ -120,17 +183,15 @@ const DocumentUpload = () => {
                 </div>
                 <Button
                   variant="outline"
-                  size="sm"
-                  onClick={() => {
-                    setSelectedFile(null);
-                    setPreview(null);
-                  }}
-                  className="w-full"
+                  onClick={retakePhoto}
+                  className="w-full gap-2"
                 >
-                  Upload Different Document
+                  <RotateCcw className="w-4 h-4" />
+                  Retake Photo
                 </Button>
               </div>
             )}
+            <canvas ref={canvasRef} className="hidden" />
           </Card>
 
           {/* Tips */}
@@ -156,7 +217,7 @@ const DocumentUpload = () => {
           <Button
             size="lg"
             onClick={handleContinue}
-            disabled={!selectedFile}
+            disabled={!capturedImage}
             className="w-full"
           >
             Continue to Face Verification
