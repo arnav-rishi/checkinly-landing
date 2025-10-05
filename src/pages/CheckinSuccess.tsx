@@ -140,38 +140,47 @@ const CheckinSuccess = () => {
                 <h2 className="text-lg font-semibold">Digital Room Key</h2>
               </div>
 
-              <div className="flex flex-col items-center justify-center py-8">
-                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                  <Key className="w-10 h-10 text-primary" />
+              <div className="space-y-4">
+                <div className="p-4 bg-background rounded-lg border-2 border-primary/20">
+                  <p className="text-xs text-muted-foreground mb-1">Room Number</p>
+                  <p className="text-2xl font-bold">1204</p>
                 </div>
-                
-                <h3 className="text-xl font-semibold mb-2">Generate Your Room Key</h3>
-                <p className="text-sm text-center text-muted-foreground mb-6">
-                  Your digital key will work with the NFC reader on your room door.
-                </p>
 
-                {!keyGenerated ? (
-                  <Button 
-                    size="lg" 
-                    className="w-full gap-2 bg-yellow-500 hover:bg-yellow-600 text-black"
-                    onClick={handleGenerateKey}
-                  >
-                    <Smartphone className="w-4 h-4" />
-                    Generate NFC Key
-                  </Button>
-                ) : (
-                  <div className="w-full text-center">
-                    <div className="mb-4 p-4 bg-green-500/10 border border-green-500/20 rounded-lg">
-                      <CheckCircle2 className="w-8 h-8 text-green-500 mx-auto mb-2" />
-                      <p className="text-sm font-semibold text-green-700 dark:text-green-400">
-                        Key Generated Successfully!
-                      </p>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        Hold your phone near the door reader
-                      </p>
-                    </div>
+                <div className="p-4 bg-background rounded-lg border-2 border-primary/20">
+                  <p className="text-xs text-muted-foreground mb-1">Lock ID</p>
+                  <p className="text-xl font-semibold">LK-B12-7834</p>
+                </div>
+
+                <div className="p-4 bg-yellow-500/10 rounded-lg border-2 border-yellow-500/30">
+                  <p className="text-xs text-muted-foreground mb-1">Lock Password (4-Digit PIN)</p>
+                  <p className="text-3xl font-bold tracking-wider">7842</p>
+                  <p className="text-xs text-muted-foreground mt-2">Keep this PIN secure</p>
+                </div>
+
+                <div className="mt-6 p-4 bg-primary/5 rounded-lg">
+                  <div className="flex items-center gap-2 mb-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary" />
+                    <p className="font-semibold">How to Access Your Room</p>
                   </div>
-                )}
+                  <ol className="space-y-2 text-sm">
+                    <li className="flex items-start gap-2">
+                      <span className="font-semibold text-primary">1.</span>
+                      <span>Enter the 4-digit PIN on the door lock keypad</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="font-semibold text-primary">2.</span>
+                      <span>Touch the lock handle to activate</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="font-semibold text-primary">3.</span>
+                      <span>Your fingerprint will be registered automatically</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="font-semibold text-primary">4.</span>
+                      <span>You&apos;re all set! Door will unlock</span>
+                    </li>
+                  </ol>
+                </div>
               </div>
             </Card>
           </div>
