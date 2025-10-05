@@ -3,10 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { FileText, CheckCircle2, Camera, CreditCard, RotateCcw } from "lucide-react";
 
 const DocumentUpload = () => {
   const navigate = useNavigate();
+  const [documentType, setDocumentType] = useState<string>("");
   const [isCameraActive, setIsCameraActive] = useState(false);
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -95,6 +97,22 @@ const DocumentUpload = () => {
             </p>
           </div>
 
+          {/* Document Type Selection */}
+          <Card className="p-4 sm:p-6 mb-6">
+            <h3 className="text-sm sm:text-base font-semibold mb-3">Select Document Type</h3>
+            <Select value={documentType} onValueChange={setDocumentType}>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Choose your document type" />
+              </SelectTrigger>
+              <SelectContent className="bg-background z-50">
+                <SelectItem value="passport">Passport</SelectItem>
+                <SelectItem value="drivers-license">Driver's License</SelectItem>
+                <SelectItem value="national-id">National ID Card</SelectItem>
+                <SelectItem value="residence-permit">Residence Permit</SelectItem>
+              </SelectContent>
+            </Select>
+          </Card>
+
           {/* Accepted Documents */}
           <Card className="p-4 sm:p-6 mb-6 bg-muted/30">
             <h3 className="text-sm sm:text-base font-semibold mb-3">Accepted Documents</h3>
@@ -127,7 +145,7 @@ const DocumentUpload = () => {
                 <p className="text-xs sm:text-sm text-muted-foreground text-center mb-6">
                   Use your camera to take a photo of your ID
                 </p>
-                <Button size="lg" onClick={startCamera} className="gap-2">
+                <Button size="lg" onClick={startCamera} className="gap-2" disabled={!documentType}>
                   <Camera className="w-4 h-4" />
                   Open Camera
                 </Button>
@@ -217,7 +235,7 @@ const DocumentUpload = () => {
           <Button
             size="lg"
             onClick={handleContinue}
-            disabled={!capturedImage}
+            disabled={!capturedImage || !documentType}
             className="w-full"
           >
             Continue to Face Verification
