@@ -56,10 +56,25 @@ const CheckinSuccess = () => {
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
               You're All Set!
             </h1>
-            <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
-              Here are your booking details and room access key.
-            </p>
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
+            Here are your booking details and room access key.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center mt-4">
+            <Button 
+              variant="outline" 
+              onClick={() => navigate('/checkin-demo')}
+              className="gap-2"
+            >
+              Retry Demo
+            </Button>
+            <Button 
+              onClick={() => navigate('/')}
+              className="gap-2"
+            >
+              Back to Home Page
+            </Button>
           </div>
+        </div>
 
           {/* Main Grid - Booking Info & Digital Key */}
           <div className="grid md:grid-cols-2 gap-6 mb-6">
