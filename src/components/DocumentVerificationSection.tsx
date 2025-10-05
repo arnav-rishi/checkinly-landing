@@ -51,9 +51,12 @@ const DocumentVerificationSection = () => {
           <h2 className="mobile-heading mb-4">
             How Checkinly Verifies Your Guests
           </h2>
-          <p className="mobile-body text-muted-foreground max-w-2xl mx-auto mb-6">
+          <p className="mobile-body text-muted-foreground max-w-2xl mx-auto mb-8">
             Our advanced 5-step verification process ensures secure, fast, and reliable guest identity confirmation.
           </p>
+          <h3 className="text-2xl font-semibold text-foreground mb-4">
+            Wanna Experience Live E-Checkin?
+          </h3>
           <Button 
             size="lg" 
             onClick={() => navigate('/auth')}
