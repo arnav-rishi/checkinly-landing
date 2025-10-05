@@ -12,31 +12,31 @@ const EnhancedFrontDesk = () => {
           {/* Left Side - Content */}
           <div className="space-y-12">{/* Increased spacing */}
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground text-spacing">{/* Larger text, consistent spacing */}
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-spacing">
                 Front Desk
               </h2>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="text-lg text-muted-foreground">
+                  <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
                     Streamline your daily front desk tasks.
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="text-lg text-muted-foreground">
+                  <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
                     Grid-based rooms, click to create bookings.
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="text-lg text-muted-foreground">
+                  <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
                     Real-time room status display: reserved, check-in...
                   </p>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="text-lg text-muted-foreground">
+                  <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
                     Simple drag-and-drop to modify reservations.
                   </p>
                 </div>

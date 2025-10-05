@@ -71,19 +71,23 @@ const CTASection = ({
             </div>
           </div>
           
-          <h2 className={`text-3xl md:text-5xl font-bold mb-6 ${textClasses[variant]}`}>
+          <h2 className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 ${textClasses[variant]}`}>
             {title}
           </h2>
           
+          <p className={`text-sm sm:text-base md:text-lg ${descriptionClasses[variant]} mb-8 max-w-3xl mx-auto`}>
+            {description}
+          </p>
+          
 
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6 mb-8">
             <Button 
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-16 py-8 text-xl font-bold rounded-large shadow-elegant hover-lift group w-full sm:w-auto"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 sm:px-12 md:px-16 py-4 sm:py-6 md:py-8 text-base sm:text-lg md:text-xl font-bold rounded-large shadow-elegant hover-lift group w-full sm:w-auto"
               onClick={handlePrimaryClick}
             >
               {primaryText}
-              <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 ml-2 sm:ml-3 group-hover:translate-x-1 transition-transform" />
             </Button>
             
             {secondaryText && (
@@ -104,7 +108,7 @@ const CTASection = ({
                 <Button 
                   variant="outline" 
                   size="lg"
-                  className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-16 py-8 text-xl font-bold rounded-large hover-lift transition-all duration-300 w-full sm:w-auto"
+                  className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 sm:px-12 md:px-16 py-4 sm:py-6 md:py-8 text-base sm:text-lg md:text-xl font-bold rounded-large hover-lift transition-all duration-300 w-full sm:w-auto"
                   onClick={handleSecondaryClick}
                 >
                   {secondaryText}

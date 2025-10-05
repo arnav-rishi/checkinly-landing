@@ -114,10 +114,10 @@ const EmailCaptureSection = () => {
           <div className="w-16 h-16 mx-auto bg-primary-foreground/20 rounded-full flex items-center justify-center mb-6">
             <Mail className="w-8 h-8 text-primary-foreground" />
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
             Get Early Access to New Features
           </h2>
-          <p className="text-xl text-primary-foreground/90 mb-12 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-primary-foreground/90 mb-12 max-w-3xl mx-auto">
             Join 2,000+ hotel owners getting exclusive updates on new integrations, 
             features, and industry insights.
           </p>

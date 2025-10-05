@@ -28,13 +28,13 @@ const DocumentVerificationSection = () => {
           <Badge variant="secondary" className="mb-4">
             Verification Process
           </Badge>
-          <h2 className="mobile-heading mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
             How Checkinly Verifies Your Guests
           </h2>
-          <p className="mobile-body text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
             Our advanced 3-step verification process ensures secure, fast, and reliable guest identity confirmation.
           </p>
-          <h3 className="text-2xl font-semibold text-foreground mb-4">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-foreground mb-4">
             Wanna Experience Live E-Checkin?
           </h3>
           <Button size="lg" onClick={() => navigate('/checkin-demo')} className="animate-fade-in">Click to start the Demo
@@ -55,11 +55,11 @@ const DocumentVerificationSection = () => {
                         <span className="text-xs sm:text-sm font-semibold px-2 py-1 rounded-full bg-primary text-primary-foreground">
                           {index + 1}
                         </span>
-                        <h3 className="text-base sm:text-lg font-semibold text-foreground">
+                        <h3 className="text-sm sm:text-base md:text-lg font-semibold text-foreground">
                           {step.title}
                         </h3>
                       </div>
-                      <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
+                      <p className="text-muted-foreground text-xs sm:text-sm md:text-base leading-relaxed">
                         {step.description}
                       </p>
                     </div>

@@ -50,7 +50,7 @@ const FeatureSection = () => {
     <section id="features" className="section-padding bg-muted/30 overflow-hidden">
       <div className="container-max">
         <div className="text-center heading-spacing">
-          <h2 className="text-foreground text-spacing">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-spacing">
             Optimize operational efficiency<br />
             <span className="text-primary">Enrich the guest stay experience</span>
           </h2>
@@ -68,8 +68,8 @@ const FeatureSection = () => {
                     <feature.icon className="w-6 h-6 sm:w-8 sm:h-8 text-primary-foreground" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <CardTitle className="text-lg sm:text-2xl font-bold text-foreground mb-1 sm:mb-2">{feature.title}</CardTitle>
-                    <CardDescription className="text-sm sm:text-base text-muted-foreground font-medium">
+                    <CardTitle className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-foreground mb-1 sm:mb-2">{feature.title}</CardTitle>
+                    <CardDescription className="text-xs sm:text-sm md:text-base text-muted-foreground font-medium">
                       {feature.description}
                     </CardDescription>
                   </div>
