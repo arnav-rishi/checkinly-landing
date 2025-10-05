@@ -76,12 +76,12 @@ const CheckinDemo = () => {
       <section className="section-padding">
         <div className="container-max">
           <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6">
               Skip the Front Desk,
               <br />
               <span className="text-primary">Check-In Online</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto px-4">
               Experience the fastest hotel check-in process. Upload your selfie and ID, get verified in seconds, and receive your digital room key instantly.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
@@ -89,7 +89,7 @@ const CheckinDemo = () => {
                 Start Check-In
                 <ArrowRight className="w-4 h-4" />
               </Button>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
                 <CheckCircle2 className="w-4 h-4 text-primary" />
                 Secure & Fast • 2 min process
               </div>
