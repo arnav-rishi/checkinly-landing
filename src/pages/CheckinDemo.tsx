@@ -124,12 +124,11 @@ const CheckinDemo = () => {
         <div className="container-max">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
             {verificationSteps.map((step, index) => {
-              const Icon = step.icon;
               return (
                 <Card key={index} className="p-6 hover:shadow-md transition-shadow text-center">
                   <div className="flex flex-col items-center gap-4">
-                    <div className="p-3 rounded-xl bg-primary/10 text-primary">
-                      <Icon className="w-8 h-8" />
+                    <div className="w-16 h-16 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                      <span className="text-2xl font-bold">{index + 1}</span>
                     </div>
                     <div>
                       <h3 className="text-base font-semibold mb-2">{step.title}</h3>
