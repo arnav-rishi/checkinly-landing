@@ -23,6 +23,7 @@ import ROICalculator from "./pages/ROICalculator";
 import CaseStudies from "./pages/CaseStudies";
 import IntegrationGuide from "./pages/IntegrationGuide";
 import EnterpriseSolution from "./pages/EnterpriseSolution";
+import CheckinDemo from "./pages/CheckinDemo";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -53,6 +54,7 @@ const App = () => (
             <Route path="/case-studies" element={<CaseStudies />} />
             <Route path="/integration-guide" element={<IntegrationGuide />} />
             <Route path="/enterprise-solution" element={<EnterpriseSolution />} />
+            <Route path="/checkin-demo" element={<CheckinDemo />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
