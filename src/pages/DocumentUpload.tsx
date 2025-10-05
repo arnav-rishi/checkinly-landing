@@ -116,17 +116,17 @@ const DocumentUpload = () => {
           </div>
 
           <div className="text-center mb-8">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
               Upload Your ID Document
             </h1>
-            <p className="text-sm sm:text-base text-muted-foreground">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
               Please upload a clear photo of your government-issued ID
             </p>
           </div>
 
           {/* Document Type Selection */}
           <Card className="p-4 sm:p-6 mb-6">
-            <h3 className="text-sm sm:text-base font-semibold mb-3">Select Document Type</h3>
+            <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-3">Select Document Type</h3>
             <Select value={documentType} onValueChange={setDocumentType}>
               <SelectTrigger className="w-full">
                 <SelectValue placeholder="Choose your document type" />
@@ -147,10 +147,10 @@ const DocumentUpload = () => {
                 <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                   <Camera className="w-10 h-10 sm:w-12 sm:h-12 text-primary" />
                 </div>
-                <h3 className="text-base sm:text-lg font-semibold mb-2">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2">
                   Capture Your Document
                 </h3>
-                <p className="text-xs sm:text-sm text-muted-foreground text-center mb-6">
+                <p className="text-sm sm:text-base md:text-lg text-muted-foreground text-center mb-6">
                   Use your camera to take a photo of your ID
                 </p>
                 <Button size="lg" onClick={startCamera} className="gap-2" disabled={!documentType}>
@@ -208,8 +208,8 @@ const DocumentUpload = () => {
 
           {/* Tips */}
           <Card className="p-4 sm:p-6 mb-6 bg-primary/5 border-primary/20">
-            <h3 className="text-sm sm:text-base font-semibold mb-3">Tips for best results</h3>
-            <ul className="space-y-2 text-xs sm:text-sm text-muted-foreground">
+            <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-3">Tips for best results</h3>
+            <ul className="space-y-2 text-sm sm:text-base md:text-lg text-muted-foreground">
               <li className="flex items-start gap-2">
                 <Camera className="w-4 h-4 mt-0.5 flex-shrink-0" />
                 <span>Ensure good lighting and avoid glare</span>

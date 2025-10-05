@@ -124,10 +124,10 @@ const FaceVerification = () => {
           </div>
 
           <div className="text-center mb-8">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
               Face Verification
             </h1>
-            <p className="text-sm sm:text-base text-muted-foreground">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
               We'll verify your identity with a quick video recording
             </p>
           </div>
@@ -139,7 +139,7 @@ const FaceVerification = () => {
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
                     <Video className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
                       Camera preview will appear here
                     </p>
                   </div>
@@ -188,7 +188,7 @@ const FaceVerification = () => {
                   )}
                 </div>
               ) : (
-                <p className="text-sm sm:text-base text-muted-foreground">
+                <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
                   Follow the on-screen instructions to complete verification
                 </p>
               )}
@@ -204,8 +204,8 @@ const FaceVerification = () => {
 
           {/* Instructions Card */}
           <Card className="p-4 sm:p-6 mb-6 bg-primary/5 border-primary/20">
-            <h3 className="text-sm sm:text-base font-semibold mb-3">Instructions</h3>
-            <ol className="space-y-2 text-xs sm:text-sm text-muted-foreground list-decimal list-inside">
+            <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-3">Instructions</h3>
+            <ol className="space-y-2 text-sm sm:text-base md:text-lg text-muted-foreground list-decimal list-inside">
               <li>Position your face in the center of the circle</li>
               <li>Follow the on-screen instructions to turn your head</li>
               <li>Keep your face clearly visible throughout the recording</li>

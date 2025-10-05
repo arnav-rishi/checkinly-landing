@@ -53,10 +53,10 @@ const CheckinSuccess = () => {
 
           {/* Success Message */}
           <div className="text-center mb-8">
-            <h1 className="text-3xl sm:text-4xl font-bold mb-2">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
               You're All Set!
             </h1>
-            <p className="text-sm sm:text-base text-muted-foreground">
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
               Here are your booking details and room access key.
             </p>
           </div>
@@ -67,19 +67,19 @@ const CheckinSuccess = () => {
             <Card className="p-6">
               <div className="flex items-center gap-2 mb-6">
                 <User className="w-5 h-5 text-primary" />
-                <h2 className="text-lg font-semibold">Booking Information</h2>
+                <h2 className="text-lg sm:text-xl md:text-2xl font-semibold">Booking Information</h2>
               </div>
 
               <div className="space-y-6">
                 {/* Guest & Confirmation */}
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <p className="text-xs text-muted-foreground mb-1">Guest Name</p>
-                    <p className="font-semibold">John Smith</p>
+                    <p className="text-xs sm:text-sm md:text-base text-muted-foreground mb-1">Guest Name</p>
+                    <p className="text-sm sm:text-base md:text-lg font-semibold">John Smith</p>
                   </div>
                   <div>
-                    <p className="text-xs text-muted-foreground mb-1">Confirmation</p>
-                    <p className="font-semibold">HTL-2024-001234</p>
+                    <p className="text-xs sm:text-sm md:text-base text-muted-foreground mb-1">Confirmation</p>
+                    <p className="text-sm sm:text-base md:text-lg font-semibold">HTL-2024-001234</p>
                   </div>
                 </div>
 
@@ -88,12 +88,12 @@ const CheckinSuccess = () => {
                 {/* Hotel & Room */}
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <p className="text-xs text-muted-foreground mb-1">Hotel</p>
-                    <p className="font-semibold">Grand Plaza Hotel</p>
+                    <p className="text-xs sm:text-sm md:text-base text-muted-foreground mb-1">Hotel</p>
+                    <p className="text-sm sm:text-base md:text-lg font-semibold">Grand Plaza Hotel</p>
                   </div>
                   <div>
-                    <p className="text-xs text-muted-foreground mb-1">Room</p>
-                    <p className="font-semibold">1204 - Deluxe King Suite</p>
+                    <p className="text-xs sm:text-sm md:text-base text-muted-foreground mb-1">Room</p>
+                    <p className="text-sm sm:text-base md:text-lg font-semibold">1204 - Deluxe King Suite</p>
                   </div>
                 </div>
 
@@ -137,7 +137,7 @@ const CheckinSuccess = () => {
             <Card className="p-6 bg-muted/30">
               <div className="flex items-center gap-2 mb-6">
                 <Key className="w-5 h-5 text-primary" />
-                <h2 className="text-lg font-semibold">Digital Room Key</h2>
+                <h2 className="text-lg sm:text-xl md:text-2xl font-semibold">Digital Room Key</h2>
               </div>
 
               <div className="space-y-4">
@@ -189,7 +189,7 @@ const CheckinSuccess = () => {
           <div className="grid md:grid-cols-2 gap-6 mb-6">
             {/* Room Amenities */}
             <Card className="p-6">
-              <h3 className="text-lg font-semibold mb-4">Room Amenities</h3>
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-4">Room Amenities</h3>
               
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
@@ -220,7 +220,7 @@ const CheckinSuccess = () => {
 
             {/* Additional Services */}
             <Card className="p-6">
-              <h3 className="text-lg font-semibold mb-4">Additional Services</h3>
+              <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-4">Additional Services</h3>
               
               <div className="space-y-3">
                 <Button variant="outline" className="w-full justify-start gap-2" size="lg">
