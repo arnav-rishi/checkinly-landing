@@ -5,7 +5,6 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { FileText, CheckCircle2, Camera, CreditCard, RotateCcw } from "lucide-react";
-
 const DocumentUpload = () => {
   const navigate = useNavigate();
   const [documentType, setDocumentType] = useState<string>("");
@@ -14,11 +13,14 @@ const DocumentUpload = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const streamRef = useRef<MediaStream | null>(null);
-
   const startCamera = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: "environment", width: 1920, height: 1080 }
+        video: {
+          facingMode: "environment",
+          width: 1920,
+          height: 1080
+        }
       });
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
@@ -29,7 +31,6 @@ const DocumentUpload = () => {
       console.error("Error accessing camera:", error);
     }
   };
-
   const capturePhoto = () => {
     if (videoRef.current && canvasRef.current) {
       const video = videoRef.current;
@@ -45,7 +46,6 @@ const DocumentUpload = () => {
       }
     }
   };
-
   const stopCamera = () => {
     if (streamRef.current) {
       streamRef.current.getTracks().forEach(track => track.stop());
@@ -53,18 +53,14 @@ const DocumentUpload = () => {
     }
     setIsCameraActive(false);
   };
-
   const retakePhoto = () => {
     setCapturedImage(null);
     startCamera();
   };
-
   const handleContinue = () => {
     navigate("/face-verification");
   };
-
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b border-border/50 py-3 md:py-4">
         <div className="container-max flex justify-center">
@@ -114,28 +110,11 @@ const DocumentUpload = () => {
           </Card>
 
           {/* Accepted Documents */}
-          <Card className="p-4 sm:p-6 mb-6 bg-muted/30">
-            <h3 className="text-sm sm:text-base font-semibold mb-3">Accepted Documents</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div className="flex items-center gap-2">
-                <CreditCard className="w-4 h-4 text-primary" />
-                <span className="text-xs sm:text-sm">Passport</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CreditCard className="w-4 h-4 text-primary" />
-                <span className="text-xs sm:text-sm">Driver's License</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CreditCard className="w-4 h-4 text-primary" />
-                <span className="text-xs sm:text-sm">National ID</span>
-              </div>
-            </div>
-          </Card>
+          
 
           {/* Camera Capture Area */}
           <Card className="p-6 sm:p-8 mb-6">
-            {!isCameraActive && !capturedImage ? (
-              <div className="flex flex-col items-center justify-center min-h-[300px]">
+            {!isCameraActive && !capturedImage ? <div className="flex flex-col items-center justify-center min-h-[300px]">
                 <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                   <Camera className="w-10 h-10 sm:w-12 sm:h-12 text-primary" />
                 </div>
@@ -149,43 +128,23 @@ const DocumentUpload = () => {
                   <Camera className="w-4 h-4" />
                   Open Camera
                 </Button>
-              </div>
-            ) : isCameraActive ? (
-              <div className="space-y-4">
+              </div> : isCameraActive ? <div className="space-y-4">
                 <div className="relative rounded-lg overflow-hidden bg-black">
-                  <video
-                    ref={videoRef}
-                    autoPlay
-                    playsInline
-                    className="w-full h-auto"
-                  />
+                  <video ref={videoRef} autoPlay playsInline className="w-full h-auto" />
                   <div className="absolute inset-0 border-4 border-primary/30 pointer-events-none"></div>
                 </div>
                 <div className="flex gap-3">
-                  <Button
-                    variant="outline"
-                    onClick={stopCamera}
-                    className="flex-1"
-                  >
+                  <Button variant="outline" onClick={stopCamera} className="flex-1">
                     Cancel
                   </Button>
-                  <Button
-                    onClick={capturePhoto}
-                    className="flex-1 gap-2"
-                  >
+                  <Button onClick={capturePhoto} className="flex-1 gap-2">
                     <Camera className="w-4 h-4" />
                     Capture Photo
                   </Button>
                 </div>
-              </div>
-            ) : (
-              <div className="space-y-4">
+              </div> : <div className="space-y-4">
                 <div className="relative rounded-lg overflow-hidden">
-                  <img
-                    src={capturedImage!}
-                    alt="Captured document"
-                    className="w-full h-auto"
-                  />
+                  <img src={capturedImage!} alt="Captured document" className="w-full h-auto" />
                 </div>
                 <div className="flex items-center justify-between p-4 bg-muted/30 rounded-lg">
                   <div className="flex items-center gap-3">
@@ -199,16 +158,11 @@ const DocumentUpload = () => {
                   </div>
                   <CheckCircle2 className="w-5 h-5 text-primary" />
                 </div>
-                <Button
-                  variant="outline"
-                  onClick={retakePhoto}
-                  className="w-full gap-2"
-                >
+                <Button variant="outline" onClick={retakePhoto} className="w-full gap-2">
                   <RotateCcw className="w-4 h-4" />
                   Retake Photo
                 </Button>
-              </div>
-            )}
+              </div>}
             <canvas ref={canvasRef} className="hidden" />
           </Card>
 
@@ -232,18 +186,11 @@ const DocumentUpload = () => {
           </Card>
 
           {/* Continue Button */}
-          <Button
-            size="lg"
-            onClick={handleContinue}
-            disabled={!capturedImage || !documentType}
-            className="w-full"
-          >
+          <Button size="lg" onClick={handleContinue} disabled={!capturedImage || !documentType} className="w-full">
             Continue to Face Verification
           </Button>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default DocumentUpload;
