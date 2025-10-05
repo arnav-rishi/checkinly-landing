@@ -122,7 +122,7 @@ const CheckinDemo = () => {
       {/* Verification Steps */}
       <section className="section-padding bg-muted/30">
         <div className="container-max">
-          {/* Mobile: 2 cols normal flow, items 4-5 side by side */}
+          {/* Mobile: 2 cols, item 5 centered below */}
           {/* Tablet: 3 on top, 2 centered below */}
           {/* Desktop: 5 columns straight */}
           <div className="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-5 gap-4 md:gap-6">
@@ -134,8 +134,8 @@ const CheckinDemo = () => {
                 <Card 
                   key={index} 
                   className={`p-6 hover:shadow-md transition-shadow text-center
+                    ${isItem5 ? 'col-span-2 col-start-1 max-w-xs mx-auto md:col-span-2 md:max-w-none lg:col-span-1 lg:col-start-auto' : ''}
                     ${isItem4 ? 'md:col-span-2 md:col-start-2 lg:col-span-1 lg:col-start-auto' : ''}
-                    ${isItem5 ? 'md:col-span-2 lg:col-span-1 lg:col-start-auto' : ''}
                     ${!isItem4 && !isItem5 ? 'md:col-span-2 lg:col-span-1' : ''}
                   `}
                 >
