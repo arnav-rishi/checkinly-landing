@@ -44,79 +44,79 @@ const EnhancedFrontDesk = () => {
           {/* Right Side - Static Calendar Screenshot */}
           <div className="relative">
             <Card className="shadow-elegant border border-border/30 bg-white">
-              <CardHeader className="p-4">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <Button variant="outline" size="sm" className="bg-gray-50 text-gray-700 border-gray-200">
+              <CardHeader className="p-2 sm:p-4">
+                <div className="flex items-center justify-between gap-1 sm:gap-0">
+                  <div className="flex items-center space-x-1 sm:space-x-3">
+                    <Button variant="outline" size="sm" className="bg-gray-50 text-gray-700 border-gray-200 text-[9px] sm:text-sm px-2 sm:px-3 h-7 sm:h-9">
                       Calendar
                     </Button>
-                    <Button variant="ghost" size="sm" className="text-gray-600">
+                    <Button variant="ghost" size="sm" className="text-gray-600 text-[9px] sm:text-sm px-2 sm:px-3 h-7 sm:h-9 hidden sm:inline-flex">
                       Today
                     </Button>
-                    <div className="flex items-center space-x-2">
-                      <Calendar className="w-4 h-4 text-gray-500" />
-                      <span className="text-sm text-gray-500">19 Apr 2024</span>
+                    <div className="flex items-center space-x-1 sm:space-x-2 hidden sm:flex">
+                      <Calendar className="w-3 h-3 sm:w-4 sm:h-4 text-gray-500" />
+                      <span className="text-xs sm:text-sm text-gray-500">19 Apr 2024</span>
                     </div>
                   </div>
-                  <Button size="sm" className="bg-blue-500 hover:bg-blue-600 text-white">
-                    Add Reservation
+                  <Button size="sm" className="bg-blue-500 hover:bg-blue-600 text-white text-[9px] sm:text-sm px-2 sm:px-3 h-7 sm:h-9">
+                    Add
                   </Button>
                 </div>
               </CardHeader>
               
               <CardContent className="p-0">
                 {/* Mobile-friendly calendar with horizontal scroll */}
-                <div className="overflow-x-auto -mx-4 sm:mx-0">
-                  <div className="p-2 sm:p-4 min-w-[600px] md:min-w-0">
+                <div className="overflow-x-auto">
+                  <div className="p-2 sm:p-4 min-w-[320px] sm:min-w-0">
                     {/* Calendar Header */}
-                    <div className="grid grid-cols-8 gap-0 text-[10px] sm:text-xs font-medium text-gray-600 pb-2 sm:pb-3 mb-3 sm:mb-4">
-                      <div className="text-left pl-1 sm:pl-2 text-[10px] sm:text-xs">Room</div>
+                    <div className="grid grid-cols-8 gap-0 text-[8px] sm:text-xs font-medium text-gray-600 pb-1 sm:pb-3 mb-2 sm:mb-4">
+                      <div className="text-left pl-0.5 sm:pl-2 text-[8px] sm:text-xs">Room</div>
                       <div className="text-center">
-                        <div>Mon</div>
-                        <div className="text-gray-400 text-[9px] sm:text-xs">13 Apr</div>
+                        <div className="text-[8px] sm:text-xs">Mon</div>
+                        <div className="text-gray-400 text-[7px] sm:text-xs">13</div>
                       </div>
                       <div className="text-center">
-                        <div>Tue</div>
-                        <div className="text-gray-400 text-[9px] sm:text-xs">14 Apr</div>
+                        <div className="text-[8px] sm:text-xs">Tue</div>
+                        <div className="text-gray-400 text-[7px] sm:text-xs">14</div>
                       </div>
                       <div className="text-center">
-                        <div>Wed</div>
-                        <div className="text-gray-400 text-[9px] sm:text-xs">15 Apr</div>
+                        <div className="text-[8px] sm:text-xs">Wed</div>
+                        <div className="text-gray-400 text-[7px] sm:text-xs">15</div>
                       </div>
                       <div className="text-center">
-                        <div>Thu</div>
-                        <div className="text-gray-400 text-[9px] sm:text-xs">16 Apr</div>
+                        <div className="text-[8px] sm:text-xs">Thu</div>
+                        <div className="text-gray-400 text-[7px] sm:text-xs">16</div>
                       </div>
                       <div className="text-center">
-                        <div>Fri</div>
-                        <div className="text-gray-400 text-[9px] sm:text-xs">17 Apr</div>
+                        <div className="text-[8px] sm:text-xs">Fri</div>
+                        <div className="text-gray-400 text-[7px] sm:text-xs">17</div>
                       </div>
                       <div className="text-center">
-                        <div>Sat</div>
-                        <div className="text-gray-400 text-[9px] sm:text-xs">18 Apr</div>
+                        <div className="text-[8px] sm:text-xs">Sat</div>
+                        <div className="text-gray-400 text-[7px] sm:text-xs">18</div>
                       </div>
                       <div className="text-center">
-                        <div>Sun</div>
-                        <div className="text-gray-400 text-[9px] sm:text-xs">19 Apr</div>
+                        <div className="text-[8px] sm:text-xs">Sun</div>
+                        <div className="text-gray-400 text-[7px] sm:text-xs">19</div>
                       </div>
                     </div>
                     
                     {/* Room Row */}
-                    <div className="grid grid-cols-8 gap-0 items-center h-10 sm:h-12 mb-3 sm:mb-4">
-                      <div className="font-medium text-xs sm:text-sm text-gray-900 pl-1 sm:pl-2">1107</div>
-                      <div className="h-6 sm:h-8"></div> {/* Mon - empty */}
-                      <div className="h-6 sm:h-8"></div> {/* Tue - empty */}
-                      <div className="relative h-6 sm:h-8">
+                    <div className="grid grid-cols-8 gap-0 items-center h-8 sm:h-12 mb-2 sm:mb-4">
+                      <div className="font-medium text-[9px] sm:text-sm text-gray-900 pl-0.5 sm:pl-2">1107</div>
+                      <div className="h-5 sm:h-8"></div> {/* Mon - empty */}
+                      <div className="h-5 sm:h-8"></div> {/* Tue - empty */}
+                      <div className="relative h-5 sm:h-8">
                         {/* Wed - Red reservation start */}
-                        <div className="absolute inset-0 bg-red-500 text-white text-[9px] sm:text-xs px-1 sm:px-2 py-0.5 sm:py-1 rounded-sm flex items-center justify-between">
-                          <span className="truncate">Xu Chen</span>
+                        <div className="absolute inset-0 bg-red-500 text-white text-[7px] sm:text-xs px-0.5 sm:px-2 py-0.5 sm:py-1 rounded-sm flex items-center justify-between">
+                          <span className="truncate">Xu</span>
                           <X className="w-2 h-2 sm:w-3 sm:h-3 flex-shrink-0" />
                         </div>
                       </div>
-                      <div className="h-6 sm:h-8 bg-purple-500 rounded-sm"></div> {/* Thu - Purple continuation */}
-                      <div className="h-6 sm:h-8 bg-purple-500 rounded-sm"></div> {/* Fri - Purple continuation */}
-                      <div className="h-6 sm:h-8"></div> {/* Sat - empty */}
-                      <div className="h-6 sm:h-8"></div> {/* Sun - empty */}
+                      <div className="h-5 sm:h-8 bg-purple-500 rounded-sm"></div> {/* Thu - Purple continuation */}
+                      <div className="h-5 sm:h-8 bg-purple-500 rounded-sm"></div> {/* Fri - Purple continuation */}
+                      <div className="h-5 sm:h-8"></div> {/* Sat - empty */}
+                      <div className="h-5 sm:h-8"></div> {/* Sun - empty */}
                     </div>
                   </div>
                 </div>
