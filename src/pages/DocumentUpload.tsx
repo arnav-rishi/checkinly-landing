@@ -15,6 +15,7 @@ const DocumentUpload = () => {
   const streamRef = useRef<MediaStream | null>(null);
   const startCamera = async () => {
     try {
+      console.log("Starting camera...");
       const stream = await navigator.mediaDevices.getUserMedia({
         video: {
           facingMode: "environment",
@@ -23,15 +24,22 @@ const DocumentUpload = () => {
         }
       });
       
+      console.log("Camera stream obtained:", stream);
+      
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
         streamRef.current = stream;
+        setIsCameraActive(true);
         
-        // Wait for video to be ready
+        // Wait for video to be ready and play
         videoRef.current.onloadedmetadata = () => {
-          videoRef.current?.play();
-          setIsCameraActive(true);
+          console.log("Video metadata loaded");
+          videoRef.current?.play()
+            .then(() => console.log("Video playing"))
+            .catch(err => console.error("Error playing video:", err));
         };
+      } else {
+        console.error("Video ref is null");
       }
     } catch (error) {
       console.error("Error accessing camera:", error);
@@ -39,18 +47,30 @@ const DocumentUpload = () => {
     }
   };
   const capturePhoto = () => {
+    console.log("Attempting to capture photo...");
     if (videoRef.current && canvasRef.current) {
       const video = videoRef.current;
       const canvas = canvasRef.current;
+      console.log("Video dimensions:", video.videoWidth, video.videoHeight);
+      
+      if (video.videoWidth === 0 || video.videoHeight === 0) {
+        console.error("Video dimensions are zero - video not ready");
+        alert("Camera is not ready yet. Please wait a moment and try again.");
+        return;
+      }
+      
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
       const ctx = canvas.getContext("2d");
       if (ctx) {
         ctx.drawImage(video, 0, 0);
         const imageData = canvas.toDataURL("image/jpeg");
+        console.log("Image captured successfully");
         setCapturedImage(imageData);
         stopCamera();
       }
+    } else {
+      console.error("Video or canvas ref is null");
     }
   };
   const stopCamera = () => {
