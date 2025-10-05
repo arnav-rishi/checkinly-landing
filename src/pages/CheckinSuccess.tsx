@@ -32,8 +32,8 @@ const CheckinSuccess = () => {
       <header className="border-b border-border/50 py-3 md:py-4">
         <div className="container-max flex justify-between items-center">
           <div>
-            <h2 className="text-base sm:text-lg font-semibold">Hotel Express Check-In</h2>
-            <p className="text-xs text-muted-foreground">Secure & Fast</p>
+            <h2 className="text-base sm:text-lg font-semibold">Demo Hotel Express Check-In</h2>
+            <p className="text-xs text-muted-foreground">Demo Mode - Secure & Fast</p>
           </div>
           <Badge variant="secondary" className="text-xs">
             Processing

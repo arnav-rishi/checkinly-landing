@@ -96,7 +96,7 @@ const DocumentUpload = () => {
       <header className="border-b border-border/50 py-3 md:py-4">
         <div className="container-max flex justify-center">
           <Badge variant="secondary" className="text-xs sm:text-sm">
-            Hotel Express Check-In
+            Demo Hotel Express Check-In
           </Badge>
         </div>
       </header>

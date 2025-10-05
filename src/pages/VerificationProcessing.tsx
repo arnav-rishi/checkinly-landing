@@ -56,7 +56,7 @@ const VerificationProcessing = () => {
         {/* Header Badge */}
         <div className="flex justify-center mb-8">
           <Badge variant="secondary" className="text-xs sm:text-sm">
-            Hotel Express Check-In
+            Demo Hotel Express Check-In
           </Badge>
         </div>
 
