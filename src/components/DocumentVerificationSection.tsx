@@ -21,16 +21,6 @@ const DocumentVerificationSection = () => {
     title: "Face Recognition",
     description: "Secure facial matching technology for identity verification.",
     icon: Users
-  }, {
-    id: 3,
-    title: "Proof of address",
-    description: "Comprehensive address verification and validation.",
-    icon: MapPin
-  }, {
-    id: 4,
-    title: "Data crosscheck",
-    description: "Multi-source data validation for complete verification.",
-    icon: Shield
   }];
   return <section className="section-padding bg-gradient-to-b from-background to-muted/30">
       <div className="container-max">
@@ -42,7 +32,7 @@ const DocumentVerificationSection = () => {
             How Checkinly Verifies Your Guests
           </h2>
           <p className="mobile-body text-muted-foreground max-w-2xl mx-auto mb-8">
-            Our advanced 5-step verification process ensures secure, fast, and reliable guest identity confirmation.
+            Our advanced 3-step verification process ensures secure, fast, and reliable guest identity confirmation.
           </p>
           <h3 className="text-2xl font-semibold text-foreground mb-4">
             Wanna Experience Live E-Checkin?

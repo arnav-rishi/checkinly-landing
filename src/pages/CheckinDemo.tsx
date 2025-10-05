@@ -20,16 +20,6 @@ const CheckinDemo = () => {
       title: "Face Recognition",
       description: "Secure facial matching technology for identity verification",
       icon: Users
-    },
-    {
-      title: "Proof of address",
-      description: "Comprehensive address verification and validation",
-      icon: MapPin
-    },
-    {
-      title: "Data crosscheck",
-      description: "Multi-source data validation for complete verification",
-      icon: Shield
     }
   ];
 
@@ -48,16 +38,6 @@ const CheckinDemo = () => {
       number: 3,
       title: "Face Match",
       description: "Match face with document"
-    },
-    {
-      number: 4,
-      title: "Address Verify",
-      description: "Confirm your address"
-    },
-    {
-      number: 5,
-      title: "Data Check",
-      description: "Validate all information"
     }
   ];
 
@@ -122,22 +102,11 @@ const CheckinDemo = () => {
       {/* Verification Steps */}
       <section className="section-padding bg-muted/30">
         <div className="container-max">
-          {/* Mobile: 2 cols, item 5 centered below */}
-          {/* Tablet: 3 on top, 2 centered below */}
-          {/* Desktop: 5 columns straight */}
-          <div className="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-5 gap-4 md:gap-6">
-            {verificationSteps.map((step, index) => {
-              const isItem4 = index === 3;
-              const isItem5 = index === 4;
-              
-              return (
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
+            {verificationSteps.map((step, index) => (
                 <Card 
                   key={index} 
-                  className={`p-4 sm:p-6 hover:shadow-md transition-shadow text-center
-                    ${isItem5 ? 'col-span-2 col-start-1 max-w-xs mx-auto md:col-span-2 md:max-w-none lg:col-span-1 lg:col-start-auto' : ''}
-                    ${isItem4 ? 'md:col-span-2 md:col-start-2 lg:col-span-1 lg:col-start-auto' : ''}
-                    ${!isItem4 && !isItem5 ? 'md:col-span-2 lg:col-span-1' : ''}
-                  `}
+                  className="p-4 sm:p-6 hover:shadow-md transition-shadow text-center"
                 >
                   <div className="flex flex-col items-center gap-3 md:gap-4">
                     <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
@@ -149,8 +118,7 @@ const CheckinDemo = () => {
                     </div>
                   </div>
                 </Card>
-              );
-            })}
+              ))}
           </div>
         </div>
       </section>
@@ -160,10 +128,10 @@ const CheckinDemo = () => {
         <div className="container-max">
           <div className="text-center mb-8 md:mb-12 px-4">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4">How It Works</h2>
-            <p className="text-sm sm:text-base md:text-lg text-muted-foreground">Simple 5-step verification process</p>
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground">Simple 3-step verification process</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-6 max-w-5xl mx-auto px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto px-4">
             {processSteps.map((step) => (
               <Card key={step.number} className="p-4 sm:p-6 text-center">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-lg sm:text-xl font-bold mx-auto mb-3 sm:mb-4">
