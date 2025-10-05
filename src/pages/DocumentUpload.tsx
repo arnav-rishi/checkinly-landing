@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { FileText, CheckCircle2, Camera, CreditCard, RotateCcw } from "lucide-react";
+import { FileText, CheckCircle2, Camera, RotateCcw } from "lucide-react";
+
 const DocumentUpload = () => {
   const navigate = useNavigate();
   const [documentType, setDocumentType] = useState<string>("");
@@ -13,6 +14,7 @@ const DocumentUpload = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const streamRef = useRef<MediaStream | null>(null);
+
   const startCamera = async () => {
     try {
       console.log("Starting camera...");
@@ -29,9 +31,21 @@ const DocumentUpload = () => {
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
         streamRef.current = stream;
-        // Show the camera UI immediately
+        
+        // Immediately show camera UI and play video
         setIsCameraActive(true);
-        console.log("Camera active, video should be visible");
+        
+        // Explicitly play the video
+        setTimeout(async () => {
+          try {
+            if (videoRef.current) {
+              await videoRef.current.play();
+              console.log("Video is now playing");
+            }
+          } catch (err) {
+            console.error("Error playing video:", err);
+          }
+        }, 100);
       } else {
         console.error("Video ref is null");
       }
@@ -40,6 +54,7 @@ const DocumentUpload = () => {
       alert("Unable to access camera. Please ensure you've granted camera permissions.");
     }
   };
+
   const capturePhoto = () => {
     console.log("Attempting to capture photo...");
     if (videoRef.current && canvasRef.current) {
@@ -67,6 +82,7 @@ const DocumentUpload = () => {
       console.error("Video or canvas ref is null");
     }
   };
+
   const stopCamera = () => {
     if (streamRef.current) {
       streamRef.current.getTracks().forEach(track => track.stop());
@@ -74,14 +90,18 @@ const DocumentUpload = () => {
     }
     setIsCameraActive(false);
   };
+
   const retakePhoto = () => {
     setCapturedImage(null);
     startCamera();
   };
+
   const handleContinue = () => {
     navigate("/face-verification");
   };
-  return <div className="min-h-screen bg-background">
+
+  return (
+    <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b border-border/50 py-3 md:py-4">
         <div className="container-max flex justify-center">
@@ -130,12 +150,10 @@ const DocumentUpload = () => {
             </Select>
           </Card>
 
-          {/* Accepted Documents */}
-          
-
           {/* Camera Capture Area */}
           <Card className="p-6 sm:p-8 mb-6">
-            {!isCameraActive && !capturedImage ? <div className="flex flex-col items-center justify-center min-h-[300px]">
+            {!isCameraActive && !capturedImage ? (
+              <div className="flex flex-col items-center justify-center min-h-[300px]">
                 <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                   <Camera className="w-10 h-10 sm:w-12 sm:h-12 text-primary" />
                 </div>
@@ -149,9 +167,17 @@ const DocumentUpload = () => {
                   <Camera className="w-4 h-4" />
                   Open Camera
                 </Button>
-              </div> : isCameraActive ? <div className="space-y-4">
-                <div className="relative rounded-lg overflow-hidden bg-black">
-                  <video ref={videoRef} autoPlay playsInline className="w-full h-auto" />
+              </div>
+            ) : isCameraActive ? (
+              <div className="space-y-4">
+                <div className="relative rounded-lg overflow-hidden bg-black min-h-[400px]">
+                  <video 
+                    ref={videoRef} 
+                    autoPlay 
+                    playsInline 
+                    muted
+                    className="w-full min-h-[400px] object-cover"
+                  />
                   <div className="absolute inset-0 border-4 border-primary/30 pointer-events-none"></div>
                 </div>
                 <div className="flex gap-3">
@@ -163,7 +189,9 @@ const DocumentUpload = () => {
                     Capture Photo
                   </Button>
                 </div>
-              </div> : <div className="space-y-4">
+              </div>
+            ) : (
+              <div className="space-y-4">
                 <div className="relative rounded-lg overflow-hidden">
                   <img src={capturedImage!} alt="Captured document" className="w-full h-auto" />
                 </div>
@@ -183,7 +211,8 @@ const DocumentUpload = () => {
                   <RotateCcw className="w-4 h-4" />
                   Retake Photo
                 </Button>
-              </div>}
+              </div>
+            )}
             <canvas ref={canvasRef} className="hidden" />
           </Card>
 
@@ -212,6 +241,8 @@ const DocumentUpload = () => {
           </Button>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default DocumentUpload;
