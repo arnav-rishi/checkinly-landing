@@ -24,6 +24,10 @@ import CaseStudies from "./pages/CaseStudies";
 import IntegrationGuide from "./pages/IntegrationGuide";
 import EnterpriseSolution from "./pages/EnterpriseSolution";
 import CheckinDemo from "./pages/CheckinDemo";
+import DocumentUpload from "./pages/DocumentUpload";
+import FaceVerification from "./pages/FaceVerification";
+import VerificationProcessing from "./pages/VerificationProcessing";
+import CheckinSuccess from "./pages/CheckinSuccess";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -55,6 +59,10 @@ const App = () => (
             <Route path="/integration-guide" element={<IntegrationGuide />} />
             <Route path="/enterprise-solution" element={<EnterpriseSolution />} />
             <Route path="/checkin-demo" element={<CheckinDemo />} />
+            <Route path="/document-upload" element={<DocumentUpload />} />
+            <Route path="/face-verification" element={<FaceVerification />} />
+            <Route path="/verification-processing" element={<VerificationProcessing />} />
+            <Route path="/checkin-success" element={<CheckinSuccess />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

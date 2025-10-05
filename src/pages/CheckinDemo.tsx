@@ -1,9 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ScanLine, Eye, Users, MapPin, Shield, CheckCircle2, ArrowRight } from "lucide-react";
 import hotelLobby from "@/assets/hotel-lobby.jpg";
 const CheckinDemo = () => {
+  const navigate = useNavigate();
+  
   const verificationSteps = [{
     title: "Document scanning",
     description: "High-precision technology to authenticate and extract data",
@@ -53,7 +56,7 @@ const CheckinDemo = () => {
               Experience the fastest hotel check-in process. Upload your selfie and ID, get verified in seconds, and receive your digital room key instantly.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-              <Button size="lg" className="gap-2">
+              <Button size="lg" className="gap-2" onClick={() => navigate("/document-upload")}>
                 Start Check-In
                 <ArrowRight className="w-4 h-4" />
               </Button>
