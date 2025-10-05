@@ -1,54 +1,45 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 import { Search, Filter, Calendar, Users, Plus, Eye } from "lucide-react";
-
 const ReservationManagement = () => {
-  const reservations = [
-    {
-      id: "JD20240415BR001",
-      contact: "+65 97777-0933",
-      guest: "Owaku",
-      roomType: "108",
-      status: "Reserved",
-      nights: "1",
-      arrival: "2024-08-28",
-      departure: "2024-08-29",
-      amount: "$0.00"
-    },
-    {
-      id: "JD20240415BR002", 
-      contact: "+65 97777-0934",
-      guest: "Sarah Johnson",
-      roomType: "205",
-      status: "Confirmed",
-      nights: "3",
-      arrival: "2024-08-30",
-      departure: "2024-09-02",
-      amount: "$450.00"
-    },
-    {
-      id: "JD20240415BR003",
-      contact: "+65 97777-0935", 
-      guest: "Mike Chen",
-      roomType: "301",
-      status: "Reserved",
-      nights: "2",
-      arrival: "2024-09-01",
-      departure: "2024-09-03",
-      amount: "$320.00"
-    }
-  ];
-
+  const reservations = [{
+    id: "JD20240415BR001",
+    contact: "+65 97777-0933",
+    guest: "Owaku",
+    roomType: "108",
+    status: "Reserved",
+    nights: "1",
+    arrival: "2024-08-28",
+    departure: "2024-08-29",
+    amount: "$0.00"
+  }, {
+    id: "JD20240415BR002",
+    contact: "+65 97777-0934",
+    guest: "Sarah Johnson",
+    roomType: "205",
+    status: "Confirmed",
+    nights: "3",
+    arrival: "2024-08-30",
+    departure: "2024-09-02",
+    amount: "$450.00"
+  }, {
+    id: "JD20240415BR003",
+    contact: "+65 97777-0935",
+    guest: "Mike Chen",
+    roomType: "301",
+    status: "Reserved",
+    nights: "2",
+    arrival: "2024-09-01",
+    departure: "2024-09-03",
+    amount: "$320.00"
+  }];
   const getStatusBadge = (status: string) => {
     const variant = status === 'Confirmed' ? 'default' : 'secondary';
     return <Badge variant={variant}>{status}</Badge>;
   };
-
-  return (
-    <section className="section-padding bg-muted/30">
+  return <section className="section-padding bg-muted/30">
       <div className="container-max">
         <div className="grid grid-cols-1 lg:grid-cols-2 grid-spacing items-start">{/* Using consistent spacing classes */}
           {/* Left Side - Content */}
@@ -72,9 +63,9 @@ const ReservationManagement = () => {
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
-                    Arrival, departure, and unassigned room order reminders.
-                  </p>
+                  <p className="text-sm sm:text-base md:text-lg text-muted-foreground">Arrival, departure, and unassigned room order reminders.
+
+                </p>
                 </div>
               </div>
             </div>
@@ -106,8 +97,7 @@ const ReservationManagement = () => {
                 {/* Mobile Card View */}
                 <div className="block sm:hidden">
                   <div className="divide-y divide-border">
-                    {reservations.map((reservation) => (
-                      <div key={reservation.id} className="p-4 space-y-3">
+                    {reservations.map(reservation => <div key={reservation.id} className="p-4 space-y-3">
                         <div className="flex items-center justify-between">
                           <div className="font-medium text-sm">{reservation.guest}</div>
                           {getStatusBadge(reservation.status)}
@@ -128,8 +118,7 @@ const ReservationManagement = () => {
                             <Eye className="w-3 h-3" />
                           </Button>
                         </div>
-                      </div>
-                    ))}
+                      </div>)}
                   </div>
                 </div>
 
@@ -149,8 +138,7 @@ const ReservationManagement = () => {
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {reservations.map((reservation) => (
-                        <TableRow key={reservation.id} className="hover:bg-muted/50">
+                      {reservations.map(reservation => <TableRow key={reservation.id} className="hover:bg-muted/50">
                           <TableCell className="text-xs font-mono">{reservation.id}</TableCell>
                           <TableCell className="text-xs">{reservation.contact}</TableCell>
                           <TableCell className="text-xs font-medium">{reservation.guest}</TableCell>
@@ -163,8 +151,7 @@ const ReservationManagement = () => {
                               <Eye className="w-3 h-3" />
                             </Button>
                           </TableCell>
-                        </TableRow>
-                      ))}
+                        </TableRow>)}
                     </TableBody>
                   </Table>
                 </div>
@@ -173,8 +160,6 @@ const ReservationManagement = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ReservationManagement;
