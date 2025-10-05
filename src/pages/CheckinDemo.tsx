@@ -122,10 +122,22 @@ const CheckinDemo = () => {
       {/* Verification Steps */}
       <section className="section-padding bg-muted/30">
         <div className="container-max">
+          {/* Mobile: 2 columns, then 5 centered */}
+          {/* Tablet: 3 columns, then 4 and 5 offset-centered */}
+          {/* Desktop: 5 columns straight */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
             {verificationSteps.map((step, index) => {
+              const isItem4 = index === 3;
+              const isItem5 = index === 4;
+              
               return (
-                <Card key={index} className="p-6 hover:shadow-md transition-shadow text-center">
+                <Card 
+                  key={index} 
+                  className={`p-6 hover:shadow-md transition-shadow text-center
+                    ${isItem5 ? 'col-span-2 md:col-span-1 md:col-start-2 lg:col-span-1 lg:col-start-auto max-w-xs mx-auto md:max-w-none' : ''}
+                    ${isItem4 ? 'md:col-start-2 lg:col-start-auto' : ''}
+                  `}
+                >
                   <div className="flex flex-col items-center gap-4">
                     <div className="w-16 h-16 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
                       <span className="text-2xl font-bold">{index + 1}</span>
