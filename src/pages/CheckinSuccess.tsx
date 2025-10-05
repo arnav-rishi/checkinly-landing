@@ -247,21 +247,25 @@ const CheckinSuccess = () => {
               <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center flex-shrink-0">
                 <Key className="w-4 h-4 text-yellow-700 dark:text-yellow-500" />
               </div>
-              <h3 className="text-lg font-semibold">Using Your Digital Key</h3>
+              <h3 className="text-lg font-semibold">Accessing Your Room</h3>
             </div>
             
-            <div className="grid sm:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-4 gap-4">
               <div>
-                <p className="font-semibold mb-1">1. Approach Door</p>
-                <p className="text-sm text-muted-foreground">Walk up to your room door</p>
+                <p className="font-semibold mb-1">1. Enter PIN</p>
+                <p className="text-sm text-muted-foreground">Input 4-digit PIN on keypad</p>
               </div>
               <div>
-                <p className="font-semibold mb-1">2. Hold Phone</p>
-                <p className="text-sm text-muted-foreground">Place phone near NFC reader</p>
+                <p className="font-semibold mb-1">2. Touch Handle</p>
+                <p className="text-sm text-muted-foreground">Press the door handle</p>
               </div>
               <div>
-                <p className="font-semibold mb-1">3. Door Opens</p>
-                <p className="text-sm text-muted-foreground">Wait for green light & click</p>
+                <p className="font-semibold mb-1">3. Register Fingerprint</p>
+                <p className="text-sm text-muted-foreground">Fingerprint auto-registered</p>
+              </div>
+              <div>
+                <p className="font-semibold mb-1">4. Door Opens</p>
+                <p className="text-sm text-muted-foreground">You&apos;re good to go!</p>
               </div>
             </div>
           </Card>
