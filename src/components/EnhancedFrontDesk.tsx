@@ -1,12 +1,9 @@
-
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, X } from "lucide-react";
-
 const EnhancedFrontDesk = () => {
-  return (
-    <section className="section-padding bg-background">
+  return <section className="section-padding bg-background">
       <div className="container-max">
         <div className="grid grid-cols-1 lg:grid-cols-2 grid-spacing items-start">{/* Using consistent spacing classes */}
           {/* Left Side - Content */}
@@ -36,9 +33,9 @@ const EnhancedFrontDesk = () => {
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                  <p className="text-sm sm:text-base md:text-lg text-muted-foreground">
-                    Simple drag-and-drop to modify reservations.
-                  </p>
+                  <p className="text-sm sm:text-base md:text-lg text-muted-foreground">Simple drag-and-drop to modify reservations.
+
+                </p>
                 </div>
               </div>
             </div>
@@ -186,8 +183,6 @@ const EnhancedFrontDesk = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default EnhancedFrontDesk;
