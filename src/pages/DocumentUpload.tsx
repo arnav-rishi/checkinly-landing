@@ -29,14 +29,17 @@ const DocumentUpload = () => {
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
         streamRef.current = stream;
-        setIsCameraActive(true);
         
-        // Wait for video to be ready and play
-        videoRef.current.onloadedmetadata = () => {
+        // Wait for video to be ready and play before showing UI
+        videoRef.current.onloadedmetadata = async () => {
           console.log("Video metadata loaded");
-          videoRef.current?.play()
-            .then(() => console.log("Video playing"))
-            .catch(err => console.error("Error playing video:", err));
+          try {
+            await videoRef.current?.play();
+            console.log("Video playing");
+            setIsCameraActive(true);
+          } catch (err) {
+            console.error("Error playing video:", err);
+          }
         };
       } else {
         console.error("Video ref is null");
