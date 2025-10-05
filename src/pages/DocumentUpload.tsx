@@ -29,18 +29,9 @@ const DocumentUpload = () => {
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
         streamRef.current = stream;
-        
-        // Wait for video to be ready and play before showing UI
-        videoRef.current.onloadedmetadata = async () => {
-          console.log("Video metadata loaded");
-          try {
-            await videoRef.current?.play();
-            console.log("Video playing");
-            setIsCameraActive(true);
-          } catch (err) {
-            console.error("Error playing video:", err);
-          }
-        };
+        // Show the camera UI immediately
+        setIsCameraActive(true);
+        console.log("Camera active, video should be visible");
       } else {
         console.error("Video ref is null");
       }
