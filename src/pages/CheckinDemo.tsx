@@ -64,9 +64,9 @@ const CheckinDemo = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b border-border/50 py-4">
+      <header className="border-b border-border/50 py-3 md:py-4">
         <div className="container-max">
-          <Badge variant="secondary" className="text-sm">
+          <Badge variant="secondary" className="text-xs sm:text-sm">
             🏨 Hotel Express Check-In
           </Badge>
         </div>
@@ -108,11 +108,11 @@ const CheckinDemo = () => {
       </section>
 
       {/* Welcome Message */}
-      <section className="py-8">
-        <div className="container-max">
-          <Card className="p-6 max-w-2xl mx-auto text-center border-primary/20 bg-primary/5">
-            <div className="text-2xl mb-2">✨ Welcome to Grand Plaza Hotel</div>
-            <p className="text-muted-foreground">
+      <section className="py-6 md:py-8">
+        <div className="container-max px-4">
+          <Card className="p-4 sm:p-6 max-w-2xl mx-auto text-center border-primary/20 bg-primary/5">
+            <div className="text-lg sm:text-xl md:text-2xl font-semibold mb-2">✨ Welcome to Grand Plaza Hotel</div>
+            <p className="text-sm sm:text-base text-muted-foreground">
               Your room is ready. Complete your express check-in to get started.
             </p>
           </Card>
@@ -133,19 +133,19 @@ const CheckinDemo = () => {
               return (
                 <Card 
                   key={index} 
-                  className={`p-6 hover:shadow-md transition-shadow text-center
+                  className={`p-4 sm:p-6 hover:shadow-md transition-shadow text-center
                     ${isItem5 ? 'col-span-2 col-start-1 max-w-xs mx-auto md:col-span-2 md:max-w-none lg:col-span-1 lg:col-start-auto' : ''}
                     ${isItem4 ? 'md:col-span-2 md:col-start-2 lg:col-span-1 lg:col-start-auto' : ''}
                     ${!isItem4 && !isItem5 ? 'md:col-span-2 lg:col-span-1' : ''}
                   `}
                 >
-                  <div className="flex flex-col items-center gap-4">
-                    <div className="w-16 h-16 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
-                      <span className="text-2xl font-bold">{index + 1}</span>
+                  <div className="flex flex-col items-center gap-3 md:gap-4">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                      <span className="text-xl sm:text-2xl font-bold">{index + 1}</span>
                     </div>
                     <div>
-                      <h3 className="text-base font-semibold mb-2">{step.title}</h3>
-                      <p className="text-muted-foreground text-sm">{step.description}</p>
+                      <h3 className="text-sm sm:text-base md:text-lg font-semibold mb-1 sm:mb-2">{step.title}</h3>
+                      <p className="text-muted-foreground text-xs sm:text-sm">{step.description}</p>
                     </div>
                   </div>
                 </Card>
@@ -158,19 +158,19 @@ const CheckinDemo = () => {
       {/* How It Works */}
       <section className="section-padding">
         <div className="container-max">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">How It Works</h2>
-            <p className="text-lg text-muted-foreground">Simple 5-step verification process</p>
+          <div className="text-center mb-8 md:mb-12 px-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 md:mb-4">How It Works</h2>
+            <p className="text-sm sm:text-base md:text-lg text-muted-foreground">Simple 5-step verification process</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 md:gap-6 max-w-5xl mx-auto px-4">
             {processSteps.map((step) => (
-              <Card key={step.number} className="p-6 text-center">
-                <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-xl font-bold mx-auto mb-4">
+              <Card key={step.number} className="p-4 sm:p-6 text-center">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-lg sm:text-xl font-bold mx-auto mb-3 sm:mb-4">
                   {step.number}
                 </div>
-                <h4 className="font-semibold mb-2">{step.title}</h4>
-                <p className="text-sm text-muted-foreground">{step.description}</p>
+                <h4 className="text-sm sm:text-base font-semibold mb-2">{step.title}</h4>
+                <p className="text-xs sm:text-sm text-muted-foreground">{step.description}</p>
               </Card>
             ))}
           </div>
@@ -178,20 +178,20 @@ const CheckinDemo = () => {
       </section>
 
       {/* Security Footer */}
-      <section className="py-8 border-t border-border/50">
-        <div className="container-max">
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
+      <section className="py-6 md:py-8 border-t border-border/50">
+        <div className="container-max px-4">
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-xs sm:text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
-              <Shield className="w-4 h-4" />
-              Bank-level encryption
+              <Shield className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span>Bank-level encryption</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4" />
-              GDPR compliant
+              <CheckCircle2 className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span>GDPR compliant</span>
             </div>
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4" />
-              No data stored permanently
+              <CheckCircle2 className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span>No data stored permanently</span>
             </div>
           </div>
         </div>
