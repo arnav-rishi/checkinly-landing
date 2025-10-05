@@ -18,17 +18,24 @@ const DocumentUpload = () => {
       const stream = await navigator.mediaDevices.getUserMedia({
         video: {
           facingMode: "environment",
-          width: 1920,
-          height: 1080
+          width: { ideal: 1920 },
+          height: { ideal: 1080 }
         }
       });
+      
       if (videoRef.current) {
         videoRef.current.srcObject = stream;
         streamRef.current = stream;
-        setIsCameraActive(true);
+        
+        // Wait for video to be ready
+        videoRef.current.onloadedmetadata = () => {
+          videoRef.current?.play();
+          setIsCameraActive(true);
+        };
       }
     } catch (error) {
       console.error("Error accessing camera:", error);
+      alert("Unable to access camera. Please ensure you've granted camera permissions.");
     }
   };
   const capturePhoto = () => {
