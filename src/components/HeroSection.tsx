@@ -290,10 +290,9 @@ const HeroSection = () => {
       </div>
       
       {/* Floating Elements */}
-      <div
-        style={{ transform: `translateY(${scrollY * 0.5}px)` }}
-        className="absolute inset-0 w-full h-full max-w-full opacity-40 pointer-events-none overflow-hidden"
-      >
+      <div style={{
+      transform: `translateY(${scrollY * 0.5}px)`
+    }} className="absolute inset-0 w-full h-full max-w-full opacity-40 pointer-events-none overflow-hidden">
         <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl"></div>
         <div className="absolute top-40 right-20 w-32 h-32 bg-blue-500/10 rounded-full blur-xl"></div>
         <div className="absolute bottom-20 left-1/3 w-24 h-24 bg-purple-500/10 rounded-full blur-xl"></div>
@@ -340,12 +339,8 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-3 animate-fade-in justify-center lg:justify-start" style={{
             animationDelay: '0.8s'
           }}>
-              <Button size="lg" className="px-6 py-4 h-12 text-sm sm:text-base font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover-scale w-full sm:w-auto" onClick={() => handleCTAClick('start_trial')}>
-                ▶ Start Free Trial
-              </Button>
-              <Button variant="outline" size="lg" className="px-6 py-4 h-12 text-sm sm:text-base font-semibold rounded-xl border-2 border-primary text-primary hover:bg-primary hover:text-white hover-scale w-full sm:w-auto" onClick={() => handleCTAClick('book_demo')}>
-                📅 Book a Demo
-              </Button>
+              <Button size="lg" className="px-6 py-4 h-12 text-sm sm:text-base font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover-scale w-full sm:w-auto" onClick={() => handleCTAClick('start_trial')}> Start Free Trial</Button>
+              <Button variant="outline" size="lg" className="px-6 py-4 h-12 text-sm sm:text-base font-semibold rounded-xl border-2 border-primary text-primary hover:bg-primary hover:text-white hover-scale w-full sm:w-auto" onClick={() => handleCTAClick('book_demo')}> Book a Demo</Button>
             </div>
             <p className="text-xs text-gray-500 animate-fade-in" style={{
             animationDelay: '1s'
