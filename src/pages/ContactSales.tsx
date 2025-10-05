@@ -3,24 +3,26 @@ import Footer from "@/components/Footer";
 import ContactSalesForm from "@/components/ContactSalesForm";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Phone, Clock, Mail, Users, Award } from "lucide-react";
-
 const ContactSales = () => {
-  const benefits = [
-    "14-day free trial with full feature access",
-    "White-glove implementation and training", 
-    "24/7 customer support",
-    "Proven ROI within 60 days"
-  ];
-
-  const steps = [
-    { number: "1", title: "Submit your information", description: "Tell us about your needs" },
-    { number: "2", title: "Schedule a personalized demo", description: "See Checkinly in action" },
-    { number: "3", title: "Receive custom pricing proposal", description: "Tailored to your requirements" },
-    { number: "4", title: "Start your free 14-day trial", description: "No commitment required" }
-  ];
-
-  return (
-    <div className="min-h-screen bg-background">
+  const benefits = ["14-day free trial with full feature access", "White-glove implementation and training", "24/7 customer support", "Proven ROI within 60 days"];
+  const steps = [{
+    number: "1",
+    title: "Submit your information",
+    description: "Tell us about your needs"
+  }, {
+    number: "2",
+    title: "Schedule a personalized demo",
+    description: "See Checkinly in action"
+  }, {
+    number: "3",
+    title: "Receive custom pricing proposal",
+    description: "Tailored to your requirements"
+  }, {
+    number: "4",
+    title: "Start your free 14-day trial",
+    description: "No commitment required"
+  }];
+  return <div className="min-h-screen bg-background">
       <Header />
       
       {/* Hero Section */}
@@ -71,12 +73,10 @@ const ContactSales = () => {
                       <h3 className="text-2xl font-bold text-foreground">Why Choose Checkinly?</h3>
                     </div>
                     <ul className="space-y-4">
-                      {benefits.map((benefit, index) => (
-                        <li key={index} className="flex items-start space-x-3">
+                      {benefits.map((benefit, index) => <li key={index} className="flex items-start space-x-3">
                           <CheckCircle className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                           <span className="text-muted-foreground">{benefit}</span>
-                        </li>
-                      ))}
+                        </li>)}
                     </ul>
                   </CardContent>
                 </Card>
@@ -90,16 +90,10 @@ const ContactSales = () => {
                         <Mail className="w-5 h-5 text-primary" />
                         <div>
                           <span className="font-medium text-foreground">Sales:</span>
-                          <span className="text-muted-foreground ml-2">sales@checkinly.com</span>
+                          <span className="text-muted-foreground ml-2">support@checkinly.co</span>
                         </div>
                       </div>
-                      <div className="flex items-center space-x-3">
-                        <Phone className="w-5 h-5 text-primary" />
-                        <div>
-                          <span className="font-medium text-foreground">Phone:</span>
-                          <span className="text-muted-foreground ml-2">+1 (800) 555-HOTEL</span>
-                        </div>
-                      </div>
+                      
                       <div className="flex items-center space-x-3">
                         <Clock className="w-5 h-5 text-primary" />
                         <div>
@@ -116,8 +110,7 @@ const ContactSales = () => {
                   <CardContent className="p-8">
                     <h3 className="text-2xl font-bold text-foreground mb-6">Next Steps</h3>
                     <div className="space-y-6">
-                      {steps.map((step, index) => (
-                        <div key={index} className="flex items-start space-x-4">
+                      {steps.map((step, index) => <div key={index} className="flex items-start space-x-4">
                           <div className="w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0">
                             {step.number}
                           </div>
@@ -125,8 +118,7 @@ const ContactSales = () => {
                             <h4 className="font-semibold text-foreground mb-1">{step.title}</h4>
                             <p className="text-sm text-muted-foreground">{step.description}</p>
                           </div>
-                        </div>
-                      ))}
+                        </div>)}
                     </div>
                   </CardContent>
                 </Card>
@@ -137,8 +129,6 @@ const ContactSales = () => {
       </section>
       
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default ContactSales;
