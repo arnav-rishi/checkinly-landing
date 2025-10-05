@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -11,44 +11,34 @@ const DocumentUpload = () => {
   const [documentType, setDocumentType] = useState<string>("");
   const [isCameraActive, setIsCameraActive] = useState(false);
   const [capturedImage, setCapturedImage] = useState<string | null>(null);
+  const [stream, setStream] = useState<MediaStream | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const streamRef = useRef<MediaStream | null>(null);
+
+  // Attach stream to video element when both are ready
+  useEffect(() => {
+    if (stream && videoRef.current && isCameraActive) {
+      videoRef.current.srcObject = stream;
+      videoRef.current.play().catch(err => {
+        console.error("Error playing video:", err);
+      });
+    }
+  }, [stream, isCameraActive]);
 
   const startCamera = async () => {
     try {
       console.log("Starting camera...");
-      const stream = await navigator.mediaDevices.getUserMedia({
+      const mediaStream = await navigator.mediaDevices.getUserMedia({
         video: {
           facingMode: "environment",
-          width: { ideal: 1920 },
-          height: { ideal: 1080 }
+          width: { ideal: 1280 },
+          height: { ideal: 720 }
         }
       });
       
-      console.log("Camera stream obtained:", stream);
-      
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-        streamRef.current = stream;
-        
-        // Immediately show camera UI and play video
-        setIsCameraActive(true);
-        
-        // Explicitly play the video
-        setTimeout(async () => {
-          try {
-            if (videoRef.current) {
-              await videoRef.current.play();
-              console.log("Video is now playing");
-            }
-          } catch (err) {
-            console.error("Error playing video:", err);
-          }
-        }, 100);
-      } else {
-        console.error("Video ref is null");
-      }
+      console.log("Camera stream obtained successfully");
+      setStream(mediaStream);
+      setIsCameraActive(true);
     } catch (error) {
       console.error("Error accessing camera:", error);
       alert("Unable to access camera. Please ensure you've granted camera permissions.");
@@ -73,7 +63,7 @@ const DocumentUpload = () => {
       const ctx = canvas.getContext("2d");
       if (ctx) {
         ctx.drawImage(video, 0, 0);
-        const imageData = canvas.toDataURL("image/jpeg");
+        const imageData = canvas.toDataURL("image/jpeg", 0.8);
         console.log("Image captured successfully");
         setCapturedImage(imageData);
         stopCamera();
@@ -84,9 +74,9 @@ const DocumentUpload = () => {
   };
 
   const stopCamera = () => {
-    if (streamRef.current) {
-      streamRef.current.getTracks().forEach(track => track.stop());
-      streamRef.current = null;
+    if (stream) {
+      stream.getTracks().forEach(track => track.stop());
+      setStream(null);
     }
     setIsCameraActive(false);
   };
