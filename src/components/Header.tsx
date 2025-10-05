@@ -60,7 +60,7 @@ const Header = () => {
         <div className="bg-white/95 backdrop-blur-lg border border-gray-200/50 rounded-xl sm:rounded-2xl shadow-lg px-3 sm:px-6 py-2 sm:py-3">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <div className="flex items-center space-x-2 sm:space-x-3 group mr-4 sm:mr-8">
+            <div className="flex items-center space-x-2 sm:space-x-3 group md:mr-2 lg:mr-8">
               
               <span className="text-base sm:text-lg font-bold text-slate-800 group-hover:text-primary transition-colors duration-300 px-0 py-0 my-0 mx-0">Checkinly</span>
             </div>
@@ -151,8 +151,8 @@ const Header = () => {
             </div>
 
             {/* Main Navigation - Hidden on mobile */}
-            <nav className="hidden md:flex items-center space-x-6">
-              <a href="/" className="text-slate-600 hover:text-primary transition-all duration-300 text-sm font-medium hover:scale-105 relative group">
+            <nav className="hidden md:flex items-center md:space-x-2 lg:space-x-6">
+              <a href="/" className="text-slate-600 hover:text-primary transition-all duration-300 md:text-xs lg:text-sm font-medium hover:scale-105 relative group">
                 Home
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
@@ -161,14 +161,14 @@ const Header = () => {
               <MegaMenu title="Download App" sections={downloadAppMenuConfig} />
               <MegaMenu title="Checkinly OS" sections={checkinlyOSMenuConfig} />
               <MegaMenu title="For Hotels" sections={forHotelsMenuConfig} />
-              <a href="/faqs" className="text-slate-600 hover:text-primary transition-all duration-300 text-sm font-medium hover:scale-105 relative group">
+              <a href="/faqs" className="text-slate-600 hover:text-primary transition-all duration-300 md:text-xs lg:text-sm font-medium hover:scale-105 relative group">
                 FAQs
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
             </nav>
 
             {/* Authentication CTAs */}
-            <div className="flex items-center space-x-2 sm:space-x-3 ml-4 sm:ml-8">
+            <div className="flex items-center space-x-2 sm:space-x-3 md:ml-2 lg:ml-8">
               {user ? <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <Button variant="ghost" className="relative h-8 w-8 sm:h-10 sm:w-10 rounded-full">
@@ -195,10 +195,10 @@ const Header = () => {
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu> : <>
-                  <Button variant="ghost" size="sm" onClick={handleSignInClick} className="hidden sm:inline-flex text-sm hover:scale-105 transition-all duration-300 text-slate-600 hover:text-primary px-3 py-2">
+                  <Button variant="ghost" size="sm" onClick={handleSignInClick} className="hidden sm:inline-flex md:text-xs lg:text-sm hover:scale-105 transition-all duration-300 text-slate-600 hover:text-primary md:px-2 lg:px-3 py-2">
                     Log in
                   </Button>
-                  <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium hover:scale-105 transition-all duration-300 rounded-lg sm:rounded-xl" onClick={handleStartTrialClick}>
+                  <Button size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-md md:px-2 lg:px-4 py-2 md:text-xs lg:text-sm font-medium hover:scale-105 transition-all duration-300 rounded-lg sm:rounded-xl" onClick={handleStartTrialClick}>
                      Contact Sales
                    </Button>
                 </>}

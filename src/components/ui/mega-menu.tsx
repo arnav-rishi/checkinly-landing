@@ -31,12 +31,12 @@ export const MegaMenu: React.FC<MegaMenuProps> = ({ title, sections, className }
     >
       {/* Trigger */}
       <button className={cn(
-        "text-slate-600 hover:text-primary transition-all duration-300 text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group flex items-center",
+        "text-slate-600 hover:text-primary transition-all duration-300 md:text-xs lg:text-sm font-medium hover:scale-110 hover:-translate-y-1 relative group flex items-center",
         className
       )}>
         {title}
         <ChevronDown className={cn(
-          "ml-1 h-3 w-3 transition-transform duration-300",
+          "ml-1 md:h-2.5 md:w-2.5 lg:h-3 lg:w-3 transition-transform duration-300",
           isOpen && "rotate-180"
         )} />
         <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
