@@ -121,18 +121,18 @@ const CheckinDemo = () => {
 
       {/* Verification Steps */}
       <section className="section-padding bg-muted/30">
-        <div className="container-max max-w-3xl">
-          <div className="space-y-4">
+        <div className="container-max">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
             {verificationSteps.map((step, index) => {
               const Icon = step.icon;
               return (
-                <Card key={index} className="p-6 hover:shadow-md transition-shadow">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-xl bg-primary text-primary-foreground">
-                      <Icon className="w-6 h-6" />
+                <Card key={index} className="p-6 hover:shadow-md transition-shadow text-center">
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="p-3 rounded-xl bg-primary/10 text-primary">
+                      <Icon className="w-8 h-8" />
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
+                    <div>
+                      <h3 className="text-base font-semibold mb-2">{step.title}</h3>
                       <p className="text-muted-foreground text-sm">{step.description}</p>
                     </div>
                   </div>
