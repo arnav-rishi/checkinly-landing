@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -10,9 +10,62 @@ const FaceVerification = () => {
   const [isRecording, setIsRecording] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [currentInstruction, setCurrentInstruction] = useState("center");
+  const [stream, setStream] = useState<MediaStream | null>(null);
+  const [isCameraActive, setIsCameraActive] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  // Attach stream to video element when both are ready
+  useEffect(() => {
+    if (stream && videoRef.current && isCameraActive) {
+      videoRef.current.srcObject = stream;
+      videoRef.current.play().catch(err => {
+        console.error("Error playing video:", err);
+      });
+    }
+  }, [stream, isCameraActive]);
+
+  // Cleanup camera on unmount
+  useEffect(() => {
+    return () => {
+      if (stream) {
+        stream.getTracks().forEach(track => track.stop());
+      }
+    };
+  }, [stream]);
+
+  const startCamera = async () => {
+    try {
+      console.log("Starting camera for face verification...");
+      const mediaStream = await navigator.mediaDevices.getUserMedia({
+        video: {
+          facingMode: "user", // Front-facing camera for selfie
+          width: { ideal: 1280 },
+          height: { ideal: 720 }
+        }
+      });
+      
+      console.log("Camera stream obtained successfully");
+      setStream(mediaStream);
+      setIsCameraActive(true);
+    } catch (error) {
+      console.error("Error accessing camera:", error);
+      alert("Unable to access camera. Please ensure you've granted camera permissions.");
+    }
+  };
+
+  const stopCamera = () => {
+    if (stream) {
+      stream.getTracks().forEach(track => track.stop());
+      setStream(null);
+    }
+    setIsCameraActive(false);
+  };
+
   const handleStartRecording = async () => {
+    if (!isCameraActive) {
+      await startCamera();
+    }
+    
     setIsRecording(true);
     
     // Simulate recording sequence: center -> left -> right
@@ -22,6 +75,7 @@ const FaceVerification = () => {
       setCurrentInstruction("complete");
       setIsComplete(true);
       setIsRecording(false);
+      stopCamera();
     }, 6000);
   };
 
@@ -80,8 +134,8 @@ const FaceVerification = () => {
 
           {/* Video Recording Area */}
           <Card className="p-6 sm:p-8 mb-6">
-            <div className="relative aspect-[4/3] bg-muted rounded-lg overflow-hidden mb-6">
-              {!isRecording && !isComplete ? (
+            <div className="relative aspect-[4/3] bg-black rounded-lg overflow-hidden mb-6">
+              {!isCameraActive && !isComplete ? (
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
                     <Video className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
@@ -90,13 +144,24 @@ const FaceVerification = () => {
                     </p>
                   </div>
                 </div>
+              ) : isCameraActive ? (
+                <>
+                  <video 
+                    ref={videoRef} 
+                    autoPlay 
+                    playsInline 
+                    muted
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div className="w-48 h-48 sm:w-64 sm:h-64 rounded-full border-4 border-primary/50"></div>
+                  </div>
+                </>
               ) : (
                 <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5">
                   <div className="text-center">
-                    <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full border-4 border-primary mx-auto mb-4 animate-pulse"></div>
-                    {isComplete && (
-                      <CheckCircle2 className="w-12 h-12 text-primary mx-auto mb-2" />
-                    )}
+                    <CheckCircle2 className="w-16 h-16 text-primary mx-auto mb-2" />
+                    <p className="text-lg font-semibold text-primary">Verification Complete!</p>
                   </div>
                 </div>
               )}
