@@ -57,7 +57,7 @@ const CheckinDemo = () => {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
               <Button size="lg" className="gap-2" onClick={() => navigate("/document-upload")}>
-                Start Check-In
+                Start Demo Check-In
                 <ArrowRight className="w-4 h-4" />
               </Button>
               <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
