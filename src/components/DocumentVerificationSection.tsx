@@ -47,7 +47,8 @@ const DocumentVerificationSection = () => {
           <h3 className="text-2xl font-semibold text-foreground mb-4">
             Wanna Experience Live E-Checkin?
           </h3>
-          <Button size="lg" onClick={() => navigate('/auth')} className="animate-fade-in">Yes</Button>
+          <Button size="lg" onClick={() => navigate('/auth')} className="animate-fade-in">Click to start the Demo
+        </Button>
         </div>
 
         <div className="max-w-4xl mx-auto">
