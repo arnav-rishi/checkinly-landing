@@ -1,9 +1,13 @@
 import React from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { ScanLine, Eye, Users, MapPin, Shield } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const DocumentVerificationSection = () => {
+  const navigate = useNavigate();
+  
   const steps = [
     {
       id: 0,
@@ -47,9 +51,16 @@ const DocumentVerificationSection = () => {
           <h2 className="mobile-heading mb-4">
             How Checkinly Verifies Your Guests
           </h2>
-          <p className="mobile-body text-muted-foreground max-w-2xl mx-auto">
+          <p className="mobile-body text-muted-foreground max-w-2xl mx-auto mb-6">
             Our advanced 5-step verification process ensures secure, fast, and reliable guest identity confirmation.
           </p>
+          <Button 
+            size="lg" 
+            onClick={() => navigate('/auth')}
+            className="animate-fade-in"
+          >
+            Experience the E-Checkin Yourself
+          </Button>
         </div>
 
         <div className="max-w-4xl mx-auto">
