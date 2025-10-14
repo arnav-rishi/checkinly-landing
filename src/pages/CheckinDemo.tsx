@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -6,6 +7,11 @@ import { ScanLine, Eye, Users, MapPin, Shield, CheckCircle2, ArrowRight } from "
 import hotelLobby from "@/assets/hotel-lobby.jpg";
 const CheckinDemo = () => {
   const navigate = useNavigate();
+
+  // Ensure page starts at the top when this route loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   
   const verificationSteps = [{
     title: "Document scanning",
