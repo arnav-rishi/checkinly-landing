@@ -15,6 +15,11 @@ const DocumentUpload = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // Attach stream to video element when both are ready
   useEffect(() => {
     if (stream && videoRef.current && isCameraActive) {
