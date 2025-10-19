@@ -116,8 +116,7 @@ const Header = () => {
                     
                     {/* Auth section at bottom */}
                     <div className="mt-2 pt-4 border-t border-border/50 space-y-4">
-                      {user ? (
-                        <>
+                      {user ? <>
                           <div className="flex items-center space-x-3 p-3 rounded-lg bg-muted/30">
                             <Avatar className="h-10 w-10 ring-2 ring-primary/20">
                               <AvatarImage src={user.user_metadata?.avatar_url} />
@@ -130,20 +129,26 @@ const Header = () => {
                               <p className="text-xs text-muted-foreground">Signed in</p>
                             </div>
                           </div>
-                          <Button onClick={() => { handleSignOut(); setMobileMenuOpen(false); }} variant="outline" className="w-full hover:bg-destructive/10 hover:text-destructive hover:border-destructive/20">
+                          <Button onClick={() => {
+                        handleSignOut();
+                        setMobileMenuOpen(false);
+                      }} variant="outline" className="w-full hover:bg-destructive/10 hover:text-destructive hover:border-destructive/20 mx-0 my-[8px] px-0 py-0">
                             Sign out
                           </Button>
-                        </>
-                      ) : (
-                        <>
-                          <Button onClick={() => { handleSignInClick(); setMobileMenuOpen(false); }} variant="outline" className="w-full">
+                        </> : <>
+                          <Button onClick={() => {
+                        handleSignInClick();
+                        setMobileMenuOpen(false);
+                      }} variant="outline" className="w-full">
                             Log in
                           </Button>
-                          <Button onClick={() => { handleStartTrialClick(); setMobileMenuOpen(false); }} className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-sm">
+                          <Button onClick={() => {
+                        handleStartTrialClick();
+                        setMobileMenuOpen(false);
+                      }} className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-sm">
                             Contact Sales
                           </Button>
-                        </>
-                      )}
+                        </>}
                     </div>
                   </div>
                 </SheetContent>
