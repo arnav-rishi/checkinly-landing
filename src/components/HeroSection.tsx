@@ -339,8 +339,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-3 animate-fade-in justify-center lg:justify-start" style={{
             animationDelay: '0.8s'
           }}>
-              <Button size="lg" className="px-6 py-4 h-12 text-sm sm:text-base font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover-scale w-full sm:w-auto" onClick={() => handleCTAClick('start_trial')}> Start Free Trial</Button>
-              <Button variant="outline" size="lg" className="px-6 py-4 h-12 text-sm sm:text-base font-semibold rounded-xl border-2 border-primary text-primary hover:bg-primary hover:text-white hover-scale w-full sm:w-auto" onClick={() => handleCTAClick('book_demo')}> Book a Demo</Button>
+              <Button size="lg" className="px-6 py-4 h-12 text-sm sm:text-base font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover-scale w-full sm:w-auto" onClick={() => handleCTAClick('book_demo')}> Book a Demo</Button>
             </div>
             <p className="text-xs text-gray-500 animate-fade-in" style={{
             animationDelay: '1s'
