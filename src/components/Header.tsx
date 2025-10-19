@@ -180,7 +180,7 @@ const Header = () => {
                       </Avatar>
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent className="w-56" align="end" forceMount>
+                  <DropdownMenuContent className="w-56 z-[100] bg-white dark:bg-gray-800" align="end" forceMount>
                     <div className="flex items-center justify-start gap-2 p-2">
                       <div className="flex flex-col space-y-1 leading-none">
                         {user.user_metadata?.full_name && <p className="font-medium text-sm">{user.user_metadata.full_name}</p>}
@@ -190,7 +190,7 @@ const Header = () => {
                       </div>
                     </div>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem onClick={handleSignOut}>
+                    <DropdownMenuItem onClick={handleSignOut} className="cursor-pointer">
                       Sign out
                     </DropdownMenuItem>
                   </DropdownMenuContent>
