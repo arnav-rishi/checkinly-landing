@@ -41,8 +41,7 @@ const HeroSection = () => {
     if (action === 'start_trial') {
       navigate('/auth?mode=signup');
     } else if (action === 'book_demo') {
-      // Handle demo booking - could open a modal or navigate to contact
-      navigate('/auth?mode=signup');
+      navigate('/contact-sales');
     }
   };
 
