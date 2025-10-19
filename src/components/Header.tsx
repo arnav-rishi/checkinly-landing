@@ -75,7 +75,7 @@ const Header = () => {
                     </svg>
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background/95 backdrop-blur-md">
+                <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background/95 backdrop-blur-md overflow-y-auto">
                   <div className="flex flex-col space-y-6 mt-6 h-full">
                     {/* Logo area */}
                     <div className="flex items-center space-x-3 pb-6 border-b border-border/50">
@@ -115,7 +115,7 @@ const Header = () => {
                     </a>
                     
                     {/* Auth section at bottom */}
-                    <div className="mt-auto pt-6 border-t border-border/50 space-y-4">
+                    <div className="mt-2 pt-4 border-t border-border/50 space-y-4">
                       {user ? (
                         <>
                           <div className="flex items-center space-x-3 p-3 rounded-lg bg-muted/30">
