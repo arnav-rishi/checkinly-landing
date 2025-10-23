@@ -99,42 +99,17 @@ const Header = () => {
                       <span className="font-semibold text-foreground group-hover:text-primary transition-colors">Home</span>
                     </a>
                     
-                    {/* Download App Section */}
-                    <Collapsible defaultOpen className="space-y-2">
-                      <CollapsibleTrigger className="flex items-center justify-between w-full p-3 rounded-xl hover:bg-muted/50 transition-all group">
-                        <div className="flex items-center space-x-3">
-                          <div className="p-2 bg-blue-500/10 rounded-lg">
-                            <Smartphone className="h-5 w-5 text-blue-600" />
-                          </div>
-                          <span className="font-semibold text-foreground">Download App</span>
-                        </div>
-                        <ChevronRight className="h-4 w-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-90" />
-                      </CollapsibleTrigger>
-                      <CollapsibleContent className="space-y-1 pl-4 pt-2">
-                        {downloadAppMenuConfig.flatMap(section => 
-                          section.items.map((item, idx) => (
-                            <a
-                              key={idx}
-                              href={item.href}
-                              className="flex items-start space-x-3 p-3 rounded-lg hover:bg-muted/70 transition-all duration-200 group"
-                              onClick={() => setMobileMenuOpen(false)}
-                            >
-                              <div className="p-1.5 bg-primary/5 rounded-md group-hover:bg-primary/10 transition-colors mt-0.5">
-                                {item.icon && <item.icon className="h-4 w-4 text-primary" />}
-                              </div>
-                              <div className="flex-1">
-                                <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-                                  {item.title}
-                                </p>
-                                <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">
-                                  {item.description}
-                                </p>
-                              </div>
-                            </a>
-                          ))
-                        )}
-                      </CollapsibleContent>
-                    </Collapsible>
+                    {/* Download App Link */}
+                    <a 
+                      href="/download-app" 
+                      className="flex items-center space-x-3 p-3 rounded-xl hover:bg-primary/10 transition-all duration-300 group border border-transparent hover:border-primary/20" 
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <div className="p-2 bg-blue-500/10 rounded-lg group-hover:bg-blue-500/20 transition-colors">
+                        <Smartphone className="h-5 w-5 text-blue-600" />
+                      </div>
+                      <span className="font-semibold text-foreground group-hover:text-primary transition-colors">Download App</span>
+                    </a>
                     
                     {/* Checkinly OS Section */}
                     <Collapsible defaultOpen className="space-y-2">
