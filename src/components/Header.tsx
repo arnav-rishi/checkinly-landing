@@ -145,7 +145,7 @@ const Header = () => {
                           <Button onClick={() => {
                         handleStartTrialClick();
                         setMobileMenuOpen(false);
-                      }} className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-sm">
+                      }} className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-sm px-0 py-0 my-[11px]">
                             Contact Sales
                           </Button>
                         </>}
