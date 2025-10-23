@@ -112,7 +112,7 @@ const Header = () => {
                     </a>
                     
                     {/* Checkinly OS Section */}
-                    <Collapsible defaultOpen className="space-y-2">
+                    <Collapsible className="space-y-2">
                       <CollapsibleTrigger className="flex items-center justify-between w-full p-3 rounded-xl hover:bg-muted/50 transition-all group">
                         <div className="flex items-center space-x-3">
                           <div className="p-2 bg-purple-500/10 rounded-lg">
@@ -149,7 +149,7 @@ const Header = () => {
                     </Collapsible>
                     
                     {/* For Hotels Section */}
-                    <Collapsible defaultOpen className="space-y-2">
+                    <Collapsible className="space-y-2">
                       <CollapsibleTrigger className="flex items-center justify-between w-full p-3 rounded-xl hover:bg-muted/50 transition-all group">
                         <div className="flex items-center space-x-3">
                           <div className="p-2 bg-green-500/10 rounded-lg">
