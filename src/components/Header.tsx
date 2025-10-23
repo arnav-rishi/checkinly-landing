@@ -7,6 +7,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Smartphone, Monitor, Settings, Building2, FileText, Users, ChevronRight, Home as HomeIcon } from "lucide-react";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 const Header = () => {
   const {
     user,
@@ -75,80 +77,201 @@ const Header = () => {
                     </svg>
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-background/95 backdrop-blur-md overflow-y-auto">
-                  <div className="flex flex-col space-y-6 mt-6 h-full">
+                <SheetContent side="right" className="w-[320px] sm:w-[400px] bg-gradient-to-br from-background via-background to-primary/5 backdrop-blur-md overflow-y-auto">
+                  <div className="flex flex-col space-y-4 mt-6 pb-6">
                     {/* Logo area */}
-                    <div className="flex items-center space-x-3 pb-6 border-b border-border/50">
-                      <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-sm">
-                        <span className="text-white font-bold text-lg">C</span>
+                    <div className="flex items-center space-x-3 pb-4 mb-2">
+                      <div className="w-11 h-11 bg-gradient-to-br from-primary via-primary to-primary/80 rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
+                        <span className="text-white font-bold text-xl">C</span>
                       </div>
-                      <span className="font-bold text-xl text-foreground">Checkinly</span>
+                      <span className="font-bold text-xl bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">Checkinly</span>
                     </div>
                     
-                    <a href="/" className="text-lg font-semibold hover:text-primary transition-colors py-2 px-1 rounded-lg hover:bg-muted/50" onClick={() => setMobileMenuOpen(false)}>
-                      Home
+                    {/* Home Link */}
+                    <a 
+                      href="/" 
+                      className="flex items-center space-x-3 p-3 rounded-xl hover:bg-primary/10 transition-all duration-300 group border border-transparent hover:border-primary/20" 
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                        <HomeIcon className="h-5 w-5 text-primary" />
+                      </div>
+                      <span className="font-semibold text-foreground group-hover:text-primary transition-colors">Home</span>
                     </a>
                     
-                    <div className="space-y-4">
-                      <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">DOWNLOAD APP</h3>
-                      <a href="/download-app" className="block text-base text-muted-foreground hover:text-foreground transition-colors py-2 px-3 rounded-lg hover:bg-muted/30" onClick={() => setMobileMenuOpen(false)}>
-                        Download
-                      </a>
-                    </div>
+                    {/* Download App Section */}
+                    <Collapsible defaultOpen className="space-y-2">
+                      <CollapsibleTrigger className="flex items-center justify-between w-full p-3 rounded-xl hover:bg-muted/50 transition-all group">
+                        <div className="flex items-center space-x-3">
+                          <div className="p-2 bg-blue-500/10 rounded-lg">
+                            <Smartphone className="h-5 w-5 text-blue-600" />
+                          </div>
+                          <span className="font-semibold text-foreground">Download App</span>
+                        </div>
+                        <ChevronRight className="h-4 w-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-90" />
+                      </CollapsibleTrigger>
+                      <CollapsibleContent className="space-y-1 pl-4 pt-2">
+                        {downloadAppMenuConfig.flatMap(section => 
+                          section.items.map((item, idx) => (
+                            <a
+                              key={idx}
+                              href={item.href}
+                              className="flex items-start space-x-3 p-3 rounded-lg hover:bg-muted/70 transition-all duration-200 group"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              <div className="p-1.5 bg-primary/5 rounded-md group-hover:bg-primary/10 transition-colors mt-0.5">
+                                {item.icon && <item.icon className="h-4 w-4 text-primary" />}
+                              </div>
+                              <div className="flex-1">
+                                <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                                  {item.title}
+                                </p>
+                                <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">
+                                  {item.description}
+                                </p>
+                              </div>
+                            </a>
+                          ))
+                        )}
+                      </CollapsibleContent>
+                    </Collapsible>
                     
-                    <div className="space-y-4">
-                      <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">CHECKINLY OS</h3>
-                      <a href="/checkinly-os" className="block text-base text-muted-foreground hover:text-foreground transition-colors py-2 px-3 rounded-lg hover:bg-muted/30" onClick={() => setMobileMenuOpen(false)}>
-                        Platform
-                      </a>
-                    </div>
+                    {/* Checkinly OS Section */}
+                    <Collapsible defaultOpen className="space-y-2">
+                      <CollapsibleTrigger className="flex items-center justify-between w-full p-3 rounded-xl hover:bg-muted/50 transition-all group">
+                        <div className="flex items-center space-x-3">
+                          <div className="p-2 bg-purple-500/10 rounded-lg">
+                            <Settings className="h-5 w-5 text-purple-600" />
+                          </div>
+                          <span className="font-semibold text-foreground">Checkinly OS</span>
+                        </div>
+                        <ChevronRight className="h-4 w-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-90" />
+                      </CollapsibleTrigger>
+                      <CollapsibleContent className="space-y-1 pl-4 pt-2">
+                        {checkinlyOSMenuConfig.flatMap(section => 
+                          section.items.map((item, idx) => (
+                            <a
+                              key={idx}
+                              href={item.href}
+                              className="flex items-start space-x-3 p-3 rounded-lg hover:bg-muted/70 transition-all duration-200 group"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              <div className="p-1.5 bg-primary/5 rounded-md group-hover:bg-primary/10 transition-colors mt-0.5">
+                                {item.icon && <item.icon className="h-4 w-4 text-primary" />}
+                              </div>
+                              <div className="flex-1">
+                                <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                                  {item.title}
+                                </p>
+                                <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">
+                                  {item.description}
+                                </p>
+                              </div>
+                            </a>
+                          ))
+                        )}
+                      </CollapsibleContent>
+                    </Collapsible>
                     
-                    <div className="space-y-4">
-                      <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">FOR HOTELS</h3>
-                      <a href="/for-hotels" className="block text-base text-muted-foreground hover:text-foreground transition-colors py-2 px-3 rounded-lg hover:bg-muted/30" onClick={() => setMobileMenuOpen(false)}>
-                        Solutions
-                      </a>
-                    </div>
+                    {/* For Hotels Section */}
+                    <Collapsible defaultOpen className="space-y-2">
+                      <CollapsibleTrigger className="flex items-center justify-between w-full p-3 rounded-xl hover:bg-muted/50 transition-all group">
+                        <div className="flex items-center space-x-3">
+                          <div className="p-2 bg-green-500/10 rounded-lg">
+                            <Building2 className="h-5 w-5 text-green-600" />
+                          </div>
+                          <span className="font-semibold text-foreground">For Hotels</span>
+                        </div>
+                        <ChevronRight className="h-4 w-4 text-muted-foreground transition-transform group-data-[state=open]:rotate-90" />
+                      </CollapsibleTrigger>
+                      <CollapsibleContent className="space-y-1 pl-4 pt-2">
+                        {forHotelsMenuConfig.flatMap(section => 
+                          section.items.map((item, idx) => (
+                            <a
+                              key={idx}
+                              href={item.href}
+                              className="flex items-start space-x-3 p-3 rounded-lg hover:bg-muted/70 transition-all duration-200 group"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              <div className="p-1.5 bg-primary/5 rounded-md group-hover:bg-primary/10 transition-colors mt-0.5">
+                                {item.icon && <item.icon className="h-4 w-4 text-primary" />}
+                              </div>
+                              <div className="flex-1">
+                                <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                                  {item.title}
+                                </p>
+                                <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">
+                                  {item.description}
+                                </p>
+                              </div>
+                            </a>
+                          ))
+                        )}
+                      </CollapsibleContent>
+                    </Collapsible>
                     
-                    <a href="/faqs" className="text-lg font-semibold hover:text-primary transition-colors py-2 px-1 rounded-lg hover:bg-muted/50" onClick={() => setMobileMenuOpen(false)}>
-                      FAQs
+                    {/* FAQs Link */}
+                    <a 
+                      href="/faqs" 
+                      className="flex items-center space-x-3 p-3 rounded-xl hover:bg-primary/10 transition-all duration-300 group border border-transparent hover:border-primary/20" 
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      <div className="p-2 bg-orange-500/10 rounded-lg group-hover:bg-orange-500/20 transition-colors">
+                        <FileText className="h-5 w-5 text-orange-600" />
+                      </div>
+                      <span className="font-semibold text-foreground group-hover:text-primary transition-colors">FAQs</span>
                     </a>
                     
-                    {/* Auth section at bottom */}
-                    <div className="mt-2 pt-4 border-t border-border/50 space-y-4">
-                      {user ? <>
-                          <div className="flex items-center space-x-3 p-3 rounded-lg bg-muted/30">
-                            <Avatar className="h-10 w-10 ring-2 ring-primary/20">
+                    {/* Auth section */}
+                    <div className="mt-4 pt-6 border-t border-border/50 space-y-3">
+                      {user ? (
+                        <>
+                          <div className="flex items-center space-x-3 p-4 rounded-xl bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20">
+                            <Avatar className="h-12 w-12 ring-2 ring-primary/30 shadow-lg">
                               <AvatarImage src={user.user_metadata?.avatar_url} />
-                              <AvatarFallback className="bg-primary/10 text-primary font-semibold">
+                              <AvatarFallback className="bg-primary text-primary-foreground font-semibold text-lg">
                                 {user.email?.charAt(0).toUpperCase()}
                               </AvatarFallback>
                             </Avatar>
                             <div className="flex-1 min-w-0">
-                              <p className="text-sm font-medium text-foreground truncate">{user.email}</p>
+                              <p className="text-sm font-semibold text-foreground truncate">{user.email}</p>
                               <p className="text-xs text-muted-foreground">Signed in</p>
                             </div>
                           </div>
-                          <Button onClick={() => {
-                        handleSignOut();
-                        setMobileMenuOpen(false);
-                      }} variant="outline" className="w-full hover:bg-destructive/10 hover:text-destructive hover:border-destructive/20 mx-0 my-[8px] px-0 py-0">
+                          <Button 
+                            onClick={() => {
+                              handleSignOut();
+                              setMobileMenuOpen(false);
+                            }} 
+                            variant="outline" 
+                            className="w-full hover:bg-destructive/10 hover:text-destructive hover:border-destructive/30 transition-all"
+                          >
                             Sign out
                           </Button>
-                        </> : <>
-                          <Button onClick={() => {
-                        handleSignInClick();
-                        setMobileMenuOpen(false);
-                      }} variant="outline" className="w-full">
+                        </>
+                      ) : (
+                        <>
+                          <Button 
+                            onClick={() => {
+                              handleSignInClick();
+                              setMobileMenuOpen(false);
+                            }} 
+                            variant="outline" 
+                            className="w-full border-2 hover:bg-primary/5 hover:border-primary/50 transition-all"
+                          >
                             Log in
                           </Button>
-                          <Button onClick={() => {
-                        handleStartTrialClick();
-                        setMobileMenuOpen(false);
-                      }} className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-sm px-0 py-0 my-[11px]">
+                          <Button 
+                            onClick={() => {
+                              handleStartTrialClick();
+                              setMobileMenuOpen(false);
+                            }} 
+                            className="w-full bg-gradient-to-r from-primary via-primary to-primary/80 hover:from-primary/90 hover:via-primary/85 hover:to-primary/70 shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all"
+                          >
                             Contact Sales
                           </Button>
-                        </>}
+                        </>
+                      )}
                     </div>
                   </div>
                 </SheetContent>
