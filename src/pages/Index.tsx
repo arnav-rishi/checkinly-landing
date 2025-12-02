@@ -1,12 +1,10 @@
-
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-
+import KioskDemo from "@/components/KioskDemo";
 import DocumentVerificationSection from "@/components/DocumentVerificationSection";
 import EnhancedFrontDesk from "@/components/EnhancedFrontDesk";
 import ReservationManagement from "@/components/ReservationManagement";
 import FeatureSection from "@/components/FeatureSection";
-
 import EmailCaptureSection from "@/components/EmailCaptureSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
@@ -21,28 +19,15 @@ const Index = () => {
   // Analytics tracking for page interactions
   const trackConversion = (action: string, section: string) => {
     console.log(`Conversion event: ${action} in ${section}`);
-    // In a real app, you'd send this to your analytics service
-    // gtag('event', 'conversion', { event_category: section, event_label: action });
-  };
-
-  const handleAuthAction = () => {
-    if (user) {
-      // User is already authenticated, could redirect to dashboard
-      console.log('User already authenticated:', user.email);
-    } else {
-      navigate('/auth');
-    }
-  };
-
-  const handleDemoRequest = () => {
-    trackConversion('demo_request', 'hero_section');
-    // Demo request handled by ContactModal
   };
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
       <HeroSection />
+      
+      {/* Interactive Kiosk Demo */}
+      <KioskDemo />
       
       {/* Core value prop and features */}
       <DocumentVerificationSection />
@@ -52,19 +37,18 @@ const Index = () => {
       <ReservationManagement />
       <FeatureSection />
       
-      
       {/* Email capture for waitlist */}
       <EmailCaptureSection />
       
       {/* Final conversion-focused CTA */}
       <CTASection 
         variant="gradient"
-        title="Ready to 10X Your Check-in Speed?"
-        description="Join 500+ hotels already using Checkinly to increase revenue and guest satisfaction."
-        primaryText="Start Free Trial"
+        title="Ready to Automate Your Front Desk?"
+        description="Join 500+ hotels already using Checkinly kiosks to increase efficiency and guest satisfaction."
+        primaryText="Get a Free Consultation"
         secondaryText="Schedule Live Demo"
         onPrimaryClick={() => {
-          trackConversion('trial_start', 'final_cta');
+          trackConversion('consultation_start', 'final_cta');
           navigate('/contact-sales');
         }}
         onSecondaryClick={() => trackConversion('demo_request', 'final_cta')}
