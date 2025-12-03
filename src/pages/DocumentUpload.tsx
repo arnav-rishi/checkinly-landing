@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { FileText, CheckCircle2, Camera, RotateCcw } from "lucide-react";
+import { FileText, CheckCircle2, Camera, RotateCcw, ArrowLeft } from "lucide-react";
 
 const DocumentUpload = () => {
   const navigate = useNavigate();
@@ -99,10 +99,20 @@ const DocumentUpload = () => {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b border-border/50 py-3 md:py-4">
-        <div className="container-max flex justify-center">
+        <div className="container-max flex items-center justify-between px-4">
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            onClick={() => navigate('/checkin-demo')}
+            className="gap-1"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back
+          </Button>
           <Badge variant="secondary" className="text-xs sm:text-sm">
             Demo Hotel Express Check-In
           </Badge>
+          <div className="w-16"></div>
         </div>
       </header>
 

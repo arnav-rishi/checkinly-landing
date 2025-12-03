@@ -102,10 +102,20 @@ const FaceVerification = () => {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b border-border/50 py-3 md:py-4">
-        <div className="container-max flex justify-center">
+        <div className="container-max flex items-center justify-between px-4">
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            onClick={() => navigate('/document-upload')}
+            className="gap-1"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            Back
+          </Button>
           <Badge variant="secondary" className="text-xs sm:text-sm">
             Demo Hotel Express Check-In
           </Badge>
+          <div className="w-16"></div>
         </div>
       </header>
 
