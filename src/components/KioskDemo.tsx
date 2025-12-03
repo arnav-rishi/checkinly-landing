@@ -1,24 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { CheckCircle, Loader2, User, CreditCard, Fingerprint, ArrowRight, Delete } from "lucide-react";
+import { User, ArrowRight, Delete, ScanLine } from "lucide-react";
 
-type DemoState = "welcome" | "input" | "reservation" | "scan" | "success";
+type DemoState = "welcome" | "input" | "reservation";
 
 const KioskDemo = () => {
+  const navigate = useNavigate();
   const [state, setState] = useState<DemoState>("welcome");
   const [bookingId, setBookingId] = useState("");
-
-  // Auto-advance from scan to success
-  useEffect(() => {
-    if (state === "scan") {
-      const timer = setTimeout(() => {
-        setState("success");
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [state]);
 
   const handleNumberPress = (num: string) => {
     if (bookingId.length < 6) {
@@ -37,7 +29,7 @@ const KioskDemo = () => {
   };
 
   const handleConfirm = () => {
-    setState("scan");
+    navigate("/document-upload");
   };
 
   const handleReset = () => {
@@ -169,78 +161,8 @@ const KioskDemo = () => {
               className="w-full py-6 text-lg font-semibold"
               onClick={handleConfirm}
             >
-              <Fingerprint className="mr-2 w-5 h-5" />
-              Verify Identity & Get Key
-            </Button>
-          </motion.div>
-        );
-
-      case "scan":
-        return (
-          <motion.div
-            key="scan"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="text-center space-y-6 p-8"
-          >
-            <div className="relative w-24 h-24 mx-auto">
-              <div className="absolute inset-0 bg-primary/20 rounded-full animate-ping"></div>
-              <div className="relative w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center">
-                <Loader2 className="w-12 h-12 text-primary animate-spin" />
-              </div>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-foreground mb-2">Scanning ID Document...</h3>
-              <p className="text-muted-foreground">Please hold your ID up to the scanner</p>
-            </div>
-            <div className="flex justify-center space-x-2">
-              {[...Array(3)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="w-3 h-3 bg-primary rounded-full"
-                  animate={{ opacity: [0.3, 1, 0.3] }}
-                  transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
-                />
-              ))}
-            </div>
-          </motion.div>
-        );
-
-      case "success":
-        return (
-          <motion.div
-            key="success"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            className="text-center space-y-6 p-8"
-          >
-            <motion.div 
-              className="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center mx-auto"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ type: "spring", stiffness: 200, damping: 10 }}
-            >
-              <CheckCircle className="w-12 h-12 text-white" />
-            </motion.div>
-            <div>
-              <h3 className="text-2xl font-bold text-green-600 mb-2">Key Dispensed!</h3>
-              <p className="text-muted-foreground">Please collect your key card below</p>
-            </div>
-            <div className="bg-green-50 border border-green-200 rounded-xl p-4 flex items-center justify-center space-x-3">
-              <CreditCard className="w-8 h-8 text-green-600" />
-              <div className="text-left">
-                <p className="font-semibold text-green-800">Room 305</p>
-                <p className="text-sm text-green-600">James Miller</p>
-              </div>
-            </div>
-            <Button 
-              variant="outline"
-              className="mt-4"
-              onClick={handleReset}
-            >
-              Restart Demo
+              <ScanLine className="mr-2 w-5 h-5" />
+              Continue to ID Verification
             </Button>
           </motion.div>
         );
