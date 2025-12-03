@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import KioskDemo from "@/components/KioskDemo";
 import DocumentVerificationSection from "@/components/DocumentVerificationSection";
 import EnhancedFrontDesk from "@/components/EnhancedFrontDesk";
 import ReservationManagement from "@/components/ReservationManagement";
@@ -25,9 +24,6 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <HeroSection />
-      
-      {/* Interactive Kiosk Demo */}
-      <KioskDemo />
       
       {/* Core value prop and features */}
       <DocumentVerificationSection />
