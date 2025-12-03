@@ -112,11 +112,11 @@ const DocumentUpload = () => {
           {/* Progress Indicator */}
           <div className="mb-8">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs sm:text-sm text-muted-foreground">Step 1 of 3</span>
-              <span className="text-xs sm:text-sm font-medium text-primary">33%</span>
+              <span className="text-xs sm:text-sm text-muted-foreground">Step 2 of 4</span>
+              <span className="text-xs sm:text-sm font-medium text-primary">50%</span>
             </div>
             <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
-              <div className="h-full bg-primary w-1/3 transition-all duration-300"></div>
+              <div className="h-full bg-primary w-1/2 transition-all duration-300"></div>
             </div>
           </div>
 

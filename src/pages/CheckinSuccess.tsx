@@ -62,7 +62,7 @@ const CheckinSuccess = () => {
           <div className="flex flex-col sm:flex-row gap-3 justify-center mt-4">
             <Button 
               variant="outline" 
-              onClick={() => navigate('/checkin-demo')}
+              onClick={() => navigate('/#kiosk-demo')}
               className="gap-2"
             >
               Retry Demo
@@ -90,11 +90,11 @@ const CheckinSuccess = () => {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <p className="text-xs sm:text-sm md:text-base text-muted-foreground mb-1">Guest Name</p>
-                    <p className="text-sm sm:text-base md:text-lg font-semibold">John Smith</p>
+                    <p className="text-sm sm:text-base md:text-lg font-semibold">James Miller</p>
                   </div>
                   <div>
-                    <p className="text-xs sm:text-sm md:text-base text-muted-foreground mb-1">Confirmation</p>
-                    <p className="text-sm sm:text-base md:text-lg font-semibold">HTL-2024-001234</p>
+                    <p className="text-xs sm:text-sm md:text-base text-muted-foreground mb-1">Booking ID</p>
+                    <p className="text-sm sm:text-base md:text-lg font-semibold">123456</p>
                   </div>
                 </div>
 
@@ -104,11 +104,11 @@ const CheckinSuccess = () => {
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <p className="text-xs sm:text-sm md:text-base text-muted-foreground mb-1">Hotel</p>
-                    <p className="text-sm sm:text-base md:text-lg font-semibold">Grand Plaza Hotel</p>
+                    <p className="text-sm sm:text-base md:text-lg font-semibold">Grand Hotel</p>
                   </div>
                   <div>
                     <p className="text-xs sm:text-sm md:text-base text-muted-foreground mb-1">Room</p>
-                    <p className="text-sm sm:text-base md:text-lg font-semibold">1204 - Deluxe King Suite</p>
+                    <p className="text-sm sm:text-base md:text-lg font-semibold">305 - Deluxe King</p>
                   </div>
                 </div>
 
@@ -121,7 +121,7 @@ const CheckinSuccess = () => {
                       <Calendar className="w-4 h-4 text-muted-foreground" />
                       <p className="text-xs text-muted-foreground">Check-in</p>
                     </div>
-                    <p className="font-semibold">March 15, 2024</p>
+                    <p className="font-semibold">Dec 3, 2025</p>
                     <p className="text-xs text-muted-foreground">3:00 PM</p>
                   </div>
                   <div>
@@ -129,7 +129,7 @@ const CheckinSuccess = () => {
                       <Calendar className="w-4 h-4 text-muted-foreground" />
                       <p className="text-xs text-muted-foreground">Check-out</p>
                     </div>
-                    <p className="font-semibold">March 18, 2024</p>
+                    <p className="font-semibold">Dec 5, 2025</p>
                     <p className="text-xs text-muted-foreground">11:00 AM</p>
                   </div>
                 </div>
@@ -143,7 +143,7 @@ const CheckinSuccess = () => {
                     <p className="text-xs text-muted-foreground">Location</p>
                   </div>
                   <p className="font-semibold">123 Grand Avenue, Downtown</p>
-                  <p className="text-xs text-muted-foreground">12th Floor</p>
+                  <p className="text-xs text-muted-foreground">3rd Floor</p>
                 </div>
               </div>
             </Card>
@@ -152,24 +152,21 @@ const CheckinSuccess = () => {
             <Card className="p-6 bg-muted/30">
               <div className="flex items-center gap-2 mb-6">
                 <Key className="w-5 h-5 text-primary" />
-                <h2 className="text-lg sm:text-xl md:text-2xl font-semibold">Digital Room Key</h2>
+                <h2 className="text-lg sm:text-xl md:text-2xl font-semibold">Your Key Card</h2>
               </div>
 
               <div className="space-y-4">
                 <div className="p-4 bg-background rounded-lg border-2 border-primary/20">
                   <p className="text-xs text-muted-foreground mb-1">Room Number</p>
-                  <p className="text-2xl font-bold">1204</p>
+                  <p className="text-2xl font-bold">305</p>
                 </div>
 
-                <div className="p-4 bg-background rounded-lg border-2 border-primary/20">
-                  <p className="text-xs text-muted-foreground mb-1">Lock ID</p>
-                  <p className="text-xl font-semibold">LK-B12-7834</p>
-                </div>
-
-                <div className="p-4 bg-yellow-500/10 rounded-lg border-2 border-yellow-500/30">
-                  <p className="text-xs text-muted-foreground mb-1">Lock Password (4-Digit PIN)</p>
-                  <p className="text-3xl font-bold tracking-wider">7842</p>
-                  <p className="text-xs text-muted-foreground mt-2">Keep this PIN secure</p>
+                <div className="p-4 bg-green-500/10 rounded-lg border-2 border-green-500/30">
+                  <div className="flex items-center gap-2 mb-2">
+                    <CheckCircle2 className="w-5 h-5 text-green-600" />
+                    <p className="font-semibold text-green-700 dark:text-green-400">Key Card Dispensed</p>
+                  </div>
+                  <p className="text-sm text-muted-foreground">Please collect your key card from the kiosk</p>
                 </div>
 
                 <div className="mt-6 p-4 bg-primary/5 rounded-lg">
@@ -180,19 +177,19 @@ const CheckinSuccess = () => {
                   <ol className="space-y-2 text-sm">
                     <li className="flex items-start gap-2">
                       <span className="font-semibold text-primary">1.</span>
-                      <span>Enter the 4-digit PIN on the door lock keypad</span>
+                      <span>Collect your key card from the kiosk slot below</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="font-semibold text-primary">2.</span>
-                      <span>Touch the lock handle to activate</span>
+                      <span>Take the elevator to Floor 3</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="font-semibold text-primary">3.</span>
-                      <span>Your fingerprint will be registered automatically</span>
+                      <span>Hold your key card to the door reader</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="font-semibold text-primary">4.</span>
-                      <span>You&apos;re all set! Door will unlock</span>
+                      <span>Enjoy your stay!</span>
                     </li>
                   </ol>
                 </div>
@@ -256,31 +253,31 @@ const CheckinSuccess = () => {
             </Card>
           </div>
 
-          {/* Using Your Digital Key */}
-          <Card className="p-6 bg-yellow-500/5 border-yellow-500/20">
+          {/* Using Your Key Card */}
+          <Card className="p-6 bg-primary/5 border-primary/20">
             <div className="flex items-start gap-3 mb-4">
-              <div className="w-8 h-8 rounded-full bg-yellow-500/20 flex items-center justify-center flex-shrink-0">
-                <Key className="w-4 h-4 text-yellow-700 dark:text-yellow-500" />
+              <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                <Key className="w-4 h-4 text-primary" />
               </div>
-              <h3 className="text-lg font-semibold">Accessing Your Room</h3>
+              <h3 className="text-lg font-semibold">Using Your Key Card</h3>
             </div>
             
             <div className="grid sm:grid-cols-4 gap-4">
               <div>
-                <p className="font-semibold mb-1">1. Enter PIN</p>
-                <p className="text-sm text-muted-foreground">Input 4-digit PIN on keypad</p>
+                <p className="font-semibold mb-1">1. Collect Card</p>
+                <p className="text-sm text-muted-foreground">Take card from kiosk slot</p>
               </div>
               <div>
-                <p className="font-semibold mb-1">2. Touch Handle</p>
-                <p className="text-sm text-muted-foreground">Press the door handle</p>
+                <p className="font-semibold mb-1">2. Find Room</p>
+                <p className="text-sm text-muted-foreground">Room 305, Floor 3</p>
               </div>
               <div>
-                <p className="font-semibold mb-1">3. Register Fingerprint</p>
-                <p className="text-sm text-muted-foreground">Fingerprint auto-registered</p>
+                <p className="font-semibold mb-1">3. Tap Card</p>
+                <p className="text-sm text-muted-foreground">Hold to door reader</p>
               </div>
               <div>
-                <p className="font-semibold mb-1">4. Door Opens</p>
-                <p className="text-sm text-muted-foreground">You&apos;re good to go!</p>
+                <p className="font-semibold mb-1">4. Enjoy!</p>
+                <p className="text-sm text-muted-foreground">Welcome to your room</p>
               </div>
             </div>
           </Card>
