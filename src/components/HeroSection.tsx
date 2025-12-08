@@ -69,51 +69,51 @@ const HeroSection = () => {
         }
       >
         {/* Kiosk Interface Mockup */}
-        <div className="h-full w-full bg-gradient-to-br from-muted/50 to-muted flex items-center justify-center p-4 md:p-8">
-          <div className="relative w-full max-w-md mx-auto">
+        <div className="h-full w-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center p-6 md:p-10">
+          <div className="relative w-full max-w-xl mx-auto">
             {/* Kiosk Body */}
-            <div className="bg-card border-4 border-border rounded-3xl shadow-2xl overflow-hidden">
+            <div className="bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden">
               {/* Screen Header */}
-              <div className="bg-primary p-4 text-primary-foreground text-center">
-                <h3 className="text-lg font-bold">Welcome to Grand Hotel</h3>
-                <p className="text-sm opacity-90">Self-Service Check-In</p>
+              <div className="bg-[#1e3a5f] py-6 px-6 text-center">
+                <h3 className="text-xl md:text-2xl font-semibold text-white">Welcome to Grand Hotel</h3>
+                <p className="text-white/80 text-sm md:text-base mt-1">Self-Service Check-In</p>
               </div>
               
               {/* Screen Content */}
-              <div className="p-6 space-y-6">
+              <div className="p-6 md:p-8 space-y-5">
                 {/* Status Card */}
-                <div className="bg-green-50 border border-green-200 rounded-xl p-4 text-center">
-                  <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Shield className="w-8 h-8 text-white" />
+                <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 text-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Shield className="w-8 h-8 md:w-10 md:h-10 text-white" />
                   </div>
-                  <h4 className="font-bold text-green-800">Identity Verified</h4>
-                  <p className="text-sm text-green-600">James Miller - Room 305</p>
+                  <h4 className="font-bold text-emerald-700 text-lg md:text-xl">Identity Verified</h4>
+                  <p className="text-emerald-600 mt-1">James Miller - Room 305</p>
                 </div>
                 
-                {/* Key Dispensing Animation */}
-                <div className="bg-primary/5 border border-primary/20 rounded-xl p-4">
-                  <div className="flex items-center justify-center space-x-3">
-                    <CreditCard className="w-8 h-8 text-primary animate-bounce" />
-                    <div>
-                      <p className="font-semibold text-foreground">Dispensing Key Card...</p>
-                      <p className="text-sm text-muted-foreground">Please collect below</p>
+                {/* Key Dispensing */}
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-5">
+                  <div className="flex items-center justify-center space-x-4">
+                    <CreditCard className="w-8 h-8 text-[#1e3a5f]" />
+                    <div className="text-left">
+                      <p className="font-semibold text-slate-800 text-base md:text-lg">Dispensing Key Card...</p>
+                      <p className="text-slate-500">Please collect below</p>
                     </div>
                   </div>
                 </div>
                 
                 {/* Features Grid */}
-                <div className="grid grid-cols-3 gap-3 text-center">
-                  <div className="p-3 bg-muted rounded-lg">
-                    <Fingerprint className="w-6 h-6 mx-auto text-primary mb-1" />
-                    <p className="text-xs text-muted-foreground">ID Scan</p>
+                <div className="grid grid-cols-3 gap-4 text-center pt-2">
+                  <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                    <Fingerprint className="w-6 h-6 md:w-7 md:h-7 mx-auto text-[#1e3a5f] mb-2" />
+                    <p className="text-xs md:text-sm text-slate-600 font-medium">ID Scan</p>
                   </div>
-                  <div className="p-3 bg-muted rounded-lg">
-                    <Monitor className="w-6 h-6 mx-auto text-primary mb-1" />
-                    <p className="text-xs text-muted-foreground">21.5" Touch</p>
+                  <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                    <Monitor className="w-6 h-6 md:w-7 md:h-7 mx-auto text-[#1e3a5f] mb-2" />
+                    <p className="text-xs md:text-sm text-slate-600 font-medium">21.5" Touch</p>
                   </div>
-                  <div className="p-3 bg-muted rounded-lg">
-                    <CreditCard className="w-6 h-6 mx-auto text-primary mb-1" />
-                    <p className="text-xs text-muted-foreground">RFID Encoder</p>
+                  <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
+                    <CreditCard className="w-6 h-6 md:w-7 md:h-7 mx-auto text-[#1e3a5f] mb-2" />
+                    <p className="text-xs md:text-sm text-slate-600 font-medium">RFID Encoder</p>
                   </div>
                 </div>
               </div>
@@ -121,7 +121,7 @@ const HeroSection = () => {
             
             {/* Kiosk Stand Base */}
             <div className="flex justify-center mt-4">
-              <div className="w-32 h-4 bg-gradient-to-b from-border to-muted rounded-b-full"></div>
+              <div className="w-40 h-5 bg-gradient-to-b from-slate-300 to-slate-400 rounded-b-full shadow-md"></div>
             </div>
           </div>
         </div>
