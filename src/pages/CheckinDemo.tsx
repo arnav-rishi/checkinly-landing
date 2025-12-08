@@ -51,23 +51,57 @@ const CheckinDemo = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="text-center space-y-6 p-8"
+            className="w-full"
           >
-            <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
-              <User className="w-10 h-10 text-primary" />
+            {/* Navy Header */}
+            <div className="bg-[#1e3a5f] py-6 px-4 text-center rounded-t-xl">
+              <h3 className="text-xl md:text-2xl font-semibold text-white mb-1">Welcome to Grand Hotel</h3>
+              <p className="text-white/80 text-sm">Self-Service Check-In</p>
             </div>
-            <div>
-              <h3 className="text-2xl font-bold text-foreground mb-2">Welcome to Grand Hotel</h3>
-              <p className="text-muted-foreground">Start your self-service check-in</p>
+            
+            {/* Main Content */}
+            <div className="p-6 space-y-5">
+              {/* Ready Status Card */}
+              <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 text-center">
+                <div className="w-14 h-14 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <User className="w-7 h-7 text-white" />
+                </div>
+                <p className="text-emerald-600 font-semibold text-lg">Ready to Check In</p>
+                <p className="text-emerald-600/80 text-sm">Tap below to begin</p>
+              </div>
+              
+              {/* Start Check-in Button */}
+              <Button 
+                size="lg" 
+                className="w-full py-6 text-lg font-semibold rounded-xl bg-[#1e3a5f] hover:bg-[#2a4a73] text-white"
+                onClick={() => setState("input")}
+              >
+                Start Check-in
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+              
+              {/* Feature Badges */}
+              <div className="flex justify-center gap-3 pt-2">
+                <div className="flex flex-col items-center bg-slate-50 rounded-lg px-4 py-3 border border-slate-200">
+                  <svg className="w-5 h-5 text-slate-600 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 11c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm0 0c0 1.657 1.343 3 3 3s3-1.343 3-3-1.343-3-3-3-3 1.343-3 3z" />
+                  </svg>
+                  <span className="text-xs text-slate-600">ID Scan</span>
+                </div>
+                <div className="flex flex-col items-center bg-slate-50 rounded-lg px-4 py-3 border border-slate-200">
+                  <svg className="w-5 h-5 text-slate-600 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span className="text-xs text-slate-600">21.5" Touch</span>
+                </div>
+                <div className="flex flex-col items-center bg-slate-50 rounded-lg px-4 py-3 border border-slate-200">
+                  <svg className="w-5 h-5 text-slate-600 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                  </svg>
+                  <span className="text-xs text-slate-600">RFID Encoder</span>
+                </div>
+              </div>
             </div>
-            <Button 
-              size="lg" 
-              className="px-8 py-6 text-lg font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90"
-              onClick={() => setState("input")}
-            >
-              Start Check-in
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
           </motion.div>
         );
 
