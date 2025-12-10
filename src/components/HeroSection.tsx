@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-import { Monitor, CreditCard, Shield, Fingerprint } from "lucide-react";
-
+import { DollarSign, Users, Monitor, TrendingUp, BarChart3, BedDouble, Lock } from "lucide-react";
 const HeroSection = () => {
   const navigate = useNavigate();
 
@@ -68,60 +67,85 @@ const HeroSection = () => {
           </div>
         }
       >
-        {/* Kiosk Interface Mockup */}
-        <div className="h-full w-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center p-6 md:p-10">
-          <div className="relative w-full max-w-xl mx-auto">
-            {/* Kiosk Body */}
-            <div className="bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden">
-              {/* Screen Header */}
-              <div className="bg-[#1e3a5f] py-6 px-6 text-center">
-                <h3 className="text-xl md:text-2xl font-semibold text-white">Welcome to Grand Hotel</h3>
-                <p className="text-white/80 text-sm md:text-base mt-1">Self-Service Check-In</p>
+        {/* Analytics Dashboard Mockup */}
+        <div className="h-full w-full bg-slate-50 rounded-2xl overflow-hidden shadow-2xl flex">
+          {/* Sidebar */}
+          <div className="w-16 bg-[#0f172a] flex flex-col items-center py-6 gap-6">
+            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+              <BarChart3 className="w-5 h-5 text-white" />
+            </div>
+            <div className="flex flex-col gap-4 mt-4">
+              <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center">
+                <BarChart3 className="w-5 h-5 text-primary" />
               </div>
-              
-              {/* Screen Content */}
-              <div className="p-6 md:p-8 space-y-5">
-                {/* Status Card */}
-                <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6 text-center">
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Shield className="w-8 h-8 md:w-10 md:h-10 text-white" />
-                  </div>
-                  <h4 className="font-bold text-emerald-700 text-lg md:text-xl">Identity Verified</h4>
-                  <p className="text-emerald-600 mt-1">James Miller - Room 305</p>
-                </div>
-                
-                {/* Key Dispensing */}
-                <div className="bg-slate-50 border border-slate-200 rounded-xl p-5">
-                  <div className="flex items-center justify-center space-x-4">
-                    <CreditCard className="w-8 h-8 text-[#1e3a5f]" />
-                    <div className="text-left">
-                      <p className="font-semibold text-slate-800 text-base md:text-lg">Dispensing Key Card...</p>
-                      <p className="text-slate-500">Please collect below</p>
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Features Grid */}
-                <div className="grid grid-cols-3 gap-4 text-center pt-2">
-                  <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
-                    <Fingerprint className="w-6 h-6 md:w-7 md:h-7 mx-auto text-[#1e3a5f] mb-2" />
-                    <p className="text-xs md:text-sm text-slate-600 font-medium">ID Scan</p>
-                  </div>
-                  <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
-                    <Monitor className="w-6 h-6 md:w-7 md:h-7 mx-auto text-[#1e3a5f] mb-2" />
-                    <p className="text-xs md:text-sm text-slate-600 font-medium">21.5" Touch</p>
-                  </div>
-                  <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl">
-                    <CreditCard className="w-6 h-6 md:w-7 md:h-7 mx-auto text-[#1e3a5f] mb-2" />
-                    <p className="text-xs md:text-sm text-slate-600 font-medium">RFID Encoder</p>
-                  </div>
-                </div>
+              <div className="w-10 h-10 hover:bg-slate-700 rounded-xl flex items-center justify-center cursor-pointer">
+                <Users className="w-5 h-5 text-slate-400" />
+              </div>
+              <div className="w-10 h-10 hover:bg-slate-700 rounded-xl flex items-center justify-center cursor-pointer">
+                <BedDouble className="w-5 h-5 text-slate-400" />
+              </div>
+              <div className="w-10 h-10 hover:bg-slate-700 rounded-xl flex items-center justify-center cursor-pointer">
+                <Lock className="w-5 h-5 text-slate-400" />
               </div>
             </div>
+          </div>
+          
+          {/* Main Content */}
+          <div className="flex-1 p-6 md:p-8">
+            <div className="mb-6">
+              <h3 className="text-xl md:text-2xl font-bold text-slate-900">Analytics Dashboard</h3>
+              <p className="text-slate-500 text-sm">Revenue analytics and performance insights</p>
+            </div>
             
-            {/* Kiosk Stand Base */}
-            <div className="flex justify-center mt-4">
-              <div className="w-40 h-5 bg-gradient-to-b from-slate-300 to-slate-400 rounded-b-full shadow-md"></div>
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 gap-4">
+              {/* Total Revenue */}
+              <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-4 md:p-5">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center">
+                    <DollarSign className="w-4 h-4 text-emerald-600" />
+                  </div>
+                  <span className="text-emerald-600 text-sm font-medium">Total Revenue</span>
+                </div>
+                <p className="text-2xl md:text-3xl font-bold text-slate-900">$124,892</p>
+                <p className="text-emerald-600 text-xs mt-1">+12.5% vs last month</p>
+              </div>
+              
+              {/* Active Guests */}
+              <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 md:p-5">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <Users className="w-4 h-4 text-blue-600" />
+                  </div>
+                  <span className="text-blue-600 text-sm font-medium">Active Guests</span>
+                </div>
+                <p className="text-2xl md:text-3xl font-bold text-slate-900">342</p>
+                <p className="text-blue-600 text-xs mt-1">+8.2% vs last month</p>
+              </div>
+              
+              {/* Occupancy Rate */}
+              <div className="bg-purple-50 border border-purple-100 rounded-xl p-4 md:p-5">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+                    <Monitor className="w-4 h-4 text-purple-600" />
+                  </div>
+                  <span className="text-purple-600 text-sm font-medium">Occupancy Rate</span>
+                </div>
+                <p className="text-2xl md:text-3xl font-bold text-slate-900">87.3%</p>
+                <p className="text-purple-600 text-xs mt-1">+3.1% vs last month</p>
+              </div>
+              
+              {/* Access Events */}
+              <div className="bg-orange-50 border border-orange-100 rounded-xl p-4 md:p-5">
+                <div className="flex items-center gap-2 mb-2">
+                  <div className="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
+                    <TrendingUp className="w-4 h-4 text-orange-600" />
+                  </div>
+                  <span className="text-orange-600 text-sm font-medium">Access Events</span>
+                </div>
+                <p className="text-2xl md:text-3xl font-bold text-slate-900">1,247</p>
+                <p className="text-orange-600 text-xs mt-1">+15.8% vs last month</p>
+              </div>
             </div>
           </div>
         </div>
