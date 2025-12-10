@@ -26,20 +26,20 @@ const IntegrationGuide = () => {
       features: ["Instant booking confirmation", "Guest preferences sync", "Check-in/out automation"]
     },
     {
-      name: "Salto",
-      category: "Smart Locks",
+      name: "ASSA ABLOY",
+      category: "Key Card Systems",
       difficulty: "Medium",
       timeline: "3-5 days",
-      description: "Hardware integration for keyless entry",
-      features: ["Mobile key delivery", "Access control", "Security monitoring"]
+      description: "Enterprise-grade key card encoding integration",
+      features: ["RFID encoding", "Key card dispensing", "Access management"]
     },
     {
-      name: "ASSA ABLOY",
-      category: "Smart Locks",
+      name: "Dormakaba",
+      category: "Key Card Systems",
       difficulty: "Medium",
       timeline: "3-5 days",
-      description: "Enterprise-grade lock system integration",
-      features: ["Biometric access", "Master key management", "Audit trails"]
+      description: "Comprehensive key card system integration",
+      features: ["Magnetic stripe encoding", "RFID support", "Audit trails"]
     },
     {
       name: "Stripe",

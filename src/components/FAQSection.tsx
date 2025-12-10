@@ -9,24 +9,24 @@ import {
 const FAQSection = () => {
   const faqs = [
     {
-      question: "How quickly can I set up Checkinly?",
-      answer: "Most properties are up and running within 24 hours. Our onboarding team will help you integrate with your existing systems, configure your smart locks, and train your staff. The whole process is designed to be seamless and non-disruptive to your operations."
+      question: "How quickly can I set up Checkinly kiosks?",
+      answer: "Most properties are up and running within 1-2 weeks. Our onboarding team will help you integrate with your existing PMS, install the kiosks, configure key card encoding, and train your staff. The whole process is designed to be seamless and non-disruptive to your operations."
     },
     {
-      question: "Which smart lock brands do you support?",
-      answer: "We integrate with 50+ smart lock brands including August, Yale, Schlage, Kwikset, Baldwin, and Ultraloq. Our system works with both Wi-Fi and Bluetooth-enabled locks. If your brand isn't listed, we can usually add custom integrations within 2-4 weeks."
+      question: "What key card systems do you support?",
+      answer: "Our kiosks integrate with all major hotel key card systems including RFID, magnetic stripe, and contactless cards. We work with providers like ASSA ABLOY, Salto, Onity, Dormakaba, and many more. If your system isn't listed, we can usually add custom integrations within 2-4 weeks."
     },
     {
       question: "Is guest data secure?",
       answer: "Absolutely. We use military-grade AES-256 encryption for all data transmission and storage. Our platform is SOC 2 Type II compliant and regularly audited by third-party security firms. Guest personal information is never shared with third parties and is automatically purged according to your retention policies."
     },
     {
-      question: "What happens if the internet goes down?",
-      answer: "Our smart locks have offline backup codes that guests can use in emergencies. Your staff can also generate temporary codes through our mobile app even without internet. We also provide 24/7 phone support to help guests gain access if needed."
+      question: "What happens if the kiosk goes offline?",
+      answer: "Our kiosks have offline mode capability and can continue to dispense pre-authorized key cards. Your front desk staff can also manually process check-ins through our dashboard. We provide 24/7 phone support to help resolve any issues quickly."
     },
     {
       question: "Can I customize the check-in experience?",
-      answer: "Yes! You can fully customize the check-in flow with your branding, colors, and messaging. Add custom questions, upsell opportunities, local recommendations, and house rules. The Professional and Enterprise plans include white-label options."
+      answer: "Yes! You can fully customize the kiosk interface with your branding, colors, and messaging. Add custom questions, upsell opportunities, local recommendations, and house rules. The Professional and Enterprise plans include white-label options."
     },
     {
       question: "How does pricing work for multiple properties?",
@@ -34,7 +34,7 @@ const FAQSection = () => {
     },
     {
       question: "Do you integrate with my existing PMS?",
-      answer: "We integrate with 20+ property management systems including Opera, Cloudbeds, Hostfully, Guesty, and more. Our API also allows custom integrations. During onboarding, we'll set up the integration to automatically sync reservations and guest information."
+      answer: "We integrate with 20+ property management systems including Oracle Opera, Cloudbeds, Protel, Guesty, and more. Our API also allows custom integrations. During onboarding, we'll set up the integration to automatically sync reservations and guest information."
     },
     {
       question: "What kind of support do you provide?",
