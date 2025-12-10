@@ -1,11 +1,11 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle, Smartphone, Key, Clock } from "lucide-react";
+import { CheckCircle, Calendar, CreditCard, Clock } from "lucide-react";
 
 const HowItWorksSection = () => {
   const steps = [
     {
-      icon: Smartphone,
+      icon: Calendar,
       step: "1",
       title: "Guest Books Online",
       description: "Guest makes reservation through your booking system or website"
@@ -14,19 +14,19 @@ const HowItWorksSection = () => {
       icon: CheckCircle,
       step: "2", 
       title: "Auto Check-in Link",
-      description: "Checkinly automatically sends secure check-in link via email"
+      description: "Checkinly sends secure pre-check-in link via email before arrival"
     },
     {
-      icon: Key,
+      icon: CreditCard,
       step: "3",
-      title: "Digital Key Access", 
-      description: "Guest completes check-in and receives smart lock access code"
+      title: "Kiosk Key Dispensing", 
+      description: "Guest verifies ID at kiosk and receives encoded key card instantly"
     },
     {
       icon: Clock,
       step: "4",
       title: "Seamless Stay",
-      description: "Guest enjoys contactless experience with 24/7 property access"
+      description: "Guest enjoys quick check-in with no front desk wait times"
     }
   ];
 

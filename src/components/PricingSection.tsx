@@ -15,15 +15,15 @@ const PricingSection = () => {
       period: "per month",
       description: "Perfect for small properties",
       features: [
+        "1 kiosk included",
         "Up to 10 rooms",
         "Basic check-in automation",
         "Email notifications",
-        "Mobile app access",
-        "Basic reporting",
+        "Dashboard access",
         "Email support"
       ],
       notIncluded: [
-        "Smart lock integration",
+        "PMS integration",
         "Custom branding",
         "Advanced analytics",
         "Priority support"
@@ -37,14 +37,14 @@ const PricingSection = () => {
       period: "per month",
       description: "Most popular for growing hotels",
       features: [
+        "Up to 3 kiosks",
         "Up to 50 rooms",
-        "Smart lock integration",
+        "PMS integration",
         "Custom check-in flows",
         "Guest communication",
         "Advanced reporting",
         "Custom branding",
-        "Phone & email support",
-        "API access"
+        "Phone & email support"
       ],
       notIncluded: [
         "White-label solution",
@@ -59,15 +59,15 @@ const PricingSection = () => {
       period: "per month",
       description: "For large properties and chains",
       features: [
+        "Unlimited kiosks",
         "Unlimited rooms",
-        "All smart lock integrations",
+        "All PMS integrations",
         "White-label solution",
         "Advanced analytics",
         "Custom integrations",
         "Dedicated account manager",
         "24/7 priority support",
         "Multi-property management",
-        "Advanced security features",
         "Custom onboarding"
       ],
       notIncluded: [],

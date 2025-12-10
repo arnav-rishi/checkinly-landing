@@ -40,10 +40,10 @@ const DashboardShowcase = () => {
       description: "Manage hotel rooms and their availability"
     },
     { 
-      id: "locks", 
-      label: "Smart Locks", 
+      id: "kiosks", 
+      label: "Kiosk Status", 
       icon: Lock,
-      description: "Monitor and control room smart locks"
+      description: "Monitor self-service check-in kiosks"
     }
   ];
 
@@ -211,55 +211,50 @@ const DashboardShowcase = () => {
     </div>
   );
 
-  const renderSmartLocksDashboard = () => (
+  const renderKiosksDashboard = () => (
     <div className="bg-white rounded-2xl border border-gray-200 p-8 space-y-8">
       <div className="flex justify-between items-center">
         <div>
-          <h3 className="text-2xl font-bold text-gray-900">Smart Locks</h3>
-          <p className="text-gray-600">Monitor and control room smart locks</p>
+          <h3 className="text-2xl font-bold text-gray-900">Kiosk Status</h3>
+          <p className="text-gray-600">Monitor self-service check-in kiosks</p>
         </div>
-        <Button className="bg-primary hover:bg-primary/90">+ Add New Smart Lock</Button>
+        <Button className="bg-primary hover:bg-primary/90">+ Add New Kiosk</Button>
       </div>
       
       <div className="grid grid-cols-3 gap-6">
         {[
-          { room: "Room 110-b987", lockId: "LOCK-527532-b987", status: "locked", battery: "62%", signal: "Weak", type: "NFC" },
-          { room: "Room 103-b987", lockId: "LOCK-665787-b987", status: "unlocked", battery: "98%", signal: "Weak", type: "NFC" },
-          { room: "Room 105-b987", lockId: "LOCK-345922-b987", status: "unlocked", battery: "89%", signal: "Weak", type: "NFC" }
-        ].map((lock, index) => (
+          { location: "Lobby - Main", kioskId: "KIOSK-001", status: "online", keysRemaining: "487", lastCheckin: "2 min ago", type: "Full Service" },
+          { location: "Lobby - East", kioskId: "KIOSK-002", status: "online", keysRemaining: "312", lastCheckin: "8 min ago", type: "Full Service" },
+          { location: "Parking Entrance", kioskId: "KIOSK-003", status: "maintenance", keysRemaining: "0", lastCheckin: "1 hr ago", type: "Express" }
+        ].map((kiosk, index) => (
           <div key={index} className="bg-gray-50 p-6 rounded-xl border">
             <div className="flex justify-between items-start mb-4">
               <div>
-                <h4 className="font-semibold text-gray-900">{lock.room}</h4>
-                <p className="text-sm text-gray-600">Lock ID: {lock.lockId}</p>
+                <h4 className="font-semibold text-gray-900">{kiosk.location}</h4>
+                <p className="text-sm text-gray-600">ID: {kiosk.kioskId}</p>
               </div>
               <Badge 
-                variant={lock.status === "locked" ? "default" : "secondary"}
-                className={lock.status === "locked" ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-700"}
+                variant={kiosk.status === "online" ? "default" : "secondary"}
+                className={kiosk.status === "online" ? "bg-green-100 text-green-700" : "bg-yellow-100 text-yellow-700"}
               >
-                {lock.status}
+                {kiosk.status}
               </Badge>
             </div>
             
             <div className="space-y-3 text-sm">
               <div className="flex justify-between">
                 <span className="text-gray-600">Type</span>
-                <span className="font-medium">{lock.type}</span>
+                <span className="font-medium">{kiosk.type}</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-600">Battery</span>
+                <span className="text-gray-600">Key Cards</span>
                 <div className="flex items-center space-x-2">
-                  <Battery className={`h-4 w-4 ${parseInt(lock.battery) > 50 ? 'text-green-600' : 'text-yellow-600'}`} />
-                  <span className="font-medium">{lock.battery}</span>
+                  <span className={`font-medium ${parseInt(kiosk.keysRemaining) > 100 ? 'text-green-600' : 'text-yellow-600'}`}>{kiosk.keysRemaining}</span>
                 </div>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600">Signal</span>
-                <span className="font-medium text-yellow-600">{lock.signal}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-600">Last seen</span>
-                <span className="font-medium">8:00:19 PM</span>
+                <span className="text-gray-600">Last Check-in</span>
+                <span className="font-medium">{kiosk.lastCheckin}</span>
               </div>
             </div>
             
@@ -268,7 +263,7 @@ const DashboardShowcase = () => {
               size="sm" 
               className="w-full mt-4"
             >
-              {lock.status === "locked" ? "Unlock" : "Lock"}
+              View Details
             </Button>
           </div>
         ))}
@@ -281,7 +276,7 @@ const DashboardShowcase = () => {
       case 0: return renderAnalyticsDashboard();
       case 1: return renderGuestsDashboard();
       case 2: return renderRoomsDashboard();
-      case 3: return renderSmartLocksDashboard();
+      case 3: return renderKiosksDashboard();
       default: return renderAnalyticsDashboard();
     }
   };
