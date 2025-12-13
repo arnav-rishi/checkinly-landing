@@ -30,10 +30,11 @@ const Auth = () => {
   }, [searchParams]);
 
   // Redirect if already authenticated
-  if (user) {
-    navigate('/');
-    return null;
-  }
+  useEffect(() => {
+    if (user) {
+      window.location.href = 'https://dashboard-checkinly.lovable.app';
+    }
+  }, [user]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,9 +52,9 @@ const Auth = () => {
         } else {
           toast({
             title: "Welcome back!",
-            description: "You've been signed in successfully."
+            description: "Redirecting to dashboard..."
           });
-          navigate('/');
+          window.location.href = 'https://dashboard-checkinly.lovable.app';
         }
       } else {
         // Send notification to company about password reset request
