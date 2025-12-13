@@ -298,12 +298,6 @@ const CheckinDemo = () => {
           {/* Interactive Kiosk Card */}
           <div className="flex justify-center">
             <Card className="w-full max-w-md bg-white border-0 rounded-3xl shadow-2xl shadow-slate-300/50 overflow-hidden">
-              {/* Premium Kiosk Header */}
-              <div className="relative bg-gradient-to-r from-primary via-primary to-primary/90 p-4 text-center overflow-hidden">
-                <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.1)_50%,transparent_75%)] bg-[length:250%_250%] animate-[shimmer_3s_linear_infinite]" />
-                <p className="relative text-sm font-semibold text-white tracking-[0.2em] uppercase">Checkinly Kiosk</p>
-              </div>
-              
               {/* Interactive Content */}
               <div className="min-h-[520px]">
                 <AnimatePresence mode="wait">
