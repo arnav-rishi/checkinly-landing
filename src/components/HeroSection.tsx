@@ -1,8 +1,45 @@
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { DollarSign, Users, Monitor, TrendingUp, BarChart3, BedDouble, MapPin, Wifi, Tv } from "lucide-react";
+
+const AnimatedNumber = ({ 
+  end, 
+  decimals = 0, 
+  prefix = "", 
+  suffix = "",
+  duration = 2000,
+  shouldAnimate = false
+}: { 
+  end: number; 
+  decimals?: number; 
+  prefix?: string; 
+  suffix?: string;
+  duration?: number;
+  shouldAnimate?: boolean;
+}) => {
+  const [count, setCount] = useState(0);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    if (!shouldAnimate || hasAnimated.current) return;
+    hasAnimated.current = true;
+
+    const startTime = Date.now();
+    const animate = () => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      setCount(end * easeOut);
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  }, [shouldAnimate, end, duration]);
+
+  const formatted = `${prefix}${count.toFixed(decimals).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}${suffix}`;
+  return <>{formatted}</>;
+};
 
 const HeroSection = () => {
   const navigate = useNavigate();
@@ -21,56 +58,86 @@ const HeroSection = () => {
     }
   };
 
-  const AnalyticsDashboard = () => (
-    <div className="flex-1 p-6 md:p-8">
-      <div className="mb-6">
-        <h3 className="text-xl md:text-2xl font-bold text-slate-900">Analytics Dashboard</h3>
-        <p className="text-slate-500 text-sm">Revenue analytics and performance insights</p>
+  const AnalyticsDashboard = () => {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [shouldAnimate, setShouldAnimate] = useState(false);
+
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setShouldAnimate(true);
+          }
+        },
+        { threshold: 0.3 }
+      );
+
+      if (containerRef.current) {
+        observer.observe(containerRef.current);
+      }
+
+      return () => observer.disconnect();
+    }, []);
+
+    return (
+      <div ref={containerRef} className="flex-1 p-6 md:p-8">
+        <div className="mb-6">
+          <h3 className="text-xl md:text-2xl font-bold text-slate-900">Analytics Dashboard</h3>
+          <p className="text-slate-500 text-sm">Revenue analytics and performance insights</p>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-4 md:p-5">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center">
+                <DollarSign className="w-4 h-4 text-emerald-600" />
+              </div>
+              <span className="text-emerald-600 text-sm font-medium">Total Revenue</span>
+            </div>
+            <p className="text-2xl md:text-3xl font-bold text-slate-900">
+              <AnimatedNumber end={124892} prefix="$" shouldAnimate={shouldAnimate} />
+            </p>
+            <p className="text-emerald-600 text-xs mt-1">+12.5% vs last month</p>
+          </div>
+          <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 md:p-5">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                <Users className="w-4 h-4 text-blue-600" />
+              </div>
+              <span className="text-blue-600 text-sm font-medium">Active Guests</span>
+            </div>
+            <p className="text-2xl md:text-3xl font-bold text-slate-900">
+              <AnimatedNumber end={342} shouldAnimate={shouldAnimate} />
+            </p>
+            <p className="text-blue-600 text-xs mt-1">+8.2% vs last month</p>
+          </div>
+          <div className="bg-purple-50 border border-purple-100 rounded-xl p-4 md:p-5">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+                <Monitor className="w-4 h-4 text-purple-600" />
+              </div>
+              <span className="text-purple-600 text-sm font-medium">Occupancy Rate</span>
+            </div>
+            <p className="text-2xl md:text-3xl font-bold text-slate-900">
+              <AnimatedNumber end={87.3} decimals={1} suffix="%" shouldAnimate={shouldAnimate} />
+            </p>
+            <p className="text-purple-600 text-xs mt-1">+3.1% vs last month</p>
+          </div>
+          <div className="bg-orange-50 border border-orange-100 rounded-xl p-4 md:p-5">
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
+                <TrendingUp className="w-4 h-4 text-orange-600" />
+              </div>
+              <span className="text-orange-600 text-sm font-medium">Check-ins Today</span>
+            </div>
+            <p className="text-2xl md:text-3xl font-bold text-slate-900">
+              <AnimatedNumber end={1247} shouldAnimate={shouldAnimate} />
+            </p>
+            <p className="text-orange-600 text-xs mt-1">+15.8% vs last month</p>
+          </div>
+        </div>
       </div>
-      <div className="grid grid-cols-2 gap-4">
-        <div className="bg-emerald-50 border border-emerald-100 rounded-xl p-4 md:p-5">
-          <div className="flex items-center gap-2 mb-2">
-            <div className="w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center">
-              <DollarSign className="w-4 h-4 text-emerald-600" />
-            </div>
-            <span className="text-emerald-600 text-sm font-medium">Total Revenue</span>
-          </div>
-          <p className="text-2xl md:text-3xl font-bold text-slate-900">$124,892</p>
-          <p className="text-emerald-600 text-xs mt-1">+12.5% vs last month</p>
-        </div>
-        <div className="bg-blue-50 border border-blue-100 rounded-xl p-4 md:p-5">
-          <div className="flex items-center gap-2 mb-2">
-            <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
-              <Users className="w-4 h-4 text-blue-600" />
-            </div>
-            <span className="text-blue-600 text-sm font-medium">Active Guests</span>
-          </div>
-          <p className="text-2xl md:text-3xl font-bold text-slate-900">342</p>
-          <p className="text-blue-600 text-xs mt-1">+8.2% vs last month</p>
-        </div>
-        <div className="bg-purple-50 border border-purple-100 rounded-xl p-4 md:p-5">
-          <div className="flex items-center gap-2 mb-2">
-            <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
-              <Monitor className="w-4 h-4 text-purple-600" />
-            </div>
-            <span className="text-purple-600 text-sm font-medium">Occupancy Rate</span>
-          </div>
-          <p className="text-2xl md:text-3xl font-bold text-slate-900">87.3%</p>
-          <p className="text-purple-600 text-xs mt-1">+3.1% vs last month</p>
-        </div>
-        <div className="bg-orange-50 border border-orange-100 rounded-xl p-4 md:p-5">
-          <div className="flex items-center gap-2 mb-2">
-            <div className="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
-              <TrendingUp className="w-4 h-4 text-orange-600" />
-            </div>
-            <span className="text-orange-600 text-sm font-medium">Check-ins Today</span>
-          </div>
-          <p className="text-2xl md:text-3xl font-bold text-slate-900">1,247</p>
-          <p className="text-orange-600 text-xs mt-1">+15.8% vs last month</p>
-        </div>
-      </div>
-    </div>
-  );
+    );
+  };
 
   const GuestManagement = () => (
     <div className="flex-1 p-6 md:p-8">
