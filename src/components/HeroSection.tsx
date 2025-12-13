@@ -292,11 +292,11 @@ const HeroSection = () => {
                 >
                   Book a Demo
                 </Button>
-                <Button 
+              <Button 
                   size="lg" 
                   variant="outline"
                   className="px-8 py-6 text-base font-semibold rounded-xl border-primary text-primary hover:bg-primary/5"
-                  onClick={() => document.getElementById('kiosk-demo')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => navigate('/checkin-demo')}
                 >
                   Try the Guest Journey
                 </Button>
