@@ -265,80 +265,82 @@ const HeroSection = () => {
         }}
       />
       
-      <ContainerScroll
-        titleComponent={
-          <div className="flex flex-col items-center space-y-6 pt-20 md:pt-0">
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
-              <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-              Self-Service Check-In Kiosks
+      <div className="bg-blue-50/40 dark:bg-blue-950/20 rounded-3xl">
+        <ContainerScroll
+          titleComponent={
+            <div className="flex flex-col items-center space-y-6 pt-20 md:pt-0">
+              <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
+                <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                Self-Service Check-In Kiosks
+              </div>
+              
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center leading-tight">
+                <span className="text-foreground">Effortless Check-in.</span>
+                <br />
+                <span className="text-primary">Instant Key Access.</span>
+              </h1>
+              
+              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl text-center leading-relaxed">
+                Guests verify identity and receive their room key card in seconds. No apps required.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <Button 
+                  size="lg" 
+                  className="px-8 py-6 text-base font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover-scale"
+                  onClick={() => handleCTAClick('book_demo')}
+                >
+                  Book a Demo
+                </Button>
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  className="px-8 py-6 text-base font-semibold rounded-xl border-primary text-primary hover:bg-primary/5"
+                  onClick={() => document.getElementById('kiosk-demo')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  Try the Guest Journey
+                </Button>
+              </div>
+              
+              <p className="text-sm text-muted-foreground">
+                No credit card required • Free consultation • Quick setup
+              </p>
+            </div>
+          }
+        >
+          <div className="h-full w-full bg-slate-50 rounded-2xl overflow-hidden shadow-2xl flex">
+            {/* Sidebar */}
+            <div className="w-16 bg-[#0f172a] flex flex-col items-center py-6 gap-6">
+              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
+                <BarChart3 className="w-5 h-5 text-white" />
+              </div>
+              <div className="flex flex-col gap-4 mt-4">
+                <div 
+                  className={`w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer transition-colors ${activeView === 0 ? 'bg-primary/20' : 'hover:bg-slate-700'}`}
+                  onClick={() => setActiveView(0)}
+                >
+                  <BarChart3 className={`w-5 h-5 ${activeView === 0 ? 'text-primary' : 'text-slate-400'}`} />
+                </div>
+                <div 
+                  className={`w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer transition-colors ${activeView === 1 ? 'bg-primary/20' : 'hover:bg-slate-700'}`}
+                  onClick={() => setActiveView(1)}
+                >
+                  <Users className={`w-5 h-5 ${activeView === 1 ? 'text-primary' : 'text-slate-400'}`} />
+                </div>
+                <div 
+                  className={`w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer transition-colors ${activeView === 2 ? 'bg-primary/20' : 'hover:bg-slate-700'}`}
+                  onClick={() => setActiveView(2)}
+                >
+                  <BedDouble className={`w-5 h-5 ${activeView === 2 ? 'text-primary' : 'text-slate-400'}`} />
+                </div>
+              </div>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center leading-tight">
-              <span className="text-foreground">Effortless Check-in.</span>
-              <br />
-              <span className="text-primary">Instant Key Access.</span>
-            </h1>
-            
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl text-center leading-relaxed">
-              Guests verify identity and receive their room key card in seconds. No apps required.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button 
-                size="lg" 
-                className="px-8 py-6 text-base font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover-scale"
-                onClick={() => handleCTAClick('book_demo')}
-              >
-                Book a Demo
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline"
-                className="px-8 py-6 text-base font-semibold rounded-xl border-primary text-primary hover:bg-primary/5"
-                onClick={() => document.getElementById('kiosk-demo')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Try the Guest Journey
-              </Button>
-            </div>
-            
-            <p className="text-sm text-muted-foreground">
-              No credit card required • Free consultation • Quick setup
-            </p>
+            {/* Main Content */}
+            {views[activeView]}
           </div>
-        }
-      >
-        <div className="h-full w-full bg-slate-50 rounded-2xl overflow-hidden shadow-2xl flex">
-          {/* Sidebar */}
-          <div className="w-16 bg-[#0f172a] flex flex-col items-center py-6 gap-6">
-            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-              <BarChart3 className="w-5 h-5 text-white" />
-            </div>
-            <div className="flex flex-col gap-4 mt-4">
-              <div 
-                className={`w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer transition-colors ${activeView === 0 ? 'bg-primary/20' : 'hover:bg-slate-700'}`}
-                onClick={() => setActiveView(0)}
-              >
-                <BarChart3 className={`w-5 h-5 ${activeView === 0 ? 'text-primary' : 'text-slate-400'}`} />
-              </div>
-              <div 
-                className={`w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer transition-colors ${activeView === 1 ? 'bg-primary/20' : 'hover:bg-slate-700'}`}
-                onClick={() => setActiveView(1)}
-              >
-                <Users className={`w-5 h-5 ${activeView === 1 ? 'text-primary' : 'text-slate-400'}`} />
-              </div>
-              <div 
-                className={`w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer transition-colors ${activeView === 2 ? 'bg-primary/20' : 'hover:bg-slate-700'}`}
-                onClick={() => setActiveView(2)}
-              >
-                <BedDouble className={`w-5 h-5 ${activeView === 2 ? 'text-primary' : 'text-slate-400'}`} />
-              </div>
-            </div>
-          </div>
-          
-          {/* Main Content */}
-          {views[activeView]}
-        </div>
-      </ContainerScroll>
+        </ContainerScroll>
+      </div>
     </section>
   );
 };
