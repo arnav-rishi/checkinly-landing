@@ -3,29 +3,26 @@ import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { DollarSign, Users, Monitor, TrendingUp, BarChart3, BedDouble, MapPin, Wifi, Tv } from "lucide-react";
-
-const AnimatedNumber = ({ 
-  end, 
-  decimals = 0, 
-  prefix = "", 
+const AnimatedNumber = ({
+  end,
+  decimals = 0,
+  prefix = "",
   suffix = "",
   duration = 2000,
   shouldAnimate = false
-}: { 
-  end: number; 
-  decimals?: number; 
-  prefix?: string; 
+}: {
+  end: number;
+  decimals?: number;
+  prefix?: string;
   suffix?: string;
   duration?: number;
   shouldAnimate?: boolean;
 }) => {
   const [count, setCount] = useState(0);
   const hasAnimated = useRef(false);
-
   useEffect(() => {
     if (!shouldAnimate || hasAnimated.current) return;
     hasAnimated.current = true;
-
     const startTime = Date.now();
     const animate = () => {
       const elapsed = Date.now() - startTime;
@@ -36,51 +33,40 @@ const AnimatedNumber = ({
     };
     requestAnimationFrame(animate);
   }, [shouldAnimate, end, duration]);
-
   const formatted = `${prefix}${count.toFixed(decimals).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}${suffix}`;
   return <>{formatted}</>;
 };
-
 const HeroSection = () => {
   const navigate = useNavigate();
   const [activeView, setActiveView] = useState(0);
-
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveView((prev) => (prev + 1) % 3);
+      setActiveView(prev => (prev + 1) % 3);
     }, 4000);
     return () => clearInterval(interval);
   }, []);
-
   const handleCTAClick = (action: string) => {
     if (action === 'book_demo') {
       navigate('/contact-sales');
     }
   };
-
   const AnalyticsDashboard = () => {
     const containerRef = useRef<HTMLDivElement>(null);
     const [shouldAnimate, setShouldAnimate] = useState(false);
-
     useEffect(() => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setShouldAnimate(true);
-          }
-        },
-        { threshold: 0.3 }
-      );
-
+      const observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldAnimate(true);
+        }
+      }, {
+        threshold: 0.3
+      });
       if (containerRef.current) {
         observer.observe(containerRef.current);
       }
-
       return () => observer.disconnect();
     }, []);
-
-    return (
-      <div ref={containerRef} className="flex-1 p-6 md:p-8">
+    return <div ref={containerRef} className="flex-1 p-6 md:p-8">
         <div className="mb-6">
           <h3 className="text-xl md:text-2xl font-bold text-slate-900">Analytics Dashboard</h3>
           <p className="text-slate-500 text-sm">Revenue analytics and performance insights</p>
@@ -135,12 +121,9 @@ const HeroSection = () => {
             <p className="text-orange-600 text-xs mt-1">+15.8% vs last month</p>
           </div>
         </div>
-      </div>
-    );
+      </div>;
   };
-
-  const GuestManagement = () => (
-    <div className="flex-1 p-6 md:p-8">
+  const GuestManagement = () => <div className="flex-1 p-6 md:p-8">
       <div className="flex items-start justify-between mb-4">
         <div>
           <h3 className="text-xl md:text-2xl font-bold text-slate-900">Guest Management</h3>
@@ -191,11 +174,8 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
-
-  const RoomManagement = () => (
-    <div className="flex-1 p-6 md:p-8">
+    </div>;
+  const RoomManagement = () => <div className="flex-1 p-6 md:p-8">
       <div className="flex items-start justify-between mb-4">
         <div>
           <h3 className="text-xl md:text-2xl font-bold text-slate-900">Room Management</h3>
@@ -247,35 +227,26 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
-
+    </div>;
   const views = [<AnalyticsDashboard key="analytics" />, <GuestManagement key="guests" />, <RoomManagement key="rooms" />];
-
-  return (
-    <section className="relative w-full bg-gradient-to-br from-blue-50/70 via-background to-blue-100/60 overflow-hidden">
-      <div 
-        className="absolute inset-0 opacity-[0.03]" 
-        style={{
-          backgroundImage: `
+  return <section className="relative w-full bg-gradient-to-br from-blue-50/70 via-background to-blue-100/60 overflow-hidden">
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+      backgroundImage: `
             linear-gradient(rgba(59, 130, 246, 0.5) 1px, transparent 1px),
             linear-gradient(90deg, rgba(59, 130, 246, 0.5) 1px, transparent 1px)
           `,
-          backgroundSize: '40px 40px'
-        }}
-      />
+      backgroundSize: '40px 40px'
+    }} />
       
       <div className="bg-blue-50/40 dark:bg-blue-950/20 rounded-3xl">
-        <ContainerScroll
-          titleComponent={
-            <div className="flex flex-col items-center space-y-6 pt-20 md:pt-0">
+        <ContainerScroll titleComponent={<div className="flex flex-col items-center space-y-6 pt-20 md:pt-0">
               <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
                 <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
                 Self-Service Check-In Kiosks
               </div>
               
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center leading-tight">
-                <span className="text-foreground">Effortless Check-in.</span>
+                <span className="text-foreground">Kiosk Check-in.</span>
                 <br />
                 <span className="text-primary">Instant Key Access.</span>
               </h1>
@@ -285,19 +256,10 @@ const HeroSection = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button 
-                  size="lg" 
-                  className="px-8 py-6 text-base font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover-scale"
-                  onClick={() => handleCTAClick('book_demo')}
-                >
+                <Button size="lg" className="px-8 py-6 text-base font-semibold rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg hover-scale" onClick={() => handleCTAClick('book_demo')}>
                   Book a Demo
                 </Button>
-              <Button 
-                  size="lg" 
-                  variant="outline"
-                  className="px-8 py-6 text-base font-semibold rounded-xl border-primary text-primary hover:bg-primary/5"
-                  onClick={() => navigate('/checkin-demo')}
-                >
+              <Button size="lg" variant="outline" className="px-8 py-6 text-base font-semibold rounded-xl border-primary text-primary hover:bg-primary/5" onClick={() => navigate('/checkin-demo')}>
                   Try the Guest Journey
                 </Button>
               </div>
@@ -305,9 +267,7 @@ const HeroSection = () => {
               <p className="text-sm text-muted-foreground">
                 No credit card required • Free consultation • Quick setup
               </p>
-            </div>
-          }
-        >
+            </div>}>
           <div className="h-full w-full bg-slate-50 rounded-2xl overflow-hidden shadow-2xl flex">
             {/* Sidebar */}
             <div className="w-16 bg-[#0f172a] flex flex-col items-center py-6 gap-6">
@@ -315,22 +275,13 @@ const HeroSection = () => {
                 <BarChart3 className="w-5 h-5 text-white" />
               </div>
               <div className="flex flex-col gap-4 mt-4">
-                <div 
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer transition-colors ${activeView === 0 ? 'bg-primary/20' : 'hover:bg-slate-700'}`}
-                  onClick={() => setActiveView(0)}
-                >
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer transition-colors ${activeView === 0 ? 'bg-primary/20' : 'hover:bg-slate-700'}`} onClick={() => setActiveView(0)}>
                   <BarChart3 className={`w-5 h-5 ${activeView === 0 ? 'text-primary' : 'text-slate-400'}`} />
                 </div>
-                <div 
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer transition-colors ${activeView === 1 ? 'bg-primary/20' : 'hover:bg-slate-700'}`}
-                  onClick={() => setActiveView(1)}
-                >
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer transition-colors ${activeView === 1 ? 'bg-primary/20' : 'hover:bg-slate-700'}`} onClick={() => setActiveView(1)}>
                   <Users className={`w-5 h-5 ${activeView === 1 ? 'text-primary' : 'text-slate-400'}`} />
                 </div>
-                <div 
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer transition-colors ${activeView === 2 ? 'bg-primary/20' : 'hover:bg-slate-700'}`}
-                  onClick={() => setActiveView(2)}
-                >
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center cursor-pointer transition-colors ${activeView === 2 ? 'bg-primary/20' : 'hover:bg-slate-700'}`} onClick={() => setActiveView(2)}>
                   <BedDouble className={`w-5 h-5 ${activeView === 2 ? 'text-primary' : 'text-slate-400'}`} />
                 </div>
               </div>
@@ -341,8 +292,6 @@ const HeroSection = () => {
           </div>
         </ContainerScroll>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
